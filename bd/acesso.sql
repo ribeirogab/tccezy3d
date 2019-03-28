@@ -1,3 +1,4 @@
+-- acesso
 USE batata;
 INSERT INTO acesso VALUES
 (2, 2019, "facebook", 500),
