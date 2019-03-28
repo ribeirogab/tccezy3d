@@ -6,4 +6,3 @@ INSERT INTO acesso VALUES
 (2, 2019, "browser", 200),
 (2, 2019, "orcamento", 50),
 (2, 2019, "cadastro", 50);
-
