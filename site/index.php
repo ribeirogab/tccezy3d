@@ -1,11 +1,8 @@
 <?php 
-require_once"Object_createMeta.php";
-require_once"AutomaticTable.php";
-$browser = new AutomaticTable();
-$browser->setColuna("browser");
-$browser->consultar();
-$browser->criarAtributo();
-$browser->addClique();
-$browser->addCliqueToday();
+include_once"Object_criarAtributo.php";
+require_once"AddClique.php";
+$add_clique = new AddClique();
+$add_clique->setTipo("browser");
+$add_clique->insertClique();
 header("Location: home.php");
 ?>

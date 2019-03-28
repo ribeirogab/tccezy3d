@@ -1,6 +1,6 @@
 <?php
 $server = "localhost";
-$db = "ezy3d";
+$db = "batata";
 $user = "root";
 $password = "";
 $conexao = new PDO("mysql:host=$server;dbname=$db",

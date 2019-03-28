@@ -1,11 +1,8 @@
 <?php 
-require_once"Object_createMeta.php";
-require_once"AutomaticTable.php";
-$ads = new AutomaticTable();
-$ads->setColuna("googleads");
-$ads->consultar();
-$ads->criarAtributo();
-$ads->addClique();
-$ads->addCliqueToday();
+include_once"Object_criarAtributo.php";
+require_once"AddClique.php";
+$add_clique = new AddClique();
+$add_clique->setTipo("googleads");
+$add_clique->insertClique();
 header("Location: home.php");
 ?>

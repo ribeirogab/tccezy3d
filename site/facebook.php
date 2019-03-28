@@ -1,11 +1,8 @@
 <?php 
-require_once"Object_createMeta.php";
-require_once"AutomaticTable.php";
-$face = new AutomaticTable();
-$face->setColuna("facebook");
-$face->consultar();
-$face->criarAtributo();
-$face->addClique();
-$face->addCliqueToday();
-
+include_once"Object_criarAtributo.php";
+require_once"AddClique.php";
+$add_clique = new AddClique();
+$add_clique->setTipo("facebook");
+$add_clique->insertClique();
+header("Location: home.php");
 ?>

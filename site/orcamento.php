@@ -1,11 +1,8 @@
 <?php 
-require_once"Object_createMeta.php";
-require_once"AutomaticTable.php";
-$orcamento = new AutomaticTable();
-$orcamento->setColuna("orcamento");
-$orcamento->consultar();
-$orcamento->criarAtributo();
-$orcamento->addClique();
-$orcamento->addCliqueToday();
+include_once"Object_criarAtributo.php";
+require_once"AddClique.php";
+$add_clique = new AddClique();
+$add_clique->setTipo("orcamento");
+$add_clique->insertClique();
 header("Location: home.php");
 ?>
