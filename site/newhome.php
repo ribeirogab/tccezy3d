@@ -10,7 +10,7 @@
 
 
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS  -->
   <link rel="stylesheet" href="docs/bootstrap.css">
 
   <!-- Bootstrap core CSS -->
