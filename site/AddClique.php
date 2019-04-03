@@ -18,7 +18,7 @@ class AddClique{
         $acesso_today = ["acesso", "today"];
         for ($i = 0; $i < count($acesso_today) ; $i++) {
             if($acesso_today[$i] === "today")
-                $select = "SELECT cliques FROM today WHERE fktipo=:tipo AND fkmes=:mes AND fkano=:ano AND dia=:dia";
+                $select = "SELECT cliques FROM $acesso_today[$i] WHERE fktipo=:tipo AND fkmes=:mes AND fkano=:ano AND dia=:dia";
             else
                 $select = "SELECT cliques FROM $acesso_today[$i] WHERE tipo=:tipo AND mes=:mes AND ano=:ano";
             $cmdSelect = $conexao->prepare($select);

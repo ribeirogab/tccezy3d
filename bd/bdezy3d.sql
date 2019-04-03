@@ -16,7 +16,7 @@ CREATE TABLE today(
 	fktipo VARCHAR(20),
 	FOREIGN KEY(fkmes, fkano, fktipo) REFERENCES acesso(mes, ano, tipo),
 	CONSTRAINT id PRIMARY KEY(dia, fkmes, fkano, fktipo),
-	cliques_hoje INT(2)
+	cliques INT(2)
 )Engine = InnoDB;
 
 CREATE TABLE metas(
@@ -27,7 +27,7 @@ CREATE TABLE metas(
 	meta INT(11)
 )Engine = InnoDB;
 
----------------------------------------------------------------------
+
 
 CREATE TABLE usuario(
 	idusuario INT PRIMARY KEY AUTO_INCREMENT,
@@ -64,7 +64,6 @@ CREATE TABLE suporte(
 	FOREIGN KEY(fkcliente) REFERENCES cliente(idcliente)
 )Engine = InnoDB;
 
------------------------------------------------------------------------
 
 CREATE TABLE imagens(
 	idimg INT PRIMARY KEY AUTO_INCREMENT,
@@ -74,7 +73,6 @@ CREATE TABLE imagens(
 	descricao TEXT 
 );
 
-----------------------------------------------------------------------
 
 CREATE TABLE conteudo(
 	apelido VARCHAR(20),

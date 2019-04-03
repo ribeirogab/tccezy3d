@@ -43,8 +43,8 @@ class CriarAtributos{
 	}
 	public function criarMetas(){
 		include"conexao.php";
-		$sqlView = "SELECT SUM(cliques) AS 'visualizacoes' FROM acesso WHERE mes=:mes AND ano=:ano 
-		AND tipo='facebook' OR tipo='instagram' OR tipo='googleads' OR tipo='browser'";
+		$sqlView = "SELECT SUM(cliques) AS 'visualizacoes' FROM acesso WHERE (mes=:mes AND ano=:ano) 
+		AND (tipo='facebook' OR tipo='instagram' OR tipo='googleads' OR tipo='browser')";
 		$cmdView = $conexao->prepare($sqlView);
 		if($this->getMes() == 1){
 			$cmdView->bindValue(":mes", 12);
