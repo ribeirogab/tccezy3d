@@ -1,5 +1,6 @@
 <?php 
 require_once"../site/conexao.php";
+require_once"Today.php";
 require_once"Meta.php";
 ?>
 <!DOCTYPE html>
@@ -37,10 +38,10 @@ require_once"Meta.php";
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Baixar relatório</a>
-    </div>
+      </div>
 
-    <!-- Content Row -->
-    <div class="row">
+      <!-- Content Row -->
+      <div class="row">
 
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">
@@ -51,417 +52,404 @@ require_once"Meta.php";
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Visitantes (hoje)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
                     <?php 
-                    $viewsToday = "SELECT SUM(instagram + facebook + googleads + browser + newsletter + orcamento)
-                    AS 'total' FROM today";
-                    $cmd_viewsToday = $conexao->prepare($viewsToday);
-                    $cmd_viewsToday->execute();
-                    $total_views = $cmd_viewsToday->fetch();
-                    if($total_views["total"])
-                        echo $total_views["total"];
-                    else
-                        echo 0;
+                    $visitantesHoje = new Today();
+                    $visitantesHoje->setTipo("visitantes");
+                    $visitantesHoje->total();
+                    echo $visitantesHoje->getTotal();
                     ?>
+                  </div>
                 </div>
+                <div class="col-auto">
+                  <i class="fas fa-eye fa-2x text-gray-300"></i>
+                </div>
+              </div>
             </div>
-            <div class="col-auto">
-              <i class="fas fa-eye fa-2x text-gray-300"></i>
           </div>
-      </div>
-  </div>
-</div>
-</div>
+        </div>
 
-<!-- Earnings (Monthly) Card Example -->
-<div class="col-xl-3 col-md-6 mb-4">
-  <div class="card border-left-success shadow h-100 py-2">
-    <div class="card-body">
-      <div class="row no-gutters align-items-center">
-        <div class="col mr-2">
-          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">tempo médio por usuário</div>
-          <div class="h5 mb-0 font-weight-bold text-gray-800">00:04:57</div>
-      </div>
-      <div class="col-auto">
-          <i class="fas fa-clock fa-2x text-gray-300"></i>
-      </div>
-  </div>
-</div>
-</div>
-</div>
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">tempo médio por usuário</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">00:04:57</div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-clock fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<!-- Earnings (Monthly) Card Example -->
-<div class="col-xl-3 col-md-6 mb-4">
-  <div class="card border-left-info shadow h-100 py-2">
-    <div class="card-body">
-      <div class="row no-gutters align-items-center">
-        <div class="col mr-2">
-          <div class="text-xs font-weight-bold text-info text-uppercase mb-1">orçamentos solicitados (hoje)</div>
-          <div class="row no-gutters align-items-center">
-            <div class="col-auto">
-              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                <?php
-                $orcamentoToday = "SELECT orcamento FROM today";
-                $cmd_orcamentoToday = $conexao->prepare($orcamentoToday);
-                $cmd_orcamentoToday->execute();
-                $registro_orcamentoToday = $cmd_orcamentoToday->fetch();
-                if($registro_orcamentoToday["orcamento"])
-                    echo $registro_orcamentoToday["orcamento"];
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">orçamentos solicitados (hoje)</div>
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                        <?php 
+                        $orcamentosHoje = new Today();
+                        $orcamentosHoje->setTipo("orcamento");
+                        $orcamentosHoje->total();
+                        echo $orcamentosHoje->getTotal();
+                        ?>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-undo-alt fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">cadastros realizados (hoje)</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">
+                    <?php 
+                    $cadastrosHoje = new Today();
+                    $cadastrosHoje->setTipo("cadastro");
+                    $cadastrosHoje->total();
+                    echo $cadastrosHoje->getTotal();
+                    ?>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-user fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Row -->
+
+      <div class="row">
+
+        <!-- Area Chart -->
+        <div class="col-xl-8 col-lg-7">
+          <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">Visitantes por mês</h6>
+              <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                  <div class="dropdown-header">Dropdown Header:</div>
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+              <div class="chart-area">
+                <canvas id="myAreaChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="col-xl-4 col-lg-5">
+          <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">Locais de acesso</h6>
+              <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                  <div class="dropdown-header">Dropdown Header:</div>
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+              <div class="chart-pie pt-4 pb-2">
+                <canvas id="myPieChart"></canvas>
+              </div>
+              <div class="mt-4 text-center small">
+                <span class="mr-2">
+                  <i class="fas fa-circle text-primary"></i> Browser
+                </span>
+                <span class="mr-2">
+                  <i class="fas fa-circle text-success"></i> Google ADS
+                </span>
+                <span class="mr-2">
+                  <i class="fas fa-circle text-info"></i> Facebook
+                </span>
+                <span class="mr-2">
+                  <i class="fas fa-circle text-danger"></i> Instagram
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Row -->
+      <div class="row">
+
+        <!-- Content Column -->
+        <div class="col-lg-6 mb-4">
+
+          <!-- Project Card Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Objetivos do mês</h6>
+              <?php 
+              $metaViews = new Meta();
+              $metaViews->setTipo("visualizacoes");
+              $metaViews->progresso();
+              ?>
+            </div>
+            <div class="card-body">
+              <h4 class="small font-weight-bold">Visitantes <span class="float-right">
+                <?php 
+                if($metaViews->getProgresso() >= 100)
+                  echo "Completo!";
                 else
-                    echo 0;
-                ?>
+                  echo $metaViews->getProgresso();
+                ?> 
+              </span></h4>
+              <div class="progress mb-4">
+                <div class="progress-bar" role="progressbar" style="width:
+                <?php 
+                if($metaViews->getProgresso() >= 100){
+                  echo "100%;";
+                  echo "background-color: green;";
+                }
+                else{
+                  echo $metaViews->getProgresso().";";
+                  echo "background-color: blue;";
+                }
+                ?>" >
+              </div>
             </div>
-        </div>
-    </div>
-</div>
-<div class="col-auto">
-  <i class="fas fa-undo-alt fa-2x text-gray-300"></i>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Pending Requests Card Example -->
-<div class="col-xl-3 col-md-6 mb-4">
-  <div class="card border-left-warning shadow h-100 py-2">
-    <div class="card-body">
-      <div class="row no-gutters align-items-center">
-        <div class="col mr-2">
-          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">cadastros realizados (hoje)</div>
-          <div class="h5 mb-0 font-weight-bold text-gray-800">
-            <?php
-            $newsletterToday = "SELECT newsletter FROM today";
-            $cmd_newsletterToday = $conexao->prepare($newsletterToday);
-            $cmd_newsletterToday->execute();
-            $registro_newsletterToday = $cmd_newsletterToday->fetch();
-            if($registro_newsletterToday["newsletter"])
-                echo $registro_newsletterToday["newsletter"];
-            else
-                echo 0;
-            ?>
-        </div>
-    </div>
-    <div class="col-auto">
-      <i class="fas fa-user fa-2x text-gray-300"></i>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Content Row -->
-
-<div class="row">
-
-    <!-- Area Chart -->
-    <div class="col-xl-8 col-lg-7">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Visitantes por mês</h6>
-          <div class="dropdown no-arrow">
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-              <div class="dropdown-header">Dropdown Header:</div>
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-      </div>
-  </div>
-  <!-- Card Body -->
-  <div class="card-body">
-      <div class="chart-area">
-        <canvas id="myAreaChart"></canvas>
-    </div>
-</div>
-</div>
-</div>
-
-<!-- Pie Chart -->
-<div class="col-xl-4 col-lg-5">
-  <div class="card shadow mb-4">
-    <!-- Card Header - Dropdown -->
-    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h6 class="m-0 font-weight-bold text-primary">Locais de acesso</h6>
-      <div class="dropdown no-arrow">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-          <div class="dropdown-header">Dropdown Header:</div>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-  </div>
-</div>
-<!-- Card Body -->
-<div class="card-body">
-  <div class="chart-pie pt-4 pb-2">
-    <canvas id="myPieChart"></canvas>
-</div>
-<div class="mt-4 text-center small">
-    <span class="mr-2">
-      <i class="fas fa-circle text-primary"></i> Browser
-  </span>
-  <span class="mr-2">
-      <i class="fas fa-circle text-success"></i> Google ADS
-  </span>
-  <span class="mr-2">
-      <i class="fas fa-circle text-info"></i> Facebook
-  </span>
-  <span class="mr-2">
-      <i class="fas fa-circle text-danger"></i> Instagram
-  </span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Content Row -->
-<div class="row">
-
-    <!-- Content Column -->
-    <div class="col-lg-6 mb-4">
-
-      <!-- Project Card Example -->
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Objetivos do mês</h6>
-          <?php 
-          $metaViews = new Meta();
-          $metaViews->setColuna("visualizacoes");
-          $metaViews->progresso();
-          ?>
-      </div>
-      <div class="card-body">
-          <h4 class="small font-weight-bold">Visitantes <span class="float-right">
             <?php 
-            if($metaViews->getProgresso() >= 100)
-              echo "Completo!";
-          else
-              echo $metaViews->getProgresso();
-          ?> 
-      </span></h4>
-      <div class="progress mb-4">
-        <div class="progress-bar" role="progressbar" style="width:
-        <?php 
-        if($metaViews->getProgresso() >= 100){
-            echo "100%;";
-            echo "background-color: green;";
-        }
-        else{
-          echo $metaViews->getProgresso().";";
-          echo "background-color: blue;";
-      }
-      ?>" >
-  </div>
-</div>
-<?php 
-$metaOrcamentos = new Meta();
-$metaOrcamentos->setColuna("orcamentos");
-$metaOrcamentos->progresso();
-?>
-<h4 class="small font-weight-bold">Orçamentos <span class="float-right">
-    <?php 
-    if($metaOrcamentos->getProgresso() >= 100)
-      echo "Completo!";
-  else
-      echo $metaOrcamentos->getProgresso();
-  ?> 
-</span></h4>
-<div class="progress mb-4">
-    <div class="progress-bar bg-warning" role="progressbar" style="width:
-    <?php 
-    if($metaOrcamentos->getProgresso() >= 100){
-        echo "100%;";
-        echo "background-color: green;";
-    }
-    else{
-      echo $metaOrcamentos->getProgresso().";";
-      echo "background-color: blue;";
-  }
-  ?>"></div>
-</div>
-<?php 
-$metaNewsletter = new Meta();
-$metaNewsletter->setColuna("newsletter");
-$metaNewsletter->progresso();
-?>
-<h4 class="small font-weight-bold">Cadastros <span class="float-right">
-    <?php 
-    if($metaNewsletter->getProgresso() >= 100)
-      echo "Completo!";
-  else
-      echo $metaNewsletter->getProgresso();
-  ?> 
-</span></h4>
-<div class="progress">
-    <div class="progress-bar bg-success" role="progressbar" style="width:
-    <?php 
-    if($metaNewsletter->getProgresso() >= 100){
-        echo "100%;";
-        echo "background-color: green;";
-    }
-    else{
-      echo $metaNewsletter->getProgresso().";";
-      echo "background-color: blue;";
-  }
-  ?>"></div>
-</div>
-</div>
-</div>
+            $metaOrcamentos = new Meta();
+            $metaOrcamentos->setTipo("orcamento");
+            $metaOrcamentos->progresso();
+            ?>
+            <h4 class="small font-weight-bold">Orçamentos <span class="float-right">
+              <?php 
+              if($metaOrcamentos->getProgresso() >= 100)
+                echo "Completo!";
+              else
+                echo $metaOrcamentos->getProgresso();
+              ?> 
+            </span></h4>
+            <div class="progress mb-4">
+              <div class="progress-bar bg-warning" role="progressbar" style="width:
+              <?php 
+              if($metaOrcamentos->getProgresso() >= 100){
+                echo "100%;";
+                echo "background-color: green;";
+              }
+              else{
+                echo $metaOrcamentos->getProgresso().";";
+                echo "background-color: blue;";
+              }
+              ?>"></div>
+            </div>
+            <?php 
+            $metaNewsletter = new Meta();
+            $metaNewsletter->setTipo("cadastro");
+            $metaNewsletter->progresso();
+            ?>
+            <h4 class="small font-weight-bold">Cadastros <span class="float-right">
+              <?php 
+              if($metaNewsletter->getProgresso() >= 100)
+                echo "Completo!";
+              else
+                echo $metaNewsletter->getProgresso();
+              ?> 
+            </span></h4>
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width:
+              <?php 
+              if($metaNewsletter->getProgresso() >= 100){
+                echo "100%;";
+                echo "background-color: green;";
+              }
+              else{
+                echo $metaNewsletter->getProgresso().";";
+                echo "background-color: blue;";
+              }
+              ?>"></div>
+            </div>
+          </div>
+        </div>
 
-<!-- Color System -->
-<div class="row">
-    <div class="col-lg-6 mb-4">
-      <div class="card bg-primary text-white shadow">
-        <div class="card-body">
-          Browser
-          <div class="text-white-50 small">#4e73df</div>
+        <!-- Color System -->
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="card bg-primary text-white shadow">
+              <div class="card-body">
+                Browser
+                <div class="text-white-50 small">#4e73df</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card bg-success text-white shadow">
+              <div class="card-body">
+                Google ADS
+                <div class="text-white-50 small">#1cc88a</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card bg-info text-white shadow">
+              <div class="card-body">
+                Facebook
+                <div class="text-white-50 small">#36b9cc</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card bg-warning text-white shadow">
+              <div class="card-body">
+                Instagram
+                <div class="text-white-50 small">#f6c23e</div>
+              </div>
+            </div>
+          </div>    
+        </div>
       </div>
-  </div>
-</div>
-<div class="col-lg-6 mb-4">
-  <div class="card bg-success text-white shadow">
-    <div class="card-body">
-      Google ADS
-      <div class="text-white-50 small">#1cc88a</div>
-  </div>
-</div>
-</div>
-<div class="col-lg-6 mb-4">
-  <div class="card bg-info text-white shadow">
-    <div class="card-body">
-      Facebook
-      <div class="text-white-50 small">#36b9cc</div>
-  </div>
-</div>
-</div>
-<div class="col-lg-6 mb-4">
-  <div class="card bg-warning text-white shadow">
-    <div class="card-body">
-      Instagram
-      <div class="text-white-50 small">#f6c23e</div>
-  </div>
-</div>
-</div>    
-</div>
-</div>
 
-<div class="col-lg-6 mb-4">
+      <div class="col-lg-6 mb-4">
 
-  <!-- Illustrations -->
-  <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Meses anteriores</h6>
+        <!-- Illustrations -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Meses anteriores</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Visitantes</th>
+                    <th>Orçamentos</th>
+                    <th>Cadastros</th>
+                    <th>Metas</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                   <th>Mês</th>
+                   <th>Visitantes</th>
+                   <th>Orçamentos</th>
+                   <th>Cadastros</th>
+                   <th>Metas</th>
+                 </tr>
+               </tfoot>
+               <tbody>
+                <tr>
+                  <td>Jan 2019</td>
+                  <td>15</td>
+                  <td>12</td>
+                  <td>61</td>
+                  <td>3/3</td>
+                </tr>
+                <tr>
+                  <td>Fev 2019</td>
+                  <td>145</td>
+                  <td>135</td>
+                  <td>623</td>
+                  <td>1/3</td>
+                </tr>
+                <tr>
+                  <td>Mar 2019</td>
+                  <td>42</td>
+                  <td>92</td>
+                  <td>641</td>
+                  <td>3/3</td>
+                </tr>
+                <tr>
+                  <td>Abr 2019</td>
+                  <td>135</td>
+                  <td>155</td>
+                  <td>63</td>
+                  <td>3/3</td>
+                </tr>
+                <tr>
+                  <td>Mai 2019</td>
+                  <td>234</td>
+                  <td>22</td>
+                  <td>61</td>
+                  <td>3/3</td>
+                </tr>
+                <tr>
+                  <td>Jun 2019</td>
+                  <td>151</td>
+                  <td>105</td>
+                  <td>653</td>
+                  <td>3/3</td>
+                </tr>
+                <tr>
+                  <td>Jul 2019</td>
+                  <td>78</td>
+                  <td>334</td>
+                  <td>61</td>
+                  <td>3/3</td>
+                </tr>
+                <tr>
+                  <td>Ago 2019</td>
+                  <td>15</td>
+                  <td>15</td>
+                  <td>63</td>
+                  <td>3/3</td>
+                </tr>
+                <tr>
+                  <td>Set 2019</td>
+                  <td>78</td>
+                  <td>15</td>
+                  <td>61</td>
+                  <td>3/3</td>
+                </tr>
+                <tr>
+                  <td>Out 2019</td>
+                  <td>15</td>
+                  <td>15</td>
+                  <td>63</td>
+                  <td>3/3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Visitantes</th>
-              <th>Orçamentos</th>
-              <th>Cadastros</th>
-              <th>Metas</th>
-          </tr>
-      </thead>
-      <tfoot>
-        <tr>
-           <th>Mês</th>
-           <th>Visitantes</th>
-           <th>Orçamentos</th>
-           <th>Cadastros</th>
-           <th>Metas</th>
-       </tr>
-   </tfoot>
-   <tbody>
-      <tr>
-        <td>Jan 2019</td>
-        <td>15</td>
-        <td>12</td>
-        <td>61</td>
-        <td>3/3</td>
-    </tr>
-    <tr>
-        <td>Fev 2019</td>
-        <td>145</td>
-        <td>135</td>
-        <td>623</td>
-        <td>1/3</td>
-    </tr>
-    <tr>
-        <td>Mar 2019</td>
-        <td>42</td>
-        <td>92</td>
-        <td>641</td>
-        <td>3/3</td>
-    </tr>
-    <tr>
-        <td>Abr 2019</td>
-        <td>135</td>
-        <td>155</td>
-        <td>63</td>
-        <td>3/3</td>
-    </tr>
-    <tr>
-        <td>Mai 2019</td>
-        <td>234</td>
-        <td>22</td>
-        <td>61</td>
-        <td>3/3</td>
-    </tr>
-    <tr>
-        <td>Jun 2019</td>
-        <td>151</td>
-        <td>105</td>
-        <td>653</td>
-        <td>3/3</td>
-    </tr>
-    <tr>
-        <td>Jul 2019</td>
-        <td>78</td>
-        <td>334</td>
-        <td>61</td>
-        <td>3/3</td>
-    </tr>
-    <tr>
-        <td>Ago 2019</td>
-        <td>15</td>
-        <td>15</td>
-        <td>63</td>
-        <td>3/3</td>
-    </tr>
-    <tr>
-        <td>Set 2019</td>
-        <td>78</td>
-        <td>15</td>
-        <td>61</td>
-        <td>3/3</td>
-    </tr>
-    <tr>
-        <td>Out 2019</td>
-        <td>15</td>
-        <td>15</td>
-        <td>63</td>
-        <td>3/3</td>
-    </tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-</div>
-</div>
 
 </div>
 <!-- /.container-fluid -->
@@ -474,8 +462,8 @@ $metaNewsletter->progresso();
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
       <span>Copyright &copy; Ezy3D 2019</span>
+    </div>
   </div>
-</div>
 </footer>
 <!-- End of Footer -->
 
@@ -498,15 +486,15 @@ $metaNewsletter->progresso();
         <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
-      </button>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
   </div>
-  <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-  <div class="modal-footer">
-    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-    <a class="btn btn-primary" href="login.html">Logout</a>
-</div>
-</div>
-</div>
 </div>
 
 <!-- Bootstrap core JavaScript-->

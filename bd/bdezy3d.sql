@@ -45,6 +45,8 @@ CREATE TABLE cliente(
 	nome VARCHAR(40) NOT NULL,
 	email VARCHAR(40) NOT NULL,
 	telefone CHAR(11) NOT NULL,
+	cpf CHAR(11) NOT NULL,
+	pais VARCHAR(30) NOT NULL,
 	ramo VARCHAR(20),
 	empresa VARCHAR(20)
 )Engine = InnoDB;

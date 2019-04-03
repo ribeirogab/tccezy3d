@@ -281,6 +281,33 @@
       $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
       $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
     });
+    $("#btn-logar").hover(function(){
+      $("#impressoras3d").stop().hide('fast');
+      $("#acessorios").stop().hide('fast');
+      $("#aplicacoes").stop().hide('fast');
+      $("#down").stop().css({"display": "none", "left": "37%"});
+      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+    });
+    $("#btn-cadastrar").hover(function(){
+      $("#impressoras3d").stop().hide('fast');
+      $("#acessorios").stop().hide('fast');
+      $("#aplicacoes").stop().hide('fast');
+      $("#down").stop().css({"display": "none", "left": "37%"});
+      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+    });
+    $("#btn-lang").hover(function(){
+      $("#impressoras3d").stop().hide('fast');
+      $("#acessorios").stop().hide('fast');
+      $("#aplicacoes").stop().hide('fast');
+      $("#down").stop().css({"display": "none", "left": "37%"});
+      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+    });
     $("main").hover(function(){
       $("#impressoras3d").stop().hide('fast');
       $("#acessorios").stop().hide('fast');
@@ -301,8 +328,8 @@
         <img src="img/logo/logo_orange.svg" height="35px">
       </a>
       <a class="opcoes mr-4 mt-2 float-right btn" id="btn-lang">Portugues <i class="fas fa-sort-down"></i></a>
-      <a class="opcoes mr-3 mt-2 float-right btn btn-outline-warning">Cadastrar</a>
-      <a class="opcoes mr-3 mt-2 float-right btn">Logar</a>
+      <a class="opcoes mr-3 mt-2 float-right btn btn-outline-warning" id="btn-cadastrar" onclick="window.location.href='form_cadastrar.php'">Cadastrar</a>
+      <a class="opcoes mr-3 mt-2 float-right btn" id="btn-logar" data-toggle="modal" data-target="#modalLogin">Logar</a>
       <!-- <a class="mr-5 mt-3 float-right" id="btn-conta"><i class="fas fa-user-circle"></i> Conta <i class="fas fa-sort-down"></i></a> -->
       <div class="container text-center py-3">
         <a class="mr-5" id="btn-impressoras3d">Impressoras 3D</a>
@@ -330,6 +357,36 @@
       <label class="item-lang">Portugues (Brasil)</label><br>
       <label class="item-lang">English</label><br>
       <label class="item-lang">Español</label>
+    </div>
+  </div>
+
+  <!-- modal login -->
+  <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">E-mail:</label>
+              <input type="text" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Senha:</label>
+              <input type="text" class="form-control" name="senha">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Entrar</button>
+        </div>
+      </div>
     </div>
   </div>
 
