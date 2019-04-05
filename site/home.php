@@ -1,3 +1,9 @@
+<?php 
+require_once"conexao.php";
+require_once"CriarSessionCliente.php";
+$c1 = new CriarSessionCliente();
+$c1->consultarSession();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -143,7 +149,7 @@
     width: 250px;
     height: 300px;
     background-color: red;
-    right: 25%;
+    right: 8%;
     position: fixed;
     z-index: 100;
     display: none;
@@ -157,16 +163,7 @@
     font-size: 13px;
     color: #eee;
   }
-  @media screen and (max-width: 1500px) {
-    #conta{
-      right: 15%;
-    }
-  }
-  @media screen and (max-width: 1150px) {
-    #conta{
-      right: 3%;
-    }
-  }
+
   .texto-banner{
     width: 30%;
     top: 10%;
@@ -328,9 +325,14 @@
         <img src="img/logo/logo_orange.svg" height="35px">
       </a>
       <a class="opcoes mr-4 mt-2 float-right btn" id="btn-lang">Portugues <i class="fas fa-sort-down"></i></a>
-      <a class="opcoes mr-3 mt-2 float-right btn btn-outline-warning" id="btn-cadastrar" onclick="window.location.href='form_cadastrar.php'">Cadastrar</a>
-      <a class="opcoes mr-3 mt-2 float-right btn" id="btn-logar" data-toggle="modal" data-target="#modalLogin">Logar</a>
-      <!-- <a class="mr-5 mt-3 float-right" id="btn-conta"><i class="fas fa-user-circle"></i> Conta <i class="fas fa-sort-down"></i></a> -->
+      <?php
+      if (!isset($_SESSION['banana'])) {?>
+        <a class="opcoes mr-3 mt-2 float-right btn btn-outline-warning" id="btn-cadastrar" onclick="window.location.href='form_cadastrar.php'">Cadastrar</a>
+        <a class="opcoes mr-3 mt-2 float-right btn" id="btn-logar" data-toggle="modal" data-target="#modalLogin">Logar</a>
+      <?php } 
+      else {?>
+        <a class="mr-5 mt-3 float-right" id="btn-conta"><i class="fas fa-user-circle"></i> <?= $c1->getCliente()?> <i class="fas fa-sort-down"></i></a>
+      <?php }?>
       <div class="container text-center py-3">
         <a class="mr-5" id="btn-impressoras3d">Impressoras 3D</a>
         <a class="mr-5" id="btn-acessorios">Acessórios</a>
@@ -350,9 +352,12 @@
     <div id="aplicacoes">
 
     </div>
-    <div id="conta">
-
-    </div>
+    <?php
+    if (isset($_SESSION['banana'])) {?>
+      <div id="conta">
+        <a href="logout.php">Sair</a>
+      </div>
+    <?php } ?>
     <div class="p-3" id="lang">
       <label class="item-lang">Portugues (Brasil)</label><br>
       <label class="item-lang">English</label><br>
@@ -371,21 +376,22 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="post">
+          <form action="login.php" method="post">
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">E-mail:</label>
+              <label class="col-form-label">E-mail:</label>
               <input type="text" class="form-control" name="email">
             </div>
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Senha:</label>
+              <label class="col-form-label">Senha:</label>
               <input type="text" class="form-control" name="senha">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Entrar</button>
             </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Entrar</button>
-        </div>
+        
       </div>
     </div>
   </div>
