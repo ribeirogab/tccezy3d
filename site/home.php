@@ -146,13 +146,14 @@ $c1->consultarSession();
     }
   }
   #conta{
-    width: 250px;
-    height: 300px;
-    background-color: red;
+    margin-top: 8px;
+    background-color: #fff;
     right: 8%;
+    border-radius: 5px;
     position: fixed;
     z-index: 100;
     display: none;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.2);
   }
   #lang{
     background-color: #494949;
@@ -296,6 +297,15 @@ $c1->consultarSession();
       $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
       $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
     });
+    $("#btn-conta").hover(function(){
+      $("#impressoras3d").stop().hide('fast');
+      $("#acessorios").stop().hide('fast');
+      $("#aplicacoes").stop().hide('fast');
+      $("#down").stop().css({"display": "none", "left": "37%"});
+      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+    });
     $("#btn-lang").hover(function(){
       $("#impressoras3d").stop().hide('fast');
       $("#acessorios").stop().hide('fast');
@@ -354,8 +364,20 @@ $c1->consultarSession();
     </div>
     <?php
     if (isset($_SESSION['banana'])) {?>
-      <div id="conta">
-        <a href="logout.php">Sair</a>
+      <div id="conta" class="pt-2 pb-2" style="width: 158px">
+        <div >
+          <a class="dropdown-item" href="perfil.php">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Perfil
+          </a>
+        </div>
+        <hr class="mt-2 mb-2">
+        <div >
+          <a class="dropdown-item" href="logout.php">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Sair
+          </a>
+        </div>
       </div>
     <?php } ?>
     <div class="p-3" id="lang">

@@ -4,11 +4,24 @@ class Today{
 	private $tipo;
 	private $total;
 
-	public function getTipo(){return $this->tipo;}
-	public function setTipo($tipo){$this->tipo = $tipo;}
+	public function __construct(){
+		date_default_timezone_set('America/Sao_Paulo');
+		$this->setMes(intval(date("m")));
+		$this->setAno(date("Y"));
+		$this->setDia(date('d'));
+	}
 
+	public function getTipo(){return $this->tipo;}
 	public function getTotal(){return $this->total;}
-	public function setTotal($total){$this->total = $total;}
+	public function getMes(){return $this->mes;}
+    public function getAno(){return $this->ano;}
+    public function getDia(){return $this->dia;}
+
+    public function setTipo($tipo){$this->tipo = $tipo;}
+    public function setTotal($total){$this->total = $total;}
+	public function setMes($mes){$this->mes = $mes;}
+	public function setAno($ano){$this->ano = $ano;}
+	public function setDia($dia){$this->dia = $dia;}
 
 	public function total(){
 		include"../site/conexao.php";
@@ -22,9 +35,9 @@ class Today{
 			$cmd = $conexao->prepare($dadosToday);
 			$cmd->bindValue(":tipo", $this->getTipo());
 		}
-		$cmd->bindValue(":dia", date('d'));
-		$cmd->bindValue(":mes", intval(date("m")));
-		$cmd-> bindValue(":ano", date("Y"));
+		$cmd->bindValue(":dia", $this->getDia());
+		$cmd->bindValue(":mes", $this->getMes());
+		$cmd-> bindValue(":ano", $this->getAno());
 		$cmd->execute();
 		$dados = $cmd->fetch();
 		if($dados["total"])

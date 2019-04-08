@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Cadastro</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Fontawesome -->
+	<link rel="stylesheet" type="text/css" href="font/css/all.css">
+	<!-- Jquery -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="js/bootstrap.js"></script>
 </head>
 <body>
+	<div class="container">
+		
+	</div>
 	<form action="cadastro_cliente.php" method="post">
 		<input type="text" name="nome" placeholder="Nome"><br><br>
 		<input type="email" name="email" placeholder="E-mail"><br><br>
