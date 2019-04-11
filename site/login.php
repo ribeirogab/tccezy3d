@@ -1,6 +1,6 @@
 <?php 
 require_once"conexao.php";
-require_once"CriarSessionCliente.php";
+require_once"Classes/CriarSessionCliente.php";
 foreach ($_POST as $indice => $valor) {
   $$indice = $valor;
 }

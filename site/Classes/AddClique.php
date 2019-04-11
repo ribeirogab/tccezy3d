@@ -13,6 +13,16 @@ class AddClique{
         $this->setTipo($this->getTipo());
     }
 
+    public function getMes(){ return $this->mes; }
+    public function getAno(){ return $this->ano; }
+    public function getDia(){ return $this->dia; }
+    public function getTipo(){ return $this->tipo; }
+
+    public function setMes($mes){ $this->mes = $mes; }
+    public function setAno($ano){ $this->ano = $ano; }
+    public function setDia($dia){ $this->dia = $dia; }
+    public function setTipo($tipo){ $this->tipo = $tipo; }
+
     public function insertClique(){
         include"conexao.php";
         $acesso_today = ["acesso", "today"];
@@ -42,33 +52,6 @@ class AddClique{
             if($acesso_today[$i] === "today") $cmdInsert->bindValue(":dia", $this->getDia());
             $cmdInsert->execute(); 
         }
-
-    }
-
-    public function getMes(){
-        return $this->mes;
-    }
-    public function getAno(){
-        return $this->ano;
-    }
-    public function getDia(){
-        return $this->dia;
-    }
-    public function getTipo(){
-        return $this->tipo;
-    }
-
-    public function setMes($mes){
-        $this->mes = $mes;
-    }
-    public function setAno($ano){
-        $this->ano = $ano;
-    }
-    public function setDia($dia){
-        $this->dia = $dia;
-    }
-    public function setTipo($tipo){
-        $this->tipo = $tipo;
     }
 }
 ?>

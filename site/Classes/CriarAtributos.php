@@ -11,6 +11,14 @@ class CriarAtributos{
 		$this->setDia(date('d'));
 	}
 
+	public function getMes(){ return $this->mes; }
+	public function getAno(){ return $this->ano; }
+	public function getDia(){ return $this->dia; }
+
+	public function setMes($m){ $this->mes = $m; }
+	public function setAno($a){ $this->ano = $a; }
+	public function setDia($d){ $this->dia = $d; }
+
 	public function criarAcesso(){
 		include"conexao.php";
 		$tipos = ["facebook", "instagram", "googleads", "browser", "orcamento", "cadastro"];
@@ -93,25 +101,6 @@ class CriarAtributos{
 			$cmdMetaOc->bindValue(":meta", $metaOc);
 			$cmdMetaOc->execute();
 		}	
-	}
-	public function getMes(){
-		return $this->mes;
-	}
-	public function getAno(){
-		return $this->ano;
-	}
-	public function getDia(){
-		return $this->dia;
-	}
-
-	public function setMes($m){
-		$this->mes = $m;
-	}
-	public function setAno($a){
-		$this->ano = $a;
-	}
-	public function setDia($d){
-		$this->dia = $d;
 	}
 }
 ?>

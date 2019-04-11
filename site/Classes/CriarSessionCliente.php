@@ -13,9 +13,9 @@ class CriarSessionCliente {
 	public function getEmail(){ return $this->email; }
 	public function getCliente(){ return $this->cliente; }
 
-	public function setIdcliente($id) { $this->idcliente = $id; }
-	public function setEmail($email) { $this->email = $email; }
-	public function setCliente($cliente) { $this->cliente = $cliente; }
+	public function setIdcliente($id){ $this->idcliente = $id; }
+	public function setEmail($email){ $this->email = $email; }
+	public function setCliente($cliente){ $this->cliente = $cliente; }
 
 	public function criandoSession(){
 		include"conexao.php";

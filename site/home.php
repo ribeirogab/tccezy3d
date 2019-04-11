@@ -1,6 +1,6 @@
 <?php 
 require_once"conexao.php";
-require_once"CriarSessionCliente.php";
+require_once"Classes/CriarSessionCliente.php";
 $c1 = new CriarSessionCliente();
 $c1->consultarSession();
 ?>
@@ -14,157 +14,26 @@ $c1->consultarSession();
   <meta name="generator" content="Jekyll v3.8.5">
   <title>EZY 3D - Home</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
   <!-- Produtos -->
   <link href="css/product.css" rel="stylesheet">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/menu.css">
   <!-- Fontawesome -->
-  <link rel="stylesheet" type="text/css" href="font/css/all.css">
+  <link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
   <!-- Jquery -->
-  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="vendor/jquery/jquery.js"></script>
   <!-- Bootstrap JS -->
-  <script src="js/bootstrap.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.js"></script>
+  <!-- Main -->
+  <script src="js/mainHome.js"></script>
   <style>
-  .w-55px{
-    width: 55px;
+  body{
+    background-color: black;
   }
-  html{
-    font-size: 15px;
-  }
-  nav #desktop a{
-    color: rgba(255,255,255,.6);
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  nav #desktop a:hover{
-    color: #fff;
-    transition: 0.3s;
-  }
-  #down{
-    font-size: 21px;
-    color: #f28918;
-    position: fixed;
-    z-index: 101;
-    display: inline-block;
-    left: 37%;
-    transition: 1s;
-    display: none;
-  }
-  #impressoras3d{
-    width: 250px;
-    height: 300px;
-    border-top: solid 8px #f28918;
-    background-color: #eee;
-    left: 37%;
-    position: fixed;
-    z-index: 100;
-    display: none
-  }
-  #acessorios{
-    width: 250px;
-    height: 300px;
-    border-top: solid 8px #f28918;
-    background-color: #eee;
-    left: 44.7%;
-    position: fixed;
-    z-index: 100;
-    display: none;
-  }
-  #aplicacoes{
-    width: 250px;
-    height: 300px;
-    border-top: solid 8px #f28918;
-    background-color: #eee;
-    left: 51%;
-    position: fixed;
-    z-index: 100;
-    display: none;
-  }
-  @media screen and (max-width: 1700px) {
-    #impressoras3d, #down{
-      left: 35.5%;
-    }
-    #acessorios{
-      left: 44%;
-    }
-    #aplicacoes{
-      left: 51%;
-    }
-  }
-  @media screen and (max-width: 1500px) {
-    #impressoras3d, #down{
-      left: 32%;
-    }
-    #acessorios{
-      left: 41.5%;
-    }
-    #aplicacoes{
-      left: 49.7%;
-    }
-  }
-  @media screen and (max-width: 1400px) {
-    #impressoras3d, #down{
-      left: 29%;
-    }
-    #acessorios{
-      left: 39.5%;
-    }
-    #aplicacoes{
-      left: 48%;
-    }
-  }
-  @media screen and (max-width: 1300px) {
-    #impressoras3d, #down{
-      left: 26%;
-    }
-    #acessorios{
-      left: 37%;
-    }
-    #aplicacoes{
-      left: 46.5%;
-    }
-  }
-  @media screen and (max-width: 1200px) {
-    #impressoras3d, #down{
-      left: 22%;
-    }
-    #acessorios{
-      left: 33.5%;
-    }
-    #aplicacoes{
-      left: 44%;
-    }
-  }
-  @media screen and (max-width: 1100px) {
-    #impressoras3d, #down{
-      left: 15%;
-    }
-    #acessorios{
-      left: 29%;
-    }
-    #aplicacoes{
-      left: 41%;
-    }
-  }
-  #conta{
-    margin-top: 8px;
+  main{
     background-color: #fff;
-    right: 8%;
-    border-radius: 5px;
-    position: fixed;
-    z-index: 100;
-    display: none;
-    box-shadow: 2px 2px 10px rgba(0,0,0,.2);
   }
-  #lang{
-    background-color: #494949;
-    right: 1%;
-    position: fixed;
-    z-index: 100;
-    display: none;
-    font-size: 13px;
-    color: #eee;
-  }
-
   .texto-banner{
     width: 30%;
     top: 10%;
@@ -191,141 +60,12 @@ $c1->consultarSession();
       font-size: 20px;
     }
   }
-  .opcoes{
-    font-size: 14px;
-  }
-  .item-lang{
-    cursor: pointer;
-  }
-  .item-lang:hover{
-    color: rgba(255,255,255,.6);
-    transition: 0.3s;
-  }
+
 </style>
 
-<script>
-  $(document).ready(function(){
-    $("#btn-conta").click(function(){
-      $("#conta").toggle();
-    });
-    $("#btn-conta-mobile").click(function(){
-      $("#conta").toggle();
-    });
-    $("#btn-lang").click(function(){
-      $("#conta").hide();
-    });
-    $("#btn-lang").click(function(){
-      $("#lang").toggle();
-    });
-    $("#btn-conta").click(function(){
-      $("#lang").hide();
-    });
-    $("#btn-conta-mobile").click(function(){
-      $("#lang").hide();
-    });
-    $("main").click(function(){
-      $("#lang").hide();
-      $("#conta").hide();
-    });
-
-    $("#btn-openmenu").click(function(){
-      $("#btn-openmenu").stop().hide();
-      $("#btn-closemenu").stop().show();
-    });
-    $("#btn-closemenu").click(function(){
-      $("#btn-openmenu").stop().show();
-      $("#btn-closemenu").stop().hide();
-    });
-
-    $("#btn-impressoras3d").hover(function(){
-      $("#impressoras3d").stop().show('fast');
-      $("#btn-impressoras3d").css({'color': '#fff', "transition": "0.5s"});
-      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#acessorios").stop().hide('fast');
-      $("#aplicacoes").stop().hide('fast');
-      $("#down").stop().show('slow');
-      let left = parseInt($('#impressoras3d').css('left')) + 60;
-      $("#down").stop().css("left", left);
-    });
-    $("#btn-acessorios").hover(function(){
-      $("#acessorios").stop().show('fast');
-      $("#btn-acessorios").css({'color': '#fff', "transition": "0.5s"});
-      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#impressoras3d").stop().hide('fast');
-      $("#aplicacoes").stop().hide('fast');
-      $("#down").stop().show('fast');
-      let left = parseInt($('#acessorios').css('left')) + 60;
-      $("#down").stop().css("left", left);
-    });
-    $("#btn-aplicacoes").hover(function(){
-      $("#aplicacoes").stop().show('fast');
-      $("#btn-aplicacoes").css({'color': '#fff', "transition": "0.5s"});
-      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#impressoras3d").stop().hide('fast');
-      $("#acessorios").stop().hide('fast');
-      $("#down").stop().show('fast');
-      let left = parseInt($('#aplicacoes').css('left')) + 60;
-      $("#down").stop().css("left", left);
-    });
-    $("#btn-contato").hover(function(){
-      $("#impressoras3d").stop().hide('fast');
-      $("#acessorios").stop().hide('fast');
-      $("#aplicacoes").stop().hide('fast');
-      $("#down").stop().css({"display": "none", "left": "37%"});
-      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-    });
-    $("#btn-logar").hover(function(){
-      $("#impressoras3d").stop().hide('fast');
-      $("#acessorios").stop().hide('fast');
-      $("#aplicacoes").stop().hide('fast');
-      $("#down").stop().css({"display": "none", "left": "37%"});
-      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-    });
-    $("#btn-cadastrar").hover(function(){
-      $("#impressoras3d").stop().hide('fast');
-      $("#acessorios").stop().hide('fast');
-      $("#aplicacoes").stop().hide('fast');
-      $("#down").stop().css({"display": "none", "left": "37%"});
-      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-    });
-    $("#btn-conta").hover(function(){
-      $("#impressoras3d").stop().hide('fast');
-      $("#acessorios").stop().hide('fast');
-      $("#aplicacoes").stop().hide('fast');
-      $("#down").stop().css({"display": "none", "left": "37%"});
-      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-    });
-    $("#btn-lang").hover(function(){
-      $("#impressoras3d").stop().hide('fast');
-      $("#acessorios").stop().hide('fast');
-      $("#aplicacoes").stop().hide('fast');
-      $("#down").stop().css({"display": "none", "left": "37%"});
-      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-    });
-    $("main").hover(function(){
-      $("#impressoras3d").stop().hide('fast');
-      $("#acessorios").stop().hide('fast');
-      $("#aplicacoes").stop().hide('fast');
-      $("#down").stop().css({"display": "none", "left": "37%"});
-      $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-      $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
-    });
-  });
-</script>
+<!-- Start of ezy3d Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=7372f897-4674-494d-ade4-110122e4279b"> </script>
+<!-- End of ezy3d Zendesk Widget script -->
 </head>
 <body>
 
@@ -337,7 +77,7 @@ $c1->consultarSession();
       <a class="opcoes mr-4 mt-2 float-right btn" id="btn-lang">Portugues <i class="fas fa-sort-down"></i></a>
       <?php
       if (!isset($_SESSION['banana'])) {?>
-        <a class="opcoes mr-3 mt-2 float-right btn btn-outline-warning" id="btn-cadastrar" onclick="window.location.href='form_cadastrar.php'">Cadastrar</a>
+        <a class="opcoes mr-3 mt-2 float-right btn btn-outline-warning" id="btn-cadastrar" onclick="window.open('http://localhost/tccezy3d/site/form_cadastrar.php', '_blank')">Cadastrar</a>
         <a class="opcoes mr-3 mt-2 float-right btn" id="btn-logar" data-toggle="modal" data-target="#modalLogin">Logar</a>
       <?php } 
       else {?>
@@ -354,13 +94,40 @@ $c1->consultarSession();
   <div class="container">
     <i class="fas fa-caret-down" id="down"></i>
     <div id="impressoras3d">
-
+      <div class="row pr-5 pl-5">
+        <div class="col-6 pt-3" style="height: 200px">
+          <h6 class="text-left definicao">MSLA LCD - UV</h6>
+          <div class="w-100" style="border-bottom: solid 1px black;"></div>
+          <label class="mt-3" id="item1">E1260T<div id="borda1"></div></label><br>
+          <label class="mt-3" id="item2">Phylos<div id="borda2"></div></label><br>
+        </div>
+        <div class="col-6 pt-3" style="height: 200px">
+          <h6 class="text-left definicao">FDM - Filamento</h6>
+          <div class="w-100 bg-dark" style="height: 1px;"></div>
+          <label class="mt-3" id="item3">Core E3<div id="borda3"></div></label><br>
+        </div>
+      </div>
     </div>
     <div id="acessorios">
-
+      <div class="row pr-5 pl-5">
+        <div class="col-12 pt-3" style="height: 200px">
+          <h6 class="text-left definicao">Camara pos-cura</h6>
+          <div class="w-100" style="border-bottom: solid 1px black;"></div>
+          <label class="mt-3" id="item4">Ezy Cure<div id="borda4"></div></label><br>
+        </div>
+      </div>
     </div>
     <div id="aplicacoes">
-
+      <div class="row pr-5 pl-5">
+        <div class="col-12 pt-3" style="height: 200px">
+          <h6 class="text-left definicao">Por setor</h6>
+          <div class="w-100" style="border-bottom: solid 1px black;"></div>
+          <label class="mt-3" id="item5">Odontologia<div id="borda5"></div></label><br>
+          <label class="mt-3" id="item6">Joalheria<div id="borda6"></div></label><br>
+          <label class="mt-3" id="item7">Manufatura<div id="borda7"></div></label><br>
+          <label class="mt-3" id="item8">Educacao<div id="borda8"></div></label><br>
+        </div>
+      </div>
     </div>
     <?php
     if (isset($_SESSION['banana'])) {?>
@@ -517,46 +284,12 @@ $c1->consultarSession();
       </div>
     </div>
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">Odontologia</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
-      </div>
-      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Joalheria</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
-      </div>
-    </div>
-
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">Manufatura</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
-      </div>
-      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Educação</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
-      </div>
-    </div>
-
     <footer class="bg-light">
       <div class="container py-5">
         <div class="row">
           <div class="col-12 col-md">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-            <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
+            <img src="img/logo/logo_orange.svg" height="35px">
+            <small class="d-block mt-3 text-muted">&copy; 2017-2019</small>
           </div>
           <div class="col-6 col-md">
             <h5>Impressoras</h5>
@@ -584,10 +317,8 @@ $c1->consultarSession();
           <div class="col-6 col-md">
             <h5>Redes Sociais</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Team</a></li>
-              <li><a class="text-muted" href="#">Locations</a></li>
-              <li><a class="text-muted" href="#">Privacy</a></li>
-              <li><a class="text-muted" href="#">Terms</a></li>
+              <li><a class="text-muted" href="#">Facebook</a></li>
+              <li><a class="text-muted" href="#">Instagram</a></li>
             </ul>
           </div>
         </div>

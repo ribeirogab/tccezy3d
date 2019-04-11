@@ -1,7 +1,5 @@
 <!-- animações menu -->
 <script src="func/menu.js"></script>
-<!-- css do menu -->
-<link rel="stylesheet" href="estilos/menu.css">
 <nav id="nav-desktop" class="navbar p-0 d-none d-md-block fixed-top">
 	<div class="container pl-5 pr-5">
 		<a class="py-2" href="#"><img src="img/logo/logo_white.svg" height="28px" alt="EZY 3D"></a>
