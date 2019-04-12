@@ -1,155 +1,138 @@
-<!-- animações menu -->
-<script src="func/menu.js"></script>
-<nav id="nav-desktop" class="navbar p-0 d-none d-md-block fixed-top">
-	<div class="container pl-5 pr-5">
-		<a class="py-2" href="#"><img src="img/logo/logo_white.svg" height="28px" alt="EZY 3D"></a>
-		<a class="py-2 d-none d-md-inline-block tag-a" href="#">Soluções</a>
-		<a class="py-2 d-none d-md-inline-block tag-a" href="#">Como comprar</a>
-		<a class="py-2 d-none d-md-inline-block tag-a" href="#">Suporte</a>
-		<a class="py-2 d-none d-md-inline-block tag-a" href="#">Contato</a>
-		<a class="py-2 d-none d-md-inline-block tag-a" href="#">Sobre</a>
-		<a id="btn-lang-desk" class="py-2 d-none d-md-inline-block tag-a" href="#">
-			<i class="fas fa-globe"></i> PT
-			<i class="fas fa-caret-down"></i>
-		</a>
-	</div>
-</nav>
+ <?php 
+if ($visivel != true) {
+  header("Location: ../home.php");
+}
+?>
+ <nav class="fixed-top d-lg-block d-md-block d-none" style="background-color: #212121;">
+    <div id="desktop">
+      <a href="home.php" class="ml-5 mt-2 float-left">
+        <img src="img/logo/logo_orange.svg" height="35px">
+      </a>
+      <a class="opcoes mr-4 mt-2 float-right btn" id="btn-lang">Portugues <i class="fas fa-sort-down"></i></a>
+      <?php
+      if (!isset($_SESSION['banana'])) {?>
+        <a class="opcoes mr-3 mt-2 float-right btn btn-outline-warning" id="btn-cadastrar" onclick="window.location.href='http://localhost/tccezy3d/site/form_cadastrar.php'">Cadastrar</a>
+        <a class="opcoes mr-3 mt-2 float-right btn" id="btn-logar" data-toggle="modal" data-target="#modalLogin">Logar</a>
+      <?php } 
+      else {?>
+        <a class="mr-5 mt-3 float-right" id="btn-conta"><i class="fas fa-user-circle"></i> <?= $c1->getCliente()?> <i class="fas fa-sort-down"></i></a>
+      <?php }?>
+      <div class="container text-center py-3">
+        <a class="mr-5" id="btn-impressoras3d">Impressoras 3D</a>
+        <a class="mr-5" id="btn-acessorios">Acessórios</a>
+        <a class="mr-5" id="btn-aplicacoes">Aplicações</a>
+        <a id="btn-contato">Contato</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <i class="fas fa-caret-down" id="down"></i>
+    <div id="impressoras3d">
+      <div class="row pr-5 pl-5">
+        <div class="col-6 pt-3" style="height: 200px">
+          <h6 class="text-left definicao">MSLA LCD - UV</h6>
+          <div class="w-100" style="border-bottom: solid 1px black;"></div>
+          <label class="mt-3" id="item1" onclick="window.location.href='printer_e1260t'">E1260T<div id="borda1"></div></label><br>
+          <label class="mt-3" id="item2" onclick="window.location.href='http://localhost/tccezy3d/site/printer_phylos.php'">Phylos<div id="borda2"></div></label><br>
+        </div>
+        <div class="col-6 pt-3" style="height: 200px">
+          <h6 class="text-left definicao">FDM - Filamento</h6>
+          <div class="w-100 bg-dark" style="height: 1px;"></div>
+          <label class="mt-3" id="item3" onclick="window.location.href='http://localhost/tccezy3d/site/printer_coree3.php'">Core E3<div id="borda3"></div></label><br>
+        </div>
+      </div>
+    </div>
+    <div id="acessorios">
+      <div class="row pr-5 pl-5">
+        <div class="col-12 pt-3" style="height: 200px">
+          <h6 class="text-left definicao">Camara pos-cura</h6>
+          <div class="w-100" style="border-bottom: solid 1px black;"></div>
+          <label class="mt-3" id="item4" onclick="window.location.href='http://localhost/tccezy3d/site/acessorio_ezycure.php'">Ezy Cure<div id="borda4"></div></label><br>
+        </div>
+      </div>
+    </div>
+    <div id="aplicacoes">
+      <div class="row pr-5 pl-5">
+        <div class="col-12 pt-3" style="height: 200px">
+          <h6 class="text-left definicao">Por setor</h6>
+          <div class="w-100" style="border-bottom: solid 1px black;"></div>
+          <label class="mt-3" id="item5" onclick="window.location.href='http://localhost/tccezy3d/site/app_odontologia.php'">Odontologia<div id="borda5"></div></label><br>
+          <label class="mt-3" id="item6" onclick="window.location.href='http://localhost/tccezy3d/site/app_joalheria.php'">Joalheria<div id="borda6"></div></label><br>
+          <label class="mt-3" id="item7" onclick="window.location.href='http://localhost/tccezy3d/site/app_manufatura.php'">Manufatura<div id="borda7"></div></label><br>
+          <label class="mt-3" id="item8" onclick="window.location.href='http://localhost/tccezy3d/site/app_educacao.php'">Educacao<div id="borda8"></div></label><br>
+        </div>
+      </div>
+    </div>
+    <?php
+    if (isset($_SESSION['banana'])) {?>
+      <div id="conta" class="pt-2 pb-2" style="width: 158px">
+        <div >
+          <a class="dropdown-item" href="perfil.php">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Perfil
+          </a>
+        </div>
+        <hr class="mt-2 mb-2">
+        <div >
+          <a class="dropdown-item" href="logout.php">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Sair
+          </a>
+        </div>
+      </div>
+    <?php } ?>
+    <div class="p-3" id="lang">
+      <label class="item-lang">Portugues (Brasil)</label><br>
+      <label class="item-lang">English</label><br>
+      <label class="item-lang">Español</label>
+    </div>
+  </div>
 
-<!-- menu mobile -->
-<nav id="nav-mobile" class="navbar p-0 d-block d-md-none fixed-top">
-	<div class="container pt-2 pb-2">
-		<div class="w-53px">
-			<a id="btn-openmenu" class="py-2 tag-a" href="#"><i class="fas fa-bars"></i></a>
-			<a id="btn-closemenu" class="py-2 tag-a" href="#"><i class="fas fa-times"></i></a>
-		</div>
+  <!-- modal login -->
+  <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="login.php" method="post">
+            <div class="form-group">
+              <label class="col-form-label">E-mail:</label>
+              <input type="text" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Senha:</label>
+              <input type="text" class="form-control" name="senha">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
-		<div class="text-center w-53px">
-			<a class="py-2 tag-a" href="#"><img src="img/logo/logo_white.svg" height="28px" alt="EZY 3D"></a>
-		</div>
+  <!-- menu mobile -->
+  <nav id="nav-mobile" class="navbar p-0 d-block d-md-none fixed-top bg-dark">
+    <div class="container pt-2 pb-2">
+      <div class="w-55px">
+        <a id="btn-openmenu" class="py-2" href="#"><i class="fas fa-bars"></i></a>
+        <a id="btn-closemenu" style="display: none;" class="py-2 w-55px" href="#"><i class="fas fa-times"></i></a>
+      </div>
 
-		<div class="text-right w-53px">
-			<a id="btn-lang" class="py-2 tag-a" href="#"><i class="fas fa-globe"></i></a>
-		</div>
-	</div>
-</nav>
+      <div class="text-center">
+        <a class="py-2" href="#"><img src="img/logo/logo_orange.svg" height="28px" alt="EZY 3D"></a>
+      </div>
 
-<div id="lang" class="mr-md-5">
-	<span class='text-muted'>Selecione o seu idioma</span></br></br>
-	<form id='formEn' action='alterar.php' method='post'>
-		<input type='hidden' name='opcao' value='en'>
-		<a href='#' onClick='document.getElementById(\"formEn\").submit();'>English</a>
-	</form>
-	<form id='formEs' action='alterar.php' method='post'>
-		<input type='hidden' name='opcao' value='es'>
-		<a href='#' onClick='document.getElementById(\"formEs\").submit();'>Español</a>
-	</form>
-	<form id='formPt' action='alterar.php' method='post'>
-		<input type='hidden' name='opcao' value='pt'>
-		<a href='#' onClick='document.getElementById(\"formPt\").submit();'>Português</a>
-	</form>
-</div>
-
-<div id="menu" class="pl-4 pr-4 d-md-none" style="border-top: solid 1.5px rgba(255,255,255,0.15)">
-	<div id="itens">
-		<div id="btn-solucoes" class="itens bc-menu p-2 pt-5 pb-3">Soluções<i class="fas fa-caret-right float-right"></i></div>
-		<div class="itens bc-menu p-2 pt-3 pb-3">Como comprar</div>
-		<div class="itens bc-menu p-2 pt-3 pb-3">Suporte</div>
-		<div class="itens bc-menu p-2 pt-3 pb-3">Contato</div>
-		<div class="itens p-2 pt-3 pb-3 color-fff">Sobre</div>
-	</div>
-	<!-- SOLUÇÕES -->
-	<div id="solucoes" class="pl-4 pr-4 bg-1">
-		<div id="btn-voltar1" class="itens bc-menu p-2 pt-3 pb-3">
-			<i class="fas fa-caret-left opcty-solucoes"></i></i><span class="float-right opcty-solucoes">Soluções</span>
-		</div>
-		<div id="btn-produtos" class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-solucoes">Produtos</span><i class="fas fa-caret-right float-right opcty-solucoes"></i>
-		</div>
-		<div id="btn-apps" class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-solucoes">Aplicações</span><i class="fas fa-caret-right float-right opcty-solucoes"></i>
-		</div>
-	</div>
-	<!-- PRODUTOS -->
-	<div id="produtos" class="pl-4 pr-4 bg-2">
-		<div id="btn-voltar2" class="itens bc-menu p-2 pt-3 pb-3">
-			<i class="fas fa-caret-left"></i></i><span class="float-right opcty-produtos">Produtos</span>
-		</div>
-		<div id="btn-printer" class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-produtos">Impressoras 3D</span><i class="fas fa-caret-right float-right"></i>
-		</div>
-		<div id="btn-acss" class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-produtos">Acessórios</span><i class="fas fa-caret-right float-right"></i>
-		</div>
-	</div>
-	<!-- Impressoras 3D -->
-	<div id="impressoras3d" class="pl-4 pr-4 bg-3">
-		<div id="btn-voltar3" class="itens bc-menu p-2 pt-3 pb-3">
-			<i class="fas fa-caret-left"></i></i><span class="float-right opcty-printer">Impressoras 3D</span>
-		</div>
-		<div id="btn-msla" class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-printer">MSLA - LCD UV</span><i class="fas fa-caret-right float-right"></i>
-		</div>
-		<div id="btn-fdm" class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-printer">FDM</span><i class="fas fa-caret-right float-right"></i>
-		</div>
-	</div>
-	<!-- MSLA - LCD UV -->
-	<div id="msla" class="pl-4 pr-4 bg-4">
-		<div id="btn-voltar5" class="itens bc-menu p-2 pt-3 pb-3">
-			<i class="fas fa-caret-left"></i></i><span class="float-right opcty-msla">Tecnologia MSLA - LCD UV</span>
-		</div>
-		<div class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-msla">E1260T</span>
-		</div>
-		<div class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-msla">Phylos</span>
-		</div>
-	</div>
-	<!-- FDM -->
-	<div id="fdm" class="pl-4 pr-4 bg-4">
-		<div id="btn-voltar6" class="itens bc-menu p-2 pt-3 pb-3">
-			<i class="fas fa-caret-left"></i></i><span class="float-right opcty-fdm">Tecnologia FDM</span>
-		</div>
-		<div class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-fdm">CoreE3</span>
-		</div>
-	</div>
-
-	<!-- acessorios -->
-	<div id="acessorios" class="pl-4 pr-4 bg-3">
-		<div id="btn-voltar4" class="itens bc-menu p-2 pt-3 pb-3">
-			<i class="fas fa-caret-left"></i></i><span class="float-right opcty-acss">Acessórios</span>
-		</div>
-		<div id="btn-cpc" class="itens bc-menu p-2 pt-3 pb-3">
-			<span class="opcty-acss">Câmara pós-cura<span><i class="fas fa-caret-right float-right"></i>
-			</div>
-		</div>
-		<!-- EZYCURE -->
-		<div id="ezycure" class="pl-4 pr-4 bg-4">
-			<div id="btn-voltar7" class="itens bc-menu p-2 pt-3 pb-3">
-				<i class="fas fa-caret-left"></i></i><span class="float-right opcty-ezycure">Câmara pós-cura</span>
-			</div>
-			<div class="itens bc-menu p-2 pt-3 pb-3">
-				<span class="opcty-ezycure">EZYCURE<span>
-				</div>
-			</div>
-		</div>
-
-		<!-- APLICAÇÕES -->
-		<div id="apps" class="pl-4 pr-4 bg-2">
-			<div id="btn-voltar8" class="itens bc-menu p-2 pt-3 pb-3">
-				<i class="fas fa-caret-left"></i></i><span class="float-right opcty-apps">Aplicações</span>
-			</div>
-			<div class="itens bc-menu p-2 pt-3 pb-3">
-				<span class="opcty-apps">Odontologia</span>
-			</div>
-			<div class="itens bc-menu p-2 pt-3 pb-3">
-				<span class="opcty-apps">Joalheria</span>
-			</div>
-			<div class="itens bc-menu p-2 pt-3 pb-3">
-				<span class="opcty-apps">Manufatura</span>
-			</div>
-			<div class="itens bc-menu p-2 pt-3 pb-3">
-				<span class="opcty-apps">Educação</span>
-			</div>
-		</div>
+      <div class="text-right w-55px">
+        <a id="btn-conta-mobile" class="py-2" href="#"><i class="fas fa-user-circle"></i> <i class="fas fa-sort-down"></i></a>
+      </div>
+    </div>
+  </nav>

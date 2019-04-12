@@ -42,6 +42,7 @@ $(document).ready(function(){
     $("#down").stop().show('slow');
     let left = parseInt($('#impressoras3d').css('left')) + 60;
     $("#down").stop().css("left", left);
+    $("#lang").stop().hide();
   });
   $("#btn-acessorios").hover(function(){
     $("main").css({'opacity': '0.7', 'transition': '0.3s'});
@@ -54,6 +55,7 @@ $(document).ready(function(){
     $("#down").stop().show('fast');
     let left = parseInt($('#acessorios').css('left')) + 60;
     $("#down").stop().css("left", left);
+    $("#lang").stop().hide();
   });
   $("#btn-aplicacoes").hover(function(){
     $("main").css({'opacity': '0.7', 'transition': '0.3s'});
@@ -66,6 +68,7 @@ $(document).ready(function(){
     $("#down").stop().show('fast');
     let left = parseInt($('#aplicacoes').css('left')) + 60;
     $("#down").stop().css("left", left);
+    $("#lang").stop().hide();
   });
   $("#btn-contato").hover(function(){
     $("main").css({'opacity': '1', 'transition': '0.3s'});
@@ -86,6 +89,9 @@ $(document).ready(function(){
     $("#btn-aplicacoes").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
     $("#btn-acessorios").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
     $("#btn-impressoras3d").css({'color': 'rgba(255,255,255,.6)', "transition": "0.5s"});
+  });
+  $("#btn-logar").click(function(){
+    $("#lang").stop().hide();
   });
   $("#btn-cadastrar").hover(function(){
     $("main").css({'opacity': '1', 'transition': '0.3s'});
