@@ -21,7 +21,7 @@ if ($visivel != true) {
         <a class="mr-5" id="btn-impressoras3d">Impressoras 3D</a>
         <a class="mr-5" id="btn-acessorios">Acessórios</a>
         <a class="mr-5" id="btn-aplicacoes">Aplicações</a>
-        <a id="btn-contato">Contato</a>
+        <a id="btn-contato" onclick="window.location.href='http://localhost/tccezy3d/site/contato.php'">Contato</a>
       </div>
     </div>
   </nav>

@@ -8,10 +8,8 @@ $c1->consultarSession();
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v3.8.5">
   <title>EZY 3D - Manufatura</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">

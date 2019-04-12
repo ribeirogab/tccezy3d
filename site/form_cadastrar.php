@@ -3,6 +3,7 @@
 <head>
 	<title>Cadastro</title>
 	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
@@ -43,6 +44,7 @@
 		}
 	}
 </style>
+
 </head>
 <body>
 	<div class="limiter">
@@ -51,16 +53,18 @@
 				<div class="col-lg-7">
 					<form class="login100-form validate-form">
 						<span class="login100-form-title p-b-48">
-							<i class="zmdi zmdi-font"></i>
-						</span>
-						<div class="form-row">
-							<div class="form-group col-6 mb-0">
+							<img src="img/logo/logo_orange.svg" class="float-left" width="40px">
+						</span><br>
+						<h4>Criar sua Conta da Ezy 3D</h4>
+						<hr>
+						<div class="form-row mt-4">
+							<div class="form-group col-md-6 mb-0">
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 									<input class="input100" type="text" name="nome">
 									<span class="focus-input100" data-placeholder="Nome"></span>
 								</div>
 							</div>
-							<div class="form-group col-6 mb-0">
+							<div class="form-group col-md-6 mb-0">
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 									<input class="input100" type="text" name="sobrenome">
 									<span class="focus-input100" data-placeholder="Sobrenome"></span>
@@ -74,7 +78,7 @@
 						</div>
 
 						<div class="form-row">
-							<div class="form-group col-6 mb-0">
+							<div class="form-group col-lg-12 col-xl-6 mb-0">
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 									<span class="btn-show-pass">
 										<i class="zmdi zmdi-eye"></i>
@@ -83,7 +87,7 @@
 									<span class="focus-input100" data-placeholder="Senha"></span>
 								</div>
 							</div>
-							<div class="form-group col-6 mb-0">
+							<div class="form-group col-lg-12 col-xl-6 mb-0">
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 									<span class="btn-show-pass">
 										<i class="zmdi zmdi-eye"></i>
@@ -95,23 +99,28 @@
 						</div>
 
 						<div class="form-row">
-							<div class="form-group col-4 mb-0">
+							<div class="form-group col-md-4 mb-0">
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-									<select class="input100" name="" id="">
+									<select class="input100" name="pais">
 										<option value="">Pais...</option>
 									</select>
 								</div>
 							</div>
-							<div class="form-group col-8 mb-0">
+							<div class="form-group col-md-8 mb-0">
 								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-									<select class="input100" name="" id="">
-										<option value="">Setor...</option>
+									<select class="input100" name="setor" id="setor">
+										<option value="nada">Setor...</option>
+										<option value="outro">Outro</option>
 										<option value="">Odontologia</option>
 										<option value="">Educação</option>
 										<option value="">Joalheria</option>
 									</select>
 								</div>
 							</div>
+						</div>
+						<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c" id="setorOutro" style="display: none;">
+							<input class="input100" type="text" name="setoroutro">
+							<span class="focus-input100" data-placeholder="Setor"></span>
 						</div>
 
 						<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
@@ -133,8 +142,10 @@
 						</div>
 					</form>
 				</div>
-				<div class="col-5 d-lg-block d-md-none d-sm-none">
-					<p>Cadastre-se para realizar orçamentos e receber suporte!</p>
+
+				<div class="col-5 d-lg-block d-md-none d-sm-none d-none">
+					<div style="width: 100%; height: 300px; background-color: black;margin-top: 150px"></div>
+					<p class="text-center mt-3">Cadastre-se para realizar orçamentos e receber suporte!</p>
 				</div>
 			</div>
 		</div>
@@ -159,6 +170,17 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="js/cadastro_main.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#setor").change(function() {
+				let setor = $(this).val();
+				if(setor === "outro")
+					$("#setorOutro").show();
+				else if(setor != "outro")
+					$("#setorOutro").hide();
+			});
+		});
 
+	</script>
 </body>
 </html>

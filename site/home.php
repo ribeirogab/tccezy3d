@@ -8,10 +8,8 @@ $c1->consultarSession();
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v3.8.5">
   <title>EZY 3D - Home</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
@@ -73,128 +71,128 @@ $c1->consultarSession();
  $visivel = true;
  include"menu_rodape/menu.php" 
  ?>
-  <main>
-    <div id="carouselExampleIndicators" class="carousel slide bg-danger" data-ride="carousel" style="min-height: 300px">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="img/banner/banner1.jpg" style="min-height: 300px">
-          <div class="text-left carousel-caption d-md-block texto-banner">
-            <h2>3D Systems sob demanda: Criamos suas peças personalizadas</h2>
-            <p>Obtenha sua cotação online instantânea ou fale com os nossos engenheiros de aplicação sobre nossa oferta de serviço completo de prototipagem a serviços de fabricação de produção.</p>
-            <button class="btn btn-warning">Comecar</button>
-            <button class="btn btn-warning">Comecar</button>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="img/banner/banner2.jpg" style="min-height: 300px">
-          <div class="text-left carousel-caption d-md-block texto-banner">
-            <h2>3D Systems sob demanda: Criamos suas peças personalizadas</h2>
-            <p>Obtenha sua cotação online instantânea ou fale com os nossos engenheiros de aplicação sobre nossa oferta de serviço completo de prototipagem a serviços de fabricação de produção.</p>
-            <button class="btn btn-warning">Comecar</button>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="img/banner/banner3.jpg" style="min-height: 300px">
-          <div class="text-left carousel-caption d-md-block texto-banner">
-            <h2>3D Systems sob demanda: Criamos suas peças personalizadas</h2>
-            <p>Obtenha sua cotação online instantânea ou fale com os nossos engenheiros de aplicação sobre nossa oferta de serviço completo de prototipagem a serviços de fabricação de produção.</p>
-            <button class="btn btn-warning">Comecar</button>
-          </div>
+ <main>
+  <div id="carouselExampleIndicators" class="carousel slide bg-danger" data-ride="carousel" style="min-height: 300px">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="img/banner/banner1.jpg" style="min-height: 300px">
+        <div class="text-left carousel-caption d-md-block texto-banner">
+          <h2>3D Systems sob demanda: Criamos suas peças personalizadas</h2>
+          <p>Obtenha sua cotação online instantânea ou fale com os nossos engenheiros de aplicação sobre nossa oferta de serviço completo de prototipagem a serviços de fabricação de produção.</p>
+          <button class="btn btn-warning">Comecar</button>
+          <button class="btn btn-warning">Comecar</button>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
-
-
-
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Phylos</h2>
-          <p class="lead">And an even wittier subheading.</p>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="img/banner/banner2.jpg" style="min-height: 300px">
+        <div class="text-left carousel-caption d-md-block texto-banner">
+          <h2>3D Systems sob demanda: Criamos suas peças personalizadas</h2>
+          <p>Obtenha sua cotação online instantânea ou fale com os nossos engenheiros de aplicação sobre nossa oferta de serviço completo de prototipagem a serviços de fabricação de produção.</p>
+          <button class="btn btn-warning">Comecar</button>
         </div>
-        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
       </div>
-      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">E1260T</h2>
-          <p class="lead">And an even wittier subheading.</p>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="img/banner/banner3.jpg" style="min-height: 300px">
+        <div class="text-left carousel-caption d-md-block texto-banner">
+          <h2>3D Systems sob demanda: Criamos suas peças personalizadas</h2>
+          <p>Obtenha sua cotação online instantânea ou fale com os nossos engenheiros de aplicação sobre nossa oferta de serviço completo de prototipagem a serviços de fabricação de produção.</p>
+          <button class="btn btn-warning">Comecar</button>
         </div>
-        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
       </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">Core E3</h2>
-          <p class="lead">And an even wittier subheading.</p>
-        </div>
-        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
+
+
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+    <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">Phylos</h2>
+        <p class="lead">And an even wittier subheading.</p>
       </div>
-      <div class="bg-danger mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Ezy Cure</h2>
-          <p class="lead">And an even wittier subheading.</p>
+      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
+    </div>
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">E1260T</h2>
+        <p class="lead">And an even wittier subheading.</p>
+      </div>
+      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
+    </div>
+  </div>
+
+  <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+    <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="my-3 p-3">
+        <h2 class="display-5">Core E3</h2>
+        <p class="lead">And an even wittier subheading.</p>
+      </div>
+      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
+    </div>
+    <div class="bg-danger mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+      <div class="my-3 py-3">
+        <h2 class="display-5">Ezy Cure</h2>
+        <p class="lead">And an even wittier subheading.</p>
+      </div>
+      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
+    </div>
+  </div>
+
+  <footer class="bg-light">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+          <img src="img/logo/logo_orange.svg" height="35px">
+          <small class="d-block mt-3 text-muted">&copy; 2017-2019</small>
         </div>
-        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px;"></div>
+        <div class="col-6 col-md">
+          <h5>Impressoras</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">E1260T</a></li>
+            <li><a class="text-muted" href="#">Phylos</a></li>
+            <li><a class="text-muted" href="#">Core E3</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Acessórios</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Ezy Cure</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Aplicações</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Odontologia</a></li>
+            <li><a class="text-muted" href="#">Joalheria</a></li>
+            <li><a class="text-muted" href="#">Manufatura</a></li>
+            <li><a class="text-muted" href="#">Educação</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Redes Sociais</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Facebook</a></li>
+            <li><a class="text-muted" href="#">Instagram</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <footer class="bg-light">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-12 col-md">
-            <img src="img/logo/logo_orange.svg" height="35px">
-            <small class="d-block mt-3 text-muted">&copy; 2017-2019</small>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Impressoras</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">E1260T</a></li>
-              <li><a class="text-muted" href="#">Phylos</a></li>
-              <li><a class="text-muted" href="#">Core E3</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Acessórios</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Ezy Cure</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Aplicações</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Odontologia</a></li>
-              <li><a class="text-muted" href="#">Joalheria</a></li>
-              <li><a class="text-muted" href="#">Manufatura</a></li>
-              <li><a class="text-muted" href="#">Educação</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Redes Sociais</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#">Facebook</a></li>
-              <li><a class="text-muted" href="#">Instagram</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <div class="bg-light w-100" style="height: 50px; border-top: solid 1px rgba(0,0,0,.1)"></div>
-  </main>
+  </footer>
+  <div class="bg-light w-100" style="height: 50px; border-top: solid 1px rgba(0,0,0,.1)"></div>
+</main>
 </body>
 </html>
