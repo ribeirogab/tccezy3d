@@ -63,7 +63,7 @@ $c1->consultarSession();
 </style>
 
 <!-- Start of ezy3d Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=7372f897-4674-494d-ade4-110122e4279b"> </script>
+<!-- <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=7372f897-4674-494d-ade4-110122e4279b"> </script> -->
 <!-- End of ezy3d Zendesk Widget script -->
 </head>
 <body>
@@ -152,47 +152,7 @@ $c1->consultarSession();
     </div>
   </div>
 
-  <footer class="bg-light">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-12 col-md">
-          <img src="img/logo/logo_orange.svg" height="35px">
-          <small class="d-block mt-3 text-muted">&copy; 2017-2019</small>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Impressoras</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">E1260T</a></li>
-            <li><a class="text-muted" href="#">Phylos</a></li>
-            <li><a class="text-muted" href="#">Core E3</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Acessórios</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Ezy Cure</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Aplicações</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Odontologia</a></li>
-            <li><a class="text-muted" href="#">Joalheria</a></li>
-            <li><a class="text-muted" href="#">Manufatura</a></li>
-            <li><a class="text-muted" href="#">Educação</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Redes Sociais</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Facebook</a></li>
-            <li><a class="text-muted" href="#">Instagram</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <div class="bg-light w-100" style="height: 50px; border-top: solid 1px rgba(0,0,0,.1)"></div>
+  <?php include"menu_rodape/rodape.php" ?>
 </main>
 </body>
 </html>
