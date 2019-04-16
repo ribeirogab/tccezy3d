@@ -68,7 +68,7 @@ $c1->consultarSession();
 </head>
 <body>
  <?php 
- $visivel = true;
+ $visivelm = true;
  include"menu_rodape/menu.php" 
  ?>
  <main>
@@ -152,7 +152,10 @@ $c1->consultarSession();
     </div>
   </div>
 
-  <?php include"menu_rodape/rodape.php" ?>
+  <?php 
+  $visivelr = true;
+  include"menu_rodape/rodape.php"
+  ?>
 </main>
 </body>
 </html>

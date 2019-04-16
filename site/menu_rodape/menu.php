@@ -1,5 +1,5 @@
  <?php 
-if ($visivel != true) {
+if ($visivelm != true) {
   header("Location: ../home.php");
 }
 ?>

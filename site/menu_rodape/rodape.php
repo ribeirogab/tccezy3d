@@ -1,3 +1,8 @@
+ <?php 
+ if ($visivelr != true) {
+  header("Location: ../home.php");
+}
+?>
 <script src="js/voltarAoTopo.js"></script>
 <link rel="stylesheet" href="css/rodape.css">
 

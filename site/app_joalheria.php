@@ -37,11 +37,15 @@ $c1->consultarSession();
 </head>
 <body>
  <?php 
- $visivel = true;
- include"menu_rodape/menu.php" 
+ $visivelm = true;
+ include"menu_rodape/menu.php";
  ?>
- <main style="height: 700px">
+ <main>
   
- </main>
+  <?php 
+  $visivelr = true;
+  include"menu_rodape/rodape.php";
+  ?>
+</main>
 </body>
 </html>
