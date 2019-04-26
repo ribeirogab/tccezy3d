@@ -3,16 +3,16 @@
 <head>
 	<title>Login V2</title>
 	<meta charset="UTF-8">
-	<link rel="shortcut icon" type="image/x-icon" href="img/logo_orange.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico"/>
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/fonts/iconic/css/material-design-iconic-font.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
 	<!--===============================================================================================-->	
@@ -24,8 +24,8 @@
 	<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/cadastro_util.css">
-	<link rel="stylesheet" type="text/css" href="css/cadastro_main.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css/cadastro_util.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css/cadastro_main.css">
 	<!--===============================================================================================-->
 </head>
 <body>

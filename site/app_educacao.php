@@ -8,15 +8,15 @@ $c1->consultarSession();
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <link rel="shortcut icon" type="image/x-icon" href="img/logo_orange.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - Educação</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
   <!-- Produtos -->
-  <link href="css/product.css" rel="stylesheet">
+  <link href="vendor/css/product.css" rel="stylesheet">
   <!-- Main CSS -->
-  <link rel="stylesheet" href="css/menu.css">
+  
   <!-- Fontawesome -->
   <link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
   <!-- Jquery -->
@@ -24,7 +24,7 @@ $c1->consultarSession();
   <!-- Bootstrap JS -->
   <script src="vendor/bootstrap/js/bootstrap.js"></script>
   <!-- Main -->
-  <script src="js/mainMenu.js"></script>
+  <script src="vendor/js/mainMenu.js"></script>
   <style>
   body{
     background-color: black;
@@ -38,13 +38,13 @@ $c1->consultarSession();
 <body>
  <?php 
  $visivelm = true;
- include"menu_rodape/menu.php"; 
+ include"vendor/menu_rodape/menu.php"; 
  ?>
  <main>
   
   <?php 
   $visivelr = true;
-  include"menu_rodape/rodape.php";
+  include"vendor/menu_rodape/rodape.php";
   ?>
 </main>
 </body>

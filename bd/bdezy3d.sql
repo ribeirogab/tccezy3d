@@ -42,10 +42,10 @@ CREATE TABLE usuario(
 
 CREATE TABLE cliente(
 	idcliente INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(40) NOT NULL,
+	nome VARCHAR(20) NOT NULL,
+	sobrenome VARCHAR(30) not null,
 	email VARCHAR(40) NOT NULL,
 	telefone CHAR(11) NOT NULL,
-	cpf CHAR(11) NOT NULL,
 	senha VARCHAR(10) NOT NULL,
 	pais VARCHAR(30) NOT NULL,
 	ramo VARCHAR(20),

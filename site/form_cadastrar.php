@@ -3,16 +3,16 @@
 <head>
 	<title>Cadastro</title>
 	<meta charset="UTF-8">
-	<link rel="shortcut icon" type="image/x-icon" href="img/logo_orange.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico"/>
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/fonts/iconic/css/material-design-iconic-font.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
 	<!--===============================================================================================-->	
@@ -24,8 +24,8 @@
 	<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/cadastro_util.css">
-	<link rel="stylesheet" type="text/css" href="css/cadastro_main.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css/cadastro_util.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css/cadastro_main.css">
 	<!--===============================================================================================-->
 	<!-- Fontawesome -->
 	<link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
@@ -51,35 +51,40 @@
 		<div class="container-login100">
 			<div class="row" id="rowForm">
 				<div class="col-lg-7">
-					<form class="login100-form validate-form">
+					<form action="cadastro_cliente.php" method="post" class="login100-form">
 						<span class="login100-form-title p-b-48">
-							<img src="img/logo/logo_orange.svg" class="float-left" width="40px">
+							<img src="vendor/img/logo/logo_orange.svg" class="float-left" width="40px">
 						</span><br>
 						<h4>Criar sua Conta da Ezy 3D</h4>
 						<hr>
 						<div class="form-row mt-4">
 							<div class="form-group col-md-6 mb-0">
-								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+								<div class="wrap-input100">
 									<input class="input100" type="text" name="nome">
 									<span class="focus-input100" data-placeholder="Nome"></span>
 								</div>
 							</div>
 							<div class="form-group col-md-6 mb-0">
-								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+								<div class="wrap-input100">
 									<input class="input100" type="text" name="sobrenome">
 									<span class="focus-input100" data-placeholder="Sobrenome"></span>
 								</div>
 							</div>
 						</div>
 
-						<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<div class="wrap-input100 validate-input">
 							<input class="input100" type="text" name="email">
 							<span class="focus-input100" data-placeholder="E-mail"></span>
 						</div>
 
+						<div class="wrap-input100 validate-input">
+							<input class="input100" type="text" name="telefone">
+							<span class="focus-input100" data-placeholder="Telefone"></span>
+						</div>
+
 						<div class="form-row">
 							<div class="form-group col-lg-12 col-xl-6 mb-0">
-								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+								<div class="wrap-input100">
 									<span class="btn-show-pass">
 										<i class="zmdi zmdi-eye"></i>
 									</span>
@@ -88,7 +93,7 @@
 								</div>
 							</div>
 							<div class="form-group col-lg-12 col-xl-6 mb-0">
-								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+								<div class="wrap-input100">
 									<span class="btn-show-pass">
 										<i class="zmdi zmdi-eye"></i>
 									</span>
@@ -100,18 +105,19 @@
 
 						<div class="form-row">
 							<div class="form-group col-md-4 mb-0">
-								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+								<div class="wrap-input100">
 									<select class="input100" name="pais">
-										<option value="">Pais...</option>
+										<option value="Nenhum">Pais...</option>
+										<option value="Brasil">Brasil</option>
 									</select>
 								</div>
 							</div>
 							<div class="form-group col-md-8 mb-0">
-								<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+								<div class="wrap-input100">
 									<select class="input100" name="setor" id="setor">
 										<option value="nada">Setor...</option>
 										<option value="outro">Outro</option>
-										<option value="">Odontologia</option>
+										<option value="Odontologia">Odontologia</option>
 										<option value="">Educação</option>
 										<option value="">Joalheria</option>
 									</select>
@@ -123,7 +129,7 @@
 							<span class="focus-input100" data-placeholder="Setor"></span>
 						</div>
 
-						<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<div class="wrap-input100">
 							<input class="input100" type="text" name="empresa">
 							<span class="focus-input100" data-placeholder="Empresa"></span>
 						</div>
@@ -134,7 +140,7 @@
 							<div class="container-login100-form-btn col-6">
 								<div class="wrap-login100-form-btn">
 									<div class="login100-form-bgbtn"></div>
-									<button class="login100-form-btn">
+									<button type="submit" class="login100-form-btn">
 										Cadastrar
 									</button>
 								</div>
@@ -169,7 +175,7 @@
 	<!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
-	<script src="js/cadastro_main.js"></script>
+	<script src="vendor/js/cadastro_main.js"></script>
 	<script>
 		$(document).ready(function() {
 			$("#setor").change(function() {

@@ -8,15 +8,15 @@ $c1->consultarSession();
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <link rel="shortcut icon" type="image/x-icon" href="img/logo_orange.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - Home</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
   <!-- Produtos -->
-  <link href="css/product.css" rel="stylesheet">
+  <link href="vendor/css/product.css" rel="stylesheet">
   <!-- Main CSS -->
-  <link rel="stylesheet" href="css/menu.css">
+
   <!-- Fontawesome -->
   <link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
   <!-- Jquery -->
@@ -24,7 +24,7 @@ $c1->consultarSession();
   <!-- Bootstrap JS -->
   <script src="vendor/bootstrap/js/bootstrap.js"></script>
   <!-- Main -->
-  <script src="js/mainMenu.js"></script>
+  <script src="vendor/js/mainMenu.js"></script>
   <style>
   body{
     background-color: black;
@@ -69,7 +69,7 @@ $c1->consultarSession();
 <body>
  <?php 
  $visivelm = true;
- include"menu_rodape/menu.php" 
+ include"vendor/menu_rodape/menu.php" 
  ?>
  <main>
   <div id="carouselExampleIndicators" class="carousel slide bg-danger" data-ride="carousel" style="min-height: 300px">
@@ -80,7 +80,7 @@ $c1->consultarSession();
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="img/banner/banner1.jpg" style="min-height: 300px">
+        <img class="d-block w-100" src="vendor/img/banner/banner1.jpg" style="min-height: 300px">
         <div class="text-left carousel-caption d-md-block texto-banner">
           <h2>3D Systems sob demanda: Criamos suas peças personalizadas</h2>
           <p>Obtenha sua cotação online instantânea ou fale com os nossos engenheiros de aplicação sobre nossa oferta de serviço completo de prototipagem a serviços de fabricação de produção.</p>
@@ -89,7 +89,7 @@ $c1->consultarSession();
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="img/banner/banner2.jpg" style="min-height: 300px">
+        <img class="d-block w-100" src="vendor/img/banner/banner2.jpg" style="min-height: 300px">
         <div class="text-left carousel-caption d-md-block texto-banner">
           <h2>3D Systems sob demanda: Criamos suas peças personalizadas</h2>
           <p>Obtenha sua cotação online instantânea ou fale com os nossos engenheiros de aplicação sobre nossa oferta de serviço completo de prototipagem a serviços de fabricação de produção.</p>
@@ -97,7 +97,7 @@ $c1->consultarSession();
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="img/banner/banner3.jpg" style="min-height: 300px">
+        <img class="d-block w-100" src="vendor/img/banner/banner3.jpg" style="min-height: 300px">
         <div class="text-left carousel-caption d-md-block texto-banner">
           <h2>3D Systems sob demanda: Criamos suas peças personalizadas</h2>
           <p>Obtenha sua cotação online instantânea ou fale com os nossos engenheiros de aplicação sobre nossa oferta de serviço completo de prototipagem a serviços de fabricação de produção.</p>
@@ -154,7 +154,7 @@ $c1->consultarSession();
 
   <?php 
   $visivelr = true;
-  include"menu_rodape/rodape.php"
+  include"vendor/menu_rodape/rodape.php"
   ?>
 </main>
 </body>
