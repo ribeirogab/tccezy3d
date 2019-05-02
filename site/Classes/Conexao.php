@@ -9,7 +9,7 @@ class Conexao{
 	public function __construct(){
 		$this->usuario = "root";
 		$this->senha = "";
-		$this->bd = "escolaetec";
+		$this->bd = "batata";
 		$this->servidor = "localhost";
 	}
 
@@ -18,7 +18,7 @@ class Conexao{
 			array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 	}
 
-	public function executarSqlCud($sql, $valores){
+	public function executarSql($sql, $valores){
 		$comando = $this->conexao->prepare($sql);
 		foreach ($valores as $indice => &$valor) {
 			$comando->bindParam($indice, $valor);
@@ -46,8 +46,8 @@ class Conexao{
 			}
 		}
 		$comando->execute();
-		$lista = $comando->fetchAll();
-		return $lista;
+		return $comando->fetchAll();
+
 	}
 }
 ?>

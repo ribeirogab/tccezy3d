@@ -1,106 +1,57 @@
 <?php 
-class CriarAtributos{
-	private $mes;
-	private $ano;
-	private $dia;
-
+require_once"Data.php";
+class CriarAtributos extends Data{
+	private $tipos;
 	public function __construct(){
-		date_default_timezone_set('America/Sao_Paulo');
-		$this->setMes(intval(date("m")));
-		$this->setAno(date("Y"));
-		$this->setDia(date('d'));
+		parent::__construct();
+		$this->tipos[0] = "facebook";
+		$this->tipos[1] = "instagram";
+		$this->tipos[2] = "googleads";
+		$this->tipos[3] = "browser";
+		$this->tipos[4] = "orcamento";
+		$this->tipos[5] = "cadastro";
 	}
 
-	public function getMes(){ return $this->mes; }
-	public function getAno(){ return $this->ano; }
-	public function getDia(){ return $this->dia; }
+	public function getTipo() { return $this->tipo; }
 
-	public function setMes($m){ $this->mes = $m; }
-	public function setAno($a){ $this->ano = $a; }
-	public function setDia($d){ $this->dia = $d; }
+	public function setTipo($tipo) { $this->tipo = $tipo; }
 
-	public function criarAcesso(){
-		include"conexao.php";
-		$tipos = ["facebook", "instagram", "googleads", "browser", "orcamento", "cadastro"];
-		for ($i = 0; $i < count($tipos) ; $i++) {
-			$sql = "INSERT INTO acesso VALUES(:mes, :ano, :tipo, 0)";
-			$cmd = $conexao->prepare($sql);
-			$cmd->bindValue(":mes", $this->getMes());
-			$cmd->bindValue(":ano", $this->getAno());
-			$cmd->bindValue(":tipo", $tipos[$i]);
-			$cmd->execute();
-		}	
+	public function criarAcessoOuToday($coluna, $restricao){
+		for($i = 0; $i < count($this->tipos) ; $i++){
+			if ($coluna == "today")
+				$valores["dia"] = $this->getDia();
+			$valores["mes"] = $this->getMes();
+			$valores["ano"] = $this->getAno();
+			$valores["tipo"] = $this->tipos[$i];
+			$sql = "INSERT INTO $coluna VALUES($restricao)";
+			parent::executarSql($sql, $valores);
+		}
 	}
-	public function criarToday(){
-		include"conexao.php";
-		$sqlDelete = "DELETE FROM today WHERE dia=:dia";
-		$cmdDelete = $conexao->prepare($sqlDelete);
-		$cmdDelete->bindValue(":dia", $this->getDia() - 8);
-		$cmdDelete->execute();
 
-		$tipos = ["facebook", "instagram", "googleads", "browser", "orcamento", "cadastro"];
-		for ($i = 0; $i < count($tipos) ; $i++) {
-			$sql = "INSERT INTO today VALUES(:dia, :mes, :ano, :tipo, 0)";
-			$cmd = $conexao->prepare($sql);
-			$cmd->bindValue(":dia", $this->getDia());
-			$cmd->bindValue(":mes", $this->getMes());
-			$cmd->bindValue(":ano", $this->getAno());
-			$cmd->bindValue(":tipo", $tipos[$i]);
-			$cmd->execute();
-		}	
-	}
-	public function criarMetas(){
-		include"conexao.php";
-		$sqlView = "SELECT SUM(cliques) AS 'visualizacoes' FROM acesso WHERE (mes=:mes AND ano=:ano) 
-		AND (tipo='facebook' OR tipo='instagram' OR tipo='googleads' OR tipo='browser')";
-		$cmdView = $conexao->prepare($sqlView);
-		if($this->getMes() == 1){
-			$cmdView->bindValue(":mes", 12);
-			$cmdView->bindValue(":ano", $this->getAno() - 1);
+	public function criarMetas($coluna, $grupo, $restricao){
+		$sql1 = "SELECT SUM(cliques) AS 'dados' FROM $coluna ".$restricao;
+		if ($this->getMes() == 1){
+			$valores1["mes"] = 12;
+			$valores1["ano"] = $this->getAno() - 1;
 		}
 		else{
-			$cmdView->bindValue(":mes", $this->getMes() - 1);
-			$cmdView->bindValue(":ano", $this->getAno());
+			$valores1["mes"] = $this->getMes() - 1;
+			$valores1["ano"] = $this->getAno();
 		}
-		$cmdView->execute();
-		$total = $cmdView->fetch();
-		$visualizacoes = $total['visualizacoes'];
-		$metaView = $visualizacoes + ($visualizacoes / 100 * 10);
+		if ($grupo == "orcamento" || $grupo == "cadastro")
+			$valores1["tipo"] = $grupo;
 
-		$insertMetaView = "INSERT INTO metas VALUES(:mes, :ano, :tipo, :meta)";
-		$cmdMetaView = $conexao->prepare($insertMetaView);
-		$cmdMetaView->bindValue(":mes", $this->getMes());
-		$cmdMetaView->bindValue(":ano", $this->getAno());
-		$cmdMetaView->bindValue(":tipo", 'visualizacoes');
-		$cmdMetaView->bindValue(":meta", $metaView);
-		$cmdMetaView->execute();
+		$retorno = parent::executarFetchAll($sql1, $valores1);
+		$dados = $retorno[0]['dados'];
+		$meta = $dados + ($dados / 100 * 10);
 
-		$orcamento_cadastro = ["orcamento", "cadastro"];
-		for ($i = 0; $i < count($orcamento_cadastro) ; $i++) {
-			$sqlOrcamentoCadastro = "SELECT cliques AS 'conversoes' FROM acesso WHERE mes=:mes AND ano=:ano AND tipo=:tipo";
-			$cmdOc = $conexao->prepare($sqlOrcamentoCadastro);
-			if($this->getMes() == 1){
-				$cmdOc->bindValue(":mes", 12);
-				$cmdOc->bindValue(":ano", $this->getAno() - 1);
-			}
-			else{
-				$cmdOc->bindValue(":mes", $this->getMes() - 1);
-				$cmdOc->bindValue(":ano", $this->getAno());
-			}
-			$cmdOc->bindValue(":tipo", $orcamento_cadastro[$i]);
-			$cmdOc->execute();
-			$total = $cmdOc->fetch();
-			$conversoes = $total['conversoes'];
-			$metaOc = $conversoes + ($conversoes / 100 * 10);
 
-			$insertMetaOc = "INSERT INTO metas VALUES(:mes, :ano, :tipo, :meta)";
-			$cmdMetaOc = $conexao->prepare($insertMetaOc);
-			$cmdMetaOc->bindValue(":mes", $this->getMes());
-			$cmdMetaOc->bindValue(":ano", $this->getAno());
-			$cmdMetaOc->bindValue(":tipo", $orcamento_cadastro[$i]);
-			$cmdMetaOc->bindValue(":meta", $metaOc);
-			$cmdMetaOc->execute();
-		}	
+		$inserirMeta = "INSERT INTO metas VALUES(:mes, :ano, :tipo, :meta)";
+		$valores2["mes"] = $this->getMes();
+		$valores2["ano"] = $this->getAno();
+		$valores2["tipo"] = $grupo;
+		$valores2["meta"] = $meta;
+		parent::executarSql($inserirMeta, $valores2);
 	}
 }
 ?>

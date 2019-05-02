@@ -1,9 +1,4 @@
-<?php 
-require_once"conexao.php";
-require_once"Classes/CriarSessionCliente.php";
-$c1 = new CriarSessionCliente();
-$c1->consultarSession();
-?>
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
