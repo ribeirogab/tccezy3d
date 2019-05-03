@@ -51,7 +51,7 @@
 		<div class="container-login100">
 			<div class="row" id="rowForm">
 				<div class="col-lg-7">
-					<form action="cadastro_cliente.php" method="post" class="login100-form">
+					<form action="controle/cliente.php" method="post" class="login100-form">
 						<span class="login100-form-title p-b-48">
 							<img src="vendor/img/logo/logo_orange.svg" class="float-left" width="40px">
 						</span><br>
@@ -114,8 +114,8 @@
 							</div>
 							<div class="form-group col-md-8 mb-0">
 								<div class="wrap-input100">
-									<select class="input100" name="setor" id="setor">
-										<option value="nada">Setor...</option>
+									<select class="input100" name="ramo" id="ramo">
+										<option value="nada">Ramo...</option>
 										<option value="outro">Outro</option>
 										<option value="Odontologia">Odontologia</option>
 										<option value="">Educação</option>
@@ -124,9 +124,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c" id="setorOutro" style="display: none;">
-							<input class="input100" type="text" name="setoroutro">
-							<span class="focus-input100" data-placeholder="Setor"></span>
+						<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c" id="ramoOutro" style="display: none;">
+							<input class="input100" type="text" name="ramoOutro">
+							<span class="focus-input100" data-placeholder="Ramo"></span>
 						</div>
 
 						<div class="wrap-input100">
@@ -178,12 +178,12 @@
 	<script src="vendor/js/cadastro_main.js"></script>
 	<script>
 		$(document).ready(function() {
-			$("#setor").change(function() {
-				let setor = $(this).val();
-				if(setor === "outro")
-					$("#setorOutro").show();
-				else if(setor != "outro")
-					$("#setorOutro").hide();
+			$("#ramo").change(function() {
+				let ramo = $(this).val();
+				if(ramo === "outro")
+					$("#ramoOutro").show();
+				else if(ramo != "outro")
+					$("#ramoOutro").hide();
 			});
 		});
 

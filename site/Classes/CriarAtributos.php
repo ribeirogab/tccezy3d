@@ -28,6 +28,12 @@ class CriarAtributos extends Data{
 		}
 	}
 
+	public function deletarToday($restricao){
+		$sql = "DELETE FROM today $restricao";
+		$valores["mes"] = $this->getMes();
+		parent::executarSql($sql, $valores);
+	}
+
 	public function criarMetas($coluna, $grupo, $restricao){
 		$sql1 = "SELECT SUM(cliques) AS 'dados' FROM $coluna ".$restricao;
 		if ($this->getMes() == 1){

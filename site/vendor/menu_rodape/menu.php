@@ -101,7 +101,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="login.php" method="post">
+        <form action="controle/cliente.php" method="post">
+          <input type="hidden" name="tipo" value="login">
           <div class="form-group">
             <label class="col-form-label">E-mail:</label>
             <input type="text" class="form-control" name="email">
