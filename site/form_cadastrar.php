@@ -52,6 +52,7 @@
 			<div class="row" id="rowForm">
 				<div class="col-lg-7">
 					<form action="controle/cliente.php" method="post" class="login100-form">
+						<input type="hidden" name="tipo" value="cadastro">
 						<span class="login100-form-title p-b-48">
 							<img src="vendor/img/logo/logo_orange.svg" class="float-left" width="40px">
 						</span><br>

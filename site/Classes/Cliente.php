@@ -16,6 +16,7 @@ class Cliente extends Conexao{
 		$parametros = func_get_args();
 
 		if(count($parametros) != 0){
+			$this->setCod($parametros[0]['cod']);
 			$this->setNome($parametros[0]['nome']);
 			$this->setSobrenome($parametros[0]['sobrenome']);
 			$this->setEmail($parametros[0]['email']);
@@ -25,6 +26,7 @@ class Cliente extends Conexao{
 			$this->setRamo($parametros[0]['ramo']);
 			$this->setEmpresa($parametros[0]['empresa']);
 
+			$this->valores["cod"] = $this->getCod();
 			$this->valores["nome"] = $this->getNome();
 			$this->valores["sobrenome"] = $this->getSobrenome();
 			$this->valores["email"] = $this->getEmail();
