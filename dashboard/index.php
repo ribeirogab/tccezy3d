@@ -1,7 +1,6 @@
 <?php 
-require_once"../site/conexao.php";
-require_once"Today.php";
-require_once"Meta.php";
+require_once"Classes/Today.php";
+require_once"Classes/Meta.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,10 +51,8 @@ require_once"Meta.php";
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Visitantes (hoje)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
                     <?php 
-                    $visitantesHoje = new Today();
-                    $visitantesHoje->setTipo("visitantes");
-                    $visitantesHoje->total();
-                    echo $visitantesHoje->getTotal();
+                    $teste = new Today();
+                    $teste->total("visitantes");
                     ?>
                   </div>
                 </div>
@@ -95,10 +92,8 @@ require_once"Meta.php";
                     <div class="col-auto">
                       <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
                         <?php 
-                        $orcamentosHoje = new Today();
-                        $orcamentosHoje->setTipo("orcamento");
-                        $orcamentosHoje->total();
-                        echo $orcamentosHoje->getTotal();
+                        $teste = new Today();
+                        $teste->total("orcamento");
                         ?>
                       </div>
                     </div>
@@ -121,91 +116,14 @@ require_once"Meta.php";
                   <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">cadastros realizados (hoje)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
                     <?php 
-                    $cadastrosHoje = new Today();
-                    $cadastrosHoje->setTipo("cadastro");
-                    $cadastrosHoje->total();
-                    echo $cadastrosHoje->getTotal();
+                    $teste = new Today();
+                    $teste->total("cadastro");
                     ?>
                   </div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-user fa-2x text-gray-300"></i>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Content Row -->
-
-      <div class="row">
-
-        <!-- Area Chart -->
-        <div class="col-xl-8 col-lg-7">
-          <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h6 class="m-0 font-weight-bold text-primary">Visitantes por mês</h6>
-              <div class="dropdown no-arrow">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                  <div class="dropdown-header">Dropdown Header:</div>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-              <div class="chart-area">
-                <canvas id="myAreaChart"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
-          <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h6 class="m-0 font-weight-bold text-primary">Locais de acesso</h6>
-              <div class="dropdown no-arrow">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                  <div class="dropdown-header">Dropdown Header:</div>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-              <div class="chart-pie pt-4 pb-2">
-                <canvas id="myPieChart"></canvas>
-              </div>
-              <div class="mt-4 text-center small">
-                <span class="mr-2">
-                  <i class="fas fa-circle text-primary"></i> Browser
-                </span>
-                <span class="mr-2">
-                  <i class="fas fa-circle text-success"></i> Google ADS
-                </span>
-                <span class="mr-2">
-                  <i class="fas fa-circle text-info"></i> Facebook
-                </span>
-                <span class="mr-2">
-                  <i class="fas fa-circle text-danger"></i> Instagram
-                </span>
               </div>
             </div>
           </div>
@@ -224,8 +142,7 @@ require_once"Meta.php";
               <h6 class="m-0 font-weight-bold text-primary">Objetivos do mês</h6>
               <?php 
               $metaViews = new Meta();
-              $metaViews->setTipo("visualizacoes");
-              $metaViews->progresso();
+              $metaViews->progresso("visualizacoes");
               ?>
             </div>
             <div class="card-body">
@@ -253,8 +170,7 @@ require_once"Meta.php";
             </div>
             <?php 
             $metaOrcamentos = new Meta();
-            $metaOrcamentos->setTipo("orcamento");
-            $metaOrcamentos->progresso();
+            $metaOrcamentos->progresso("orcamento");
             ?>
             <h4 class="small font-weight-bold">Orçamentos <span class="float-right">
               <?php 
@@ -279,8 +195,7 @@ require_once"Meta.php";
             </div>
             <?php 
             $metaNewsletter = new Meta();
-            $metaNewsletter->setTipo("cadastro");
-            $metaNewsletter->progresso();
+            $metaNewsletter->progresso("cadastro");
             ?>
             <h4 class="small font-weight-bold">Cadastros <span class="float-right">
               <?php 

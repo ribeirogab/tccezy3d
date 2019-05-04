@@ -2,6 +2,11 @@
  if ($visivelm != true) {
   header("Location: ../../home.php");
 }
+session_start();
+if(isset($_SESSION["banana"])){
+  $email = $_SESSION["banana"];
+  $nome = $_SESSION["nome"];
+}
 ?>
 <link rel="stylesheet" href="vendor/css/menu.css">
 
@@ -17,7 +22,7 @@
       <a class="opcoes mr-3 mt-2 float-right btn" id="btn-logar" data-toggle="modal" data-target="#modalLogin">Logar</a>
     <?php } 
     else {?>
-      <a class="mr-5 mt-3 float-right" id="btn-conta"><i class="fas fa-user-circle"></i> <?= $c1->getCliente()?> <i class="fas fa-sort-down"></i></a>
+      <a class="mr-5 mt-3 float-right" id="btn-conta"><i class="fas fa-user-circle"></i> <?=$nome?> <i class="fas fa-sort-down"></i></a>
     <?php }?>
     <div class="container text-center py-3">
       <a class="mr-5" id="btn-impressoras3d">Impressoras 3D</a>
@@ -76,7 +81,7 @@
       </div>
       <hr class="mt-2 mb-2">
       <div >
-        <a class="dropdown-item" href="logout.php">
+        <a class="dropdown-item" href="controle/logout.php">
           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
           Sair
         </a>

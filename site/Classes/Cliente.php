@@ -1,14 +1,14 @@
 <?php 
 class Cliente extends Conexao{
-	private $cod;
-	private $nome;
-	private $sobrenome;
-	private $email;
-	private $telefone;
-	private $senha;
-	private $pais;
-	private $ramo;
-	private $empresa;
+	protected $cod;
+	protected $nome;
+	protected $sobrenome;
+	protected $email;
+	protected $telefone;
+	protected $senha;
+	protected $pais;
+	protected $ramo;
+	protected $empresa;
 
 	public function __construct(){
 		parent::__construct();
@@ -71,17 +71,22 @@ class Cliente extends Conexao{
 	}
 	public function alterar($set){
 		$sql = "UPDATE cliente SET $set";
-		if(parent::executarSqlCud($sql, $this->valores))
+		if(parent::executarSql($sql, $this->valores))
 			echo "<script>alert('Alteração efetuada com sucesso!');</script>";
 		else
 			echo "<script>alert('Falha ao realizar alteração!');</script>";
 	}
 	public function excluir($restricao, $cod){
 		$sql = "DELETE FROM cliente $restricao";
-		if(parent::executarSqlCud($sql, $cod))
+		if(parent::executarSql($sql, $cod))
 			echo "<script>alert('Exclusão efetuada com sucesso!');</script>";
 		else
 			echo "<script>alert('Falha ao realizar exclusão!');</script>";
+	}
+	public function criarSession($email, $nome){
+		session_start();
+		$_SESSION["banana"] = $email;
+		$_SESSION["nome"] = $nome;
 	}
 }
 ?>

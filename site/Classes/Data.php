@@ -1,4 +1,5 @@
 <?php 
+require_once"Conexao.php";
 class Data extends Conexao{
 	protected $dia;
 	protected $mes;
