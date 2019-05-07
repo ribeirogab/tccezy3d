@@ -1,6 +1,6 @@
 <?php 
-require_once"../site/Classes/Data.php";
-class Today extends Data{
+require_once"../site/Classes/CriarAtributos.php";
+class Today extends CriarAtributos{
 	private $tipo;
 	private $total;
 

@@ -74,7 +74,7 @@ if(isset($_SESSION["banana"])){
   if (isset($_SESSION['banana'])) {?>
     <div id="conta" class="pt-2 pb-2" style="width: 158px">
       <div >
-        <a class="dropdown-item" href="perfil.php">
+        <a class="dropdown-item" href="perfil_cliente.php">
           <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
           Perfil
         </a>

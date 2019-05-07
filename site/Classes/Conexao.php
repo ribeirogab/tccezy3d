@@ -26,18 +26,7 @@ class Conexao{
 		return $comando->execute();
 
 	}
-
-	public function executarFetch($sql, $valores){
-		$comando = $this->conexao->prepare($sql);
-		if ($valores != null) {
-			foreach ($valores as $indice => &$valor) {
-				$comando->bindParam($indice, $valor);
-			}
-		}
-		$comando->execute();
-		return $comando->fetch();
-	}
-
+	
 	public function executarFetchAll($sql, $valores){
 		$comando = $this->conexao->prepare($sql);
 		if ($valores != null) {

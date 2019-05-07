@@ -69,9 +69,9 @@ class Cliente extends Conexao{
 		$sql = "SELECT * FROM cliente ".$restricao;
 		return parent::executarFetchAll($sql, $cod);
 	}
-	public function alterar($set){
+	public function alterar($set, $val){
 		$sql = "UPDATE cliente SET $set";
-		if(parent::executarSql($sql, $this->valores))
+		if(parent::executarSql($sql, $val))
 			echo "<script>alert('Alteração efetuada com sucesso!');</script>";
 		else
 			echo "<script>alert('Falha ao realizar alteração!');</script>";
@@ -79,9 +79,9 @@ class Cliente extends Conexao{
 	public function excluir($restricao, $cod){
 		$sql = "DELETE FROM cliente $restricao";
 		if(parent::executarSql($sql, $cod))
-			echo "<script>alert('Exclusão efetuada com sucesso!');</script>";
+			echo "Exclusão efetuada com sucesso!";
 		else
-			echo "<script>alert('Falha ao realizar exclusão!');</script>";
+			echo "Falha ao realizar exclusão!";
 	}
 	public function criarSession($email, $nome){
 		session_start();

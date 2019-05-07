@@ -1,28 +1,47 @@
-<?php
-require_once"../site/conexao.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
   <title>EZY 3D - Dasboard</title>
-
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
   <!-- Custom styles for this template -->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <script src="vendor/jquery/jquery.min.js"></script>
+
+  <style>
+  #btn-nome, #btn-email, #btn-telefone, #btn-pais, #btn-ramo, #btn-empresa, #btn-senha{
+    color: blue;
+    cursor: pointer;
+  }
+  #btn-nome:hover, #btn-email:hover, #btn-telefone:hover, #btn-pais:hover, #btn-ramo:hover, #btn-empresa:hover, #btn-senha:hover{
+    text-decoration: underline;
+  }
+</style>
+<script>
+  function excluirCliente(id, tipo){
+    $.ajax({
+      url: "http://localhost/tccezy3d/site/controle/cliente.php",
+      method: "POST",
+      data: {"id": id, "tipo": tipo},
+      success: function(resposta){
+        alert(resposta)
+        location.reload()
+      },
+
+      error: function(){
+        alert("Erro ao fazer a requisição")
+      } 
+    });   
+  }
+</script>
 
 </head>
 
@@ -57,6 +76,8 @@ require_once"../site/conexao.php";
                 <th>Telefone</th>
                 <th>Ramo</th>
                 <th>Empresa</th>
+                <th>Editar</th>
+
               </tr>
             </thead>
             <tfoot>
@@ -67,32 +88,38 @@ require_once"../site/conexao.php";
                 <th>Telefone</th>
                 <th>Ramo</th>
                 <th>Empresa</th>
+                <th>Editar</th>
               </tr>
             </tfoot>
             <tbody>
-              <?php 
-              $sqlCliente = "SELECT * FROM cliente";
-              $cmdCliente = $conexao->prepare($sqlCliente);
-              $cmdCliente->execute();
-              $todos = $cmdCliente->fetchAll();
-              foreach ($todos as $clientes) {?>
-                <tr>
-                  <td><?= $clientes['idcliente'] ?></td>
-                  <td><?= $clientes['nome'] ?></td>
-                  <td><?= $clientes['email'] ?></td>
-                  <td><?= $clientes['telefone'] ?></td>
-                  <td><?= $clientes['ramo'] ?></td>
-                  <td><?= $clientes['empresa'] ?></td>
-                </tr>
-              <?php } ?>
-            </tbody>
-          </table>
-        </div>
+             <?php 
+             require_once"../site/Classes/Conexao.php";
+             require_once"../site/Classes/Cliente.php";
+             $obj = new Cliente();
+             $registro = $obj->consultar(null, null);
+             foreach ($registro as $cliente) { ?>
+              <tr>
+                <td><?= $cliente['idcliente'] ?></td>
+                <td><?= $cliente['nome'] ?></td>
+                <td><?= $cliente['email'] ?></td>
+                <td><?= $cliente['telefone'] ?></td>
+                <td><?= $cliente['ramo'] ?></td>
+                <td><?= $cliente['empresa'] ?></td>
+                <td class="text-center">
+                  <a class="btn btn-outline-primary" id="btn-alterar" href="javascript:consultarCliente(<?=$cliente['idcliente']?>, 'consultar')">Alterar</a>
+                  <a class="btn btn-outline-danger" onclick="return confirmar()"  href="javascript:excluirCliente(<?=$cliente['idcliente']?>, 'excluir')">Excluir</a>
+                </td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
       </div>
     </div>
-
   </div>
-  <!-- /.container-fluid -->
+
+ 
+</div>
+<!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->
@@ -138,7 +165,7 @@ require_once"../site/conexao.php";
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
+
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->

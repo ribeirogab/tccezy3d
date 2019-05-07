@@ -1,6 +1,14 @@
 <?php 
 require_once"Classes/Today.php";
 require_once"Classes/Meta.php";
+$hoje = new Today();
+$zero = 0;
+$hoje->criarAcessoOuToday("acesso", ":mes, :ano, :tipo, $zero");
+$hoje->criarAcessoOuToday("today", ":dia, :mes, :ano, :tipo, $zero");
+$hoje->criarMetas("acesso", "visualizacoes", "WHERE (mes=:mes AND ano=:ano) AND (tipo='facebook' OR tipo='instagram' OR tipo='googleads' OR tipo='browser')");
+$hoje->deletarToday("WHERE fkmes!=:mes");
+$hoje->criarMetas("acesso", "orcamento", "WHERE mes=:mes AND ano=:ano AND tipo=:tipo");
+$hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:tipo");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +59,7 @@ require_once"Classes/Meta.php";
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Visitantes (hoje)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
                     <?php 
-                    $teste = new Today();
-                    $teste->total("visitantes");
+                    $hoje->total("visitantes");
                     ?>
                   </div>
                 </div>
@@ -92,8 +99,7 @@ require_once"Classes/Meta.php";
                     <div class="col-auto">
                       <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
                         <?php 
-                        $teste = new Today();
-                        $teste->total("orcamento");
+                        $hoje->total("orcamento");
                         ?>
                       </div>
                     </div>
@@ -116,8 +122,7 @@ require_once"Classes/Meta.php";
                   <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">cadastros realizados (hoje)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
                     <?php 
-                    $teste = new Today();
-                    $teste->total("cadastro");
+                    $hoje->total("cadastro");
                     ?>
                   </div>
                 </div>
@@ -132,6 +137,39 @@ require_once"Classes/Meta.php";
 
       <!-- Content Row -->
       <div class="row">
+        <div class="col-xl-8 col-lg-7">
+
+          <!-- Area Chart -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Visualizações</h6>
+            </div>
+            <div class="card-body">
+              <div class="chart-area">
+                <canvas id="myAreaChart"></canvas>
+              </div>
+              <hr>
+              Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+            </div>
+          </div>   
+
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Local de acesso</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+              <div class="chart-pie pt-4">
+                <canvas id="myPieChart"></canvas>
+              </div>
+              <hr>
+              Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
+            </div>
+          </div>
+        </div>
 
         <!-- Content Column -->
         <div class="col-lg-6 mb-4">

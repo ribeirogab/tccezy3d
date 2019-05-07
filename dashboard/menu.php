@@ -24,7 +24,7 @@
         <div>
           <!-- Heading -->
           <div class="sidebar-heading">
-            técnico
+            master
           </div>
 
           <!-- Nav Item - Pages Collapse Menu -->
@@ -36,24 +36,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="configpaginas.php">Páginas</a>
                 <a class="collapse-item" href="configusuarios.php">Usuários</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- Nav Item - Utilities Collapse Menu -->
-          <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-              <i class="fas fa-database"></i>
-              <span>&nbsp;Banco de Dados</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="bdder.php">DER</a>
-                <a class="collapse-item" href="bdexportar.php">Exportar</a>
-                <a class="collapse-item" href="bdconfig.php">Configurações</a>
               </div>
             </div>
           </li>

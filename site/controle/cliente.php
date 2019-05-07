@@ -1,9 +1,7 @@
 <?php 
 require_once"../Classes/Conexao.php";
 require_once"../Classes/Cliente.php";
-foreach ($_POST as $indice => $valor) {
-	$$indice = $valor;
-}
+extract($_POST);
 $cliente = new Cliente();
 if ($tipo == "cadastro"){
 	$dados = ["cod" => 0, "nome" => $nome,"sobrenome" => $sobrenome, "email" => $email, "telefone" => $telefone, "senha" => $senha, "pais" => $pais, "ramo" => $ramo, "empresa" => $empresa];
@@ -20,5 +18,23 @@ else if($tipo == "login"){
 	}
 	else
 		echo "<script>alert('Senha ou email incorreto(s)');window.location.href='../home.php';</script>";	
+}
+else if($tipo == "excluir"){
+	$dados = ["id" => $id];
+	$cliente->excluir("WHERE idcliente=:id", $dados);
+}
+else if($tipo == "consultar"){
+	$dados = ["id" => $id];
+	$retorno = $cliente->consultar("WHERE idcliente=:id", $dados);
+	echo json_encode($retorno);
+}
+else if($tipo == "alterar"){
+	if($subtipo == "nome"){
+		$dados = ["nome" => $nome, "sobrenome" => $sobrenome, "id" => $id];
+		$cliente->alterar("nome=:nome, sobrenome=:sobrenome WHERE idcliente=:id", $dados);
+		$dados2 = ["id" => $id];
+		$retorno = $cliente->consultar("WHERE idcliente=:id", $dados2);
+		echo json_encode($retorno);
+	}
 }
 ?>
