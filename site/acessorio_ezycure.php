@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(isset($_SESSION["banana"]))
+  extract($_SESSION);
+?>
 <!doctype html>
 <html lang="pt-BR">
 <head>

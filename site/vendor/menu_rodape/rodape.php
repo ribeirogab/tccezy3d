@@ -3,7 +3,7 @@
   header("Location: ../../home.php");
 }
 ?>
-<script src="js/voltarAoTopo.js"></script>
+<script src="vendor/js/voltarAoTopo.js"></script>
   <link rel="stylesheet" href="vendor/css/rodape.css">
 
 <div class="smoothscroll-top">

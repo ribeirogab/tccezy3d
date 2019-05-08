@@ -1,13 +1,11 @@
 <?php 
 require_once"conexao.php";
 require_once"Classes/CriarSessionCliente.php";
-foreach ($_POST as $indice => $valor) {
-  $$indice = $valor;
-}
+extract($_POST);
 $sql = "SELECT idcliente FROM cliente WHERE email=:email AND senha=:senha";
 $cmd = $conexao->prepare($sql);
-$cmd->bindParam(":email", $email);
-$cmd->bindParam(":senha", $senha);
+$cmd->bindParam(":email", $email_login);
+$cmd->bindParam(":senha", $senha_login);
 $cmd->execute();
 $id = $cmd->fetch();
 if(!$id)

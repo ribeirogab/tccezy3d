@@ -10,10 +10,10 @@ if ($tipo == "cadastro"){
 	echo "<script>window.location.href='../index.php?tipo=cadastro'</script>";
 }
 else if($tipo == "login"){
-	$dados = ["email" => $email];
+	$dados = ["email" => $email_login];
 	$logon = $cliente->consultar("WHERE email=:email", $dados);
-	if($logon[0]["senha"] === $senha){
-		$cliente->criarSession($logon[0]["email"], $logon[0]["nome"]);
+	if($logon[0]["senha"] === $senha_login){
+		$cliente->criarSession($logon[0]["nome"], $logon[0]["sobrenome"], $logon[0]["email"], $logon[0]["senha"], $logon[0]["telefone"], $logon[0]["pais"], $logon[0]["ramo"], $logon[0]["empresa"]);
 		echo "<script>alert('Logado com sucesso');window.location.href='../home.php'</script>";
 	}
 	else
@@ -29,12 +29,13 @@ else if($tipo == "consultar"){
 	echo json_encode($retorno);
 }
 else if($tipo == "alterar"){
-	if($subtipo == "nome"){
-		$dados = ["nome" => $nome, "sobrenome" => $sobrenome, "id" => $id];
-		$cliente->alterar("nome=:nome, sobrenome=:sobrenome WHERE idcliente=:id", $dados);
-		$dados2 = ["id" => $id];
-		$retorno = $cliente->consultar("WHERE idcliente=:id", $dados2);
-		echo json_encode($retorno);
-	}
+	$dados1 = ["nome" => $nome, "sobrenome" => $sobrenome, "email" => $email, "telefone" => $telefone, "pais" => $pais, "ramo" => $ramo, "empresa" => $empresa, "oldemail" => $oldemail];
+	$cliente->alterar("nome=:nome, sobrenome=:sobrenome, email=:email, telefone=:telefone, pais=:pais, ramo=:ramo, empresa=:empresa WHERE email=:oldemail", $dados1);
+
+	$dados2 = ["email" => $email];
+	$logon = $cliente->consultar("WHERE email=:email", $dados2);
+	$cliente->criarSession($logon[0]["nome"], $logon[0]["sobrenome"], $logon[0]["email"], $logon[0]["telefone"], $logon[0]["pais"], $logon[0]["ramo"], $logon[0]["empresa"]);
+
+	header("Location:../perfil_cliente.php?status=success");
 }
 ?>

@@ -1,12 +1,6 @@
  <?php 
- if ($visivelm != true) {
+ if ($visivelm != true) 
   header("Location: ../../home.php");
-}
-session_start();
-if(isset($_SESSION["banana"])){
-  $email = $_SESSION["banana"];
-  $nome = $_SESSION["nome"];
-}
 ?>
 <link rel="stylesheet" href="vendor/css/menu.css">
 
@@ -110,11 +104,11 @@ if(isset($_SESSION["banana"])){
           <input type="hidden" name="tipo" value="login">
           <div class="form-group">
             <label class="col-form-label">E-mail:</label>
-            <input type="text" class="form-control" name="email">
+            <input type="text" class="form-control" name="email_login">
           </div>
           <div class="form-group">
             <label class="col-form-label">Senha:</label>
-            <input type="text" class="form-control" name="senha">
+            <input type="text" class="form-control" name="senha_login">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -136,7 +130,7 @@ if(isset($_SESSION["banana"])){
     </div>
 
     <div class="text-center">
-      <a class="py-2" href="#"><img src="img/logo/logo_orange.svg" height="28px" alt="EZY 3D"></a>
+      <a class="py-2" href="#"><img src="vendor/img/logo/logo_orange.svg" height="28px" alt="EZY 3D"></a>
     </div>
 
     <div class="text-right w-55px">

@@ -83,10 +83,17 @@ class Cliente extends Conexao{
 		else
 			echo "Falha ao realizar exclusão!";
 	}
-	public function criarSession($email, $nome){
+	public function criarSession($nome, $sobrenome, $email, $senha, $telefone, $pais, $ramo, $empresa){
 		session_start();
-		$_SESSION["banana"] = $email;
 		$_SESSION["nome"] = $nome;
+		$_SESSION["sobrenome"] = $sobrenome;
+		$_SESSION["banana"] = $email;
+		$_SESSION["telefone"] = $telefone;
+		$_SESSION["senha"] = $senha;
+		$_SESSION["pais"] = $pais;
+		$_SESSION["ramo"] = $ramo;
+		$_SESSION["empresa"] = $empresa;
+		
 	}
 }
 ?>
