@@ -15,7 +15,7 @@ $criador->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo
 
 
 // Adicionando cliques
-if (!isset( $_GET["tipo"]))
+if (!isset($_GET["tipo"]))
 	$tipo = "browser";
 else
 	$tipo = $_GET["tipo"];
@@ -28,5 +28,8 @@ $acesso[0] = new AddClique($tipo);
 $cliquesAcesso = $acesso[0]->consultarClique("acesso", "WHERE tipo=:tipo AND mes=:mes AND ano=:ano");
 $acesso[0]->adicionarClique("acesso", "SET cliques=:newclique WHERE tipo=:tipo AND mes=:mes AND ano=:ano", $cliquesAcesso[0][0]);
 
-header("Location: home.php");
+if($_GET["tipo"] == "orcamento")
+	header("Location:controle/orcamento.php");
+else
+	header("Location: home.php");
 ?>

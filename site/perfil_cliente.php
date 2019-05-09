@@ -99,6 +99,14 @@ else
 #alterar-senha, #orcamento, #suporte{
   display: none;
 }
+.confirmarSenha{
+ border: 2px solid red;
+}
+.confirmarSenha:focus{
+  border-color: red;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
+}
 </style>
 <script>
   function buttonDisabled1(){
@@ -117,16 +125,33 @@ else
   }
   setInterval(buttonDisabled1, 0);
 
-function buttonDisabled2(){
-    let senhaold = $("input[name=senhaold]").val()
 
-    if (senhaold == '<?=$senha?>')
+  function buttonDisabled2(){
+    let senhaold = $("input[name=senhaold]").val()
+    let novasenha = $("input[name=novasenha]").val()
+    let confirmarnovasenha = $("input[name=confirmarnovasenha]").val()
+
+    if (senhaold.length >= 8 && novasenha.length >= 8 && confirmarnovasenha.length >= 8)
       $("#btn-alterarsenha").removeAttr("disabled")
     else
-      $("#btn-alterarsenha").attr("disabled", "on")
+      $("#btn-alterarsenha").attr("disabled", "on")    
   }
   setInterval(buttonDisabled2, 0);
 
+
+
+  function buttonDisabled3(){
+    let e1260t = $("input[name=e1260t]").prop("checked")
+    let phylos = $("input[name=phylos]").prop("checked")
+    let coreE3 = $("input[name=coreE3]").prop("checked")
+    let ezycure = $("input[name=ezycure]").prop("checked")
+
+    if (e1260t == true || phylos == true || coreE3 == true || ezycure == true)
+      $("#btn-orcamento").removeAttr("disabled")
+    else
+      $("#btn-orcamento").attr("disabled", "on")
+  }
+  setInterval(buttonDisabled3, 0);
 
 
   $(document).ready(function(){
@@ -135,6 +160,35 @@ function buttonDisabled2(){
     }
     $("#close-alert").click(function(){
       window.location.href='perfil_cliente.php';
+    });
+
+    $("#btn-alterarsenha").on("click", function(){
+      let senhaold = $("input[name=senhaold]").val()
+      let novasenha = $("input[name=novasenha]").val()
+      let confirmarnovasenha = $("input[name=confirmarnovasenha]").val()
+      if (senhaold == '<?=$senha?>' && confirmarnovasenha == novasenha && novasenha != senhaold) {
+        $("#form-senha").submit();
+      }
+      if (senhaold == novasenha){
+        $("input[name=novasenha]").addClass('confirmarSenha');
+      }
+      else{
+        $("input[name=novasenha]").removeClass('confirmarSenha');
+      }
+
+      if (confirmarnovasenha != novasenha){
+        $("input[name=confirmarnovasenha]").addClass('confirmarSenha');
+      }
+      else{
+        $("input[name=confirmarnovasenha]").removeClass('confirmarSenha');
+      }
+
+      if (senhaold != '<?=$senha?>'){
+        $("input[name=senhaold]").addClass('confirmarSenha');
+      }
+      else{
+        $("input[name=senhaold]").removeClass('confirmarSenha');
+      }
     });
 
     $("#btn1").click(function(){
@@ -235,6 +289,8 @@ function buttonDisabled2(){
           <div id="btn4" class="item m-0 pt-3 pb-3">Suporte Técnico</div>
           <div class="d-block d-lg-none" style="border-bottom: solid 1px rgb(0,0,0,.3)"></div>
         </div>
+
+        <!-- EDITAR PERFIL -->
         <div id="editar-perfil" class="col-lg-9 col-12">
           <form action="controle/cliente.php" method="post" id="form-perfil" class="pt-4 container" autocomplete="off">
             <input type="hidden" name="tipo" value="alterar">
@@ -341,8 +397,9 @@ function buttonDisabled2(){
           </form>
         </div>
 
+        <!-- ALTERAR SENHA -->
         <div id="alterar-senha" class="col-lg-9 col-12">
-          <form id="form-perfil" class="pt-4 container" autocomplete="off">
+          <form id="form-senha" class="pt-4 container" autocomplete="off">
 
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Senha Antiga</b></label>
@@ -368,15 +425,18 @@ function buttonDisabled2(){
             <div class="form-group row">
               <label class="col-sm-2 col-form-label"></label>
               <div  class="col-sm-10">
-                <button id="btn-alterarsenha" class="btn btn-primary">Alterar Senha</button><br><br>
+                <input id="btn-alterarsenha" type="button" class="btn btn-primary" value="Alterar Senha"><br><br>
                 <a href="#">Esqueceu a Senha?</a>
               </div>
             </div>
           </form>
         </div>
 
+        <!-- ORÇAMENTO -->
         <div id="orcamento" class="col-lg-9 col-12">
-          <form id="form-perfil" class="pt-4 container" autocomplete="off">
+          <form id="form-perfil" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
+            <input type="hidden" name="idcliente" value="<?=$idcliente?>">
+            <input type="hidden" name="tipo" value="orcamento">
             <h4>Solicitar Orçamento</h4>
             <p>The people listed here are contacts you've uploaded to Instagram. To remove your synced contacts, tap Delete All.</p>
             <hr><br>
@@ -384,20 +444,20 @@ function buttonDisabled2(){
               <label class="col-sm-2 text-left text-sm-right"><b>Impressoras 3D</b></label>
               <div class="col-sm-10">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck1">
-                  <label class="form-check-label" for="gridCheck1">
+                  <input class="form-check-input" type="checkbox" name="e1260t" value="produto_E1260T">
+                  <label class="form-check-label">
                     <b>E1260T - MSLA LCD UV</b>
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck1">
-                  <label class="form-check-label" for="gridCheck1">
+                  <input class="form-check-input" type="checkbox" name="phylos" value="produto_Phylos">
+                  <label class="form-check-label">
                     <b>Phylos - MSLA LCD UV</b>
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck1">
-                  <label class="form-check-label" for="gridCheck1">
+                  <input class="form-check-input" type="checkbox" name="coreE3" value="produto_CoreE3">
+                  <label class="form-check-label">
                     <b>Core E3 - FDM</b>
                   </label>
                 </div>
@@ -407,8 +467,8 @@ function buttonDisabled2(){
               <label class="col-sm-2 text-left text-sm-right"><b>Acessórios</b></label>
               <div class="col-sm-10">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck1">
-                  <label class="form-check-label" for="gridCheck1">
+                  <input class="form-check-input" type="checkbox" name="ezycure" value="produto_EzyCure">
+                  <label class="form-check-label">
                     <b>EzyCure</b>
                   </label>
                 </div>
@@ -418,19 +478,20 @@ function buttonDisabled2(){
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Observaçao</b></label>
               <div  class="col-sm-10">
-                <textarea class="form-control mt-2" name="descricao" cols="5" rows="4" placeholder="Descreva seu problema"></textarea>
+                <textarea class="form-control mt-2" name="descricao" cols="5" rows="4" placeholder="Deixe um comentário"></textarea>
               </div>
             </div>
             <br>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label"></label>
               <div  class="col-sm-10">
-                <button class="btn btn-primary">Enviar</button><br><br>
+                <button id="btn-orcamento" class="btn btn-primary">Enviar</button><br><br>
               </div>
             </div>
           </form>
         </div>
 
+        <!-- SUPORTE TÉCNICO -->
         <div id="suporte" class="col-lg-9 col-12">
           <form id="form-perfil" class="pt-4 container" autocomplete="off">
             <h4>Suporte Técnico</h4>

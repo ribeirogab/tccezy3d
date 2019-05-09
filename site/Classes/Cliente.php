@@ -13,29 +13,6 @@ class Cliente extends Conexao{
 	public function __construct(){
 		parent::__construct();
 		parent::conectar();
-		$parametros = func_get_args();
-
-		if(count($parametros) != 0){
-			$this->setCod($parametros[0]['cod']);
-			$this->setNome($parametros[0]['nome']);
-			$this->setSobrenome($parametros[0]['sobrenome']);
-			$this->setEmail($parametros[0]['email']);
-			$this->setTelefone($parametros[0]['telefone']);
-			$this->setSenha($parametros[0]['senha']);
-			$this->setPais($parametros[0]['pais']);
-			$this->setRamo($parametros[0]['ramo']);
-			$this->setEmpresa($parametros[0]['empresa']);
-
-			$this->valores["cod"] = $this->getCod();
-			$this->valores["nome"] = $this->getNome();
-			$this->valores["sobrenome"] = $this->getSobrenome();
-			$this->valores["email"] = $this->getEmail();
-			$this->valores["telefone"] = $this->getTelefone();
-			$this->valores["senha"] = $this->getSenha();
-			$this->valores["pais"] = $this->getPais();
-			$this->valores["ramo"] = $this->getRamo();
-			$this->valores["empresa"] = $this->getEmpresa();
-		}
 	}
 
 	public function setCod($cod){ $this->cod = $cod; }
@@ -58,9 +35,9 @@ class Cliente extends Conexao{
 	public function getRamo(){ return $this->ramo; }
 	public function getEmpresa(){ return $this->empresa; }
 
-	public function cadastrar(){
-		$sql = "INSERT INTO cliente VALUES(:cod, :nome, :sobrenome, :email, :telefone, :senha, :pais, :ramo, :empresa)";
-		if(parent::executarSql($sql, $this->valores))
+	public function cadastrar($coluna, $restricao, $valores){
+		$sql = "INSERT INTO $coluna VALUES($restricao)";
+		if(parent::executarSql($sql, $valores))
 			echo "<script>alert('Cadastrado efetuado com sucesso!');</script>";
 		else
 			echo "<script>alert('Falha ao realizar cadastro!');</script>";
@@ -71,10 +48,7 @@ class Cliente extends Conexao{
 	}
 	public function alterar($set, $val){
 		$sql = "UPDATE cliente SET $set";
-		if(parent::executarSql($sql, $val))
-			echo "<script>alert('Alteração efetuada com sucesso!');</script>";
-		else
-			echo "<script>alert('Falha ao realizar alteração!');</script>";
+		parent::executarSql($sql, $val);
 	}
 	public function excluir($restricao, $cod){
 		$sql = "DELETE FROM cliente $restricao";
@@ -83,8 +57,9 @@ class Cliente extends Conexao{
 		else
 			echo "Falha ao realizar exclusão!";
 	}
-	public function criarSession($nome, $sobrenome, $email, $senha, $telefone, $pais, $ramo, $empresa){
+	public function criarSession($idcliente, $nome, $sobrenome, $email, $senha, $telefone, $pais, $ramo, $empresa){
 		session_start();
+		$_SESSION["idcliente"] = $idcliente;
 		$_SESSION["nome"] = $nome;
 		$_SESSION["sobrenome"] = $sobrenome;
 		$_SESSION["banana"] = $email;

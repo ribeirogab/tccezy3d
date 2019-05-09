@@ -45,8 +45,8 @@ CREATE TABLE cliente(
 	nome VARCHAR(20) NOT NULL,
 	sobrenome VARCHAR(30) not null,
 	email VARCHAR(40) NOT NULL,
-	telefone CHAR(11) NOT NULL,
 	senha VARCHAR(10) NOT NULL,
+	telefone CHAR(11) NOT NULL,
 	pais VARCHAR(30) NOT NULL,
 	ramo VARCHAR(20),
 	empresa VARCHAR(20)
@@ -54,9 +54,11 @@ CREATE TABLE cliente(
 
 CREATE TABLE orcamento(
 	idorcamento INT PRIMARY KEY AUTO_INCREMENT,
-	produto VARCHAR(30),
 	fkcliente INT,
-	FOREIGN KEY(fkcliente) REFERENCES cliente(idcliente)
+	FOREIGN KEY(fkcliente) REFERENCES cliente(idcliente),
+	produtos VARCHAR(150),
+	descricao TEXT NOT NULL,
+	data DATETIME
 )Engine = InnoDB;
 
 CREATE TABLE suporte(
