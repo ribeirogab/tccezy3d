@@ -9,6 +9,9 @@ require_once"../Classes/Cliente.php";
 extract($_POST);
 $cliente = new Cliente();
 if ($tipo == "cadastro"){
+	if($ramo == "outro")
+		$ramo = $outroRamo;
+	
 	$senhaCriptografada = sha1($senha);
 	$dados = ["cod" => 0, "nome" => $nome,"sobrenome" => $sobrenome, "email" => $email,  "senha" => $senhaCriptografada, "telefone" => $telefone, "pais" => $pais, "ramo" => $ramo, "empresa" => $empresa];
 	$cliente->cadastrar("cliente", ":cod, :nome, :sobrenome, :email, :senha, :telefone, :pais, :ramo, :empresa", $dados);
