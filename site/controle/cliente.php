@@ -9,14 +9,15 @@ require_once"../Classes/Cliente.php";
 extract($_POST);
 $cliente = new Cliente();
 if ($tipo == "cadastro"){
-	$dados = ["cod" => 0, "nome" => $nome,"sobrenome" => $sobrenome, "email" => $email,  "senha" => $senha, "telefone" => $telefone, "pais" => $pais, "ramo" => $ramo, "empresa" => $empresa];
+	$senhaCriptografada = sha1($senha);
+	$dados = ["cod" => 0, "nome" => $nome,"sobrenome" => $sobrenome, "email" => $email,  "senha" => $senhaCriptografada, "telefone" => $telefone, "pais" => $pais, "ramo" => $ramo, "empresa" => $empresa];
 	$cliente->cadastrar("cliente", ":cod, :nome, :sobrenome, :email, :senha, :telefone, :pais, :ramo, :empresa", $dados);
 	echo "<script>window.location.href='../index.php?tipo=cadastro'</script>";
 }
 else if($tipo == "login"){
 	$dados = ["email" => $email_login];
 	$logon = $cliente->consultar("WHERE email=:email", $dados);
-	if($logon[0]["senha"] === $senha_login){
+	if($logon[0]["senha"] === sha1($senha_login)){
 		$cliente->criarSession($logon[0]["idcliente"], $logon[0]["nome"], $logon[0]["sobrenome"], $logon[0]["email"],  $logon[0]["senha"], $logon[0]["telefone"], $logon[0]["pais"], $logon[0]["ramo"], $logon[0]["empresa"]);
 		echo "<script>alert('Logado com sucesso');window.location.href='../home.php'</script>";
 	}
@@ -32,15 +33,33 @@ else if($tipo == "consultar"){
 	$retorno = $cliente->consultar("WHERE idcliente=:id", $dados);
 	echo json_encode($retorno);
 }
+else if($tipo == "consultarSenha"){
+	$senhaold = ["senha" => sha1($inputSenha), "novasenha" => sha1($inputNovaSenha)];
+	echo json_encode($senhaold);
+}
 else if($tipo == "alterar"){
-	$dados1 = ["nome" => $nome, "sobrenome" => $sobrenome, "email" => $email, "telefone" => $telefone, "pais" => $pais, "ramo" => $ramo, "empresa" => $empresa, "oldemail" => $oldemail];
-	$cliente->alterar("nome=:nome, sobrenome=:sobrenome, email=:email, telefone=:telefone, pais=:pais, ramo=:ramo, empresa=:empresa WHERE email=:oldemail", $dados1);
+	session_start();
+	$idcliente = $_SESSION["idcliente"];
+	$dados1 = ["nome" => $nome, "sobrenome" => $sobrenome, "email" => $email, "telefone" => $telefone, "pais" => $pais, "ramo" => $ramo, "empresa" => $empresa, "idcliente" => $idcliente];
+	$cliente->alterar("nome=:nome, sobrenome=:sobrenome, email=:email, telefone=:telefone, pais=:pais, ramo=:ramo, empresa=:empresa WHERE idcliente=:idcliente", $dados1);
 
-	$dados2 = ["email" => $email];
-	$logon = $cliente->consultar("WHERE email=:email", $dados2);
+	$dados2 = ["idcliente" => $idcliente];
+	$logon = $cliente->consultar("WHERE idcliente=:idcliente", $dados2);
 	$cliente->criarSession($logon[0]["idcliente"], $logon[0]["nome"], $logon[0]["sobrenome"], $logon[0]["email"], $logon[0]["senha"], $logon[0]["telefone"], $logon[0]["pais"], $logon[0]["ramo"], $logon[0]["empresa"]);
 
-	header("Location:../perfil_cliente.php?status=success");
+	header("Location:../perfil_cliente.php?status=success1");
+}
+else if($tipo == "alterar-senha"){
+	session_start();
+	$idcliente = $_SESSION["idcliente"];
+	$dados = ["novasenha" => sha1($novasenha), "idcliente" => $idcliente];
+	$cliente->alterar("senha=:novasenha WHERE idcliente=:idcliente", $dados);
+
+	$dados2 = ["idcliente" => $idcliente];
+	$logon = $cliente->consultar("WHERE idcliente=:idcliente", $dados2);
+	$cliente->criarSession($logon[0]["idcliente"], $logon[0]["nome"], $logon[0]["sobrenome"], $logon[0]["email"], $logon[0]["senha"], $logon[0]["telefone"], $logon[0]["pais"], $logon[0]["ramo"], $logon[0]["empresa"]);
+
+	header("Location:../perfil_cliente.php?status=success2");
 }
 else if($tipo == "orcamento"){
 	if(strlen($descricao) == 0){

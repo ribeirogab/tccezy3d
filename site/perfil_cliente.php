@@ -2,8 +2,9 @@
 session_start();
 if(!isset($_SESSION['banana']))
   header("Location:home.php");
-else
+else{
   extract($_SESSION);
+}
 
 if(isset($_GET["status"]))
   $status = $_GET["status"];
@@ -107,6 +108,10 @@ else
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
 }
+#erro1, #erro2, #erro3{
+  color: red;
+  display: none;
+}
 </style>
 <script>
   function buttonDisabled1(){
@@ -155,40 +160,82 @@ else
 
 
   $(document).ready(function(){
-    if('<?=$status?>' == "success"){
+    if('<?=$status?>' == "success1"){
       $("#alert").slideDown('slow');
+      $("#alert-titulo").html("Alterações realizadas com sucesso.")
+    }
+    else if('<?=$status?>' == "success2"){
+      $("#alert").slideDown('slow');
+      $("#alert-titulo").html("Senha alterada com sucesso.")
+      $("#editar-perfil").hide();
+      $("#alterar-senha").show();
+      $("#orcamento").hide();
+      $("#suporte").hide();
+      $("#btn1").removeClass('item-selected');
+      $("#btn1").addClass('item');
+
+      $("#btn2").addClass('item-selected');
+      $("#btn2").removeClass('item');
+
+      $("#btn3").removeClass('item-selected');
+      $("#btn3").addClass('item');
+
+      $("#btn4").removeClass('item-selected');
+      $("#btn4").addClass('item');
     }
     $("#close-alert").click(function(){
       window.location.href='perfil_cliente.php';
     });
 
     $("#btn-alterarsenha").on("click", function(){
-      let senhaold = $("input[name=senhaold]").val()
-      let novasenha = $("input[name=novasenha]").val()
+      let inputSenha = $("input[name=senhaold]").val()
+      let inputNovaSenha = $("input[name=novasenha]").val()
       let confirmarnovasenha = $("input[name=confirmarnovasenha]").val()
-      if (senhaold == '<?=$senha?>' && confirmarnovasenha == novasenha && novasenha != senhaold) {
-        $("#form-senha").submit();
-      }
-      if (senhaold == novasenha){
-        $("input[name=novasenha]").addClass('confirmarSenha');
-      }
-      else{
-        $("input[name=novasenha]").removeClass('confirmarSenha');
-      }
 
-      if (confirmarnovasenha != novasenha){
-        $("input[name=confirmarnovasenha]").addClass('confirmarSenha');
-      }
-      else{
-        $("input[name=confirmarnovasenha]").removeClass('confirmarSenha');
-      }
+      $.ajax({
+        url: "http://localhost/tccezy3d/site/controle/cliente.php",
+        method: "POST",
+        data: {"tipo": "consultarSenha", "inputSenha": inputSenha, "inputNovaSenha": inputNovaSenha},
+        success: function(resposta){
+          var json = $.parseJSON(resposta)
+          let senhaold = json["senha"]
+          let novasenha = json["novasenha"]
 
-      if (senhaold != '<?=$senha?>'){
-        $("input[name=senhaold]").addClass('confirmarSenha');
-      }
-      else{
-        $("input[name=senhaold]").removeClass('confirmarSenha');
-      }
+          if (senhaold == '<?=$senha?>' && confirmarnovasenha == inputNovaSenha && novasenha != senhaold) {
+            $("#form-senha").submit();
+          }
+          if (senhaold == novasenha){
+            $("input[name=novasenha]").addClass('confirmarSenha');
+            $("#erro2").show();
+          }
+          else{
+            $("input[name=novasenha]").removeClass('confirmarSenha');
+            $("#erro2").hide();
+          }
+
+          if (confirmarnovasenha != inputNovaSenha){
+            $("input[name=confirmarnovasenha]").addClass('confirmarSenha');
+            $("#erro3").show();
+          }
+          else{
+            $("input[name=confirmarnovasenha]").removeClass('confirmarSenha');
+            $("#erro3").hide();
+          }
+
+          if (senhaold != '<?=$senha?>'){
+            $("input[name=senhaold]").addClass('confirmarSenha');
+            $("#erro1").show();
+          }
+          else{
+            $("input[name=senhaold]").removeClass('confirmarSenha');
+            $("#erro1").hide();
+          }
+        },
+        error: function(){
+          alert("Erro ao fazer a requisição")
+        } 
+      });
+
     });
 
     $("#btn1").click(function(){
@@ -274,7 +321,7 @@ else
   <div id="alert" class="bg-success">
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-10"><h5 class="text-center">Alterações salvas com sucesso!</h5></div>
+      <div class="col-10"><h5 id="alert-titulo" class="text-center">Alterações salvas com sucesso!</h5></div>
       <div class="col-1"><i id="close-alert" class="fas fa-times text-right"></i></div>
     </div>
   </div>
@@ -399,12 +446,16 @@ else
 
         <!-- ALTERAR SENHA -->
         <div id="alterar-senha" class="col-lg-9 col-12">
-          <form id="form-senha" class="pt-4 container" autocomplete="off">
-
+          <form id="form-senha" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
+            <input type="hidden" name="tipo" value="alterar-senha">
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Senha Antiga</b></label>
               <div  class="col-sm-10">
                 <input class="form-control mt-2" type="text" name="senhaold">
+                <div id="erro1" class="w-100 mt-1">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  <span>Senha antiga incorreta.</span>
+                </div>
               </div>
             </div>
 
@@ -412,13 +463,21 @@ else
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Nova Senha &nbsp;&nbsp;&nbsp;</b></label>
               <div  class="col-sm-10">
                 <input class="form-control mt-2" type="text" name="novasenha">
+                <div id="erro2" class="w-100 mt-1">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  <span>A sua nova senha não pode ser igual a senha antiga.</span>
+                </div>
               </div>
             </div>
 
-            <div class="form-group row text-left text-sm-right">
-              <label class="col-sm-2 col-form-label"><b>Confirmar Nova Senha</b></label>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Confirmar Nova Senha</b></label>
               <div  class="col-sm-10">
-                <input class="form-control mt-2" type="text" name="confirmarnovasenha">
+                <input class="form-control mt-1" type="text" name="confirmarnovasenha">
+                <div id="erro3" class="w-100 mt-2">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  <span>Senhas não coicidem. Tente novamente.</span>
+                </div>
               </div>
             </div>
 

@@ -45,7 +45,7 @@ CREATE TABLE cliente(
 	nome VARCHAR(20) NOT NULL,
 	sobrenome VARCHAR(30) not null,
 	email VARCHAR(40) NOT NULL,
-	senha VARCHAR(10) NOT NULL,
+	senha VARCHAR(40) NOT NULL,
 	telefone CHAR(11) NOT NULL,
 	pais VARCHAR(30) NOT NULL,
 	ramo VARCHAR(20),
