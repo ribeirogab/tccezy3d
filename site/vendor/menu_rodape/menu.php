@@ -94,32 +94,63 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form action="controle/cliente.php" method="post">
-          <input type="hidden" name="tipo" value="login">
-          <div class="form-group">
-            <label class="col-form-label">E-mail:</label>
-            <input type="text" class="form-control" name="email_login">
-          </div>
-          <div class="form-group">
-            <label class="col-form-label">Senha:</label>
-            <input type="text" class="form-control" name="senha_login">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Entrar</button>
-          </div>
-        </form>
+      <div class="modal-body">  
+
+        <!--===============================================================================================-->  
+        <link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico"/>
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/fonts/iconic/css/material-design-iconic-font.min.css">
+        <!--=================================s==============================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/css/cadastro_util.css">
+        <link rel="stylesheet" type="text/css" href="vendor/css/logar_main.css">
+        <!--===============================================================================================-->   
+
+        <div class="wrap-login100" id="formLogar">
+          <form class="login100-form validate-form" action="controle/cliente.php" method="post">
+            <input type="hidden" name="tipo" value="login">
+            <span class="login100-form-title mt-0 pb-3">
+              <img src="vendor/img/logo/logo_orange.svg" width="80px">
+            </span>
+
+            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+              <input class="input100 inputLogin" type="text" name="email">
+              <span class="focus-input100" data-placeholder="Email"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input mt-4" data-validate="Enter password">
+              <span class="btn-show-pass">
+                <i class="zmdi zmdi-eye"></i>
+              </span>
+              <input class="input100 inputLogin" type="password" name="senha">
+              <span class="focus-input100" data-placeholder="Password"></span>
+            </div>
+
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <div class="login100-form-bgbtn"></div>
+                <button class="login100-form-btn buttonLogin">
+                  Login
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--===============================================================================================-->  
+        <script src="vendor/js/logar_main.js"></script>
+        <!--===============================================================================================-->  
       </div>
-      
+
     </div>
   </div>
 </div>
+
+
 
 <!-- menu mobile -->
 <nav id="nav-mobile" class="navbar p-0 d-block d-md-none fixed-top bg-dark">

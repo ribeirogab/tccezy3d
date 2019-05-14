@@ -40,7 +40,7 @@ if(isset($_SESSION['banana']))
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-48">
-						<img src="img/logo/logo_orange.svg" width="80px">
+						<img src="vendor/img/logo/logo_orange.svg" width="80px">
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
@@ -48,7 +48,7 @@ if(isset($_SESSION['banana']))
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
+					<div class="wrap-input100 validate-input mt-4" data-validate="Enter password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
@@ -87,7 +87,7 @@ if(isset($_SESSION['banana']))
 	<!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
-	<script src="js/cadastro_main.js"></script>
+	<script src="vendor/js/cadastro_main.js"></script>
 
 </body>
 </html>

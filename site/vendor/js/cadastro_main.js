@@ -15,8 +15,8 @@
             }
         })    
     })
-  
-  
+
+
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
@@ -37,8 +37,8 @@
 
     $('.validate-form .input100').each(function(){
         $(this).focus(function(){
-           hideValidate(this);
-        });
+         hideValidate(this);
+     });
     });
 
     function validate (input) {
@@ -87,3 +87,137 @@
 
 
 })(jQuery);
+
+
+
+
+
+// ------------------------------------------------
+
+
+
+
+$(document).ready(function() {
+    $("input[name=telefone]").mask("(99) 99999-9999");
+    $("#ramo").change(function() {
+        let ramo = $(this).val();
+        if(ramo === "outro")
+            $("#outroRamo").show();
+        else if(ramo != "outro")
+            $("#outroRamo").hide();
+    });
+
+    $("#btn-submit").on("click", function() {
+        let nome = $("input[name=nome]").val()
+        let sobrenome = $("input[name=sobrenome]").val()
+        let email = $("input[name=email]").val()
+        let telefone = $("input[name=telefone]").val()
+        let senha = $("input[name=senha]").val()
+        let confirmarSenha = $("input[name=confirmarSenha]").val()
+        let pais = $("select[name=pais]").val()
+        let ramo = $("select[name=ramo]").val()
+        let outroRamo = $("input[name=outroRamo]").val()
+
+        $.ajax({
+            url: "http://localhost/tccezy3d/site/controle/cliente.php",
+            method: "POST",
+            data: {"tipo": "verificarEmail", "email": email},
+            success: function(resposta){
+                let requisicao = 0;
+                var json = $.parseJSON(resposta)
+                let verificarEmail = json[0][0]
+
+                if(verificarEmail != 0)
+                    $("#erroEmailExiste").show()
+                else{
+                    $("#erroEmailExiste").hide()
+                    requisicao++
+                }
+
+                if(nome.length < 3 || nome.length >= 30)
+                    $("#erroNome").show()
+                else{
+                    $("#erroNome").hide()
+                    requisicao++
+                }
+
+                if(sobrenome.length < 3 || sobrenome.length >= 50)
+                    $("#erroSobrenome").show()
+                else{
+                    $("#erroSobrenome").hide()
+                    requisicao++
+                }
+
+                if(email.length < 3 || email.indexOf("@") == -1 || email.length >= 50)
+                    $("#erroEmail").show()
+                else{
+                    $("#erroEmail").hide()
+                    requisicao++
+                }
+
+                if(telefone.length != 15)
+                    $("#erroTelefone").show()
+                else{
+                    $("#erroTelefone").hide()
+                    requisicao++
+                }
+
+                if(!senha.match(/[0-9]/g) || !senha.match(/[a-z]/g) || senha.length < 8){
+                    $("#erroSenha").show()
+                    $("#warning-senha").show()
+                    $("#avisoSenha").css("color", "red")
+                }
+                else{
+                    $("#erroSenha").hide()
+                    $("#warning-senha").hide()
+                    $("#avisoSenha").css("color", "#555555")
+                    requisicao++
+                }
+
+                if(confirmarSenha != senha)
+                    $("#erroConfirmarSenha").show()
+                else{
+                    $("#erroConfirmarSenha").hide()
+                    requisicao++
+                }
+
+                if (pais == "null")
+                    $("#erroPais").show()
+                else{
+                    $("#erroPais").hide()
+                    requisicao++
+                }
+
+                if (ramo == "null"){
+                    $("#erroRamo").show()
+                    $("#erroOutroRamo").hide()
+                }
+                else if(ramo == "outro"){
+                    ramo = outroRamo
+                    if(ramo < 3){
+                        $("#erroOutroRamo").show()
+                        $("#erroRamo").hide()
+                    }
+                    else{
+                        $("#erroRamo").hide()
+                        $("#erroOutroRamo").hide()
+                        requisicao++
+                    }
+                }
+                else{
+                    $("#erroRamo").hide()
+                    requisicao++
+                }
+
+                if(requisicao === 9){
+                    $("input[name=telefone]").unmask();
+                    $("#form-cadastro").submit();
+                }
+            },
+            error: function(){
+              alert("Erro ao fazer a requisição")
+          } 
+      });
+        
+    });
+});

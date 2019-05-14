@@ -32,4 +32,11 @@ if($_GET["tipo"] == "orcamento")
 	header("Location:controle/orcamento.php");
 else
 	header("Location: home.php");
+
+if($_GET["tipo"] == "cadastro"){
+	$email = $_GET['email'];
+	header("Location:home.php?email=$email");
+}
+else
+	header("Location: home.php");
 ?>

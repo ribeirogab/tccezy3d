@@ -154,7 +154,7 @@ if(isset($_SESSION["banana"]))
   <?php 
   $visivelr = true;
   include"vendor/menu_rodape/rodape.php"
-  ?>
+  ?> 
 </main>
 </body>
 </html>

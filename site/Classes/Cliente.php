@@ -35,15 +35,15 @@ class Cliente extends Conexao{
 	public function getRamo(){ return $this->ramo; }
 	public function getEmpresa(){ return $this->empresa; }
 
-	public function cadastrar($coluna, $restricao, $valores){
-		$sql = "INSERT INTO $coluna VALUES($restricao)";
+	public function cadastrar($tabela, $restricao, $valores){
+		$sql = "INSERT INTO $tabela VALUES($restricao)";
 		if(parent::executarSql($sql, $valores))
 			echo "<script>alert('Cadastrado efetuado com sucesso!');</script>";
 		else
 			echo "<script>alert('Falha ao realizar cadastro!');</script>";
 	}
-	public function consultar($restricao, $cod){
-		$sql = "SELECT * FROM cliente ".$restricao;
+	public function consultar($coluna, $restricao, $cod){
+		$sql = "SELECT $coluna FROM cliente $restricao";
 		return parent::executarFetchAll($sql, $cod);
 	}
 	public function alterar($set, $val){
