@@ -35,7 +35,6 @@ if(isset($_SESSION['banana']))
 </head>
 <body>
 	
-	<div class="">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
@@ -44,7 +43,7 @@ if(isset($_SESSION['banana']))
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
+						<input class="input100" type="text" name="email_login">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
@@ -52,7 +51,7 @@ if(isset($_SESSION['banana']))
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="senha_login">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
@@ -67,7 +66,7 @@ if(isset($_SESSION['banana']))
 				</form>
 			</div>
 		</div>
-	</div>
+
 	
 
 	<div id="dropDownSelect1"></div>

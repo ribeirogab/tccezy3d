@@ -57,9 +57,9 @@ if(isset($_SESSION['banana']))
 								<div id="erroNome">
 									<div class="row">
 										<div class="col-1">
-											<i class="fas fa-exclamation-circle mr-1"></i>
+											<i class="fas fa-exclamation-circle"></i>
 										</div>
-										<div class="col-9">
+										<div class="col-10">
 											<span>Pelo menos 3 caracteres requeridos.</span>
 										</div>
 									</div>
@@ -73,9 +73,9 @@ if(isset($_SESSION['banana']))
 								<div id="erroSobrenome">
 									<div class="row">
 										<div class="col-1">
-											<i class="fas fa-exclamation-circle mr-1"></i>
+											<i class="fas fa-exclamation-circle"></i>
 										</div>
-										<div class="col-9">
+										<div class="col-10">
 											<span>Pelo menos 3 caracteres requeridos.</span>
 										</div>
 									</div>
@@ -91,9 +91,9 @@ if(isset($_SESSION['banana']))
 							<div id="erroEmail">
 								<div class="row">
 									<div class="col-1">
-										<i class="fas fa-exclamation-circle mr-1"></i>
+										<i class="fas fa-exclamation-circle"></i>
 									</div>
-									<div class="col-9">
+									<div class="col-10">
 										<span>Informe um e-mail inválido.</span>
 									</div>
 								</div>
@@ -101,9 +101,9 @@ if(isset($_SESSION['banana']))
 							<div id="erroEmailExiste">
 								<div class="row">
 									<div class="col-1">
-										<i class="fas fa-exclamation-circle mr-1"></i>
+										<i class="fas fa-exclamation-circle"></i>
 									</div>
-									<div class="col-9">
+									<div class="col-10">
 										<span>Este e-mail já está sendo utilizado.</span>
 									</div>
 								</div>
@@ -118,9 +118,9 @@ if(isset($_SESSION['banana']))
 							<div id="erroTelefone">
 								<div class="row">
 									<div class="col-1">
-										<i class="fas fa-exclamation-circle mr-1"></i>
+										<i class="fas fa-exclamation-circle"></i>
 									</div>
-									<div class="col-9">
+									<div class="col-10">
 										<span>Informe um telefone inválido.</span>
 									</div>
 								</div>
@@ -139,9 +139,9 @@ if(isset($_SESSION['banana']))
 								<div id="erroSenha">
 									<div class="row">
 										<div class="col-1">
-											<i class="fas fa-exclamation-circle mr-1"></i>
+											<i class="fas fa-exclamation-circle"></i>
 										</div>
-										<div class="col-9">
+										<div class="col-10">
 											<span>Informe uma senha válida.</span>
 										</div>
 									</div>
@@ -158,9 +158,9 @@ if(isset($_SESSION['banana']))
 								<div id="erroConfirmarSenha">
 									<div class="row">
 										<div class="col-1">
-											<i class="fas fa-exclamation-circle mr-1"></i>
+											<i class="fas fa-exclamation-circle"></i>
 										</div>
-										<div class="col-9">
+										<div class="col-10">
 											<span>Senhas não coecidem.</span>
 										</div>
 									</div>
@@ -355,9 +355,9 @@ if(isset($_SESSION['banana']))
 								<div id="erroPais">
 									<div class="row">
 										<div class="col-1">
-											<i class="fas fa-exclamation-circle mr-1"></i>
+											<i class="fas fa-exclamation-circle"></i>
 										</div>
-										<div class="col-9">
+										<div class="col-10">
 											<span>Selecione um pais.</span>
 										</div>
 									</div>
@@ -380,9 +380,9 @@ if(isset($_SESSION['banana']))
 								<div id="erroRamo">
 									<div class="row">
 										<div class="col-1">
-											<i class="fas fa-exclamation-circle mr-1"></i>
+											<i class="fas fa-exclamation-circle"></i>
 										</div>
-										<div class="col-9">
+										<div class="col-10">
 											<span>Selecione um Ramo</span>
 										</div>
 									</div>
@@ -396,9 +396,9 @@ if(isset($_SESSION['banana']))
 							</div>
 							<div class="row" id="erroOutroRamo">
 								<div class="col-1">
-									<i class="fas fa-exclamation-circle mr-1"></i>
+									<i class="fas fa-exclamation-circle"></i>
 								</div>
-								<div class="col-9">
+								<div class="col-10">
 									<span>3 caracteres requeridos</span>
 								</div>
 							</div>

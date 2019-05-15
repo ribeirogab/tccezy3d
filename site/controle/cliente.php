@@ -20,25 +20,32 @@ else if ($tipo == "cadastro"){
 	if($qtdEmail[0][0] != 0)
 		header("Location: ../form_cadastrar.php?error=true");
 	else{
-		if($ramo == "outro")
-			$ramo = $outroRamo;
+		if (strlen($nome) < 3 || strlen($sobrenome) < 3 || strlen($telefone) != 11 || strlen($senha) < 8 || strlen($confirmarSenha) < 8 || $pais == "null" || $ramo == "null")
+			header("Location:../home.php");
 
-// FAZER REQUISIÇÕES
+		else{	
+			if($ramo == "outro")
+				$ramo = $outroRamo;
 
-		$senhaCriptografada = sha1($senha);
-		$dados = ["cod" => 0, "nome" => $nome,"sobrenome" => $sobrenome, "email" => $email,  "senha" => $senhaCriptografada, "telefone" => $telefone, "pais" => $pais, "ramo" => $ramo, "empresa" => $empresa];
-		$cliente->cadastrar("cliente", ":cod, :nome, :sobrenome, :email, :senha, :telefone, :pais, :ramo, :empresa", $dados);
-		header("Location: ../index.php?tipo=cadastro&email=$email");
+			$senhaCriptografada = sha1($senha);
+			$dados = ["cod" => 0, "nome" => $nome,"sobrenome" => $sobrenome, "email" => $email,  "senha" => $senhaCriptografada, "telefone" => $telefone, "pais" => $pais, "ramo" => $ramo, "empresa" => $empresa];
+			$cliente->cadastrar("cliente", ":cod, :nome, :sobrenome, :email, :senha, :telefone, :pais, :ramo, :empresa", $dados);
+			header("Location: ../index.php?tipo=cadastro&email=$email");
+		}
 	}
 }
 
-
+else if($tipo == "verificarLogin"){
+	$dados = ["email" => $email, "senha" => sha1($senha)];
+	$qtdLogin = $cliente->consultar("count(*)", "WHERE email=:email AND senha=:senha", $dados);
+	echo json_encode($qtdLogin, JSON_UNESCAPED_UNICODE);
+}
 else if($tipo == "login"){
 	$dados = ["email" => $email_login];
 	$logon = $cliente->consultar("*", "WHERE email=:email", $dados);
 	if($logon[0]["senha"] === sha1($senha_login)){
 		$cliente->criarSession($logon[0]["idcliente"], $logon[0]["nome"], $logon[0]["sobrenome"], $logon[0]["email"],  $logon[0]["senha"], $logon[0]["telefone"], $logon[0]["pais"], $logon[0]["ramo"], $logon[0]["empresa"]);
-		header("Location: ../home.php");
+		header("Location: ../perfil_cliente.php");
 	}
 	else
 		echo "<script>alert('Senha ou email incorreto(s)');window.location.href='../home.php';</script>";	

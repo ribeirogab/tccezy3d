@@ -112,14 +112,14 @@
         <!--===============================================================================================-->   
 
         <div class="wrap-login100" id="formLogar">
-          <form class="login100-form validate-form" action="controle/cliente.php" method="post">
+          <form id="form-modal-login" class="login100-form validate-form" action="controle/cliente.php" method="post">
             <input type="hidden" name="tipo" value="login">
             <span class="login100-form-title mt-0 pb-3">
               <img src="vendor/img/logo/logo_orange.svg" width="80px">
             </span>
 
             <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-              <input class="input100 inputLogin" type="text" name="email">
+              <input id="focus-email" class="input100 inputLogin" type="text" name="email_login">
               <span class="focus-input100" data-placeholder="Email"></span>
             </div>
 
@@ -127,22 +127,83 @@
               <span class="btn-show-pass">
                 <i class="zmdi zmdi-eye"></i>
               </span>
-              <input class="input100 inputLogin" type="password" name="senha">
+              <input class="input100 inputLogin" type="password" name="senha_login">
               <span class="focus-input100" data-placeholder="Password"></span>
             </div>
-
+            <div id="loginIncorreto" class="w-100 bg-warning p-2 mt-3" style="display: none">
+              <div class="row" id="erroOutroRamo">
+                <div class="col-1">
+                  <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="col-9">
+                  <span>Senha ou e-mail incorreto(s).</span>
+                </div>
+                <div class="col-2 text-right">
+                  <i id="btnClose-loginIncorreto" class="fas fa-times" style="font-size: 12px;cursor: pointer;"></i>
+                </div>
+              </div>
+            </div>
             <div class="container-login100-form-btn">
               <div class="wrap-login100-form-btn">
                 <div class="login100-form-bgbtn"></div>
-                <button class="login100-form-btn buttonLogin">
+                <div id="btn-login" class="login100-form-btn buttonLogin">
                   Login
-                </button>
+                </div>
               </div>
             </div>
           </form>
         </div>
         <!--===============================================================================================-->  
         <script src="vendor/js/logar_main.js"></script>
+        <script>
+          <?php 
+          if(isset($_GET["email"]))
+            $getEmail = $_GET["email"];
+          else
+            $getEmail = 'null';
+          ?>
+          if('<?=$getEmail?>' != 'null'){
+            let email = '<?=$getEmail?>'
+            $(document).ready(function() {
+              $('#modalLogin').modal('show')
+              $("input[name=email_login]").val(email)
+              $("#focus-email").addClass('has-val');
+            })
+          }
+
+          $("#btn-login").on("click", function(){
+            let email = $("input[name=email_login]").val()
+            let senha = $("input[name=senha_login]").val()
+            $.ajax({
+              url: "http://localhost/tccezy3d/site/controle/cliente.php",
+              method: "POST",
+              data: {"tipo": "verificarLogin", "email": email, "senha": senha},
+              success: function(resposta){
+                let requisicao = 0;
+                var json = $.parseJSON(resposta)
+                let verificarLogin = json[0][0]
+
+                if(verificarLogin != 1)
+                  $("#loginIncorreto").fadeIn('slow')
+                else{
+                  $("#loginIncorreto").hide()
+                  requisicao++
+                }
+
+                if(requisicao === 1){
+                  $("#form-modal-login").submit();
+                }
+              },
+              error: function(){
+                alert("Erro ao fazer a requisição")
+              } 
+            });
+          });
+
+          $("#btnClose-loginIncorreto").click(function(){
+            $("#loginIncorreto").hide()
+          })
+        </script>
         <!--===============================================================================================-->  
       </div>
 

@@ -96,7 +96,7 @@
              require_once"../site/Classes/Conexao.php";
              require_once"../site/Classes/Cliente.php";
              $obj = new Cliente();
-             $registro = $obj->consultar(null, null);
+             $registro = $obj->consultar("*", null, null);
              foreach ($registro as $cliente) { ?>
               <tr>
                 <td><?= $cliente['idcliente'] ?></td>
