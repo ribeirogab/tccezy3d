@@ -194,7 +194,7 @@ $(document).ready(function() {
                 }
                 else if(ramo == "outro"){
                     ramo = outroRamo
-                    if(ramo < 3){
+                    if(ramo.length < 3){
                         $("#erroOutroRamo").show()
                         $("#erroRamo").hide()
                     }
@@ -215,7 +215,7 @@ $(document).ready(function() {
                 }
             },
             error: function(){
-              alert("Erro ao fazer a requisição")
+              window.location.hred="../../404.html"
           } 
       });
         

@@ -8,6 +8,7 @@ if(isset($_SESSION['banana']))
 <head>
 	<title>Login V2</title>
 	<meta charset="UTF-8">
+	<noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 	<link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->	

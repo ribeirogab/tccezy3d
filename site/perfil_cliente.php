@@ -24,6 +24,8 @@ else
   <link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
   <!-- Jquery -->
   <script type="text/javascript" src="vendor/jquery/jquery.js"></script>
+  <!-- MASK -->
+  <script type="text/javascript" src="vendor/jquery/jquery.mask.js"></script>
   <!-- Bootstrap JS -->
   <script src="vendor/bootstrap/js/bootstrap.js"></script>
   <!-- Main -->
@@ -112,6 +114,12 @@ else
   color: red;
   display: none;
 }
+#erroNome, #erroSobrenome, #erroEmail, #erroEmailExiste, #erroTelefone, #erroSenha, #erroConfirmarSenha, #erroPais, #erroRamo, #erroOutroRamo1{
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+  display: none;
+}
 </style>
 <script>
   function buttonDisabled1(){
@@ -123,12 +131,12 @@ else
     let ramo = $("select[name=ramo]").val()
     let empresa = $("input[name=empresa]").val()
 
-    if (nome != '<?=$nome?>' || sobrenome != '<?=$sobrenome?>' || email != '<?=$banana?>' || telefone != '<?=$telefone?>' || pais != '<?=$pais?>' || ramo != '<?=$ramo?>' || empresa != '<?=$empresa?>')
+    if (nome != '<?=$nome?>' || sobrenome != '<?=$sobrenome?>' || email != '<?=$banana?>' || telefone != '<?=$telefone?>' || pais != '<?=$pais?>' || (ramo != '<?=$ramo?>') || empresa != '<?=$empresa?>')
       $("#btn-alterarPerfil").removeAttr("disabled")
     else
       $("#btn-alterarPerfil").attr("disabled", "on")
   }
-  setInterval(buttonDisabled1, 0);
+  setInterval(buttonDisabled1, 0)
 
 
   function buttonDisabled2(){
@@ -141,8 +149,7 @@ else
     else
       $("#btn-alterarsenha").attr("disabled", "on")    
   }
-  setInterval(buttonDisabled2, 0);
-
+  setInterval(buttonDisabled2, 0)
 
 
   function buttonDisabled3(){
@@ -156,10 +163,24 @@ else
     else
       $("#btn-orcamento").attr("disabled", "on")
   }
-  setInterval(buttonDisabled3, 0);
+  setInterval(buttonDisabled3, 0)
+
+
+  function buttonDisabled4(){
+    let maquina = $("select[name=maquina]").val()
+    let problema = $("select[name=problema]").val()
+    let descricao = $("#textareaDescricao").val()
+
+    if (maquina != "null" && problema != "null" && descricao.length >= 15)
+      $("#btn-suporte").removeAttr("disabled")
+    else
+      $("#btn-suporte").attr("disabled", "on")
+  }
+  setInterval(buttonDisabled4, 0)
 
 
   $(document).ready(function(){
+    $("input[name=telefone]").mask("99999999999")
     if('<?=$status?>' == "success1"){
       $("#alert").slideDown('slow');
       $("#alert-titulo").html("Alterações realizadas com sucesso.")
@@ -309,6 +330,114 @@ else
       $("#btn4").addClass('item-selected');
       $("#btn4").removeClass('item');
     });
+
+    // --------------------------------------------
+
+    $("#ramo").change(function() {
+      let ramo = $(this).val();
+      if(ramo === "outro")
+        $("#outroRamo").show();
+      else if(ramo != "outro")
+        $("#outroRamo").hide();
+    });
+
+    $("#teste").click(function(){
+      $("#erroOutroRamo1").toggle()
+    });
+
+    $("#btn-alterarPerfil").on("click", function() {
+      let nome = $("input[name=nome]").val()
+      let sobrenome = $("input[name=sobrenome]").val()
+      let email = $("input[name=email]").val()
+      let telefone = $("input[name=telefone]").val()
+      let senha = $("input[name=senha]").val()
+      let confirmarSenha = $("input[name=confirmarSenha]").val()
+      let pais = $("select[name=pais]").val()
+      let ramo = $("select[name=ramo]").val()
+      let outroRamo = $("input[name=outroRamo]").val()
+
+      $.ajax({
+        url: "http://localhost/tccezy3d/site/controle/cliente.php",
+        method: "POST",
+        data: {"tipo": "verificarEmail", "email": email},
+        success: function(resposta){
+          let requisicao = 0;
+          var json = $.parseJSON(resposta)
+          let verificarEmail = json[0][0]
+
+          if(verificarEmail != 0)
+            $("#erroEmailExiste").show()
+          else{
+            $("#erroEmailExiste").hide()
+            requisicao++
+          }
+
+          if(nome.length < 3 || nome.length >= 30)
+            $("#erroNome").show()
+          else{
+            $("#erroNome").hide()
+            requisicao++
+          }
+
+          if(sobrenome.length < 3 || sobrenome.length >= 50)
+            $("#erroSobrenome").show()
+          else{
+            $("#erroSobrenome").hide()
+            requisicao++
+          }
+
+          if(email.length < 3 || email.indexOf("@") == -1 || email.length >= 50)
+            $("#erroEmail").show()
+          else{
+            $("#erroEmail").hide()
+            requisicao++
+          }
+
+          if(telefone.length != 11)
+            $("#erroTelefone").show()
+          else{
+            $("#erroTelefone").hide()
+            requisicao++
+          }
+
+          if (pais == "null")
+            $("#erroPais").show()
+          else{
+            $("#erroPais").hide()
+            requisicao++
+          }
+
+          if (ramo.length < 3){
+            $("#erroRamo").show()
+            $("#erroOutroRamo1").hide()
+          }
+          else if(ramo == "outro"){
+            ramo = outroRamo
+            if(ramo.length < 3){
+              $("#erroOutroRamo1").show()
+              $("#erroRamo").hide()
+            }
+            else{
+              $("#erroRamo").hide()
+              $("#erroOutroRamo1").hide()
+              requisicao++
+            }
+          }
+          else{
+            $("#erroRamo").hide()
+            requisicao++
+          }
+
+          if(requisicao === 7){
+            $("#form-editar-perfil").submit();
+          }
+        },
+        error: function(){
+          window.location.hred="../../404.html"
+        } 
+      });
+
+    });
   });
 </script>
 </head>
@@ -339,20 +468,28 @@ else
 
         <!-- EDITAR PERFIL -->
         <div id="editar-perfil" class="col-lg-9 col-12">
-          <form action="controle/cliente.php" method="post" id="form-perfil" class="pt-4 container" autocomplete="off">
+          <form id="form-editar-perfil" action="controle/cliente.php" method="post" id="form-perfil" class="pt-4 container" autocomplete="off">
             <input type="hidden" name="tipo" value="alterar">
 
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Nome</b></label>
               <div  class="col-sm-10">
-                <input class="form-control" type="text" name="nome" value="<?=$nome?>" required>
+                <input class="form-control" type="text" name="nome" value="<?=$nome?>" minlength="3" maxlength="30" required>
+                <div id="erroNome">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Pelo menos 3 caracteres requeridos.</span> 
+                </div>
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Sobrenome</b></label>
               <div  class="col-sm-10">
-                <input class="form-control" type="text" name="sobrenome" value="<?=$sobrenome?>" required>
+                <input class="form-control" type="text" name="sobrenome" value="<?=$sobrenome?>" minlength="3" maxlength="50" required>
+                <div id="erroSobrenome">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Pelo menos 3 caracteres requeridos.</span> 
+                </div>
               </div>
             </div>
 
@@ -372,18 +509,39 @@ else
                   <option value="2">Masculino</option>
                   <option value="3">Outro</option>
                 </select>
+                <div id="erroPais">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Informe seu Pais.</span> 
+                </div>
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Ramo</b></label>
               <div  class="col-sm-5">
-                <select class="custom-select my-1 mr-sm-2" name="ramo">
+                <select class="custom-select my-1 mr-sm-2" id="ramo" name="ramo">
                   <option selected value="<?=$ramo?>" required><?=$ramo?></option>
                   <option value="1">Feminino</option>
                   <option value="2">Masculino</option>
-                  <option value="3">Outro</option>
+                  <option value="outro">Outro</option>
                 </select>
+                <div id="erroRamo">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Informe seu Ramo.</span> 
+                </div>
+              </div>
+            </div>
+
+            <div id="outroRamo" style="display: none;">
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Outro Ramo</b></label>
+                <div  class="col-sm-5">
+                  <input class="form-control" type="text" name="outroRamo" minlength="3" maxlength="20" required>
+                  <div id="erroOutroRamo1">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    <span>3 caracteres requeridos</span>
+                  </div>
+                </div>
               </div>
             </div>
             
@@ -399,19 +557,31 @@ else
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>E-mail</b></label>
               <div  class="col-sm-10">
-                <input class="form-control" type="hidden" name="oldemail" value="<?=$banana?>" required>
-                <input class="form-control" type="email" name="email" value="<?=$banana?>" required>
+                <input class="form-control" type="hidden" name="oldemail" value="<?=$banana?>" minlength="3" maxlength="60" required>
+                <input class="form-control" type="email" name="email" value="<?=$banana?>" minlength="3" maxlength="60" required>
+                <div id="erroEmail">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Digite um e-mail válido.</span> 
+                </div>
+                <div id="erroEmailExiste">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Este e-mail já está sendo utilizado.</span>
+                </div>
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Telefone</b></label>
               <div  class="col-sm-10">
-                <input class="form-control" type="text" name="telefone" value="<?=$telefone?>" required>
+                <input class="form-control" type="text" name="telefone" value="<?=$telefone?>" minlength="11" maxlength="11" required>
+                <div id="erroTelefone">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Digite um telefone válido. (o DDD é necessário)</span> 
+                </div>
               </div>
             </div>
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Genero</b></label>
               <div  class="col-sm-5">
                 <select class="custom-select my-1 mr-sm-2" name="genero">
@@ -433,12 +603,12 @@ else
                   </label>
                 </div>
               </div>
-            </div>
+            </div> -->
             <br>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label"></label>
               <div  class="col-sm-10">
-                <button type="submit" id="btn-alterarPerfil" disabled class="btn btn-primary">Enviar</button><br><br>
+                <input type="button" id="btn-alterarPerfil" disabled class="btn btn-primary" value="Enviar"><br><br>
               </div>
             </div>
           </form>
@@ -552,29 +722,31 @@ else
 
         <!-- SUPORTE TÉCNICO -->
         <div id="suporte" class="col-lg-9 col-12">
-          <form id="form-perfil" class="pt-4 container" autocomplete="off">
+          <form id="form-perfil" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
+            <input type="hidden" name="tipo" value="suporte">
             <h4>Suporte Técnico</h4>
             <p>The people listed here are contacts you've uploaded to Instagram. To remove your synced contacts, tap Delete All.</p>
             <hr><br>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Máquina</b></label>
               <div  class="col-sm-5">
-                <select class="custom-select my-1 mr-sm-2 mt-2">
-                  <option selected>Não especificado</option>
-                  <option value="1">Feminino</option>
-                  <option value="2">Masculino</option>
-                  <option value="3">Outro</option>
+                <select name="maquina" class="custom-select my-1 mr-sm-2 mt-2">
+                  <option selected value="null">Selecione a sua máquina...</option>
+                  <option value="E1260T">E1260T</option>
+                  <option value="Phylos">Phylos</option>
+                  <option value="CoreE3">Core E3</option>
+                  <option value="EzyCure">EzyCure</option>
                 </select>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Problema</b></label>
               <div  class="col-sm-5">
-                <select class="custom-select my-1 mr-sm-2 mt-2">
-                  <option selected>Não especificado</option>
-                  <option value="1">Feminino</option>
-                  <option value="2">Masculino</option>
-                  <option value="3">Outro</option>
+                <select name="problema" class="custom-select my-1 mr-sm-2 mt-2">
+                  <option selected value="null">Selecione seu problema...</option>
+                  <option value="Falha na impressão">Falha na Impressão</option>
+                  <option value="Troca de LCD">Troca de LCD</option>
+                  <option value="Outro">Outro</option>
                 </select>
               </div>
             </div>
@@ -582,14 +754,14 @@ else
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Descrição</b></label>
               <div  class="col-sm-10">
-                <textarea class="form-control mt-2" name="descricao" cols="5" rows="7" placeholder="Descreva seu problema"></textarea>
+                <textarea id="textareaDescricao" class="form-control mt-2" name="descricao" cols="5" rows="7" placeholder="Descreva seu problema"></textarea>
               </div>
             </div>
             <br>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label"></label>
               <div  class="col-sm-10">
-                <button class="btn btn-primary">Enviar</button><br><br>
+                <button id="btn-suporte" class="btn btn-primary">Enviar</button><br><br>
               </div>
             </div>
           </form>

@@ -63,6 +63,7 @@ CREATE TABLE orcamento(
 
 CREATE TABLE suporte(
 	idsuporte INT PRIMARY KEY AUTO_INCREMENT,
+	maquina VARCHAR(20) NOT NULL,
 	problema VARCHAR(20) NOT NULL,
 	descricao TEXT NOT NULL,
 	fkcliente INT,

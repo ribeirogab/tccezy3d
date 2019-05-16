@@ -8,6 +8,7 @@ if(isset($_SESSION['banana']))
 <head>
 	<title>Cadastro</title>
 	<meta charset="UTF-8">
+	<noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 	<link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->	
@@ -15,19 +16,19 @@ if(isset($_SESSION['banana']))
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/fonts/iconic/css/material-design-iconic-font.min.css">
-	<!--===============================================================================================-->
+<!-- 
+	<link rel="stylesheet" type="text/css" href="vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-	<!--===============================================================================================-->	
+
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-	<!--===============================================================================================-->
+
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-	<!--===============================================================================================-->
+
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-	<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css"> -->
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/css/cadastro_util.css">
 	<link rel="stylesheet" type="text/css" href="vendor/css/cadastro_main.css">
@@ -85,7 +86,7 @@ if(isset($_SESSION['banana']))
 
 						<div class="mb-4 pb-2">
 							<div class="wrap-input100 validate-input">
-								<input class="input100" type="text" name="email" maxlength="40" required>
+								<input class="input100" type="text" name="email" minlength="3" maxlength="60" required>
 								<span class="focus-input100" data-placeholder="E-mail"></span>
 							</div>
 							<div id="erroEmail">
@@ -94,7 +95,7 @@ if(isset($_SESSION['banana']))
 										<i class="fas fa-exclamation-circle"></i>
 									</div>
 									<div class="col-10">
-										<span>Informe um e-mail inválido.</span>
+										<span>Informe um e-mail válido.</span>
 									</div>
 								</div>
 							</div>
@@ -121,7 +122,7 @@ if(isset($_SESSION['banana']))
 										<i class="fas fa-exclamation-circle"></i>
 									</div>
 									<div class="col-10">
-										<span>Informe um telefone inválido.</span>
+										<span>Informe um telefone válido.</span>
 									</div>
 								</div>
 							</div>
@@ -458,17 +459,17 @@ if(isset($_SESSION['banana']))
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!-- <script src="vendor/animsition/js/animsition.min.js"></script> -->
+
+<!-- 	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
+
+	<!-- <script src="vendor/select2/select2.min.js"></script> -->
+
+<!-- 	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script> -->
+
+	<!-- 	<script src="vendor/countdowntime/countdowntime.js"></script> -->
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery.mask.js"></script>
 	<!--===============================================================================================-->

@@ -77,11 +77,15 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">tempo médio por usuário</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">00:04:57</div>
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">cadastros realizados (hoje)</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">
+                    <?php 
+                    $hoje->total("cadastro");
+                    ?>
+                  </div>
                 </div>
                 <div class="col-auto">
-                  <i class="fas fa-clock fa-2x text-gray-300"></i>
+                  <i class="fas fa-user-check fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>
@@ -106,7 +110,7 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
                   </div>
                 </div>
                 <div class="col-auto">
-                  <i class="fas fa-undo-alt fa-2x text-gray-300"></i>
+                  <i class="fas fa-file-alt fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>
@@ -119,15 +123,15 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">cadastros realizados (hoje)</div>
+                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Suportes solicitados (hoje)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
                     <?php 
-                    $hoje->total("cadastro");
+                    $hoje->total("suporte");
                     ?>
                   </div>
                 </div>
                 <div class="col-auto">
-                  <i class="fas fa-user fa-2x text-gray-300"></i>
+                  <i class="fas fa-headset fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>

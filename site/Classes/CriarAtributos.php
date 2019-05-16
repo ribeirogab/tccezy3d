@@ -9,7 +9,8 @@ class CriarAtributos extends Data{
 		$this->tipos[2] = "googleads";
 		$this->tipos[3] = "browser";
 		$this->tipos[4] = "orcamento";
-		$this->tipos[5] = "cadastro";
+		$this->tipos[5] = "suporte";
+		$this->tipos[6] = "cadastro";
 	}
 
 	public function getTipo() { return $this->tipo; }

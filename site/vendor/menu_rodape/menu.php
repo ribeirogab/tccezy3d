@@ -2,6 +2,7 @@
  if ($visivelm != true) 
   header("Location: ../../home.php");
 ?>
+<noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 <link rel="stylesheet" href="vendor/css/menu.css">
 
 <nav class="fixed-top d-lg-block d-md-block d-none" style="background-color: #212121;">
@@ -131,7 +132,7 @@
               <span class="focus-input100" data-placeholder="Password"></span>
             </div>
             <div id="loginIncorreto" class="w-100 bg-warning p-2 mt-3" style="display: none">
-              <div class="row" id="erroOutroRamo">
+              <div class="row">
                 <div class="col-1">
                   <i class="fas fa-exclamation-circle"></i>
                 </div>
