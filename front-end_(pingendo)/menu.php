@@ -31,10 +31,10 @@
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Aplicações</a>
             <div class="dropdown-menu" style="max-width: 140px">
-              <a class="dropdown-item" href="#">Odontologia</a>
-              <a class="dropdown-item" href="#">Manufatura</a>
-              <a class="dropdown-item" href="#">Educação</a>
-              <a class="dropdown-item" href="#">Joalheria</a>
+              <a class="dropdown-item" href="odontologia.php">Odontologia</a>
+              <a class="dropdown-item" href="manufatura.php">Manufatura</a>
+              <a class="dropdown-item" href="educacao.php">Educação</a>
+              <a class="dropdown-item" href="joalheria.php">Joalheria</a>
             </div>
           </li>
           <li class="nav-item pl-1 pr-1"> <a class="nav-link" href="contato.php">Contato</a> </li>
