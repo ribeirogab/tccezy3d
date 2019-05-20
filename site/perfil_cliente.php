@@ -107,6 +107,7 @@ else
 <body>
   <?php 
   $visivelm = true;
+  $pagina = "perfil_cliente";
   include"vendor/menu_rodape/menu.php";
   ?>
 

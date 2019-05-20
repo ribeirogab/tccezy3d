@@ -14,6 +14,7 @@ if(isset($_SESSION["banana"]))
 <body>
  <?php 
  $visivelm = true;
+ $pagina = "app_educacao";
  include"vendor/menu_rodape/menu.php"; 
  ?>
  <div class="py-5 text-center" style="background-image: url('https://static.pingendo.com/cover-bubble-dark.svg');background-size:cover;">
@@ -32,17 +33,17 @@ if(isset($_SESSION["banana"]))
   <div class="container">
     <div class="row text-muted">
       <div class="col-md-3 col-4 p-2">
-        <i class="d-block fa fa-paypal fa-3x"></i>
-      </div>
-      <div class="col-md-3 col-4 p-2">
-        <i class="d-block fa fa-empire fa-3x"></i>
-      </div>
-      <div class="col-md-3 col-4 p-2">
-        <i class="d-block fa fa-rebel fa-3x"></i>
-      </div>
-      <div class="col-md-3 col-4 p-2">
-        <i class="d-block fa fa-first-order fa-3x"></i>
-      </div>
+          <i class="d-block fas fa-tooth fa-3x"></i>
+        </div>
+        <div class="col-md-3 col-4 p-2">
+          <i class="d-block fas fa-gem fa-3x"></i>
+        </div>
+        <div class="col-md-3 col-4 p-2">
+          <i class="d-block fas fa-cog fa-3x"></i>
+        </div>
+        <div class="col-md-3 col-4 p-2">
+          <i class="d-block fas fa-graduation-cap fa-3x"></i>
+        </div>
     </div>
   </div>
 </div>
@@ -65,7 +66,7 @@ if(isset($_SESSION["banana"]))
       <div class="col-lg-4 p-3">
         <div class="card">
           <div class="card-body p-4">
-            <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-3.svg" width="150">
+            <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="150">
             <h1>One</h1>
             <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
           </div>
@@ -75,7 +76,7 @@ if(isset($_SESSION["banana"]))
       <div class="col-lg-4 p-3 col-md-6">
         <div class="card">
           <div class="card-body p-4">
-            <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-2.svg" width="150">
+            <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="150">
             <h1>Two</h1>
             <p class="mb-0">So absorbed in the exquisite sense of mere tranquil existence.</p>
           </div>
@@ -85,7 +86,7 @@ if(isset($_SESSION["banana"]))
       <div class="col-lg-4 p-3 col-md-6">
         <div class="card">
           <div class="card-body p-4">
-            <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-1.svg" width="150">
+            <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="150">
             <h1>Three</h1>
             <p class="mb-0">I should be incapable of drawing a single stroke.</p>
           </div>
@@ -109,16 +110,16 @@ if(isset($_SESSION["banana"]))
         <div id="carousel2" class="carousel slide" data-ride="carousel" data-interval="5000">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="https://static.pingendo.com/img-placeholder-1.svg">
+              <img class="d-block w-100" src="vendor/img/img-placeholder-1.svg">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://static.pingendo.com/img-placeholder-2.svg">
+              <img class="d-block w-100" src="vendor/img/img-placeholder-1.svg">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://static.pingendo.com/img-placeholder-3.svg">
+              <img class="d-block w-100" src="vendor/img/img-placeholder-1.svg">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="https://static.pingendo.com/img-placeholder-4.svg">
+              <img class="d-block w-100" src="vendor/img/img-placeholder-1.svg">
             </div>
           </div>
 
@@ -149,23 +150,23 @@ if(isset($_SESSION["banana"]))
 </div>
 
 <div class="py-3 text-center bg-light">
-  <div class="container">
-    <div class="row text-muted">
-      <div class="col-md-3 col-4 p-2">
-        <i class="d-block fa fa-paypal fa-3x"></i>
-      </div>
-      <div class="col-md-3 col-4 p-2">
-        <i class="d-block fa fa-empire fa-3x"></i>
-      </div>
-      <div class="col-md-3 col-4 p-2">
-        <i class="d-block fa fa-rebel fa-3x"></i>
-      </div>
-      <div class="col-md-3 col-4 p-2">
-        <i class="d-block fa fa-first-order fa-3x"></i>
+    <div class="container">
+      <div class="row text-muted">
+        <div class="col-md-3 col-4 p-2">
+          <i class="d-block fas fa-tooth fa-3x"></i>
+        </div>
+        <div class="col-md-3 col-4 p-2">
+          <i class="d-block fas fa-gem fa-3x"></i>
+        </div>
+        <div class="col-md-3 col-4 p-2">
+          <i class="d-block fas fa-cog fa-3x"></i>
+        </div>
+        <div class="col-md-3 col-4 p-2">
+          <i class="d-block fas fa-graduation-cap fa-3x"></i>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 <?php 
 $visivelr = true;

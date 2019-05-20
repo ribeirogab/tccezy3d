@@ -14,11 +14,12 @@ if(isset($_SESSION["banana"]))
 <body>
  <?php 
  $visivelm = true;
+ $pagina = "app_joalheria";
  include"vendor/menu_rodape/menu.php";
  ?>
  <main class="pt-64px">
 
-  <div class="py-5 text-center text-md-right" style="background-image: url(https://static.pingendo.com/cover-bubble-dark.svg);  background-position: right bottom;  background-size: cover; background-repeat: repeat; background-attachment: fixed;">
+  <div class="py-5 text-center text-md-right" style="background-image: url(vendor/img/cover-bubble-dark.svg);  background-position: right bottom;  background-size: cover; background-repeat: repeat; background-attachment: fixed;">
     <div class="container">
       <div class="row">
         <div class="p-5 mx-auto mx-md-0 ml-md-auto col-10 col-md-9">
@@ -33,16 +34,16 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row text-muted">
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-paypal fa-3x"></i>
+          <i class="d-block fas fa-tooth fa-3x"></i>
         </div>
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-empire fa-3x"></i>
+          <i class="d-block fas fa-gem fa-3x"></i>
         </div>
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-rebel fa-3x"></i>
+          <i class="d-block fas fa-cog fa-3x"></i>
         </div>
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-first-order fa-3x"></i>
+          <i class="d-block fas fa-graduation-cap fa-3x"></i>
         </div>
       </div>
     </div>
@@ -73,27 +74,27 @@ if(isset($_SESSION["banana"]))
           <div class="row">
 
             <div class="col-md-4 p-2">
-              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-3.svg" width="100">
+              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="100">
               <p class="mb-0 lead"> <a href="#">One</a> </p>
             </div>
             <div class="col-md-4 p-2">
-              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-2.svg" width="100">
+              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="100">
               <p class="mb-0 lead"> <a href="#">Two</a> </p>
             </div>
             <div class="col-4 p-2">
-              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-1.svg" width="100">
+              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="100">
               <p class="mb-0 lead"> <a href="#">Three</a> </p>
             </div>
             <div class="col-4 p-2">
-              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-1.svg" width="100">
+              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="100">
               <p class="mb-0 lead"> <a href="#">Four</a> </p>
             </div>
             <div class="col-4 p-2">
-              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-4.svg" width="100">
+              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="100">
               <p class="mb-0 lead"> <a href="#">Five</a> </p>
             </div>
             <div class="col-4 p-2">
-              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-3.svg" width="100">
+              <img class="img-fluid d-block mb-2 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="100">
               <p class="mb-0 lead"> <a href="#">Six</a> </p>
             </div>
 
@@ -115,28 +116,28 @@ if(isset($_SESSION["banana"]))
 
       <div class="row">
         <div class="col-lg-3 col-md-1 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg">
+          <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
         </div>
         <div class="col-lg-3 col-md-1 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg">
+          <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
         </div>
         <div class="col-lg-3 col-md-1 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-3.svg">
+          <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
         </div>
         <div class="col-lg-3 col-md-1 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg">
+          <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
         </div>
         <div class="col-lg-3 col-md-1 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg">
+          <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
         </div>
         <div class="col-lg-3 col-md-1 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg">
+          <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
         </div>
         <div class="col-lg-3 col-md-1 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-4.svg">
+          <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
         </div>
         <div class="col-lg-3 col-md-1 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-3.svg">
+          <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
         </div>
       </div>
 
@@ -159,20 +160,20 @@ if(isset($_SESSION["banana"]))
     </div>
   </div>
 
-  <div class="py-3 text-center bg-light">
+<div class="py-3 text-center bg-light">
     <div class="container">
       <div class="row text-muted">
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-paypal fa-3x"></i>
+          <i class="d-block fas fa-tooth fa-3x"></i>
         </div>
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-empire fa-3x"></i>
+          <i class="d-block fas fa-gem fa-3x"></i>
         </div>
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-rebel fa-3x"></i>
+          <i class="d-block fas fa-cog fa-3x"></i>
         </div>
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-first-order fa-3x"></i>
+          <i class="d-block fas fa-graduation-cap fa-3x"></i>
         </div>
       </div>
     </div>

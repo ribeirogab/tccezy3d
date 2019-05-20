@@ -14,6 +14,7 @@ if(isset($_SESSION["banana"]))
 <body>
  <?php 
  $visivelm = true;
+ $pagina = "printer_coree3";
  include"vendor/menu_rodape/menu.php";
  ?>
  <main class="pt-64px">

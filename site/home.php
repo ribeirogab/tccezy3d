@@ -14,6 +14,7 @@ if(isset($_SESSION["banana"]))
 <body>
  <?php 
  $visivelm = true;
+ $pagina = "home";
  include"vendor/menu_rodape/menu.php" 
  ?>
  <main>
@@ -57,25 +58,25 @@ if(isset($_SESSION["banana"]))
         </div>
         <div class="row px-2">
           <div class="col mx-2 bg-dark pt-5 px-5 mb-3">
-            <h2 class="mt-3"><b>Another headline</b></h2>
-            <p class="lead mb-5">And an even wittier subheading.</p>
+            <h2 class="mt-3"><b><?=$titulo1?></b></h2>
+            <p class="lead mb-5"><?=$txt1?></p>
             <img class="img-fluid d-block" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" width="">
           </div>
           <div class="col mx-2 pt-5 px-5 mb-3 bg-light">
-            <h2 class="mt-3"><b>Another headline</b></h2>
-            <p class="lead mb-5">And an even wittier subheading.</p>
+            <h2 class="mt-3"><b><?=$titulo2?></b></h2>
+            <p class="lead mb-5"><?=$txt2?></p>
             <img class="img-fluid d-block" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" width="">
           </div>
         </div>
         <div class="row px-2 border-bottom">
           <div class="col mx-2 pt-5 px-5 mb-3 bg-light">
-            <h2 class="mt-3"><b>Another headline</b></h2>
-            <p class="lead mb-5">And an even wittier subheading.</p>
+            <h2 class="mt-3"><b><?=$titulo3?></b></h2>
+            <p class="lead mb-5"><?=$txt3?></p>
             <img class="img-fluid d-block" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" width="">
           </div>
           <div class="col mx-2 pt-5 px-5 mb-3 bg-info" style="">
-            <h2 class="mt-3"><b>Another headline</b></h2>
-            <p class="lead mb-5">And an even wittier subheading.</p>
+            <h2 class="mt-3"><b><?=$titulo4?></b></h2>
+            <p class="lead mb-5"><?=$txt4?></p>
             <img class="img-fluid d-block" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" width="">
           </div>
         </div>
@@ -86,7 +87,7 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>I feel the charm of existence in this spot.</h1>
+          <h1><?=$titulo5?></h1>
         </div>
       </div>
     </div>
@@ -96,16 +97,16 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row text-muted">
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-angellist fa-3x"></i>
+          <i class="d-block fas fa-tooth fa-3x"></i>
         </div>
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-amazon fa-3x"></i>
+          <i class="d-block fas fa-gem fa-3x"></i>
         </div>
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-paypal fa-3x"></i>
+          <i class="d-block fas fa-cog fa-3x"></i>
         </div>
         <div class="col-md-3 col-4 p-2">
-          <i class="d-block fa fa-empire fa-3x"></i>
+          <i class="d-block fas fa-graduation-cap fa-3x"></i>
         </div>
       </div>
     </div>

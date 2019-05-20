@@ -14,6 +14,7 @@ if(isset($_SESSION["banana"]))
 <body>
  <?php 
  $visivelm = true;
+ $pagina = "printer_phylos";
  include"vendor/menu_rodape/menu.php";
  ?>
  <main class="pt-64px">
@@ -24,8 +25,8 @@ if(isset($_SESSION["banana"]))
           <div class="row">
             <div class="col-md-6"><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
             <div class="col-md-6" style="">
-              <h1 class="">Heading 1</h1>
-              <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing.</p>
+              <h1><?=$titulo1?></h1>
+              <p><?=$txt1?></p>
             </div>
           </div>
         </div>
@@ -36,9 +37,9 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row">
         <div class="px-md-5 p-3 col-md-6 d-flex flex-column align-items-start justify-content-center">
-          <h1>A wonderful serenity</h1>
-          <p class="mb-3 lead">Has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-          <p class="mb-2">Choose an option</p>
+          <h1><?=$titulo2?></h1>
+          <p class="mb-3 lead"><?=$txt2?></p>
+          <p class="mb-2"><?=$txt2_1?></p>
           <div class="row">
             <div class="col-md-12"> <i class="fa fa-stop-circle fa-3x mr-3 text-muted d-inline"></i> <i class="fa fa-circle-o fa-3x mx-3 text-muted d-inline"></i> <i class="fa fa-stop-circle-o fa-3x mx-3 text-muted d-inline"></i> <i class="fa fa-circle fa-3x ml-3 text-muted d-inline"></i> </div>
           </div>
@@ -51,8 +52,8 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row">
         <div class="text-center mx-auto col-md-8">
-          <h1 class="mb-3">I enjoy with my whole heart</h1>
-          <p class="lead">I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world.</p>
+          <h1 class="mb-3"><?=$titulo3?></h1>
+          <p class="lead"><?=$txt3?></p>
         </div>
       </div>
     </div>
@@ -76,7 +77,7 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="mb-4">I lie close to the earth</h1>
+          <h1 class="mb-4"><?=$titulo4?></h1>
         </div>
       </div>
       <div class="row">
@@ -84,20 +85,20 @@ if(isset($_SESSION["banana"]))
         <div class="col-lg-5 py-md-5 px-4 order-1 order-lg-2 d-flex flex-column justify-content-between">
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa fa-stop-circle-o mb-1 text-muted fa-3x"></i>
-              <p class="lead mb-1"> <b>One</b> </p>
-              <p>I often think with longing, Oh, would I could describe these conceptions, could impress upon paper.</p>
+              <p class="lead mb-1"> <b><?=$titulo4_1?></b> </p>
+              <p><?=$txt4_1?></p>
             </div>
           </div>
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa mb-1 text-muted fa-circle-o fa-3x"></i>
-              <p class="lead mb-1"> <b>Two</b> </p>
-              <p>So full and warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite God!</p>
+              <p class="lead mb-1"> <b><?=$titulo4_2?></b> </p>
+              <p><?=$txt4_2?></p>
             </div>
           </div>
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa fa-circle mb-1 text-muted fa-3x"></i>
-              <p class="lead mb-1"> <b>Three</b> </p>
-              <p>O my friend -- but it is too much for my strength -- I sink under the weight of the splendour of these visions!</p>
+              <p class="lead mb-1"> <b><?=$titulo4_3?></b> </p>
+              <p><?=$txt4_3?></p>
             </div>
           </div>
         </div>
@@ -108,9 +109,9 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row">
         <div class="col-md-9 p-3">
-          <h1 class="mb-0">Call your visitors to act. Now</h1>
+          <h1 class="mb-0"><?=$titulo5?></h1>
         </div>
-        <div class="col-md-3 align-items-center d-flex justify-content-center p-3"> <a class="btn btn-primary btn-lg" href="#">Get your license</a> </div>
+        <div class="col-md-3 align-items-center d-flex justify-content-center p-3"> <a class="btn btn-primary btn-lg" href="#"><?=$button1?></a> </div>
       </div>
     </div>
   </div>

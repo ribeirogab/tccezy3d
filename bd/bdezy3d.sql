@@ -83,6 +83,7 @@ CREATE TABLE imagens(
 CREATE TABLE conteudo(
 	apelido VARCHAR(20),
 	pagina VARCHAR(15),
+	CONSTRAINT id PRIMARY KEY(apelido, pagina),
 	pt TEXT,
 	en TEXT,
 	es TEXT

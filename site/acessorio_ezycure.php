@@ -14,6 +14,7 @@ if(isset($_SESSION["banana"]))
 <body>
  <?php 
  $visivelm = true;
+ $pagina = "acessorio_ezycure";
  include"vendor/menu_rodape/menu.php"; 
  ?>
 

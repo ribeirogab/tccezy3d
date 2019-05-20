@@ -1,6 +1,41 @@
  <?php 
  if ($visivelm != true) 
   header("Location: ../../home.php");
+
+require_once"Classes/TrocarIdioma.php";
+if (!isset($_GET['lang'])) {
+  if (isset($_SESSION['lang'])) {
+    $lang = $_SESSION['lang'];
+  }
+  else{
+    $_SESSION['lang'] = 'pt';
+    $lang = $_SESSION['lang'];
+  }
+}
+else{
+  $_SESSION['lang'] = $_GET['lang'];
+  $lang = $_SESSION['lang'];
+}
+
+$idioma = new TrocarIdioma($lang);
+
+$langPag = $idioma->langPag($pagina);
+foreach ($langPag as $item) {
+  $val = $item['apelido'];
+  $$val = $item[$lang];
+}
+
+$langMenu = $idioma->langMenu("menu");
+foreach ($langMenu as $item) {
+  $val = $item['apelido'];
+  $$val = $item[$lang];
+}
+
+$langRodape = $idioma->langRodape("rodape");
+foreach ($langRodape as $item) {
+  $val = $item['apelido'];
+  $$val = $item[$lang];
+}
 ?>
 <noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 <link rel="stylesheet" href="vendor/css/menu.css">
@@ -16,7 +51,7 @@
 <script src="vendor/bootstrap/js/bootstrap.js"></script>
 
 <!-- ------------------------------------------------------------------------------------ -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-2 py-lg-1">
   <div class="container-fluid">
     <button class="navbar-toggler navbar-toggler-right border-0 collapsed" type="button" data-toggle="collapse" data-target="#navbar12" aria-expanded="false">
       <span class="navbar-toggler-icon"></span>
@@ -24,63 +59,59 @@
     <div class="navbar-collapse collapse" id="navbar12">
       <div class="w-25">
         <a class="navbar-brand d-none d-md-block" href="home.php">
-          <i class="fa d-inline fa-lg fa-circle"></i>
-          <b> BRAND</b>
+          <img src="vendor/img/logo/logo_orange.svg" height="38px">
         </a>
       </div>
       <ul class="navbar-nav mx-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Impressoras 3D</a>
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item1?></a>
           <div class="dropdown-menu" style="max-width: 140px">
-            <a class="dropdown-item" href="printer_e1260t">E1260T</a>
-            <a class="dropdown-item" href="printer_phylos">Phylos</a>
-            <a class="dropdown-item" href="printer_coree3">Core E3</a>
+            <a class="dropdown-item" href="printer_e1260t"><?=$printer1?></a>
+            <a class="dropdown-item" href="printer_phylos"><?=$printer2?></a>
+            <a class="dropdown-item" href="printer_coree3"><?=$printer3?></a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Acessórios</a>
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item2?></a>
           <div class="dropdown-menu" style="max-width: 140px">
-            <a class="dropdown-item" href="acessorio_ezycure.php">EzyCure</a>
+            <a class="dropdown-item" href="acessorio_ezycure.php"><?=$acessorio1?></a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Aplicações</a>
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item3?></a>
           <div class="dropdown-menu" style="max-width: 140px">
-            <a class="dropdown-item" href="app_odontologia.php">Odontologia</a>
-            <a class="dropdown-item" href="app_manufatura.php">Manufatura</a>
-            <a class="dropdown-item" href="app_educacao.php">Educação</a>
-            <a class="dropdown-item" href="app_joalheria.php">Joalheria</a>
+            <a class="dropdown-item" href="app_odontologia.php"><?=$aplicacao1?></a>
+            <a class="dropdown-item" href="app_manufatura.php"><?=$aplicacao2?></a>
+            <a class="dropdown-item" href="app_educacao.php"><?=$aplicacao3?></a>
+            <a class="dropdown-item" href="app_joalheria.php"><?=$aplicacao4?></a>
           </div>
         </li>
-        <li class="nav-item pl-1 pr-1"> <a class="nav-link" href="contato.php">Contato</a> </li>
+        <li class="nav-item pl-1 pr-1"> <a class="nav-link" href="contato.php"><?=$item4?></a> </li>
       </ul>
       <div id="menu-left" class="w-25">
         <ul class="navbar-nav float-lg-right">
           <?php
           if (!isset($_SESSION['banana'])) {?>
-            <li class="nav-item"> <a class="nav-link" id="btn-logar" data-toggle="modal" data-target="#modalLogin" href="#">Logar</a></li>
-            <li class="nav-item"> <a class="nav-link text-primary" href="form_cadastrar">Cadastrar</a></li>
+            <li class="nav-item"> <a class="nav-link" id="btn-logar" data-toggle="modal" data-target="#modalLogin" href="#"><?=$logar?></a></li>
+            <li class="nav-item"> <a class="nav-link text-primary" href="form_cadastrar"><?=$cadastrar?></a></li>
           <?php } 
           else {?>
            <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="btn-conta" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i> <?=$nome?></i></a>
             <div class="dropdown-menu d-lg-none">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another</a>
-              <a class="dropdown-item" href="#">Something</a>
-              <a class="dropdown-item" href="#">Separated</a>
+              <a class="dropdown-item" href="#"><?=$perfil?></a>
+              <a class="dropdown-item" href="#"><?=$sair?></a>
             </div>
           </li>
         <?php }?>
 
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="btn-lang" href="#" role="button" aria-haspopup="true" aria-expanded="false">Português</a>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="btn-lang" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$idiomas?></a>
           <div class="dropdown-menu d-lg-none">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another</a>
-            <a class="dropdown-item" href="#">Something</a>
-            <a class="dropdown-item" href="#">Separated</a>
+            <a class="dropdown-item" href="#">English</a>
+            <a class="dropdown-item" href="#">Español</a>
+            <a class="dropdown-item" href="#">Português (Brasil)</a>
           </div>
         </li>
 
@@ -96,24 +127,34 @@ if (isset($_SESSION['banana'])) {?>
     <div >
       <a class="dropdown-item" href="perfil_cliente.php">
         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-        Perfil
+        <?=$perfil?>
       </a>
     </div>
     <hr class="mt-2 mb-2">
     <div >
       <a class="dropdown-item" href="controle/logout.php">
         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        Sair
+        <?=$sair?>
       </a>
     </div>
   </div>
 <?php } ?>
 
 <div class="p-3" id="lang">
-  <label class="item-lang">Portugues (Brasil)</label><br>
-  <label class="item-lang">English</label><br>
-  <label class="item-lang">Español</label>
+  <form  id='formEn' action='<?=$pagina?>.php' method='get'>
+    <input type='hidden' name='lang' value='en'>
+    <a href='#' class="item-lang"  onClick='document.getElementById("formEn").submit();'>English</a>
+  </form>
+  <form id='formEs' action='<?=$pagina?>.php' method='get'>
+    <input type='hidden' name='lang' value='es'>
+    <a href='#' class="item-lang" onClick='document.getElementById("formEs").submit();'>Español</a>
+  </form>
+  <form id='formPt' action='<?=$pagina?>.php' method='get'>
+    <input type='hidden' name='lang' value='pt'>
+    <a href='#' class="item-lang" onClick='document.getElementById("formPt").submit();'>Português (Brasil)</a>
+  </form> 
 </div>
+
 </div>
 
 <!-- modal login -->
@@ -145,36 +186,51 @@ if (isset($_SESSION['banana'])) {?>
               <img src="vendor/img/logo/logo_orange.svg" width="80px">
             </span>
 
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+            <div class="wrap-input100 validate-input">
               <input id="focus-email" class="input100 inputLogin" type="text" name="email_login">
-              <span class="focus-input100" data-placeholder="Email"></span>
+              <span class="focus-input100" data-placeholder="<?=$loginmodal_email?>"></span>
             </div>
 
-            <div class="wrap-input100 validate-input mt-4" data-validate="Enter password">
+            <div class="wrap-input100 validate-input mt-4">
               <span class="btn-show-pass">
                 <i class="zmdi zmdi-eye"></i>
               </span>
               <input class="input100 inputLogin" type="password" name="senha_login">
-              <span class="focus-input100" data-placeholder="Password"></span>
+              <span class="focus-input100" data-placeholder="<?=$loginmodal_senha?>"></span>
             </div>
-            <div id="loginIncorreto" class="w-100 bg-warning p-2 mt-3" style="display: none">
+            <div id="loginIncorreto" class="w-100 bg-danger p-2 mt-3" style="display: none">
               <div class="row">
                 <div class="col-1">
                   <i class="fas fa-exclamation-circle"></i>
                 </div>
                 <div class="col-9">
-                  <span>Senha ou e-mail incorreto(s).</span>
+                  <span><?=$loginmodal_erro1?></span>
                 </div>
                 <div class="col-2 text-right">
                   <i id="btnClose-loginIncorreto" class="fas fa-times" style="font-size: 12px;cursor: pointer;"></i>
                 </div>
               </div>
             </div>
+
+            <div id="infoIncorreta" class="w-100 bg-warning p-2 mt-3" style="display: none">
+              <div class="row">
+                <div class="col-1">
+                  <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="col-9">
+                  <span><?=$loginmodal_erro2?></span>
+                </div>
+                <div class="col-2 text-right">
+                  <i id="btnClose-loginIncorreto" class="fas fa-times" style="font-size: 12px;cursor: pointer;"></i>
+                </div>
+              </div>
+            </div>
+
             <div class="container-login100-form-btn">
               <div class="wrap-login100-form-btn">
                 <div class="login100-form-bgbtn"></div>
                 <div id="btn-login" class="login100-form-btn buttonLogin">
-                  Login
+                  <?=$loginmodal_logar?>
                 </div>
               </div>
             </div>
@@ -210,15 +266,23 @@ if (isset($_SESSION['banana'])) {?>
                 var json = $.parseJSON(resposta)
                 let verificarLogin = json[0][0]
 
-                if(verificarLogin != 1)
-                  $("#loginIncorreto").fadeIn('slow')
-                else{
+                if(email.length == 0 || senha.length == 0){
                   $("#loginIncorreto").hide()
-                  requisicao++
+                  $("#infoIncorreta").fadeIn('slow')
                 }
+                else{
+                  $("#infoIncorreta").hide()
+                  
+                  if(verificarLogin != 1)
+                    $("#loginIncorreto").fadeIn('slow')
+                  else{
+                    $("#loginIncorreto").hide()
+                    requisicao++
+                  }
 
-                if(requisicao === 1){
-                  $("#form-modal-login").submit();
+                  if(requisicao === 1){
+                    $("#form-modal-login").submit();
+                  }
                 }
               },
               error: function(){

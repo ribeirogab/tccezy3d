@@ -14,6 +14,7 @@ if(isset($_SESSION["banana"]))
 <body>
  <?php 
  $visivelm = true;
+ $pagina = "printer_e1260t";
  include"vendor/menu_rodape/menu.php";
  ?>
 <main class="pt-64px">
@@ -21,12 +22,12 @@ if(isset($_SESSION["banana"]))
     <div class="container mt-5 pt-5">
       <div class="row">
         <div class="col-md-6 my-5 text-lg-left text-center align-self-center" style="">
-          <h1 class="display-1">E1260T</h1>
-          <p class="lead">Pingendo for apps and techies</p>
+          <h1 class="display-1"><?=$titulo1?></h1>
+          <p class="lead"><?=$txt1?></p>
           <div class="row mt-5">
-            <div class="col-6 col-lg-5"> <a class="btn btn-secondary btn-block" href="#">Secondary</a> </div>
+            <div class="col-6 col-lg-5"> <a class="btn btn-secondary btn-block" href="#"><?=$button1?></a> </div>
             <div class="col-6 col-lg-5"> <a href="#">
-              </a><a class="btn btn-outline-secondary btn-block" href="#">Secondary</a> </div>
+              </a><a class="btn btn-outline-secondary btn-block" href="#"><?=$button2?></a> </div>
           </div>
         </div>
         <div class="col-md-6 bg-dark" style=""></div>
@@ -37,18 +38,18 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row">
         <div class="col-lg-6 p-4 d-flex justify-content-center flex-column">
-          <h1 class="mb-4">O my friend</h1>
-          <p class="lead">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot.</p>
+          <h1 class="mb-4"><?=$titulo2?></h1>
+          <p class="lead"><?=$txt2?></p>
           <div class="row my-3">
             <div class="col-3"> <img class="img-fluid d-block rounded-circle" src="https://static.pingendo.com/img-placeholder-1.svg"> </div>
             <div class="col-8 d-flex align-items-center">
-              <p class="mb-0">I often think with longing, Oh, would I could describe these conceptions, could impress upon paper.</p>
+              <p class="mb-0"><?=$txt2_1?></p>
             </div>
           </div>
           <div class="row my-3">
             <div class="col-3 order-1 order-md-2"> <img class="img-fluid d-block rounded-circle" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
             <div class="col-8 d-flex align-items-center order-2 order-md-1">
-              <p class="mb-0">My friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power.</p>
+              <p class="mb-0"><?=$txt2_2?></p>
             </div>
           </div>
         </div>
@@ -60,8 +61,8 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row">
         <div class="text-center mx-auto col-md-8">
-          <h1 class="mb-3">I enjoy with my whole heart</h1>
-          <p class="lead">I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world.</p>
+          <h1 class="mb-3"><?=$titulo3?></h1>
+          <p class="lead"><?=$txt3?></p>
         </div>
       </div>
       <div class="row">
@@ -84,26 +85,30 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h2 class="pb-4">Features from the future</h2>
+          <h2 class="pb-4"><?=$titulo4?></h2>
         </div>
       </div>
       <div class="row">
         <div class="align-self-center text-md-right text-center col-lg-4 col-md-6">
-          <h4 class="text-primary">Responsive design</h4>
-          <p class="mb-5">Based on fluid design principles. <br>Works with any screen resolution</p>
-          <h4 class="text-primary">Customized settings</h4>
-          <p class="mb-5">Choose settings depending on the criteria you value the most. With no limits.</p>
-          <h4 class="text-primary">Connect</h4>
-          <p class="mb-5">In-app chat panel 24/7 active. <br>The support you need, right there.</p>
+          <h4 class="text-primary"><?=$titulo_especificacao1?></h4>
+          <p class="mb-5"><?=$txt_especificacao1?></p>
+
+          <h4 class="text-primary"><?=$titulo_especificacao2?></h4>
+          <p class="mb-5"><?=$txt_especificacao2?></p>
+
+          <h4 class="text-primary"><?=$titulo_especificacao3?></h4>
+          <p class="mb-5"><?=$txt_especificacao3?></p>
         </div>
         <div class="my-3 col-md-4 d-none d-lg-block bg-dark" style=""></div>
         <div class="align-self-center text-md-left text-center col-lg-4 col-md-6">
-          <h4 class="text-primary">Battery-friendly</h4>
-          <p class="mb-5">Non consuming background operation for longer mobile life</p>
-          <h4 class="text-primary">Multilayers</h4>
-          <p class="mb-5">Work simultaneously on different panels with the switcher</p>
-          <h4 class="text-primary">Share the love</h4>
-          <p class="mb-5">Help us spreading the word. <br>Tell your friends with just one-click</p>
+          <h4 class="text-primary"><?=$titulo_especificacao4?></h4>
+          <p class="mb-5"><?=$txt_especificacao4?></p>
+
+          <h4 class="text-primary"><?=$titulo_especificacao5?></h4>
+          <p class="mb-5"><?=$txt_especificacao5?></p>
+
+          <h4 class="text-primary"><?=$titulo_especificacao6?></h4>
+          <p class="mb-5"><?=$txt_especificacao6?></p>
         </div>
       </div>
     </div>
@@ -111,10 +116,10 @@ if(isset($_SESSION["banana"]))
   <div class="py-3 text-center bg-info">
     <div class="container">
       <div class="row">
-        <div class="align-items-center d-flex justify-content-center col-md-3 p-3 order-2 order-md-1"> <a class="btn btn-primary btn-lg" href="#">Do something <b>bold</b>
+        <div class="align-items-center d-flex justify-content-center col-md-3 p-3 order-2 order-md-1"> <a class="btn btn-primary btn-lg" href="#"><?=$button3?>
           </a> </div>
         <div class="col-md-9 p-3 order-1 order-md-2">
-          <h1 class="mb-0">Do not procrastinate. Act</h1>
+          <h1 class="mb-0"><?=$titulo5?></h1>
         </div>
       </div>
     </div>
