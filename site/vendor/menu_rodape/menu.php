@@ -4,90 +4,116 @@
 ?>
 <noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 <link rel="stylesheet" href="vendor/css/menu.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+<!-- Fontawesome -->
+<link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
+<!-- Jquery -->
+<script type="text/javascript" src="vendor/jquery/jquery.js"></script>
+<!-- MASK -->
+<script type="text/javascript" src="vendor/jquery/jquery.mask.js"></script>
+<!-- Bootstrap JS -->
+<script src="vendor/bootstrap/js/bootstrap.js"></script>
 
-<nav class="fixed-top d-lg-block d-md-block d-none" style="background-color: #212121;">
-  <div id="desktop">
-    <a href="home.php" class="ml-5 mt-2 float-left">
-      <img src="vendor/img/logo/logo_orange.svg" height="35px">
-    </a>
-    <a class="opcoes mr-4 mt-2 float-right btn" id="btn-lang">Portugues <i class="fas fa-sort-down"></i></a>
-    <?php
-    if (!isset($_SESSION['banana'])) {?>
-      <a class="opcoes mr-3 mt-2 float-right btn btn-outline-warning" id="btn-cadastrar" onclick="window.location.href='http://localhost/tccezy3d/site/form_cadastrar.php'">Cadastrar</a>
-      <a class="opcoes mr-3 mt-2 float-right btn" id="btn-logar" data-toggle="modal" data-target="#modalLogin">Logar</a>
-    <?php } 
-    else {?>
-      <a class="mr-5 mt-3 float-right" id="btn-conta"><i class="fas fa-user-circle"></i> <?=$nome?> <i class="fas fa-sort-down"></i></a>
-    <?php }?>
-    <div class="container text-center py-3">
-      <a class="mr-5" id="btn-impressoras3d">Impressoras 3D</a>
-      <a class="mr-5" id="btn-acessorios">Acessórios</a>
-      <a class="mr-5" id="btn-aplicacoes">Aplicações</a>
-      <a id="btn-contato" onclick="window.location.href='http://localhost/tccezy3d/site/contato.php'">Contato</a>
+<!-- ------------------------------------------------------------------------------------ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler navbar-toggler-right border-0 collapsed" type="button" data-toggle="collapse" data-target="#navbar12" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar12">
+      <div class="w-25">
+        <a class="navbar-brand d-none d-md-block" href="home.php">
+          <i class="fa d-inline fa-lg fa-circle"></i>
+          <b> BRAND</b>
+        </a>
+      </div>
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Impressoras 3D</a>
+          <div class="dropdown-menu" style="max-width: 140px">
+            <a class="dropdown-item" href="printer_e1260t">E1260T</a>
+            <a class="dropdown-item" href="printer_phylos">Phylos</a>
+            <a class="dropdown-item" href="printer_coree3">Core E3</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Acessórios</a>
+          <div class="dropdown-menu" style="max-width: 140px">
+            <a class="dropdown-item" href="acessorio_ezycure.php">EzyCure</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Aplicações</a>
+          <div class="dropdown-menu" style="max-width: 140px">
+            <a class="dropdown-item" href="app_odontologia.php">Odontologia</a>
+            <a class="dropdown-item" href="app_manufatura.php">Manufatura</a>
+            <a class="dropdown-item" href="app_educacao.php">Educação</a>
+            <a class="dropdown-item" href="app_joalheria.php">Joalheria</a>
+          </div>
+        </li>
+        <li class="nav-item pl-1 pr-1"> <a class="nav-link" href="contato.php">Contato</a> </li>
+      </ul>
+      <div id="menu-left" class="w-25">
+        <ul class="navbar-nav float-lg-right">
+          <?php
+          if (!isset($_SESSION['banana'])) {?>
+            <li class="nav-item"> <a class="nav-link" id="btn-logar" data-toggle="modal" data-target="#modalLogin" href="#">Logar</a></li>
+            <li class="nav-item"> <a class="nav-link text-primary" href="form_cadastrar">Cadastrar</a></li>
+          <?php } 
+          else {?>
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="btn-conta" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i> <?=$nome?></i></a>
+            <div class="dropdown-menu d-lg-none">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another</a>
+              <a class="dropdown-item" href="#">Something</a>
+              <a class="dropdown-item" href="#">Separated</a>
+            </div>
+          </li>
+        <?php }?>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="btn-lang" href="#" role="button" aria-haspopup="true" aria-expanded="false">Português</a>
+          <div class="dropdown-menu d-lg-none">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another</a>
+            <a class="dropdown-item" href="#">Something</a>
+            <a class="dropdown-item" href="#">Separated</a>
+          </div>
+        </li>
+
+      </ul>
     </div>
   </div>
+</div>
 </nav>
-<div class="container">
-  <i class="fas fa-caret-down" id="down"></i>
-  <div id="impressoras3d">
-    <div class="row pr-5 pl-5">
-      <div class="col-6 pt-3" style="height: 200px">
-        <h6 class="text-left definicao">MSLA LCD - UV</h6>
-        <div class="w-100" style="border-bottom: solid 1px black;"></div>
-        <label class="mt-3" id="item1" onclick="window.location.href='printer_e1260t'">E1260T<div id="borda1"></div></label><br>
-        <label class="mt-3" id="item2" onclick="window.location.href='http://localhost/tccezy3d/site/printer_phylos.php'">Phylos<div id="borda2"></div></label><br>
-      </div>
-      <div class="col-6 pt-3" style="height: 200px">
-        <h6 class="text-left definicao">FDM - Filamento</h6>
-        <div class="w-100 bg-dark" style="height: 1px;"></div>
-        <label class="mt-3" id="item3" onclick="window.location.href='http://localhost/tccezy3d/site/printer_coree3.php'">Core E3<div id="borda3"></div></label><br>
-      </div>
+
+<?php
+if (isset($_SESSION['banana'])) {?>
+  <div id="conta" class="pt-2 pb-2" style="width: 158px">
+    <div >
+      <a class="dropdown-item" href="perfil_cliente.php">
+        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+        Perfil
+      </a>
+    </div>
+    <hr class="mt-2 mb-2">
+    <div >
+      <a class="dropdown-item" href="controle/logout.php">
+        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+        Sair
+      </a>
     </div>
   </div>
-  <div id="acessorios">
-    <div class="row pr-5 pl-5">
-      <div class="col-12 pt-3" style="height: 200px">
-        <h6 class="text-left definicao">Camara pos-cura</h6>
-        <div class="w-100" style="border-bottom: solid 1px black;"></div>
-        <label class="mt-3" id="item4" onclick="window.location.href='http://localhost/tccezy3d/site/acessorio_ezycure.php'">Ezy Cure<div id="borda4"></div></label><br>
-      </div>
-    </div>
-  </div>
-  <div id="aplicacoes">
-    <div class="row pr-5 pl-5">
-      <div class="col-12 pt-3" style="height: 200px">
-        <h6 class="text-left definicao">Por setor</h6>
-        <div class="w-100" style="border-bottom: solid 1px black;"></div>
-        <label class="mt-3" id="item5" onclick="window.location.href='http://localhost/tccezy3d/site/app_odontologia.php'">Odontologia<div id="borda5"></div></label><br>
-        <label class="mt-3" id="item6" onclick="window.location.href='http://localhost/tccezy3d/site/app_joalheria.php'">Joalheria<div id="borda6"></div></label><br>
-        <label class="mt-3" id="item7" onclick="window.location.href='http://localhost/tccezy3d/site/app_manufatura.php'">Manufatura<div id="borda7"></div></label><br>
-        <label class="mt-3" id="item8" onclick="window.location.href='http://localhost/tccezy3d/site/app_educacao.php'">Educacao<div id="borda8"></div></label><br>
-      </div>
-    </div>
-  </div>
-  <?php
-  if (isset($_SESSION['banana'])) {?>
-    <div id="conta" class="pt-2 pb-2" style="width: 158px">
-      <div >
-        <a class="dropdown-item" href="perfil_cliente.php">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-          Perfil
-        </a>
-      </div>
-      <hr class="mt-2 mb-2">
-      <div >
-        <a class="dropdown-item" href="controle/logout.php">
-          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-          Sair
-        </a>
-      </div>
-    </div>
-  <?php } ?>
-  <div class="p-3" id="lang">
-    <label class="item-lang">Portugues (Brasil)</label><br>
-    <label class="item-lang">English</label><br>
-    <label class="item-lang">Español</label>
-  </div>
+<?php } ?>
+
+<div class="p-3" id="lang">
+  <label class="item-lang">Portugues (Brasil)</label><br>
+  <label class="item-lang">English</label><br>
+  <label class="item-lang">Español</label>
+</div>
 </div>
 
 <!-- modal login -->
@@ -204,6 +230,18 @@
           $("#btnClose-loginIncorreto").click(function(){
             $("#loginIncorreto").hide()
           })
+
+          // troca de lingua
+          $("#btn-lang").click(function(){
+            $("#lang").toggle();
+            $("#conta").hide();
+          });
+
+          // conta
+          $("#btn-conta").click(function(){
+            $("#lang").hide();
+            $("#conta").toggle();
+          });
         </script>
         <!--===============================================================================================-->  
       </div>
@@ -211,23 +249,3 @@
     </div>
   </div>
 </div>
-
-
-
-<!-- menu mobile -->
-<nav id="nav-mobile" class="navbar p-0 d-block d-md-none fixed-top bg-dark">
-  <div class="container pt-2 pb-2">
-    <div class="w-55px">
-      <a id="btn-openmenu" class="py-2" href="#"><i class="fas fa-bars"></i></a>
-      <a id="btn-closemenu" style="display: none;" class="py-2 w-55px" href="#"><i class="fas fa-times"></i></a>
-    </div>
-
-    <div class="text-center">
-      <a class="py-2" href="#"><img src="vendor/img/logo/logo_orange.svg" height="28px" alt="EZY 3D"></a>
-    </div>
-
-    <div class="text-right w-55px">
-      <a id="btn-conta-mobile" class="py-2" href="#"><i class="fas fa-user-circle"></i> <i class="fas fa-sort-down"></i></a>
-    </div>
-  </div>
-</nav>

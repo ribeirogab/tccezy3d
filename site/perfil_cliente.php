@@ -18,26 +18,7 @@ else
   <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - Core E3</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
-  <!-- Fontawesome -->
-  <link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
-  <!-- Jquery -->
-  <script type="text/javascript" src="vendor/jquery/jquery.js"></script>
-  <!-- MASK -->
-  <script type="text/javascript" src="vendor/jquery/jquery.mask.js"></script>
-  <!-- Bootstrap JS -->
-  <script src="vendor/bootstrap/js/bootstrap.js"></script>
-  <!-- Main -->
-  <script src="vendor/js/mainMenu.js"></script>
   <style>
-  body{
-   background-color: #000;
- }
- main{
-  background-color: #fafafa;
-  margin-top: 47px;
-}
 #alert{
   position: fixed;
   width: 100%;
@@ -121,6 +102,343 @@ else
   display: none;
 }
 </style>
+
+</head>
+<body>
+  <?php 
+  $visivelm = true;
+  include"vendor/menu_rodape/menu.php";
+  ?>
+
+ <main class="pt-64px">
+  <div id="alert" class="bg-success">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10"><h5 id="alert-titulo" class="text-center">Alterações salvas com sucesso!</h5></div>
+      <div class="col-1"><i id="close-alert" class="fas fa-times text-right"></i></div>
+    </div>
+  </div>
+  <div style="height: 50px;background-color: #fafafa;"></div>
+  <div class="container mb-5">
+    <div id="painel" class="bg-white">
+      <div class="row">
+        <div class="col-lg-3 pr-lg-0 mr-lg-0">
+          <div id="btn1" class="item-selected m-0 pt-3 pb-3">Editar Perfil</div>
+          <div id="btn2" class="item m-0 pt-3 pb-3">Alterar Senha</div>
+          <div id="btn3" class="item m-0 pt-3 pb-3">Solicitar Orçamento</div>
+          <div id="btn4" class="item m-0 pt-3 pb-3">Suporte Técnico</div>
+          <div class="d-block d-lg-none" style="border-bottom: solid 1px rgb(0,0,0,.3)"></div>
+        </div>
+
+        <!-- EDITAR PERFIL -->
+        <div id="editar-perfil" class="col-lg-9 col-12">
+          <form id="form-editar-perfil" action="controle/cliente.php" method="post" id="form-editarperfil" class="pt-4 container" autocomplete="off">
+            <input type="hidden" name="tipo" value="alterar">
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Nome</b></label>
+              <div  class="col-sm-10">
+                <input class="form-control" type="text" name="nome" value="<?=$nome?>" minlength="3" maxlength="30" required>
+                <div id="erroNome">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Pelo menos 3 caracteres requeridos.</span> 
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Sobrenome</b></label>
+              <div  class="col-sm-10">
+                <input class="form-control" type="text" name="sobrenome" value="<?=$sobrenome?>" minlength="3" maxlength="50" required>
+                <div id="erroSobrenome">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Pelo menos 3 caracteres requeridos.</span> 
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Empresa</b></label>
+              <div  class="col-sm-10">
+                <input class="form-control" type="text" name="empresa" value="<?=$empresa?>">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Pais</b></label>
+              <div  class="col-sm-5">
+                <select class="custom-select my-1 mr-sm-2" name="pais" required>
+                  <option selected value="<?=$pais?>"><?=$pais?></option>
+                  <option value="1">Feminino</option>
+                  <option value="2">Masculino</option>
+                  <option value="3">Outro</option>
+                </select>
+                <div id="erroPais">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Informe seu Pais.</span> 
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Ramo</b></label>
+              <div  class="col-sm-5">
+                <select class="custom-select my-1 mr-sm-2" id="ramo" name="ramo">
+                  <option selected value="<?=$ramo?>" required><?=$ramo?></option>
+                  <option value="1">Feminino</option>
+                  <option value="2">Masculino</option>
+                  <option value="outro">Outro</option>
+                </select>
+                <div id="erroRamo">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Informe seu Ramo.</span> 
+                </div>
+              </div>
+            </div>
+
+            <div id="outroRamo" style="display: none;">
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Outro Ramo</b></label>
+                <div  class="col-sm-5">
+                  <input class="form-control" type="text" name="outroRamo" minlength="3" maxlength="20" required>
+                  <div id="erroOutroRamo1">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    <span>3 caracteres requeridos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <br>
+
+            <div class="form-group row mt-2">
+              <label class="col-sm-2"></label>
+              <div  class="col-sm-10">
+                <label><b>Informações privadas</b></label>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>E-mail</b></label>
+              <div  class="col-sm-10">
+                <input class="form-control" type="hidden" name="oldemail" value="<?=$banana?>" minlength="3" maxlength="60" required>
+                <input class="form-control" type="email" name="email" value="<?=$banana?>" minlength="3" maxlength="60" required>
+                <div id="erroEmail">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Digite um e-mail válido.</span> 
+                </div>
+                <div id="erroEmailExiste">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Este e-mail já está sendo utilizado.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Telefone</b></label>
+              <div  class="col-sm-10">
+                <input class="form-control" type="text" name="telefone" value="<?=$telefone?>" minlength="11" maxlength="11" required>
+                <div id="erroTelefone">
+                  <i class="fas fa-exclamation-circle mr-1"></i>
+                  <span>Digite um telefone válido. (o DDD é necessário)</span> 
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Genero</b></label>
+              <div  class="col-sm-5">
+                <select class="custom-select my-1 mr-sm-2" name="genero">
+                  <option selected>Não especificado</option>
+                  <option value="1">Feminino</option>
+                  <option value="2">Masculino</option>
+                  <option value="3">Outro</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-2 text-left text-sm-right"><b>Newsletter</b></label>
+              <div class="col-sm-5">
+                <div class="form-check">
+                  <input class="form-check-input mt-2" type="checkbox" name="newsletter">
+                  <label class="form-check-label" for="gridCheck1">
+                    <b>Receber atualizações e promoções por e-mail?</b>
+                  </label>
+                </div>
+              </div>
+            </div> -->
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label"></label>
+              <div  class="col-sm-10">
+                <input type="button" id="btn-alterarPerfil" disabled class="btn btn-primary" value="Enviar"><br><br>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- ALTERAR SENHA -->
+        <div id="alterar-senha" class="col-lg-9 col-12">
+          <form id="form-senha" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
+            <input type="hidden" name="tipo" value="alterar-senha">
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Senha Antiga</b></label>
+              <div  class="col-sm-10">
+                <input class="form-control mt-2" type="text" name="senhaold">
+                <div id="erro1" class="w-100 mt-1">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  <span>Senha antiga incorreta.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Nova Senha &nbsp;&nbsp;&nbsp;</b></label>
+              <div  class="col-sm-10">
+                <input class="form-control mt-2" type="text" name="novasenha">
+                <div id="erro2" class="w-100 mt-1">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  <span>A sua nova senha não pode ser igual a senha antiga.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Confirmar Nova Senha</b></label>
+              <div  class="col-sm-10">
+                <input class="form-control mt-1" type="text" name="confirmarnovasenha">
+                <div id="erro3" class="w-100 mt-2">
+                  <i class="fas fa-exclamation-circle mr-2"></i>
+                  <span>Senhas não coicidem. Tente novamente.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label"></label>
+              <div  class="col-sm-10">
+                <input id="btn-alterarsenha" type="button" class="btn btn-primary" value="Alterar Senha"><br><br>
+                <a href="#">Esqueceu a Senha?</a>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- ORÇAMENTO -->
+        <div id="orcamento" class="col-lg-9 col-12">
+          <form id="form-orcamento" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
+            <input type="hidden" name="idcliente" value="<?=$idcliente?>">
+            <input type="hidden" name="tipo" value="orcamento">
+            <h4>Solicitar Orçamento</h4>
+            <p>The people listed here are contacts you've uploaded to Instagram. To remove your synced contacts, tap Delete All.</p>
+            <hr><br>
+            <div class="form-group row">
+              <label class="col-sm-2 text-left text-sm-right"><b>Impressoras 3D</b></label>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="e1260t" value="produto_E1260T">
+                  <label class="form-check-label">
+                    <b>E1260T - MSLA LCD UV</b>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="phylos" value="produto_Phylos">
+                  <label class="form-check-label">
+                    <b>Phylos - MSLA LCD UV</b>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="coreE3" value="produto_CoreE3">
+                  <label class="form-check-label">
+                    <b>Core E3 - FDM</b>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 text-left text-sm-right"><b>Acessórios</b></label>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="ezycure" value="produto_EzyCure">
+                  <label class="form-check-label">
+                    <b>EzyCure</b>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Observaçao</b></label>
+              <div  class="col-sm-10">
+                <textarea class="form-control mt-2" name="descricao" cols="5" rows="4" placeholder="Deixe um comentário"></textarea>
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label"></label>
+              <div  class="col-sm-10">
+                <button id="btn-orcamento" class="btn btn-primary">Enviar</button><br><br>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- SUPORTE TÉCNICO -->
+        <div id="suporte" class="col-lg-9 col-12">
+          <form id="form-suporte" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
+            <input type="hidden" name="tipo" value="suporte">
+            <h4>Suporte Técnico</h4>
+            <p>The people listed here are contacts you've uploaded to Instagram. To remove your synced contacts, tap Delete All.</p>
+            <hr><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Máquina</b></label>
+              <div  class="col-sm-5">
+                <select name="maquina" class="custom-select my-1 mr-sm-2 mt-2">
+                  <option selected value="null">Selecione a sua máquina...</option>
+                  <option value="E1260T">E1260T</option>
+                  <option value="Phylos">Phylos</option>
+                  <option value="CoreE3">Core E3</option>
+                  <option value="EzyCure">EzyCure</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Problema</b></label>
+              <div  class="col-sm-5">
+                <select name="problema" class="custom-select my-1 mr-sm-2 mt-2">
+                  <option selected value="null">Selecione seu problema...</option>
+                  <option value="Falha na impressão">Falha na Impressão</option>
+                  <option value="Troca de LCD">Troca de LCD</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Descrição</b></label>
+              <div  class="col-sm-10">
+                <textarea id="textareaDescricao" class="form-control mt-2" name="descricao" cols="5" rows="7" placeholder="Descreva seu problema"></textarea>
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label"></label>
+              <div  class="col-sm-10">
+                <button id="btn-suporte" class="btn btn-primary">Enviar</button><br><br>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <?php 
+  $visivelr = true;
+  include"vendor/menu_rodape/rodape.php";
+  ?>
+</main>
 <script>
   function buttonDisabled1(){
     let nome = $("input[name=nome]").val()
@@ -440,340 +758,5 @@ else
     });
   });
 </script>
-</head>
-<body>
- <?php 
- $visivelm = true;
- include"vendor/menu_rodape/menu.php";
- ?>
- <main>
-  <div id="alert" class="bg-success">
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col-10"><h5 id="alert-titulo" class="text-center">Alterações salvas com sucesso!</h5></div>
-      <div class="col-1"><i id="close-alert" class="fas fa-times text-right"></i></div>
-    </div>
-  </div>
-  <div style="height: 50px;background-color: #fafafa;"></div>
-  <div class="container mb-5">
-    <div id="painel" class="bg-white">
-      <div class="row">
-        <div class="col-lg-3 pr-lg-0 mr-lg-0">
-          <div id="btn1" class="item-selected m-0 pt-3 pb-3">Editar Perfil</div>
-          <div id="btn2" class="item m-0 pt-3 pb-3">Alterar Senha</div>
-          <div id="btn3" class="item m-0 pt-3 pb-3">Solicitar Orçamento</div>
-          <div id="btn4" class="item m-0 pt-3 pb-3">Suporte Técnico</div>
-          <div class="d-block d-lg-none" style="border-bottom: solid 1px rgb(0,0,0,.3)"></div>
-        </div>
-
-        <!-- EDITAR PERFIL -->
-        <div id="editar-perfil" class="col-lg-9 col-12">
-          <form id="form-editar-perfil" action="controle/cliente.php" method="post" id="form-perfil" class="pt-4 container" autocomplete="off">
-            <input type="hidden" name="tipo" value="alterar">
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Nome</b></label>
-              <div  class="col-sm-10">
-                <input class="form-control" type="text" name="nome" value="<?=$nome?>" minlength="3" maxlength="30" required>
-                <div id="erroNome">
-                  <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Pelo menos 3 caracteres requeridos.</span> 
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Sobrenome</b></label>
-              <div  class="col-sm-10">
-                <input class="form-control" type="text" name="sobrenome" value="<?=$sobrenome?>" minlength="3" maxlength="50" required>
-                <div id="erroSobrenome">
-                  <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Pelo menos 3 caracteres requeridos.</span> 
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Empresa</b></label>
-              <div  class="col-sm-10">
-                <input class="form-control" type="text" name="empresa" value="<?=$empresa?>">
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Pais</b></label>
-              <div  class="col-sm-5">
-                <select class="custom-select my-1 mr-sm-2" name="pais" required>
-                  <option selected value="<?=$pais?>"><?=$pais?></option>
-                  <option value="1">Feminino</option>
-                  <option value="2">Masculino</option>
-                  <option value="3">Outro</option>
-                </select>
-                <div id="erroPais">
-                  <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Informe seu Pais.</span> 
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Ramo</b></label>
-              <div  class="col-sm-5">
-                <select class="custom-select my-1 mr-sm-2" id="ramo" name="ramo">
-                  <option selected value="<?=$ramo?>" required><?=$ramo?></option>
-                  <option value="1">Feminino</option>
-                  <option value="2">Masculino</option>
-                  <option value="outro">Outro</option>
-                </select>
-                <div id="erroRamo">
-                  <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Informe seu Ramo.</span> 
-                </div>
-              </div>
-            </div>
-
-            <div id="outroRamo" style="display: none;">
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Outro Ramo</b></label>
-                <div  class="col-sm-5">
-                  <input class="form-control" type="text" name="outroRamo" minlength="3" maxlength="20" required>
-                  <div id="erroOutroRamo1">
-                    <i class="fas fa-exclamation-circle mr-1"></i>
-                    <span>3 caracteres requeridos</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <br>
-
-            <div class="form-group row mt-2">
-              <label class="col-sm-2"></label>
-              <div  class="col-sm-10">
-                <label><b>Informações privadas</b></label>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>E-mail</b></label>
-              <div  class="col-sm-10">
-                <input class="form-control" type="hidden" name="oldemail" value="<?=$banana?>" minlength="3" maxlength="60" required>
-                <input class="form-control" type="email" name="email" value="<?=$banana?>" minlength="3" maxlength="60" required>
-                <div id="erroEmail">
-                  <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Digite um e-mail válido.</span> 
-                </div>
-                <div id="erroEmailExiste">
-                  <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Este e-mail já está sendo utilizado.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Telefone</b></label>
-              <div  class="col-sm-10">
-                <input class="form-control" type="text" name="telefone" value="<?=$telefone?>" minlength="11" maxlength="11" required>
-                <div id="erroTelefone">
-                  <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Digite um telefone válido. (o DDD é necessário)</span> 
-                </div>
-              </div>
-            </div>
-
-            <!-- <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Genero</b></label>
-              <div  class="col-sm-5">
-                <select class="custom-select my-1 mr-sm-2" name="genero">
-                  <option selected>Não especificado</option>
-                  <option value="1">Feminino</option>
-                  <option value="2">Masculino</option>
-                  <option value="3">Outro</option>
-                </select>
-              </div>
-            </div>
-            <br>
-            <div class="form-group row">
-              <label class="col-sm-2 text-left text-sm-right"><b>Newsletter</b></label>
-              <div class="col-sm-5">
-                <div class="form-check">
-                  <input class="form-check-input mt-2" type="checkbox" name="newsletter">
-                  <label class="form-check-label" for="gridCheck1">
-                    <b>Receber atualizações e promoções por e-mail?</b>
-                  </label>
-                </div>
-              </div>
-            </div> -->
-            <br>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"></label>
-              <div  class="col-sm-10">
-                <input type="button" id="btn-alterarPerfil" disabled class="btn btn-primary" value="Enviar"><br><br>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <!-- ALTERAR SENHA -->
-        <div id="alterar-senha" class="col-lg-9 col-12">
-          <form id="form-senha" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
-            <input type="hidden" name="tipo" value="alterar-senha">
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Senha Antiga</b></label>
-              <div  class="col-sm-10">
-                <input class="form-control mt-2" type="text" name="senhaold">
-                <div id="erro1" class="w-100 mt-1">
-                  <i class="fas fa-exclamation-circle mr-2"></i>
-                  <span>Senha antiga incorreta.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Nova Senha &nbsp;&nbsp;&nbsp;</b></label>
-              <div  class="col-sm-10">
-                <input class="form-control mt-2" type="text" name="novasenha">
-                <div id="erro2" class="w-100 mt-1">
-                  <i class="fas fa-exclamation-circle mr-2"></i>
-                  <span>A sua nova senha não pode ser igual a senha antiga.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Confirmar Nova Senha</b></label>
-              <div  class="col-sm-10">
-                <input class="form-control mt-1" type="text" name="confirmarnovasenha">
-                <div id="erro3" class="w-100 mt-2">
-                  <i class="fas fa-exclamation-circle mr-2"></i>
-                  <span>Senhas não coicidem. Tente novamente.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"></label>
-              <div  class="col-sm-10">
-                <input id="btn-alterarsenha" type="button" class="btn btn-primary" value="Alterar Senha"><br><br>
-                <a href="#">Esqueceu a Senha?</a>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <!-- ORÇAMENTO -->
-        <div id="orcamento" class="col-lg-9 col-12">
-          <form id="form-perfil" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
-            <input type="hidden" name="idcliente" value="<?=$idcliente?>">
-            <input type="hidden" name="tipo" value="orcamento">
-            <h4>Solicitar Orçamento</h4>
-            <p>The people listed here are contacts you've uploaded to Instagram. To remove your synced contacts, tap Delete All.</p>
-            <hr><br>
-            <div class="form-group row">
-              <label class="col-sm-2 text-left text-sm-right"><b>Impressoras 3D</b></label>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="e1260t" value="produto_E1260T">
-                  <label class="form-check-label">
-                    <b>E1260T - MSLA LCD UV</b>
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="phylos" value="produto_Phylos">
-                  <label class="form-check-label">
-                    <b>Phylos - MSLA LCD UV</b>
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="coreE3" value="produto_CoreE3">
-                  <label class="form-check-label">
-                    <b>Core E3 - FDM</b>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 text-left text-sm-right"><b>Acessórios</b></label>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="ezycure" value="produto_EzyCure">
-                  <label class="form-check-label">
-                    <b>EzyCure</b>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Observaçao</b></label>
-              <div  class="col-sm-10">
-                <textarea class="form-control mt-2" name="descricao" cols="5" rows="4" placeholder="Deixe um comentário"></textarea>
-              </div>
-            </div>
-            <br>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"></label>
-              <div  class="col-sm-10">
-                <button id="btn-orcamento" class="btn btn-primary">Enviar</button><br><br>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <!-- SUPORTE TÉCNICO -->
-        <div id="suporte" class="col-lg-9 col-12">
-          <form id="form-perfil" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
-            <input type="hidden" name="tipo" value="suporte">
-            <h4>Suporte Técnico</h4>
-            <p>The people listed here are contacts you've uploaded to Instagram. To remove your synced contacts, tap Delete All.</p>
-            <hr><br>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Máquina</b></label>
-              <div  class="col-sm-5">
-                <select name="maquina" class="custom-select my-1 mr-sm-2 mt-2">
-                  <option selected value="null">Selecione a sua máquina...</option>
-                  <option value="E1260T">E1260T</option>
-                  <option value="Phylos">Phylos</option>
-                  <option value="CoreE3">Core E3</option>
-                  <option value="EzyCure">EzyCure</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Problema</b></label>
-              <div  class="col-sm-5">
-                <select name="problema" class="custom-select my-1 mr-sm-2 mt-2">
-                  <option selected value="null">Selecione seu problema...</option>
-                  <option value="Falha na impressão">Falha na Impressão</option>
-                  <option value="Troca de LCD">Troca de LCD</option>
-                  <option value="Outro">Outro</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Descrição</b></label>
-              <div  class="col-sm-10">
-                <textarea id="textareaDescricao" class="form-control mt-2" name="descricao" cols="5" rows="7" placeholder="Descreva seu problema"></textarea>
-              </div>
-            </div>
-            <br>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"></label>
-              <div  class="col-sm-10">
-                <button id="btn-suporte" class="btn btn-primary">Enviar</button><br><br>
-              </div>
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <?php 
-  $visivelr = true;
-  include"vendor/menu_rodape/rodape.php";
-  ?>
-</main>
 </body>
 </html>

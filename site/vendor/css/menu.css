@@ -125,12 +125,13 @@ nav #desktop a:hover{
 #conta{
 	margin-top: 8px;
 	background-color: #fff;
-	right: 8%;
+	right: 6%;
 	border-radius: 5px;
 	position: fixed;
 	z-index: 100;
 	display: none;
 	box-shadow: 2px 2px 10px rgba(0,0,0,.2);
+	margin-top: 58px;
 }
 #lang{
 	background-color: #494949;
@@ -140,6 +141,7 @@ nav #desktop a:hover{
 	display: none;
 	font-size: 13px;
 	color: #eee;
+	margin-top: 58px;
 }
 .opcoes{
 	font-size: 14px;
