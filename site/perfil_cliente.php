@@ -1,15 +1,16 @@
-<?php 
+<?php
 session_start();
-if(!isset($_SESSION['banana']))
-  header("Location:home.php");
-else{
-  extract($_SESSION);
+if (!isset($_SESSION['banana'])) {
+    header("Location:home.php");
+} else {
+    extract($_SESSION);
 }
 
-if(isset($_GET["status"]))
-  $status = $_GET["status"];
-else
-  $status = "off";
+if (isset($_GET["status"])) {
+    $status = $_GET["status"];
+} else {
+    $status = "off";
+}
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -105,13 +106,13 @@ else
 
 </head>
 <body>
-  <?php 
-  $visivelm = true;
-  $pagina = "perfil_cliente";
-  include"vendor/menu_rodape/menu.php";
-  ?>
+  <?php
+$visivelm = true;
+$pagina = "perfil_cliente";
+include "vendor/menu_rodape/menu.php";
+?>
 
- <main class="pt-64px">
+ <main class="pt-64px" style="background-color: #fafafa;">
   <div id="alert" class="bg-success">
     <div class="row">
       <div class="col-1"></div>
@@ -124,10 +125,10 @@ else
     <div id="painel" class="bg-white">
       <div class="row">
         <div class="col-lg-3 pr-lg-0 mr-lg-0">
-          <div id="btn1" class="item-selected m-0 pt-3 pb-3">Editar Perfil</div>
-          <div id="btn2" class="item m-0 pt-3 pb-3">Alterar Senha</div>
-          <div id="btn3" class="item m-0 pt-3 pb-3">Solicitar Orçamento</div>
-          <div id="btn4" class="item m-0 pt-3 pb-3">Suporte Técnico</div>
+          <div id="btn1" class="item-selected m-0 pt-3 pb-3"><?=$perfil_menu_editar?></div>
+          <div id="btn2" class="item m-0 pt-3 pb-3"><?=$perfil_menu_altsenha?></div>
+          <div id="btn3" class="item m-0 pt-3 pb-3"><?=$perfil_menu_orcamento?></div>
+          <div id="btn4" class="item m-0 pt-3 pb-3"><?=$perfil_menu_suporte?></div>
           <div class="d-block d-lg-none" style="border-bottom: solid 1px rgb(0,0,0,.3)"></div>
         </div>
 
@@ -137,36 +138,36 @@ else
             <input type="hidden" name="tipo" value="alterar">
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Nome</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_nome?></b></label>
               <div  class="col-sm-10">
                 <input class="form-control" type="text" name="nome" value="<?=$nome?>" minlength="3" maxlength="30" required>
                 <div id="erroNome">
                   <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Pelo menos 3 caracteres requeridos.</span> 
+                  <span><?=$perfil_erronome?></span>
                 </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Sobrenome</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_sobrenome?></b></label>
               <div  class="col-sm-10">
                 <input class="form-control" type="text" name="sobrenome" value="<?=$sobrenome?>" minlength="3" maxlength="50" required>
                 <div id="erroSobrenome">
                   <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Pelo menos 3 caracteres requeridos.</span> 
+                  <span><?=$perfil_errosobrenome?></span>
                 </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Empresa</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_empresa?></b></label>
               <div  class="col-sm-10">
                 <input class="form-control" type="text" name="empresa" value="<?=$empresa?>">
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Pais</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_pais?></b></label>
               <div  class="col-sm-5">
                 <select class="custom-select my-1 mr-sm-2" name="pais" required>
                   <option selected value="<?=$pais?>"><?=$pais?></option>
@@ -176,72 +177,72 @@ else
                 </select>
                 <div id="erroPais">
                   <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Informe seu Pais.</span> 
+                  <span><?=$perfil_erropais?></span>
                 </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Ramo</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_ramo?></b></label>
               <div  class="col-sm-5">
                 <select class="custom-select my-1 mr-sm-2" id="ramo" name="ramo">
                   <option selected value="<?=$ramo?>" required><?=$ramo?></option>
                   <option value="1">Feminino</option>
                   <option value="2">Masculino</option>
-                  <option value="outro">Outro</option>
+                  <option value="outro"><?=$perfil_outro1?></option>
                 </select>
                 <div id="erroRamo">
                   <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Informe seu Ramo.</span> 
+                  <span><?=$perfil_erroramo?></span>
                 </div>
               </div>
             </div>
 
             <div id="outroRamo" style="display: none;">
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Outro Ramo</b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_outroramo?></b></label>
                 <div  class="col-sm-5">
                   <input class="form-control" type="text" name="outroRamo" minlength="3" maxlength="20" required>
                   <div id="erroOutroRamo1">
                     <i class="fas fa-exclamation-circle mr-1"></i>
-                    <span>3 caracteres requeridos</span>
+                    <span><?=$perfil_erro_outroramo?></span>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <br>
 
             <div class="form-group row mt-2">
               <label class="col-sm-2"></label>
               <div  class="col-sm-10">
-                <label><b>Informações privadas</b></label>
+                <label><b><?=$perfil_infoprivadas?></b></label>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>E-mail</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b></b></label>
               <div  class="col-sm-10">
                 <input class="form-control" type="hidden" name="oldemail" value="<?=$banana?>" minlength="3" maxlength="60" required>
                 <input class="form-control" type="email" name="email" value="<?=$banana?>" minlength="3" maxlength="60" required>
                 <div id="erroEmail">
                   <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Digite um e-mail válido.</span> 
+                  <span><?=$perfil_erroemail1?></span>
                 </div>
                 <div id="erroEmailExiste">
                   <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Este e-mail já está sendo utilizado.</span>
+                  <span><?=$perfil_erroemail2?></span>
                 </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Telefone</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_telefone?></b></label>
               <div  class="col-sm-10">
                 <input class="form-control" type="text" name="telefone" value="<?=$telefone?>" minlength="11" maxlength="11" required>
                 <div id="erroTelefone">
                   <i class="fas fa-exclamation-circle mr-1"></i>
-                  <span>Digite um telefone válido. (o DDD é necessário)</span> 
+                  <span><?=$perfil_errofone?></span>
                 </div>
               </div>
             </div>
@@ -435,10 +436,10 @@ else
       </div>
     </div>
   </div>
-  <?php 
-  $visivelr = true;
-  include"vendor/menu_rodape/rodape.php";
-  ?>
+  <?php
+$visivelr = true;
+include "vendor/menu_rodape/rodape.php";
+?>
 </main>
 <script>
   function buttonDisabled1(){
@@ -466,7 +467,7 @@ else
     if (senhaold.length >= 8 && novasenha.length >= 8 && confirmarnovasenha.length >= 8)
       $("#btn-alterarsenha").removeAttr("disabled")
     else
-      $("#btn-alterarsenha").attr("disabled", "on")    
+      $("#btn-alterarsenha").attr("disabled", "on")
   }
   setInterval(buttonDisabled2, 0)
 
@@ -573,7 +574,7 @@ else
         },
         error: function(){
           alert("Erro ao fazer a requisição")
-        } 
+        }
       });
 
     });
@@ -753,7 +754,7 @@ else
         },
         error: function(){
           window.location.hred="../../404.html"
-        } 
+        }
       });
 
     });

@@ -29,15 +29,13 @@ CREATE TABLE metas(
 
 
 
-CREATE TABLE usuario(
-	idusuario INT PRIMARY KEY AUTO_INCREMENT,
-	foto VARCHAR(30),
+CREATE TABLE admin(
+	idadmin INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(30) not null,
 	cargo VARCHAR(20) not null,
-	idioma CHAR(2),
 	email VARCHAR(40) not null,
 	senha CHAR(40) not null,
-	permissao INT(2)
+	permissao VARCHAR(7)
 );
 
 CREATE TABLE cliente(

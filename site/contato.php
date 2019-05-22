@@ -1,7 +1,8 @@
-<?php 
+<?php
 session_start();
-if(isset($_SESSION["banana"]))
-  extract($_SESSION);
+if (isset($_SESSION["banana"])) {
+    extract($_SESSION);
+}
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -12,11 +13,11 @@ if(isset($_SESSION["banana"]))
   <title>EZY 3D - Contato</title>
 </head>
 <body>
- <?php 
- $visivelm = true;
- $pagina = "contato";
- include"vendor/menu_rodape/menu.php"; 
- ?>
+ <?php
+$visivelm = true;
+$pagina = "contato";
+include "vendor/menu_rodape/menu.php";
+?>
  <main>
   <div>
     <div class="container-fluid">
@@ -32,23 +33,23 @@ if(isset($_SESSION["banana"]))
     <div class="container">
       <div class="row">
 
-        <div class="col-md-6" style="">
+        <div class="col-md-6">
           <div class="col-md-12">
-            <h4 class="">Contate-nos!<br></h4>
-            <p class="lead" style="">Se você gostaria de saber mais sobre nossos produtos ou tem alguma dúvida nos contate e logo responderemos.<br><br>
+            <h4><?=$titulo1?><br></h4>
+            <p class="lead"><?=$txt1?><br><br>
             </p>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                <i class="fa fa-cloud text-primary mr-2"></i>(11) 95245-3334 - (15) 4101-0014
+                <i class="fa fa-cloud text-primary mr-2"></i><?=$txt1_1?>
               </li>
               <li class="list-group-item">
-                <i class="fa fa-bookmark text-primary mr-2"></i>contato@ezy3d.com.br
+                <i class="fa fa-bookmark text-primary mr-2"></i><?=$txt1_2?>
               </li>
               <li class="list-group-item">
-                <i class="fa fa-bell text-primary mr-2"></i>R. Luís de Camargo Barros, 20 Vila São Cristovao, Tatuí - SP, 18280-010
+                <i class="fa fa-bell text-primary mr-2"></i><?=$txt1_3?>
               </li>
               <li class="list-group-item">
-                <i class="fa fa-life-ring text-primary mr-2"></i> Horário de atendimento: Segunda a Sexta das 08h15 às 17h45
+                <i class="fa fa-life-ring text-primary mr-2"></i><?=$txt1_4?>
               </li>
             </ul>
           </div>
@@ -58,18 +59,18 @@ if(isset($_SESSION["banana"]))
           <div class="col-md-12">
             <form>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Nome"> 
+                <input type="email" class="form-control" placeholder="<?=$input1?>">
               </div>
               <div class="form-group">
-                <label></label> <input type="email" class="form-control" placeholder="E-mail"> 
+                <input type="email" class="form-control" placeholder="<?=$input2?>">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Assunto">
+                <input type="email" class="form-control" placeholder="<?=$input3?>">
               </div>
               <div class="form-group">
-                <textarea class="form-control" placeholder="Sua Mensagem"></textarea>
+                <textarea class="form-control" placeholder="<?=$input4?>"></textarea>
               </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary"><?=$button1?></button>
               </form>
             </div>
           </div>
@@ -77,10 +78,10 @@ if(isset($_SESSION["banana"]))
         </div>
       </div>
     </div>
-    <?php 
-    $visivelr = true;
-    include"vendor/menu_rodape/rodape.php";
-    ?>
+    <?php
+$visivelr = true;
+include "vendor/menu_rodape/rodape.php";
+?>
   </main>
 </body>
 </html>

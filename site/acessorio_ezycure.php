@@ -1,7 +1,8 @@
 <?php
 session_start();
-if(isset($_SESSION["banana"]))
-  extract($_SESSION);
+if (isset($_SESSION["banana"])) {
+    extract($_SESSION);
+}
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -12,11 +13,11 @@ if(isset($_SESSION["banana"]))
   <title>EZY 3D - EzyCure</title>
 </head>
 <body>
- <?php 
- $visivelm = true;
- $pagina = "acessorio_ezycure";
- include"vendor/menu_rodape/menu.php"; 
- ?>
+ <?php
+$visivelm = true;
+$pagina = "acessorio_ezycure";
+include "vendor/menu_rodape/menu.php";
+?>
 
  <main class="pt-64px">
 
@@ -147,11 +148,11 @@ if(isset($_SESSION["banana"]))
       </div>
     </div>
   </div>
-  
-  <?php 
-  $visivelr = true;
-  include"vendor/menu_rodape/rodape.php";
-  ?>
+
+  <?php
+$visivelr = true;
+include "vendor/menu_rodape/rodape.php";
+?>
 </main>
 </body>
 </html>

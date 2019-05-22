@@ -1,7 +1,8 @@
-<?php 
+<?php
 session_start();
-if(isset($_SESSION['banana']))
-	header("Location:home.php");
+if (isset($_SESSION['banana'])) {
+    header("Location:home.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@ if(isset($_SESSION['banana']))
 	<noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 	<link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico"/>
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -26,16 +27,17 @@ if(isset($_SESSION['banana']))
 	<!--===============================================================================================-->
 </head>
 <body>
-	
+
 	<div class="container-login100">
 		<div class="wrap-login100">
-			<form class="login100-form validate-form">
+			<form class="login100-form validate-form" action="controle/admin.php" method="post">
+			<input type="hidden" name="tipo" value="login">
 				<span class="login100-form-title p-b-48">
 					<img src="vendor/img/logo/logo_orange.svg" width="80px">
 				</span>
 				<h5 class="text-center mb-5">Painel Administrativo</h5>
 				<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-					<input class="input100" type="text" name="email_login">
+					<input class="input100" type="text" name="email_admin">
 					<span class="focus-input100" data-placeholder="Email"></span>
 				</div>
 
@@ -43,7 +45,7 @@ if(isset($_SESSION['banana']))
 					<span class="btn-show-pass">
 						<i class="zmdi zmdi-eye"></i>
 					</span>
-					<input class="input100" type="password" name="senha_login">
+					<input class="input100" type="password" name="senha_admin">
 					<span class="focus-input100" data-placeholder="Password"></span>
 				</div>
 
@@ -92,12 +94,12 @@ if(isset($_SESSION['banana']))
 	<script src="vendor/js/logar_main.js"></script>
 	<script>
 		$("#btn-login").on("click", function(){
-			let email = $("input[name=email_login]").val()
-			let senha = $("input[name=senha_login]").val()
+			let email = $("input[name=email_admin]").val()
+			let senha = $("input[name=senha_admin]").val()
 			$.ajax({
-				url: "http://localhost/tccezy3d/site/controle/cliente.php",
+				url: "http://localhost/tccezy3d/site/controle/admin.php",
 				method: "POST",
-				data: {"tipo": "verificarLogin", "email": email, "senha": senha},
+				data: {"tipo": "verificarLogin", "email_admin": email, "senha_admin": senha},
 				success: function(resposta){
 					let requisicao = 0;
 					var json = $.parseJSON(resposta)
@@ -120,13 +122,13 @@ if(isset($_SESSION['banana']))
 						requisicao++
 					}
 
-					if(requisicao === 1){
-						$("#form-modal-login").submit()
+					if(requisicao === 2){
+						$("form").submit()
 					}
 				},
 				error: function(){
 					alert("Erro ao fazer a requisição")
-				} 
+				}
 			})
 		})
 

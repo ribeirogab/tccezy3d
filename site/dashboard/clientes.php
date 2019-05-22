@@ -38,8 +38,8 @@
 
       error: function(){
         alert("Erro ao fazer a requisição")
-      } 
-    });   
+      }
+    });
   }
 </script>
 
@@ -50,7 +50,13 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-   <?php include"menu.php"?>
+      <?php
+include "menu.php";
+if (!($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590" || $permissao == "*271")) {
+    session_destroy();
+    header("Location: ../pa-admin.php");
+}
+?>
 
 
    <!-- Begin Page Content -->
@@ -76,8 +82,9 @@
                 <th>Telefone</th>
                 <th>Ramo</th>
                 <th>Empresa</th>
+<?php if ($permissao == "@571824") {?>
                 <th>Editar</th>
-
+<?php }?>
               </tr>
             </thead>
             <tfoot>
@@ -88,36 +95,40 @@
                 <th>Telefone</th>
                 <th>Ramo</th>
                 <th>Empresa</th>
+<?php if ($permissao == "@571824") {?>
                 <th>Editar</th>
+<?php }?>
               </tr>
             </tfoot>
             <tbody>
-             <?php 
-             require_once"../site/Classes/Conexao.php";
-             require_once"../site/Classes/Cliente.php";
-             $obj = new Cliente();
-             $registro = $obj->consultar("*", null, null);
-             foreach ($registro as $cliente) { ?>
+             <?php
+require_once "../Classes/Conexao.php";
+require_once "../Classes/Usuario.php";
+$obj = new Usuario();
+$registro = $obj->consultar("*", "cliente", null, null);
+foreach ($registro as $cliente) {?>
               <tr>
-                <td><?= $cliente['idcliente'] ?></td>
-                <td><?= $cliente['nome'] ?></td>
-                <td><?= $cliente['email'] ?></td>
-                <td><?= $cliente['telefone'] ?></td>
-                <td><?= $cliente['ramo'] ?></td>
-                <td><?= $cliente['empresa'] ?></td>
+                <td><?=$cliente['idcliente']?></td>
+                <td><?=$cliente['nome']?></td>
+                <td><?=$cliente['email']?></td>
+                <td><?=$cliente['telefone']?></td>
+                <td><?=$cliente['ramo']?></td>
+                <td><?=$cliente['empresa']?></td>
+<?php if ($permissao == "@571824") {?>
                 <td class="text-center">
                   <a class="btn btn-outline-primary" id="btn-alterar" href="javascript:consultarCliente(<?=$cliente['idcliente']?>, 'consultar')">Alterar</a>
                   <a class="btn btn-outline-danger" onclick="return confirmar()"  href="javascript:excluirCliente(<?=$cliente['idcliente']?>, 'excluir')">Excluir</a>
                 </td>
+<?php }?>
               </tr>
-            <?php } ?>
+            <?php }?>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
- 
+
 </div>
 <!-- /.container-fluid -->
 
@@ -145,24 +156,7 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="login.html">Logout</a>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- Bootstrap core JavaScript-->
 

@@ -1,7 +1,8 @@
-<?php 
+<?php
 session_start();
-if(isset($_SESSION["banana"]))
-  extract($_SESSION);
+if (isset($_SESSION["banana"])) {
+    extract($_SESSION);
+}
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -12,18 +13,18 @@ if(isset($_SESSION["banana"]))
   <title>EZY 3D - Educação</title>
 </head>
 <body>
- <?php 
- $visivelm = true;
- $pagina = "app_educacao";
- include"vendor/menu_rodape/menu.php"; 
- ?>
+ <?php
+$visivelm = true;
+$pagina = "app_educacao";
+include "vendor/menu_rodape/menu.php";
+?>
  <div class="py-5 text-center" style="background-image: url('https://static.pingendo.com/cover-bubble-dark.svg');background-size:cover;">
   <div class="container">
     <div class="row">
       <div class="bg-white p-5 mx-auto col-md-8 col-10">
-        <h3 class="display-3">I feel the charm</h3>
-        <p class="mb-3 lead">Of existence in this spot</p>
-        <p class="mb-4">Which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
+        <h3 class="display-3"><?=$titulo1?></h3>
+        <p class="mb-3 lead"><?=$titulo1_1?></p>
+        <p class="mb-4"><?=$txt1?></p>
       </div>
     </div>
   </div>
@@ -53,7 +54,7 @@ if(isset($_SESSION["banana"]))
     <div class="row">
       <div class="mx-auto col-md-10">
         <i class="d-block fa fa-stop-circle fa-4x mb-3 text-muted"></i>
-        <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
+        <p><?=$txt1_1?></p>
       </div>
     </div>
   </div>
@@ -67,8 +68,8 @@ if(isset($_SESSION["banana"]))
         <div class="card">
           <div class="card-body p-4">
             <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="150">
-            <h1>One</h1>
-            <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
+            <h1><?=$titulo2_1?></h1>
+            <p class="mb-0"><?=$txt2_1?></p>
           </div>
         </div>
       </div>
@@ -77,8 +78,8 @@ if(isset($_SESSION["banana"]))
         <div class="card">
           <div class="card-body p-4">
             <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="150">
-            <h1>Two</h1>
-            <p class="mb-0">So absorbed in the exquisite sense of mere tranquil existence.</p>
+            <h1><?=$titulo2_2?></h1>
+            <p class="mb-0"><?=$txt2_2?></p>
           </div>
         </div>
       </div>
@@ -87,8 +88,8 @@ if(isset($_SESSION["banana"]))
         <div class="card">
           <div class="card-body p-4">
             <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="150">
-            <h1>Three</h1>
-            <p class="mb-0">I should be incapable of drawing a single stroke.</p>
+            <h1><?=$titulo2_3?></h1>
+            <p class="mb-0"><?=$txt2_3?></p>
           </div>
         </div>
       </div>
@@ -102,8 +103,8 @@ if(isset($_SESSION["banana"]))
     <div class="row">
 
       <div class="col-lg-8 p-md-5 p-3 d-flex flex-column justify-content-center">
-        <h1>A thousand sliders</h1>
-        <p class="mb-0">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+        <h1><?=$titulo3?></h1>
+        <p class="mb-0"><?=$txt3?></p>
       </div>
 
       <div class="col-lg-4 p-3">
@@ -140,10 +141,10 @@ if(isset($_SESSION["banana"]))
   <div class="container">
     <div class="row">
       <div class="col-md-9 p-3">
-        <h1 class="mb-0">Call your visitors to act. Now</h1>
+        <h1 class="mb-0"><?=$titulo4?></h1>
       </div>
       <div class="col-md-3 align-items-center d-flex justify-content-center p-3">
-        <a class="btn btn-primary btn-lg" href="#">Get your license</a>
+        <a class="btn btn-primary btn-lg" href="#"><?=$button1?></a>
       </div>
     </div>
   </div>
@@ -168,9 +169,9 @@ if(isset($_SESSION["banana"]))
     </div>
   </div>
 
-<?php 
+<?php
 $visivelr = true;
-include"vendor/menu_rodape/rodape.php";
+include "vendor/menu_rodape/rodape.php";
 ?>
 </main>
 </body>

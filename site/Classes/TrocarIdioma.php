@@ -1,5 +1,5 @@
 <?php 
-require_once"Conexao.php";
+require_once"Classes/Conexao.php";
 class TrocarIdioma extends Conexao{
 	private $lang;
 

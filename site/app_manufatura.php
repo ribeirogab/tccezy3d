@@ -1,7 +1,8 @@
-<?php 
+<?php
 session_start();
-if(isset($_SESSION["banana"]))
-  extract($_SESSION);
+if (isset($_SESSION["banana"])) {
+    extract($_SESSION);
+}
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -13,11 +14,11 @@ if(isset($_SESSION["banana"]))
 </style>
 </head>
 <body>
- <?php 
- $visivelm = true;
- $pagina = "app_manufatura";
- include"vendor/menu_rodape/menu.php"; 
- ?>
+ <?php
+$visivelm = true;
+$pagina = "app_manufatura";
+include "vendor/menu_rodape/menu.php";
+?>
 
  <main class="pt-64px">
 
@@ -26,7 +27,7 @@ if(isset($_SESSION["banana"]))
       <div class="row">
 
         <div class="p-5 bg-white ml-auto col-md-5 border">
-          <h1>O my friend</h1>
+          <h1><?=$titulo1?></h1>
           <p class="mb-3">Would I could describe these conceptions, could impress upon paper all that is living so full and warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite.</p>
         </div>
 
@@ -60,14 +61,14 @@ if(isset($_SESSION["banana"]))
 
         <div class="col-md-6 p-4">
           <i class="d-block fa fa-stop-circle mb-2 text-muted fa-3x"></i>
-          <h4>On one hand</h4>
-          <p>I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks.</p>
+          <h4><?=$titulo2?></h4>
+          <p><?=$txt2?></p>
         </div>
 
         <div class="col-md-6 p-4">
           <i class="d-block fa fa-stop-circle-o mb-2 text-muted fa-3x"></i>
-          <h4>On the other</h4>
-          <p>Grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath of that universal love which bears and sustains us.</p>
+          <h4><?=$titulo3?></h4>
+          <p><?=$txt3?></p>
         </div>
 
       </div>
@@ -79,7 +80,7 @@ if(isset($_SESSION["banana"]))
 
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1>A wonderful serenity</h1>
+          <h1><?=$titulo4?></h1>
         </div>
       </div>
 
@@ -91,8 +92,8 @@ if(isset($_SESSION["banana"]))
               <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
             </div>
             <div class="col-9">
-              <p class="lead mb-1"> <b>#1</b> </p>
-              <p class="mb-0">A wonderful serenity has taken possession of my entire soul.</p>
+              <p class="lead mb-1"> <b><?=$titulo4_1?></b> </p>
+              <p class="mb-0"><?=$txt4_1?></p>
             </div>
 
           </div>
@@ -105,8 +106,8 @@ if(isset($_SESSION["banana"]))
               <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
             </div>
             <div class="col-9">
-              <p class="lead mb-1"> <b>#2</b> </p>
-              <p class="mb-0">I am alone, and feel the charm of existence in this spot.</p>
+              <p class="lead mb-1"> <b><?=$titulo4_2?></b> </p>
+              <p class="mb-0"><?=$txt4_2?></p>
             </div>
 
           </div>
@@ -119,8 +120,8 @@ if(isset($_SESSION["banana"]))
               <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
             </div>
             <div class="col-9">
-              <p class="lead mb-1"> <b>#3</b> </p>
-              <p class="mb-0">I should be incapable of drawing a single stroke.</p>
+              <p class="lead mb-1"> <b><?=$titulo4_3?></b> </p>
+              <p class="mb-0"><?=$txt4_3?></p>
             </div>
 
           </div>
@@ -133,8 +134,8 @@ if(isset($_SESSION["banana"]))
               <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
             </div>
             <div class="col-9">
-              <p class="lead mb-1"> <b>#4</b> </p>
-              <p class="mb-0">I throw myself down among the tall grass by the trickling stream.</p>
+              <p class="lead mb-1"> <b><?=$titulo4_4?></b> </p>
+              <p class="mb-0"><?=$txt4_4?></p>
             </div>
 
           </div>
@@ -147,8 +148,8 @@ if(isset($_SESSION["banana"]))
               <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
             </div>
             <div class="col-9">
-              <p class="lead mb-1"> <b>#5</b> </p>
-              <p class="mb-0">I lie close to the earth, a thousand unknown plants.</p>
+              <p class="lead mb-1"> <b><?=$titulo4_5?></b> </p>
+              <p class="mb-0"><?=$txt4_5?></p>
             </div>
 
           </div>
@@ -161,8 +162,8 @@ if(isset($_SESSION["banana"]))
               <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
             </div>
             <div class="col-9">
-              <p class="lead mb-1"> <b>#6</b> </p>
-              <p class="mb-0">When I hear the buzz of the little world among the stalks.</p>
+              <p class="lead mb-1"> <b><?=$titulo4_6?></b> </p>
+              <p class="mb-0"><?=$txt4_6?></p>
             </div>
 
           </div>
@@ -177,8 +178,8 @@ if(isset($_SESSION["banana"]))
       <div class="row">
 
         <div class="col-md-12">
-          <h1>A wonderful serenity</h1>
-          <p class="lead mb-4">Has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+          <h1><?=$titulo5?></h1>
+          <p class="lead mb-4"><?=$txt5?></p>
         </div>
       </div>
 
@@ -186,25 +187,25 @@ if(isset($_SESSION["banana"]))
         <div class="col-md-4 col-lg-3 p-4">
           <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg" width="1500">
           <h4 class="my-3">
-            <b>One&nbsp;</b>
+            <b><?=$titulo5_1?></b>
           </h4>
-          <p>I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
+          <p><?=$txt5_1?></p>
         </div>
 
         <div class="col-md-4 col-lg-3 p-4">
           <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg" width="1500">
           <h4 class="my-3">
-            <b>Two</b>
+            <b><?=$titulo5_2?></b>
           </h4>
-          <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
+          <p><?=$txt5_2?></p>
         </div>
 
         <div class="col-md-4 col-lg-3 p-4">
           <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg" width="1500">
           <h4 class="my-3">
-            <b>Three</b>
+            <b><?=$titulo5_3?></b>
           </h4>
-          <p>I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me.</p>
+          <p><?=$txt5_3?></p>
         </div>
       </div>
 
@@ -216,10 +217,10 @@ if(isset($_SESSION["banana"]))
       <div class="row">
 
         <div class="col-md-9 p-3">
-          <h1 class="mb-0">Call your visitors to act. Now</h1>
+          <h1 class="mb-0"><?=$titulo6?></h1>
         </div>
         <div class="col-md-3 align-items-center d-flex justify-content-center p-3">
-          <a class="btn btn-primary btn-lg" href="#">Get your license</a>
+          <a class="btn btn-primary btn-lg" href="#"><?=$button1?></a>
         </div>
 
       </div>
@@ -245,10 +246,10 @@ if(isset($_SESSION["banana"]))
     </div>
   </div>
 
-    <?php 
-    $visivelr = true;
-    include"vendor/menu_rodape/rodape.php";
-    ?>
+    <?php
+$visivelr = true;
+include "vendor/menu_rodape/rodape.php";
+?>
   </main>
 </body>
 </html>

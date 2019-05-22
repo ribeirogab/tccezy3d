@@ -1,6 +1,6 @@
-<?php 
-require_once"Classes/Today.php";
-require_once"Classes/Meta.php";
+<?php
+require_once "Classes/Today.php";
+require_once "Classes/Meta.php";
 $hoje = new Today();
 $zero = 0;
 $hoje->criarAcessoOuToday("acesso", ":mes, :ano, :tipo, $zero");
@@ -37,7 +37,14 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-    <?php include"menu.php"?>
+    <?php
+include "menu.php";
+if (!($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590" || $permissao == "*271" || $permissao == "#11")) {
+    session_destroy();
+    header("Location: ../pa-admin.php");
+}
+?>
+
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
@@ -58,9 +65,9 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Visitantes (hoje)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
-                    <?php 
-                    $hoje->total("visitantes");
-                    ?>
+                    <?php
+$hoje->total("visitantes");
+?>
                   </div>
                 </div>
                 <div class="col-auto">
@@ -79,9 +86,9 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-success text-uppercase mb-1">cadastros realizados (hoje)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
-                    <?php 
-                    $hoje->total("cadastro");
-                    ?>
+                    <?php
+$hoje->total("cadastro");
+?>
                   </div>
                 </div>
                 <div class="col-auto">
@@ -102,9 +109,9 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
                   <div class="row no-gutters align-items-center">
                     <div class="col-auto">
                       <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                        <?php 
-                        $hoje->total("orcamento");
-                        ?>
+                        <?php
+$hoje->total("orcamento");
+?>
                       </div>
                     </div>
                   </div>
@@ -125,9 +132,9 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Suportes solicitados (hoje)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
-                    <?php 
-                    $hoje->total("suporte");
-                    ?>
+                    <?php
+$hoje->total("suporte");
+?>
                   </div>
                 </div>
                 <div class="col-auto">
@@ -155,7 +162,7 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
               <hr>
               Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
             </div>
-          </div>   
+          </div>
 
         </div>
         <div class="col-xl-4 col-lg-5">
@@ -182,83 +189,86 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Objetivos do mês</h6>
-              <?php 
-              $metaViews = new Meta();
-              $metaViews->progresso("visualizacoes");
-              ?>
+              <?php
+$metaViews = new Meta();
+$metaViews->progresso("visualizacoes");
+?>
             </div>
             <div class="card-body">
               <h4 class="small font-weight-bold">Visitantes <span class="float-right">
-                <?php 
-                if($metaViews->getProgresso() >= 100)
-                  echo "Completo!";
-                else
-                  echo $metaViews->getProgresso();
-                ?> 
+                <?php
+if ($metaViews->getProgresso() >= 100) {
+    echo "Completo!";
+} else {
+    echo $metaViews->getProgresso();
+}
+
+?>
               </span></h4>
               <div class="progress mb-4">
                 <div class="progress-bar" role="progressbar" style="width:
-                <?php 
-                if($metaViews->getProgresso() >= 100){
-                  echo "100%;";
-                  echo "background-color: green;";
-                }
-                else{
-                  echo $metaViews->getProgresso().";";
-                  echo "background-color: blue;";
-                }
-                ?>" >
+                <?php
+if ($metaViews->getProgresso() >= 100) {
+    echo "100%;";
+    echo "background-color: green;";
+} else {
+    echo $metaViews->getProgresso() . ";";
+    echo "background-color: blue;";
+}
+?>" >
               </div>
             </div>
-            <?php 
-            $metaOrcamentos = new Meta();
-            $metaOrcamentos->progresso("orcamento");
-            ?>
+            <?php
+$metaOrcamentos = new Meta();
+$metaOrcamentos->progresso("orcamento");
+?>
             <h4 class="small font-weight-bold">Orçamentos <span class="float-right">
-              <?php 
-              if($metaOrcamentos->getProgresso() >= 100)
-                echo "Completo!";
-              else
-                echo $metaOrcamentos->getProgresso();
-              ?> 
+              <?php
+if ($metaOrcamentos->getProgresso() >= 100) {
+    echo "Completo!";
+} else {
+    echo $metaOrcamentos->getProgresso();
+}
+
+?>
             </span></h4>
             <div class="progress mb-4">
               <div class="progress-bar bg-warning" role="progressbar" style="width:
-              <?php 
-              if($metaOrcamentos->getProgresso() >= 100){
-                echo "100%;";
-                echo "background-color: green;";
-              }
-              else{
-                echo $metaOrcamentos->getProgresso().";";
-                echo "background-color: blue;";
-              }
-              ?>"></div>
+              <?php
+if ($metaOrcamentos->getProgresso() >= 100) {
+    echo "100%;";
+    echo "background-color: green;";
+} else {
+    echo $metaOrcamentos->getProgresso() . ";";
+    echo "background-color: blue;";
+}
+?>"></div>
             </div>
-            <?php 
-            $metaNewsletter = new Meta();
-            $metaNewsletter->progresso("cadastro");
-            ?>
+            <?php
+$metaNewsletter = new Meta();
+$metaNewsletter->progresso("cadastro");
+?>
             <h4 class="small font-weight-bold">Cadastros <span class="float-right">
-              <?php 
-              if($metaNewsletter->getProgresso() >= 100)
-                echo "Completo!";
-              else
-                echo $metaNewsletter->getProgresso();
-              ?> 
+              <?php
+if ($metaNewsletter->getProgresso() >= 100) {
+    echo "Completo!";
+} else {
+    echo $metaNewsletter->getProgresso();
+}
+
+?>
             </span></h4>
             <div class="progress">
               <div class="progress-bar bg-success" role="progressbar" style="width:
-              <?php 
-              if($metaNewsletter->getProgresso() >= 100){
-                echo "100%;";
-                echo "background-color: green;";
-              }
-              else{
-                echo $metaNewsletter->getProgresso().";";
-                echo "background-color: blue;";
-              }
-              ?>"></div>
+              <?php
+if ($metaNewsletter->getProgresso() >= 100) {
+    echo "100%;";
+    echo "background-color: green;";
+} else {
+    echo $metaNewsletter->getProgresso() . ";";
+    echo "background-color: blue;";
+}
+?>"></div>
             </div>
           </div>
         </div>
@@ -296,7 +306,7 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
                 <div class="text-white-50 small">#f6c23e</div>
               </div>
             </div>
-          </div>    
+          </div>
         </div>
       </div>
 
@@ -434,25 +444,6 @@ $hoje->criarMetas("acesso", "cadastro", "WHERE mes=:mes AND ano=:ano AND tipo=:t
 <a class="scroll-to-top rounded" href="#page-top">
   <i class="fas fa-angle-up"></i>
 </a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="login.html">Logout</a>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>

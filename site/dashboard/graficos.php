@@ -25,7 +25,13 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-     <?php include"menu.php"?>
+    <?php
+include "menu.php";
+if (!($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590" || $permissao == "*271" || $permissao == "#11")) {
+    session_destroy();
+    header("Location: ../pa-admin.php");
+}
+?>
 
         <!-- Begin Page Content -->
         <div class="container-fluid">

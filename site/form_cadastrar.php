@@ -1,7 +1,8 @@
-<?php 
+<?php
 session_start();
-if(isset($_SESSION['banana']))
-	header("Location:home.php");
+if (isset($_SESSION['banana'])) {
+    header("Location:home.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -11,13 +12,13 @@ if(isset($_SESSION['banana']))
 	<noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 	<link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico"/>
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/fonts/iconic/css/material-design-iconic-font.min.css">
-<!-- 
+<!--
 	<link rel="stylesheet" type="text/css" href="vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
@@ -452,10 +453,10 @@ if(isset($_SESSION['banana']))
 			<a href="home.php"><i class="fas fa-home"></i> Voltar Para o Site.</a>
 		</div>
 	</div>
-	
+
 
 	<div id="dropDownSelect1"></div>
-	
+
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->

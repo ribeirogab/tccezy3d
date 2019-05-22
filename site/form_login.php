@@ -1,7 +1,8 @@
-<?php 
+<?php
 session_start();
-if(isset($_SESSION['banana']))
-  header("Location:home.php");
+if (isset($_SESSION['banana'])) {
+    header("Location:home.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@ if(isset($_SESSION['banana']))
 	<noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 	<link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico"/>
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -21,13 +22,13 @@ if(isset($_SESSION['banana']))
 	<link rel="stylesheet" type="text/css" href="vendor/fonts/iconic/css/material-design-iconic-font.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-	<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-	<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/css/cadastro_util.css">
@@ -35,7 +36,7 @@ if(isset($_SESSION['banana']))
 	<!--===============================================================================================-->
 </head>
 <body>
-	
+
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
@@ -68,10 +69,10 @@ if(isset($_SESSION['banana']))
 			</div>
 		</div>
 
-	
+
 
 	<div id="dropDownSelect1"></div>
-	
+
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
