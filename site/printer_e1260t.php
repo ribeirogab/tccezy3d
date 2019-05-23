@@ -13,10 +13,15 @@ if (isset($_SESSION["banana"])) {
   <title>EZY 3D - E1260T</title>
 </head>
 <body>
+<body id="page-top">
  <?php
-$visivelm = true;
 $pagina = "printer_e1260t";
-include "vendor/menu_rodape/menu.php";
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/menuAlterarTexto.php";
+} else {
+    $visivelm = true;
+    include "vendor/menu_rodape/menu.php";
+}
 ?>
 <main class="pt-64px">
   <div class="py-3 bg-light">

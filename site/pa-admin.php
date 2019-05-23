@@ -79,7 +79,7 @@ if (isset($_SESSION['banana'])) {
 				<div class="container-login100-form-btn">
 					<div class="wrap-login100-form-btn">
 						<div class="login100-form-bgbtn"></div>
-						<button id="btn-login" type="button" class="login100-form-btn">
+						<button id="btn-login" class="login100-form-btn">
 							Login
 						</button>
 					</div>

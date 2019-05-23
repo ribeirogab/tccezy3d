@@ -69,7 +69,10 @@ else if ($tipo == "login") {
 else if ($tipo == "excluir") {
     $dados = ["id" => $id];
     $cliente->excluir("cliente", "WHERE idcliente=:id", $dados);
-} else if ($tipo == "consultar") {
+}
+
+// Consultar via AJAX
+else if ($tipo == "consultar") {
     $dados = ["id" => $id];
     $retorno = $cliente->consultar("*", "cliente", "WHERE idcliente=:id", $dados);
     echo json_encode($retorno, JSON_UNESCAPED_UNICODE);

@@ -106,10 +106,14 @@ if (isset($_GET["status"])) {
 
 </head>
 <body>
-  <?php
-$visivelm = true;
+ <?php
 $pagina = "perfil_cliente";
-include "vendor/menu_rodape/menu.php";
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/menuAlterarTexto.php";
+} else {
+    $visivelm = true;
+    include "vendor/menu_rodape/menu.php";
+}
 ?>
 
  <main class="pt-64px" style="background-color: #fafafa;">
@@ -437,8 +441,12 @@ include "vendor/menu_rodape/menu.php";
     </div>
   </div>
   <?php
-$visivelr = true;
-include "vendor/menu_rodape/rodape.php";
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/rodapeAlterarTexto.php";
+} else {
+    $visivelr = true;
+    include "vendor/menu_rodape/rodape.php";
+}
 ?>
 </main>
 <script>

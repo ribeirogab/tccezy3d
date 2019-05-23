@@ -12,13 +12,16 @@ if (isset($_SESSION["banana"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - EzyCure</title>
 </head>
-<body>
+<body id="page-top">
  <?php
-$visivelm = true;
 $pagina = "acessorio_ezycure";
-include "vendor/menu_rodape/menu.php";
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/menuAlterarTexto.php";
+} else {
+    $visivelm = true;
+    include "vendor/menu_rodape/menu.php";
+}
 ?>
-
  <main class="pt-64px">
 
   <div class="py-3">
@@ -150,8 +153,12 @@ include "vendor/menu_rodape/menu.php";
   </div>
 
   <?php
-$visivelr = true;
-include "vendor/menu_rodape/rodape.php";
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/rodapeAlterarTexto.php";
+} else {
+    $visivelr = true;
+    include "vendor/menu_rodape/rodape.php";
+}
 ?>
 </main>
 </body>

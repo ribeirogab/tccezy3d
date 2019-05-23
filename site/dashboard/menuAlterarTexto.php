@@ -1,14 +1,69 @@
 <?php
-session_start();
 if (!isset($_SESSION['idadmin'])) {
     header("Location:../pa-admin.php");
 } else {
     extract($_SESSION);
 }
+require_once "Classes/TrocarIdioma.php";
+if (!isset($_GET['lang'])) {
+    if (isset($_SESSION['lang'])) {
+        $lang = $_SESSION['lang'];
+    } else {
+        $_SESSION['lang'] = 'pt';
+        $lang = $_SESSION['lang'];
+    }
+} else {
+    $_SESSION['lang'] = $_GET['lang'];
+    $lang = $_SESSION['lang'];
+}
+
+$idioma = new TrocarIdioma($lang);
+
+$langPag = $idioma->langPag($pagina);
+foreach ($langPag as $item) {
+    $val = $item['apelido'];
+    $$val = $item[$lang];
+}
+
+$langMenu = $idioma->langMenu("menu");
+foreach ($langMenu as $item) {
+    $val = $item['apelido'];
+    $$val = $item[$lang];
+}
+
+$langRodape = $idioma->langRodape("rodape");
+foreach ($langRodape as $item) {
+    $val = $item['apelido'];
+    $$val = $item[$lang];
+}
 ?>
 
+<noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
+<link rel="stylesheet" href="vendor/css/menu.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+<!-- Fontawesome -->
+<link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
+<!-- Jquery -->
+<script type="text/javascript" src="vendor/jquery/jquery.js"></script>
+<!-- MASK -->
+<script type="text/javascript" src="vendor/jquery/jquery.mask.js"></script>
+<!-- Bootstrap JS -->
+<script src="vendor/bootstrap/js/bootstrap.js"></script>
+
+  <link href="dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="dashboard/css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="dashboard/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gray-900 sidebar sidebar-dark accordion" id="accordionSidebar">
+<!-- Page Wrapper -->
+  <div id="wrapper">
+     <ul class="navbar-nav bg-gray-900 sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
@@ -174,7 +229,7 @@ if (!isset($_SESSION['idadmin'])) {
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$nome?></span>
-            <img class="img-profile rounded-circle" src="img/gabriel.jpg" width="60px">
+            <img class="img-profile rounded-circle" src="dashboard/img/gabriel.jpg" width="60px">
           </a>
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -213,3 +268,14 @@ if (!isset($_SESSION['idadmin'])) {
       </div>
     </div>
   </div>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+<h1 class="h3 mb-2 text-gray-800">
+<a href="dashboard/textos.php"><i class="fas fa-long-arrow-alt-left"></i></a>
+</h1>
+          <!-- Page Heading -->
+          <h1 class="h5 mb-4 text-gray-800">
+          <a href="dashboard/textos.php">Alterar textos</a> <i class="fas fa-chevron-right mr-2 ml-2"></i>
+           <?=$pagina?>
+          </h1>
+          <hr>

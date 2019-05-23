@@ -14,9 +14,13 @@ if (isset($_SESSION["banana"])) {
 </head>
 <body>
  <?php
-$visivelm = true;
 $pagina = "app_odontologia";
-include "vendor/menu_rodape/menu.php";
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/menuAlterarTexto.php";
+} else {
+    $visivelm = true;
+    include "vendor/menu_rodape/menu.php";
+}
 ?>
   <main class="pt-64px">
    <div class="py-3 text-center align-items-center d-flex" style="background-image: linear-gradient(to left bottom, rgba(189, 195, 199, .75), rgba(44, 62, 80, .75)); background-size: 100%;">
@@ -136,8 +140,12 @@ include "vendor/menu_rodape/menu.php";
 
 
   <?php
-$visivelr = true;
-include "vendor/menu_rodape/rodape.php";
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/rodapeAlterarTexto.php";
+} else {
+    $visivelr = true;
+    include "vendor/menu_rodape/rodape.php";
+}
 ?>
 </main>
 </body>

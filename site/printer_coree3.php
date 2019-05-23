@@ -14,9 +14,13 @@ if (isset($_SESSION["banana"])) {
 </head>
 <body>
  <?php
-$visivelm = true;
 $pagina = "printer_coree3";
-include "vendor/menu_rodape/menu.php";
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/menuAlterarTexto.php";
+} else {
+    $visivelm = true;
+    include "vendor/menu_rodape/menu.php";
+}
 ?>
  <main class="pt-64px">
 
@@ -153,8 +157,12 @@ include "vendor/menu_rodape/menu.php";
   </div>
 
   <?php
-$visivelr = true;
-include "vendor/menu_rodape/rodape.php";
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/rodapeAlterarTexto.php";
+} else {
+    $visivelr = true;
+    include "vendor/menu_rodape/rodape.php";
+}
 ?>
 </main>
 </body>

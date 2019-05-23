@@ -1,37 +1,11 @@
 <?php
-class Usuario extends Conexao {
+require_once "Crud.php";
+class Usuario extends Crud {
 
     public function __construct() {
         parent::__construct();
-        parent::conectar();
     }
 
-    public function cadastrar($tabela, $restricao, $valores) {
-        $sql = "INSERT INTO $tabela VALUES($restricao)";
-        if (parent::executarSql($sql, $valores)) {
-            echo "<script>alert('Cadastrado efetuado com sucesso!');</script>";
-        } else {
-            echo "<script>alert('Falha ao realizar cadastro!');</script>";
-        }
-
-    }
-    public function consultar($coluna, $tabela, $restricao, $cod) {
-        $sql = "SELECT $coluna FROM $tabela $restricao";
-        return parent::executarFetchAll($sql, $cod);
-    }
-    public function alterar($tabela, $set, $val) {
-        $sql = "UPDATE $tabela SET $set";
-        parent::executarSql($sql, $val);
-    }
-    public function excluir($tabela, $restricao, $cod) {
-        $sql = "DELETE FROM $tabela $restricao";
-        if (parent::executarSql($sql, $cod)) {
-            echo "Exclusão efetuada com sucesso!";
-        } else {
-            echo "Falha ao realizar exclusão!";
-        }
-
-    }
     public function criarSession($idcliente, $nome, $sobrenome, $email, $senha, $telefone, $pais, $ramo, $empresa) {
         session_start();
         $_SESSION["idcliente"] = $idcliente;

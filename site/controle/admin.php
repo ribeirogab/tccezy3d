@@ -31,7 +31,9 @@ else if ($tipo == "cadastro") {
     if ($qtdEmail[0][0] != 0) {
         header("Location: ../dashboard/configusuarios.php?erro=emailcadastrado");
     } else {
-        if (strlen($senha_admin) < 8 || strlen($confirmarSenha) < 8) {
+        if (!($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590" || $permissao == "*271" || $permissao == "#11")) {
+            header("Location: ../dashboard/configusuarios.php?erro=permissaoinvalida");
+        } else if (strlen($senha_admin) < 8) {
             header("Location: ../dashboard/configusuarios.php?erro=senhainvalida");
         } else {
             $senha_adminCriptografada = sha1($senha_admin);
@@ -56,7 +58,7 @@ else if ($tipo == "login") {
         $admin->criarSessionAdmin($logon[0]["idadmin"], $logon[0]["nome"], $logon[0]["cargo"], $logon[0]["email"], $logon[0]["permissao"]);
         header("Location: ../dashboard/index.php");
     } else {
-        echo "<script>alert('Senha ou email incorreto(s)');window.location.href='../home.php';</script>";
+        echo "<script>alert('Senha ou email incorreto(s)');window.location.href='../pa-admin.php';</script>";
     }
 }
 
@@ -75,27 +77,16 @@ else if ($tipo == "consultar") {
 
 // Alterar informações
 else if ($tipo == "alterar") {
-    session_start();
-    if (!isset($_SESSION["idadmin"])) {
-        header("Location: ../home.php");
-    } else {
-        $idadmin = $_SESSION["idadmin"];
-    }
+    $dados = ["nome" => $altNome, "cargo" => $altCargo, "email" => $altEmail, "permissao" => $altPermissao, "idadmin" => $altIdadmin];
+    $admin->alterar("admin", "nome=:nome, cargo=:cargo, email=:email, permissao=:permissao WHERE idadmin=:idadmin", $dados);
+    header("Location:../dashboard/configusuarios.php");
+}
 
-    $valor = ["idadmin" => $idadmin, "email" => $email_admin];
-    $qtdEmail = $admin->consultar("count(*)", "admin", "WHERE idadmin!=:idadmin AND email=:email", $valor);
-    if ($qtdEmail[0][0] != 0) {
-        header("Location: ../form_cadastrar.php?error=true");
-    } else {
-        $dados1 = ["idadmin" => $idadmin, "nome" => $nome, "cargo" => $cargo, "email" => $email_admin, "permissao" => $permissao];
-        $admin->alterar("admin", "nome=:nome, cargo=:cargo, email=:email, permissao=:permissao", $dados1);
-
-        // Atualizando os dados do SESSION
-        $dados2 = ["idadmin" => $idadmin];
-        $logon = $admin->consultar("*", "admin", "WHERE idadmin=:idadmin", $dados2);
-        $admin->criarSessionAdmin($logon[0]["idadmin"], $logon[0]["nome"], $logon[0]["sobrenome"], $logon[0]["email"], $logon[0]["senha"], $logon[0]["telefone"], $logon[0]["pais"], $logon[0]["ramo"], $logon[0]["empresa"]);
-        header("Location:../perfil_admin.php?status=success1");
-    }
+// Alterar textos
+else if ($tipo == "alterartxt") {
+    $dados = ["pt" => $altPt, "en" => $altEn, "es" => $altEs, "apelido" => $apelido, "pagina" => $pagina];
+    $admin->alterar("conteudo", "pt=:pt, en=:en, es=:es WHERE apelido=:apelido AND pagina=:pagina", $dados);
+    header("Location:../$pagina?alterartxt=true");
 } else {
     header("Location:../home.php");
 }

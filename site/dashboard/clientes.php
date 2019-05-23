@@ -41,6 +41,10 @@
       }
     });
   }
+
+  function confirmar(){
+    return confirm('Deseja realmente excluir este cliente?')
+  }
 </script>
 
 </head>
