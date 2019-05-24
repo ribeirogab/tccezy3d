@@ -39,21 +39,51 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
         <div class="col-md-6">
           <div class="col-md-12">
-            <h4><?=$titulo1?><br></h4>
-            <p class="lead"><?=$txt1?><br><br>
+            <h4><?php
+echo $titulo1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?><br></h4>
+            <p class="lead"><?php
+echo $txt1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?><br><br>
             </p>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                <i class="fa fa-cloud text-primary mr-2"></i><?=$txt1_1?>
+                <i class="fa fa-cloud text-primary mr-2"></i><?php
+echo $txt1_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
               </li>
               <li class="list-group-item">
-                <i class="fa fa-bookmark text-primary mr-2"></i><?=$txt1_2?>
+                <i class="fa fa-bookmark text-primary mr-2"></i><?php
+echo $txt1_2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
               </li>
               <li class="list-group-item">
-                <i class="fa fa-bell text-primary mr-2"></i><?=$txt1_3?>
+                <i class="fa fa-bell text-primary mr-2"></i><?php
+echo $txt1_3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
               </li>
               <li class="list-group-item">
-                <i class="fa fa-life-ring text-primary mr-2"></i><?=$txt1_4?>
+                <i class="fa fa-life-ring text-primary mr-2"></i><?php
+echo $txt1_4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
               </li>
             </ul>
           </div>

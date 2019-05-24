@@ -52,7 +52,7 @@ else if ($tipo == "verificarLogin") {
 }
 // Login
 else if ($tipo == "login") {
-    $dados = ["email" => $email_admin];
+    $dados = ["email" => sha1($email_admin)];
     $logon = $admin->consultar("*", "admin", "WHERE email=:email", $dados);
     if ($logon[0]["senha"] === $senha_admin) {
         $admin->criarSessionAdmin($logon[0]["idadmin"], $logon[0]["nome"], $logon[0]["cargo"], $logon[0]["email"], $logon[0]["permissao"]);

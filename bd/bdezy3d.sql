@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS batata;
+
 CREATE DATABASE batata;
 USE batata;
 
@@ -86,3 +88,5 @@ CREATE TABLE conteudo(
 	en TEXT,
 	es TEXT
 );
+
+INSERT INTO admin VALUES(0, "Gabriel de Oliveira", "Técnico de TI", "ti@ezy3d.com.br", "abcd1234", "@571824");
