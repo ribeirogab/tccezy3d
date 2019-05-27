@@ -91,7 +91,11 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
         <div class="col-md-6">
           <div class="col-md-12">
+<<<<<<< HEAD
             <form method="post" action="controle/enviarEmailContato.php" >
+=======
+            <form method="post" action="enviarEmailContato.php" >
+>>>>>>> 433b5574e27dc0a56749d8e413c58f846dc3f8cc
               <div class="form-group">
                 <input type="text" class="form-control" name="nome" placeholder="<?=$input1?>">
               </div>
