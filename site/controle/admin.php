@@ -46,15 +46,15 @@ else if ($tipo == "cadastro") {
 
 // Verificando se login está correto, via AJAX antes do submit do formulário de login
 else if ($tipo == "verificarLogin") {
-    $dados = ["email" => $email_admin, "senha" => $senha_admin];
+    $dados = ["email" => $email_admin, "senha" => sha1($senha_admin)];
     $qtdLogin = $admin->consultar("count(*)", "admin", "WHERE email=:email AND senha=:senha", $dados);
     echo json_encode($qtdLogin, JSON_UNESCAPED_UNICODE);
 }
 // Login
 else if ($tipo == "login") {
-    $dados = ["email" => sha1($email_admin)];
+    $dados = ["email" => $email_admin];
     $logon = $admin->consultar("*", "admin", "WHERE email=:email", $dados);
-    if ($logon[0]["senha"] === $senha_admin) {
+    if ($logon[0]["senha"] === sha1($senha_admin)) {
         $admin->criarSessionAdmin($logon[0]["idadmin"], $logon[0]["nome"], $logon[0]["cargo"], $logon[0]["email"], $logon[0]["permissao"]);
         header("Location: ../dashboard/index.php");
     } else {

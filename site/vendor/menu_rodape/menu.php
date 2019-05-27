@@ -1,40 +1,39 @@
- <?php 
- if ($visivelm != true) 
-  header("Location: ../../home.php");
-
-require_once"Classes/TrocarIdioma.php";
-if (!isset($_GET['lang'])) {
-  if (isset($_SESSION['lang'])) {
-    $lang = $_SESSION['lang'];
-  }
-  else{
-    $_SESSION['lang'] = 'pt';
-    $lang = $_SESSION['lang'];
-  }
+ <?php
+if ($visivelm != true) {
+    header("Location: ../../home.php");
 }
-else{
-  $_SESSION['lang'] = $_GET['lang'];
-  $lang = $_SESSION['lang'];
+
+require_once "Classes/TrocarIdioma.php";
+if (!isset($_GET['lang'])) {
+    if (isset($_SESSION['lang'])) {
+        $lang = $_SESSION['lang'];
+    } else {
+        $_SESSION['lang'] = 'pt';
+        $lang = $_SESSION['lang'];
+    }
+} else {
+    $_SESSION['lang'] = $_GET['lang'];
+    $lang = $_SESSION['lang'];
 }
 
 $idioma = new TrocarIdioma($lang);
 
 $langPag = $idioma->langPag($pagina);
 foreach ($langPag as $item) {
-  $val = $item['apelido'];
-  $$val = $item[$lang];
+    $val = $item['apelido'];
+    $$val = $item[$lang];
 }
 
 $langMenu = $idioma->langMenu("menu");
 foreach ($langMenu as $item) {
-  $val = $item['apelido'];
-  $$val = $item[$lang];
+    $val = $item['apelido'];
+    $$val = $item[$lang];
 }
 
 $langRodape = $idioma->langRodape("rodape");
 foreach ($langRodape as $item) {
-  $val = $item['apelido'];
-  $$val = $item[$lang];
+    $val = $item['apelido'];
+    $$val = $item[$lang];
 }
 ?>
 <noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
@@ -56,15 +55,20 @@ foreach ($langRodape as $item) {
     <button class="navbar-toggler navbar-toggler-right border-0 collapsed" type="button" data-toggle="collapse" data-target="#navbar12" aria-expanded="false">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="w-25 text-right d-lg-none">
+    <img class="mr-2" src="vendor/img/logo/logo_white.svg" height="30px" alt="">
+    </div>
+    <div class="w-25 text-right mr-1 d-lg-none">
+    </div>
     <div class="navbar-collapse collapse" id="navbar12">
       <div class="w-25">
-        <a class="navbar-brand d-none d-md-block" href="home.php">
+        <a class="navbar-brand d-none d-lg-block" href="home.php">
           <img src="vendor/img/logo/logo_orange.svg" height="38px">
         </a>
       </div>
       <ul class="navbar-nav mx-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item1?></a>
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item1?> <i class="fas fa-sort-down d-lg-none" style="font-size:12px"></i></a>
           <div class="dropdown-menu" style="max-width: 140px">
             <a class="dropdown-item" href="printer_e1260t"><?=$printer1?></a>
             <a class="dropdown-item" href="printer_phylos"><?=$printer2?></a>
@@ -72,13 +76,13 @@ foreach ($langRodape as $item) {
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item2?></a>
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item2?> <i class="fas fa-sort-down d-lg-none" style="font-size:12px"></i></a>
           <div class="dropdown-menu" style="max-width: 140px">
             <a class="dropdown-item" href="acessorio_ezycure.php"><?=$acessorio1?></a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item3?></a>
+          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item3?> <i class="fas fa-sort-down d-lg-none" style="font-size:12px"></i></a>
           <div class="dropdown-menu" style="max-width: 140px">
             <a class="dropdown-item" href="app_odontologia.php"><?=$aplicacao1?></a>
             <a class="dropdown-item" href="app_manufatura.php"><?=$aplicacao2?></a>
@@ -91,11 +95,10 @@ foreach ($langRodape as $item) {
       <div id="menu-left" class="w-25">
         <ul class="navbar-nav float-lg-right">
           <?php
-          if (!isset($_SESSION['banana'])) {?>
+if (!isset($_SESSION['banana'])) {?>
             <li class="nav-item"> <a class="nav-link" id="btn-logar" data-toggle="modal" data-target="#modalLogin" href="#"><?=$logar?></a></li>
             <li class="nav-item"> <a class="nav-link text-primary" href="form_cadastrar"><?=$cadastrar?></a></li>
-          <?php } 
-          else {?>
+          <?php } else {?>
            <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="btn-conta" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i> <?=$nome?></i></a>
             <div class="dropdown-menu d-lg-none">
@@ -138,7 +141,7 @@ if (isset($_SESSION['banana'])) {?>
       </a>
     </div>
   </div>
-<?php } ?>
+<?php }?>
 
 <div class="p-3" id="lang">
   <form  id='formEn' action='<?=$pagina?>.php' method='get'>
@@ -152,7 +155,7 @@ if (isset($_SESSION['banana'])) {?>
   <form id='formPt' action='<?=$pagina?>.php' method='get'>
     <input type='hidden' name='lang' value='pt'>
     <a href='#' class="item-lang" onClick='document.getElementById("formPt").submit();'>Português (Brasil)</a>
-  </form> 
+  </form>
 </div>
 
 </div>
@@ -166,9 +169,9 @@ if (isset($_SESSION['banana'])) {?>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">  
+      <div class="modal-body">
 
-        <!--===============================================================================================-->  
+        <!--===============================================================================================-->
         <link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico"/>
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -177,7 +180,7 @@ if (isset($_SESSION['banana'])) {?>
         <!--=================================s==============================================================-->
         <link rel="stylesheet" type="text/css" href="vendor/css/cadastro_util.css">
         <link rel="stylesheet" type="text/css" href="vendor/css/logar_main.css">
-        <!--===============================================================================================-->   
+        <!--===============================================================================================-->
 
         <div class="wrap-login100" id="formLogar">
           <form id="form-modal-login" class="login100-form validate-form" action="controle/cliente.php" method="post">
@@ -236,15 +239,17 @@ if (isset($_SESSION['banana'])) {?>
             </div>
           </form>
         </div>
-        <!--===============================================================================================-->  
+        <!--===============================================================================================-->
         <script src="vendor/js/logar_main.js"></script>
         <script>
-          <?php 
-          if(isset($_GET["email"]))
-            $getEmail = $_GET["email"];
-          else
-            $getEmail = 'null';
-          ?>
+          <?php
+if (isset($_GET["email"])) {
+    $getEmail = $_GET["email"];
+} else {
+    $getEmail = 'null';
+}
+
+?>
           if('<?=$getEmail?>' != 'null'){
             let email = '<?=$getEmail?>'
             $(document).ready(function() {
@@ -272,7 +277,7 @@ if (isset($_SESSION['banana'])) {?>
                 }
                 else{
                   $("#infoIncorreta").hide()
-                  
+
                   if(verificarLogin != 1)
                     $("#loginIncorreto").fadeIn('slow')
                   else{
@@ -287,7 +292,7 @@ if (isset($_SESSION['banana'])) {?>
               },
               error: function(){
                 alert("Erro ao fazer a requisição")
-              } 
+              }
             });
           });
 
@@ -307,7 +312,7 @@ if (isset($_SESSION['banana'])) {?>
             $("#conta").toggle();
           });
         </script>
-        <!--===============================================================================================-->  
+        <!--===============================================================================================-->
       </div>
 
     </div>

@@ -95,49 +95,19 @@ if (!isset($_SESSION['idadmin'])) {
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="atendimento.php">
-      <i class="fas fa-mobile"></i>
-      <span>Atendimento</span></a>
-  </li>
-<?php }?>
-
-
-  <!-- Nav Item - Pages Collapse Menu -->
-    <?php if ($permissao == "@571824" || $permissao == "&43642") {?>
-                  <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
       aria-controls="collapsePages">
-      <i class="fas fa-palette"></i>
-      <span>Customização</span>
-    </a>
-    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+      <i class="fas fa-mobile"></i>
+      <span>Atendimento</span></a>
+      <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="customBanners.php">Banners</a>
-        <a class="collapse-item" href="customImagens.php">Imagens</a>
-        <a class="collapse-item" href="customLogotipo.php">Logotipo</a>
+        <a class="collapse-item" href="customBanners.php">Suporte</a>
+        <a class="collapse-item" href="customImagens.php">Orçamento</a>
+        <a class="collapse-item" href="customLogotipo.php">Contato</a>
       </div>
     </div>
   </li>
 <?php }?>
-
-  <!-- Nav Item - Pages Collapse Menu -->
-        <?php if ($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590" || $permissao == "*271" || $permissao == "#11") {?>
-                      <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true"
-      aria-controls="collapsePages">
-      <i class="fas fa-headset"></i>
-      <span>Suporte</span>
-    </a>
-    <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-      <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="spenviarTicket.php">Enviar Ticket</a>
-        <a class="collapse-item" href="spticketsEnviados.php">Tickets enviados</a>
-      </div>
-    </div>
-  </li>
-<?php }?>
-
-
 
 
   <!-- Divider -->
@@ -173,16 +143,11 @@ if (!isset($_SESSION['idadmin'])) {
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$nome?></span>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$nome_admin?></span>
             <img class="img-profile rounded-circle" src="img/gabriel.jpg" width="60px">
           </a>
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="perfil.php">
-              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-              Perfil
-            </a>
-            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
               <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
               Sair

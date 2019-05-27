@@ -43,7 +43,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
       <div class="row">
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="../home.php?alterartxt=true" alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Home</h5>
               <a href="../home.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -52,7 +52,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="../printer_e1260t.php?alterartxt=true." alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Impressora 3D - E1260T</h5>
               <a href="../printer_e1260t.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -61,7 +61,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src=".../printer_phylos.php?alterartxt=true." alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Impressora 3D - Phylos</h5>
               <a href="../printer_phylos.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -70,7 +70,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="../printer_coree3.php?alterartxt=true" alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Impressora 3D - Core E3</h5>
               <a href="../printer_coree3.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -82,7 +82,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
       <div class="row">
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="../acessorio_ezycure.php?alterartxt=true" alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Acessórios - EzyCure</h5>
               <a href="../acessorio_ezycure.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -91,7 +91,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="../app_odontologia.php?alterartxt=true" alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Aplicação - Odontologia</h5>
               <a href="../app_odontologia.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -100,7 +100,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="../app_manufatura.php?alterartxt=true" alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Aplicação - Manufatura</h5>
               <a href="../app_manufatura.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -109,7 +109,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="../app_educacao.php?alterartxt=true" alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Aplicação - Educação</h5>
               <a href="../app_educacao.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -121,7 +121,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
       <div class="row">
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="../app_joalheria.php?alterartxt=true" alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Aplicação - Joalheria</h5>
               <a href="../app_joalheria.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -130,7 +130,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="../contato.php?alterartxt=true" alt="Card image cap">
+            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Contato</h5>
               <a href="../contato.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -138,13 +138,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
           </div>
         </div>
         <div class="col-lg-3 p-3">
-          <div class="card">
-            <img class="card-img-top" src="../perfil_cliente.php?alterartxt=true" alt="Card image cap">
-            <div class="card-body text-center">
-              <h5 class="card-title">Perfil dos Clientes</h5>
-              <a href="../perfil_cliente.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
-            </div>
-          </div>
+
         </div>
         <div class="col-lg-3 p-3">
 

@@ -28,8 +28,18 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     <div class="container">
       <div class="row">
         <div class="col-md-12 border-bottom">
-          <h1 class="display-4 text-center">Display 4</h1>
-          <p class="lead text-center">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p>
+          <h1 class="display-4 text-center"><?php
+echo $titulo1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></h1>
+          <p class="lead text-center"><?php
+echo $txt1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
         </div>
       </div>
     </div>
@@ -40,13 +50,28 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       <div class="row">
         <div class="px-md-5 col-md-8">
           <h1 class="mb-4 text-primary">
-            <b>O my friend</b>
+            <b><?php
+echo $titulo2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b>
           </h1>
           <h3>
-            <b>The trickling stream</b>
+            <b><?php
+echo $titulo2_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b>
           </h3>
           <p class="mb-3">
-            I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies
+          <?php
+echo $txt2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
           </p>
         </div>
 
@@ -67,43 +92,88 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
         <div class="px-md-5 p-3 col-lg-6 d-flex flex-column align-items-start justify-content-center order-1 order-lg-2">
           <h1 class="mb-3">
-            I hear the buzz
+            <?php
+echo $titulo3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
           </h1>
           <div class="row">
 
             <div class="col-6">
               <h5>
-                <b>First</b>
+                <b><?php
+echo $titulo3_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo3_'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b>
               </h5>
               <p>
-                A wonderful serenity has taken possession of my entire soul, like these sweets.
+                <?php
+echo $txt3_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
               </p>
             </div>
 
             <div class="col-6">
               <h5>
-                <b>Second</b>
+                <b><?php
+echo $titulo3_2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo3_'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b>
               </h5>
               <p>
-                I am alone, and feel the charm of existence in this spot, which was created.
+                <?php
+echo $txt3_2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
               </p>
             </div>
 
             <div class="col-6">
               <h5>
-                <b>Third</b>
+                <b><?php
+echo $titulo3_3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo3_'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b>
               </h5>
               <p class="mb-0">
-                I am so happy, my dear friend, so absorbed in the exquisite sense.
+                <?php
+echo $txt3_3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
               </p>
             </div>
 
             <div class="col-6">
               <h5>
-                <b>Fourth</b>
+                <b><?php
+echo $titulo3_4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo3_4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b>
               </h5>
               <p class="mb-0">
-                I should be incapable of drawing a single stroke at the present moment.
+                <?php
+echo $txt3_4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt3_4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
               </p>
             </div>
 
@@ -118,7 +188,12 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       <div class="row">
         <div class="text-center mx-auto col-md-12">
           <h1>
-            Countless indescribable forms
+            <?php
+echo $titulo4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
           </h1>
         </div>
       </div>
@@ -141,12 +216,27 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       <div class="row">
         <div class="ml-auto bg-white text-dark p-5 col-lg-6 col-md-8">
           <h1>
-            It is time to act
+            <?php
+echo $titulo5;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo5'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
           </h1>
           <p class="mb-3">
-            I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.
+            <?php
+echo $txt5;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt5'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
           </p>
-          <a class="btn btn-primary" href="#">Call to action</a>
+          <a class="btn btn-primary" href="#"><?php
+echo $button1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=button1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></a>
         </div>
       </div>
     </div>

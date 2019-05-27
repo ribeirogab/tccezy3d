@@ -27,7 +27,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <iframe width="100%" height="400" src="https://maps.google.com/maps?q=New%20York&amp;z=14&amp;output=embed" scrolling="no" frameborder="0"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.454484618452!2d-47.86271848538968!3d-23.335543459176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5d8c25732cd5b%3A0xb31a9291a589ffa0!2sR.+Lu%C3%ADs+de+Camargo+Barros%2C+20+-+Vila+Sao+Cristovao%2C+Tatu%C3%AD+-+SP%2C+18280-010!5e0!3m2!1spt-BR!2sbr!4v1558876350093!5m2!1spt-BR!2sbr" width="100%" height="400" frameborder="0" style="border:0" scrolling="no"></iframe>
         </div>
       </div>
     </div>
@@ -91,18 +91,18 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
         <div class="col-md-6">
           <div class="col-md-12">
-            <form>
+            <form method="post" action="controle/enviarEmailContato.php" >
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="<?=$input1?>">
+                <input type="text" class="form-control" name="nome" placeholder="<?=$input1?>">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="<?=$input2?>">
+                <input type="email" class="form-control" name="destinatario" placeholder="<?=$input2?>">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="<?=$input3?>">
+                <input type="text" class="form-control" name="assunto" placeholder="<?=$input3?>">
               </div>
               <div class="form-group">
-                <textarea class="form-control" placeholder="<?=$input4?>"></textarea>
+                <textarea class="form-control" name="mensagem" placeholder="<?=$input4?>"></textarea>
               </div>
                 <button type="submit" class="btn btn-primary"><?=$button1?></button>
               </form>

@@ -22,9 +22,9 @@ class Usuario extends Crud {
     public function criarSessionAdmin($idadmin, $nome, $cargo, $email, $permissao) {
         session_start();
         $_SESSION["idadmin"] = $idadmin;
-        $_SESSION["nome"] = $nome;
-        $_SESSION["cargo"] = $cargo;
-        $_SESSION["email"] = $email;
+        $_SESSION["nome_admin"] = $nome;
+        $_SESSION["cargo_admin"] = $cargo;
+        $_SESSION["email_admin"] = $email;
         $_SESSION["permissao"] = $permissao;
     }
 }

@@ -28,8 +28,18 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     <div class="container">
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <h1 class="mb-3"><?=$titulo1?></h1>
-          <p class="lead mb-2"><?=$txt1?></p> <img class="img-fluid d-block mx-auto" src="https://static.pingendo.com/img-placeholder-tablet.svg" width="750" style="">
+          <h1 class="mb-3"><?php
+echo $titulo1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></h1>
+          <p class="lead mb-2"><?php
+echo $txt1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p> <img class="img-fluid d-block mx-auto" src="https://static.pingendo.com/img-placeholder-tablet.svg" width="750" style="">
         </div>
       </div>
     </div>
@@ -39,8 +49,18 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       <div class="row">
         <div class="col-md-4 mr-auto order-2 order-md-1"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-mobile.svg"> </div>
         <div class="px-md-5 p-3 d-flex flex-column align-items-start justify-content-center col-md-7 order-1 order-md-2"> <i class="d-block fa fa-stop-circle fa-4x mb-3 text-muted"></i>
-          <h1><?=$titulo2?></h1>
-          <p class="mb-3 lead"><?=$txt2?></p>
+          <h1><?php
+echo $titulo2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></h1>
+          <p class="mb-3 lead"><?php
+echo $txt2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
           <div class="row text-muted">
             <div class="col-12 p-2"> <i class="d-inline fa fa-apple fa-3x"></i> <i class="d-inline fa fa-android fa-3x mx-4"></i> <i class="d-inline fa fa-windows fa-3x"></i> </div>
           </div>
@@ -52,40 +72,90 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     <div class="container">
       <div class="row">
         <div class="mx-auto col-md-8 text-center">
-          <h1><?=$titulo3?></h1>
-          <p class="mb-4"><?=$txt3?></p>
+          <h1><?php
+echo $titulo3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></h1>
+          <p class="mb-4"><?php
+echo $txt3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-3 col-6 p-3">
           <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/img-placeholder-1.svg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title"> <b><?=$card_titulo1?></b> </h5>
-              <p class="card-text"><?=$card_p1?></p>
+              <h5 class="card-title"> <b><?php
+echo $card_titulo1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=card_titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </h5>
+              <p class="card-text"><?php
+echo $card_p1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=card_p1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-6 p-3">
           <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/img-placeholder-2.svg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title"> <b><?=$card_titulo2?></b> </h5>
-              <p class="card-text"><?=$card_p2?></p>
+              <h5 class="card-title"> <b><?php
+echo $card_titulo2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=card_titulo2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </h5>
+              <p class="card-text"><?php
+echo $card_p2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=card_p2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-6 p-3">
           <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/img-placeholder-4.svg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title"> <b><?=$card_titulo3?></b> </h5>
-              <p class="card-text"><?=$card_p3?></p>
+              <h5 class="card-title"> <b><?php
+echo $card_titulo3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=card_titulo3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </h5>
+              <p class="card-text"><?php
+echo $card_p3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=card_p3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-6 p-3">
           <div class="card"> <img class="card-img-top" src="https://static.pingendo.com/img-placeholder-3.svg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title"> <b><?=$card_titulo4?></b> </h5>
-              <p class="card-text"><?=$card_p4?></p>
+              <h5 class="card-title"> <b><?php
+echo $card_titulo4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=card_titulo4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </h5>
+              <p class="card-text"><?php
+echo $card_p4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=card_p4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
         </div>
@@ -96,27 +166,62 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="mb-4"><?=$titulo4?></h1>
+          <h1 class="mb-4"><?php
+echo $titulo4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></h1>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-3 col-md-6 py-md-4 px-4 order-1 order-lg-1 text-lg-right d-flex flex-column justify-content-between">
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa fa-circle mb-1 text-muted fa-2x"></i>
-              <p class="lead mb-1"> <b><?=$titulo4_1?></b> </p>
-              <p><?=$txt4_1?></p>
+              <p class="lead mb-1"> <b><?php
+echo $titulo4_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </p>
+              <p><?php
+echo $txt4_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt4_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa fa-stop-circle mb-1 text-muted fa-2x"></i>
-              <p class="lead mb-1"> <b><?=$titulo4_2?></b> </p>
-              <p><?=$txt4_2?></p>
+              <p class="lead mb-1"> <b><?php
+echo $titulo4_2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4_2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </p>
+              <p><?php
+echo $txt4_2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt4_2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa fa-circle-o mb-1 text-muted fa-2x"></i>
-              <p class="lead mb-1"> <b><?=$titulo4_3?></b> </p>
-              <p><?=$txt4_3?></p>
+              <p class="lead mb-1"> <b><?php
+echo $titulo4_3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4_3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </p>
+              <p><?php
+echo $txt4_3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt4_3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
         </div>
@@ -124,20 +229,50 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         <div class="col-lg-3 col-md-6 py-md-4 px-4 order-2 order-lg-3 d-flex flex-column justify-content-between">
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa fa-stop-circle-o mb-1 text-muted fa-2x"></i>
-              <p class="lead mb-1"> <b><?=$titulo4_4?></b> </p>
-              <p><?=$txt4_4?></p>
+              <p class="lead mb-1"> <b><?php
+echo $titulo4_4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4_4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </p>
+              <p><?php
+echo $txt4_4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt4_4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa mb-1 text-muted fa-2x fa-circle-o"></i>
-              <p class="lead mb-1"> <b><?=$titulo4_5?></b> </p>
-              <p><?=$txt4_5?></p>
+              <p class="lead mb-1"> <b><?php
+echo $titulo4_5;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4_5'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </p>
+              <p><?php
+echo $txt4_5;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt4_5'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa fa-circle mb-1 text-muted fa-2x"></i>
-              <p class="lead mb-1"> <b><?=$titulo4_6?></b> </p>
-              <p><?=$txt4_6?></p>
+              <p class="lead mb-1"> <b><?php
+echo $titulo4_6;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4_6'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></b> </p>
+              <p><?php
+echo $txt4_6;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt4_6'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
             </div>
           </div>
         </div>
@@ -148,9 +283,24 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     <div class="container">
       <div class="row">
         <div class="ml-auto bg-white text-dark p-5 col-lg-6 col-md-8">
-          <h1><?=$titulo5?></h1>
-          <p class="mb-3"><?=$txt5?></p>
-          <a class="btn btn-primary" href="#"><?=$button1?></a>
+          <h1><?php
+echo $titulo5;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo5'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></h1>
+          <p class="mb-3"><?php
+echo $txt5;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt5'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
+          <a class="btn btn-primary" href="#"><?php
+echo $button1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=button1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></a>
         </div>
       </div>
     </div>

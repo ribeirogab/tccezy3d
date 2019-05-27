@@ -120,7 +120,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
   <div id="alert" class="bg-success">
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-10"><h5 id="alert-titulo" class="text-center">Alterações salvas com sucesso!</h5></div>
+      <div class="col-10"><h5 id="alert-titulo" class="text-center"><?=$success?></h5></div>
       <div class="col-1"><i id="close-alert" class="fas fa-times text-right"></i></div>
     </div>
   </div>
@@ -289,34 +289,34 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <form id="form-senha" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
             <input type="hidden" name="tipo" value="alterar-senha">
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Senha Antiga</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_oldsenha?></b></label>
               <div  class="col-sm-10">
                 <input class="form-control mt-2" type="text" name="senhaold">
                 <div id="erro1" class="w-100 mt-1">
                   <i class="fas fa-exclamation-circle mr-2"></i>
-                  <span>Senha antiga incorreta.</span>
+                  <span><?=$perfil_erro_oldsenha?></span>
                 </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Nova Senha &nbsp;&nbsp;&nbsp;</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_newsenha?> &nbsp;&nbsp;&nbsp;</b></label>
               <div  class="col-sm-10">
                 <input class="form-control mt-2" type="text" name="novasenha">
                 <div id="erro2" class="w-100 mt-1">
                   <i class="fas fa-exclamation-circle mr-2"></i>
-                  <span>A sua nova senha não pode ser igual a senha antiga.</span>
+                  <span><?=$perfil_erro_newsenha?></span>
                 </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Confirmar Nova Senha</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_confirmarsenha?></b></label>
               <div  class="col-sm-10">
                 <input class="form-control mt-1" type="text" name="confirmarnovasenha">
                 <div id="erro3" class="w-100 mt-2">
                   <i class="fas fa-exclamation-circle mr-2"></i>
-                  <span>Senhas não coicidem. Tente novamente.</span>
+                  <span><?=$perfil_erro_confirmarsenha?></span>
                 </div>
               </div>
             </div>
@@ -325,7 +325,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
               <label class="col-sm-2 col-form-label"></label>
               <div  class="col-sm-10">
                 <input id="btn-alterarsenha" type="button" class="btn btn-primary" value="Alterar Senha"><br><br>
-                <a href="#">Esqueceu a Senha?</a>
+                <a href="#"><?=$perfil_esqueceusenha?></a>
               </div>
             </div>
           </form>
@@ -336,11 +336,11 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <form id="form-orcamento" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
             <input type="hidden" name="idcliente" value="<?=$idcliente?>">
             <input type="hidden" name="tipo" value="orcamento">
-            <h4>Solicitar Orçamento</h4>
-            <p>The people listed here are contacts you've uploaded to Instagram. To remove your synced contacts, tap Delete All.</p>
+            <h4><?=$perfil_orcamento_titulo1?></h4>
+            <p><?=$perfil_orcamento_txt1?></p>
             <hr><br>
             <div class="form-group row">
-              <label class="col-sm-2 text-left text-sm-right"><b>Impressoras 3D</b></label>
+              <label class="col-sm-2 text-left text-sm-right"><b><?=$perfil_orcamento_label1?></b></label>
               <div class="col-sm-10">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" name="e1260t" value="produto_E1260T">
@@ -363,7 +363,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 text-left text-sm-right"><b>Acessórios</b></label>
+              <label class="col-sm-2 text-left text-sm-right"><b><?=$perfil_orcamento_label2?></b></label>
               <div class="col-sm-10">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" name="ezycure" value="produto_EzyCure">
@@ -375,7 +375,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Observaçao</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_orcamento_label3?></b></label>
               <div  class="col-sm-10">
                 <textarea class="form-control mt-2" name="descricao" cols="5" rows="4" placeholder="Deixe um comentário"></textarea>
               </div>
@@ -384,7 +384,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             <div class="form-group row">
               <label class="col-sm-2 col-form-label"></label>
               <div  class="col-sm-10">
-                <button id="btn-orcamento" class="btn btn-primary">Enviar</button><br><br>
+                <button id="btn-orcamento" class="btn btn-primary"><?=$perfil_orcamento_button1?></button><br><br>
               </div>
             </div>
           </form>
@@ -394,14 +394,14 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         <div id="suporte" class="col-lg-9 col-12">
           <form id="form-suporte" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
             <input type="hidden" name="tipo" value="suporte">
-            <h4>Suporte Técnico</h4>
-            <p>The people listed here are contacts you've uploaded to Instagram. To remove your synced contacts, tap Delete All.</p>
+            <h4><?=$perfil_suporte_titulo1?></h4>
+            <p><?=$perfil_suporte_txt1?></p>
             <hr><br>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Máquina</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_suporte_label1?></b></label>
               <div  class="col-sm-5">
                 <select name="maquina" class="custom-select my-1 mr-sm-2 mt-2">
-                  <option selected value="null">Selecione a sua máquina...</option>
+                  <option selected value="null"><?=$perfil_suporte_select1?></option>
                   <option value="E1260T">E1260T</option>
                   <option value="Phylos">Phylos</option>
                   <option value="CoreE3">Core E3</option>
@@ -410,13 +410,13 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Problema</b></label>
+              <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_suporte_label2?></b></label>
               <div  class="col-sm-5">
                 <select name="problema" class="custom-select my-1 mr-sm-2 mt-2">
-                  <option selected value="null">Selecione seu problema...</option>
+                  <option selected value="null"><?=$perfil_suporte_select2?></option>
                   <option value="Falha na impressão">Falha na Impressão</option>
                   <option value="Troca de LCD">Troca de LCD</option>
-                  <option value="Outro">Outro</option>
+                  <option value="Outro"><?=$perfil_suporte_outro1?></option>
                 </select>
               </div>
             </div>
@@ -424,14 +424,14 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Descrição</b></label>
               <div  class="col-sm-10">
-                <textarea id="textareaDescricao" class="form-control mt-2" name="descricao" cols="5" rows="7" placeholder="Descreva seu problema"></textarea>
+                <textarea id="textareaDescricao" class="form-control mt-2" name="descricao" cols="5" rows="7" placeholder="<?=$perfil_suporte_placeholder1?>"></textarea>
               </div>
             </div>
             <br>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label"></label>
               <div  class="col-sm-10">
-                <button id="btn-suporte" class="btn btn-primary">Enviar</button><br><br>
+                <button id="btn-suporte" class="btn btn-primary"><?=$perfil_suporte_button1?></button><br><br>
               </div>
             </div>
           </form>
