@@ -255,7 +255,7 @@ if (isset($_GET["email"])) {
             $(document).ready(function() {
               $('#modalLogin').modal('show')
               $("input[name=email_login]").val(email)
-              $("#focus-email").addClass('has-val');
+              $("#focus-email").addClass('has-val')
             })
           }
 
