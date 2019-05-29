@@ -55,7 +55,7 @@ background-image: linear-gradient(to bottom, rgba(255,255,255,.03) 75%, rgba(0,0
     object-fit: cover;
 }
 </style>
-<body id="page-top">
+<body id="page-top" class="bg-dark">
  <?php
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     $pagina = "home";
@@ -63,11 +63,11 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 } else {
     $visivelm = true;
     $pagina = "home";
-    include "vendor/menu_rodape/menu.php";
+    include "vendor/menu_rodape/menunovo.php";
 }
 ?>
-<main>
 
+<main>
 
   <div id="background" class="py-5 text-center text-white"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
       <source src="https://static.pingendo.com/video-placeholder.mp4" type="video/mp4"> </video>
@@ -81,6 +81,9 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
   </div>
+
+  <div class="bg-white">
+
   <div class="container" style="position:relative; top: -75px;">
     <div class="row">
       <div class="col-md-6">
@@ -108,7 +111,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
 
 <div class="container">
-<h1>Impressoras 3D</h1>
+<h1 style="color: #000">Impressoras 3D</h1>
     <div class="row">
         <div>
 
@@ -116,15 +119,15 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     </div>
 </div>
 
-<div class="container my-5">
-<h1>Acessórios</h1>
+<div class="container py-5">
+<h1 style="color: #000">Acessórios</h1>
     <div class="row">
         <div>
 
         </div>
     </div>
 </div>
-
+</div>
 
   <div class="pt-0 pt-lg-5" style="background-image: linear-gradient( to top, #353535 50%, #eaeaea 50% );">
     <div class="container">
