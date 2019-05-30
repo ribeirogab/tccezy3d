@@ -1,89 +1,41 @@
-#quadro {
-  margin: 0 auto;
-}
-#quadro:hover {
-  -moz-box-shadow: 0px 0px 5px 0px #222;
-  -webkit-box-shadow: 0px 0px 5px 0px #222;
-  box-shadow: 0px 0px 5px 0px #222;
-}
-#quadro-info {
-  background-color: #f38919;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-#quadro-btns {
-  background-color: #f9420c;
-  width: 100%;
-  margin: 0 auto;
-}
-#btn-orcamento {
-  border-right: solid 0.5px rgba(0, 0, 0, 0.2);
-}
-#btn-saibamias {
-  border-left: solid 0.5px rgba(0, 0, 0, 0.2);
-}
-#btn-orcamento,
-#btn-saibamais {
-  cursor: pointer;
-}
-#btn-orcamento:hover,
-#btn-saibamais:hover {
-  opacity: 0.5;
-}
-.product-info {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-.btn-info-product {
-  position: relative;
-  z-index: 5;
-  cursor: pointer;
-}
-#btn-info-product:hover {
-  color: blue;
-}
-.zoom img {
-  transition: all 0.2s linear;
-  overflow: hidden;
-}
-.zoom:hover img {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
 .zoom-menu img {
   transition: all 0.2s linear;
   overflow: hidden;
 }
+
 .zoom-menu:hover img {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
+
 nav {
   width: 100%;
   color: #fff;
   border-bottom: solid 1px rgba(0, 0, 0, 0);
   z-index: 10;
 }
+
 nav li a {
   display: inline;
 }
+
 .borda-topo {
   border-top: solid 5px rgba(0, 0, 0, 0);
 }
-.borda-item {
+.campos-menu {
   border-top: solid 5px rgba(0, 0, 0, 0);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.hover-item {
   color: #fff;
 }
-.borda-item:hover {
-  border-top: solid 5px orange;
-}
+
 .menu-item-right {
   color: #fff;
 }
+
 #menu-toggle {
   opacity: 0;
   top: 73px;
@@ -92,12 +44,20 @@ nav li a {
   display: none;
   z-index: 10;
 }
+
 #toggle_1,
 #toggle_2,
 #toggle_3 {
   display: none;
 }
-.nome-toggle {
+
+#toggle_1 .row,
+#toggle_2 .row,
+#toggle_3 .row {
+  min-height: 250px;
+}
+
+.nomes-printers {
   transition: 0.5s;
   color: #333;
   cursor: pointer;
@@ -106,15 +66,135 @@ nav li a {
   font-weight: 500;
   font-size: 15px;
 }
-.nome-toggle:hover {
+
+.nomes-printers:hover {
   transition: 0.5s;
   color: orange;
 }
+
 .pb-50px {
   padding-bottom: 40px;
 }
-#foto-printer1 {
+
+#div-printer1,
+#div-printer2,
+#div-printer3 {
   height: 250px;
   width: 166px;
   margin: 0 auto;
+}
+
+#foto-printer1,
+#foto-printer2,
+#foto-printer3,
+#nome-printer1,
+#nome-printer2,
+#nome-printer3,
+#menu-acessorios,
+#lista-acessorios,
+#foto-acessorios,
+#menu-aplicacoes,
+#lista-aplicacoes,
+#foto-aplicacoes {
+  opacity: 0;
+}
+
+.fotos-printers {
+  cursor: pointer;
+}
+
+#acessorios_1,
+#acessorios_2,
+#acessorios_3,
+#aplicacoes_1,
+#aplicacoes_2,
+#aplicacoes_3,
+#aplicacoes_4 {
+  cursor: pointer;
+  border-radius: 20px;
+}
+.todas-fotos-acessorios {
+  display: none;
+}
+
+.menu2-acessorios,
+.menu2-aplicacoes {
+  cursor: pointer;
+  border-radius: 20px;
+  width: 50%;
+}
+.menu2-acessorios:hover,
+.menu2-aplicacoes:hover {
+  background-color: rgba(243, 137, 25, 0.3);
+  color: #db580b;
+  transition: 0.5s;
+}
+
+.seta-acessorios,
+.seta-aplicacoes {
+  display: none;
+}
+
+#opcoes-acessorios_1,
+#opcoes-acessorios_2,
+#opcoes-acessorios_3,
+#opcoes-aplicacoes_1,
+#opcoes-aplicacoes_2,
+#opcoes-aplicacoes_3,
+#opcoes-aplicacoes_4 {
+  display: none;
+}
+
+.todas-fotos-aplicacoes {
+  display: none;
+}
+
+#btn-lang {
+  cursor: pointer;
+}
+#lang {
+  position: fixed;
+  z-index: 9;
+  width: 200px;
+  background-color: #fff;
+  right: 5%;
+  top: 73px;
+  display: none;
+  -moz-box-shadow: 0px 0px 5px 0px #666;
+  -webkit-box-shadow: 0px 0px 5px 0px #666;
+  box-shadow: 0px 0px 5px 0px #666;
+}
+#seta-lang {
+  color: #fff;
+  font-size: 50px;
+  position: fixed;
+  top: 42px;
+  display: none;
+}
+.item-lang:hover {
+  color: orange;
+  transition: 0.3s;
+}
+
+#btn-conta {
+  cursor: pointer;
+}
+#conta {
+  position: fixed;
+  z-index: 9;
+  width: 200px;
+  background-color: #fff;
+  right: 12%;
+  top: 73px;
+  display: none;
+  -moz-box-shadow: 0px 0px 5px 0px #666;
+  -webkit-box-shadow: 0px 0px 5px 0px #666;
+  box-shadow: 0px 0px 5px 0px #666;
+}
+#seta-conta {
+  color: #fff;
+  font-size: 50px;
+  position: fixed;
+  top: 42px;
+  display: none;
 }

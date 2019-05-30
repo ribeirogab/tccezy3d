@@ -55,7 +55,7 @@ background-image: linear-gradient(to bottom, rgba(255,255,255,.03) 75%, rgba(0,0
     object-fit: cover;
 }
 </style>
-<body id="page-top" class="bg-dark">
+<body id="page-top">
  <?php
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     $pagina = "home";
@@ -63,11 +63,11 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 } else {
     $visivelm = true;
     $pagina = "home";
-    include "vendor/menu_rodape/menunovo.php";
+    include "vendor/menu_rodape/menu.php";
 }
 ?>
-
 <main>
+
 
   <div id="background" class="py-5 text-center text-white"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
       <source src="https://static.pingendo.com/video-placeholder.mp4" type="video/mp4"> </video>
@@ -81,9 +81,6 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
   </div>
-
-  <div class="bg-white">
-
   <div class="container" style="position:relative; top: -75px;">
     <div class="row">
       <div class="col-md-6">
@@ -107,27 +104,89 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     </div>
   </div>
 
-
-
-
-<div class="container">
-<h1 style="color: #000">Impressoras 3D</h1>
-    <div class="row">
-        <div>
-
+  <div class="py-lg-4" style="background-image: linear-gradient(to top, rgb(234, 234, 234) 50%, rgb(255, 255, 255) 50%);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 p-0 m-0 bg-primary"><img src="vendor/img/home/f4.jpg" width="100%" alt=""></div>
+        <div class="col-lg-6 px-4 py-5 m-0 bg-primary" style="">
+          <div>
+          </div>
+          <h3 class="text-white">Heading 3 <span class="badge badge-light"> New</span></h3>
+          <h1 class="mt-4 border-top-0 text-white">Heading 1</h1>
+          <p class="lead mt-4 text-white">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="mt-4 btn btn-outline-light w-75" href="#">Outline</a>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="container py-5">
-<h1 style="color: #000">Acessórios</h1>
-    <div class="row">
-        <div>
-
+  <div class="bg-light py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 p-4">
+          <h2 class="">Formlabs is expanding access to digital fabrication at every stage of production.<br></h2>
+          <h4 class="">Heading 4:</h4>
         </div>
+        <div class="col-md-6 p-4">
+          <h5 class="">Odontologia</h5>
+          <h5 class="mt-3">Joalheria</h5>
+          <h5 class="mt-3">Educação</h5>
+          <h5 class="mt-3">Manufatura</h5>
+        </div>
+      </div>
     </div>
-</div>
-</div>
+  </div>
+
+
+
+  <div class="pt-5" style="background-image: linear-gradient( to top, #fff 50%, #eaeaea 50%)">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-left">
+          <div class="row pt-5 pb-4 px-2 row-left">
+            <div class="col-lg-6 p-0"><img src="vendor/img/home/e1260t.png" width="100%" alt=""></div>
+            <div class="col-lg-6 p-2 col-descricao">
+              <h3 class="">E1260T</h3>
+              <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-primary" href="#">Button</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-right">
+          <div class="row pt-5 pb-4 px-2 row-right">
+            <div class="col-lg-6 p-0"><img src="vendor/img/home/phylos.png" width="100%" alt=""></div>
+            <div class="col-lg-6 p-2 col-descricao">
+              <h3 class="">Phylos <span class="badge badge-light"> New</span></h3>
+              <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-primary" href="#">Button</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-lg-5 pb-4" style="background-image: linear-gradient( to top, #eaeaea 50%, #fff 50%)">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-left">
+          <div class="row pt-5 pb-4 px-2 row-left">
+            <div class="col-lg-6 p-0"><img src="vendor/img/home/coree3.png" width="100%" alt=""></div>
+            <div class="col-lg-6 p-2 col-descricao">
+              <h3 class="">Core E3</h3>
+              <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-primary" href="#">Button</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-right">
+          <div class="row pt-5 pb-4 px-2 row-right">
+            <div class="col-lg-6 p-0"><img src="vendor/img/home/ezycure.png" width="100%" alt=""></div>
+            <div class="col-lg-6 p-2 col-descricao">
+              <h3 class="">EzyCure <span class="badge badge-light"> New</span></h3>
+              <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-primary" href="#">Button</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="pt-0 pt-lg-5" style="background-image: linear-gradient( to top, #353535 50%, #eaeaea 50% );">
     <div class="container">

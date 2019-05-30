@@ -1,4 +1,4 @@
- <?php
+<?php
 if ($visivelm != true) {
     header("Location: ../../home.php");
 }
@@ -49,82 +49,194 @@ foreach ($langRodape as $item) {
 <!-- Bootstrap JS -->
 <script src="vendor/bootstrap/js/bootstrap.js"></script>
 
-<!-- ------------------------------------------------------------------------------------ -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-2 py-lg-1">
-  <div class="container-fluid">
-    <button class="navbar-toggler navbar-toggler-right border-0 collapsed" type="button" data-toggle="collapse" data-target="#navbar12" aria-expanded="false">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="w-25 text-right d-lg-none">
-    <img class="mr-2" src="vendor/img/logo/logo_white.svg" height="30px" alt="">
-    </div>
-    <div class="w-25 text-right mr-1 d-lg-none">
-    </div>
-    <div class="navbar-collapse collapse" id="navbar12">
-      <div class="w-25">
-        <a class="navbar-brand d-none d-lg-block" href="home.php">
-          <img src="vendor/img/logo/logo_orange.svg" height="38px">
-        </a>
-      </div>
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item1?> <i class="fas fa-sort-down d-lg-none" style="font-size:12px"></i></a>
-          <div class="dropdown-menu" style="max-width: 140px">
-            <a class="dropdown-item" href="printer_e1260t"><?=$printer1?></a>
-            <a class="dropdown-item" href="printer_phylos"><?=$printer2?></a>
-            <a class="dropdown-item" href="printer_coree3"><?=$printer3?></a>
-          </div>
+<!-- Main JS -->
+<script src="vendor/js/menu.js"></script>
+
+<style>
+
+</style>
+
+  <nav class="navbar navbar-expand-lg p-0 fixed-top d-none d-lg-block">
+    <div class="container">
+      <a class="navbar-brand borda-topo text-white menu-item" href="home.php">
+        <img id="logo" src="vendor/img/logo/logo_white.svg" height="40px">
+      </a>
+      <ul class="navbar-nav mr-auto">
+        <li id="campo_1" class="nav-item ml-2 mr-3 campos-menu">
+          <a id="item_1" class="nav-link hover-item menu-item" href="#"><?=$item1?></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item2?> <i class="fas fa-sort-down d-lg-none" style="font-size:12px"></i></a>
-          <div class="dropdown-menu" style="max-width: 140px">
-            <a class="dropdown-item" href="acessorio_ezycure.php"><?=$acessorio1?></a>
-          </div>
+        <li id="campo_2" class="nav-item ml-2 mr-3 campos-menu">
+          <a id="item_2" class="nav-link hover-item menu-item" href="#"><?=$item2?></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$item3?> <i class="fas fa-sort-down d-lg-none" style="font-size:12px"></i></a>
-          <div class="dropdown-menu" style="max-width: 140px">
-            <a class="dropdown-item" href="app_odontologia.php"><?=$aplicacao1?></a>
-            <a class="dropdown-item" href="app_manufatura.php"><?=$aplicacao2?></a>
-            <a class="dropdown-item" href="app_educacao.php"><?=$aplicacao3?></a>
-            <a class="dropdown-item" href="app_joalheria.php"><?=$aplicacao4?></a>
-          </div>
+        <li id="campo_3" class="nav-item ml-2 mr-3 campos-menu">
+          <a id="item_3" class="nav-link hover-item menu-item" href="#"><?=$item3?></a>
         </li>
-        <li class="nav-item pl-1 pr-1"> <a class="nav-link" href="contato.php"><?=$item4?></a> </li>
+        <li id="campo_4" class="nav-item ml-2 mr-3 campos-menu">
+          <a id="item_4" class="nav-link hover-item menu-item" href="contato.php"><?=$item4?></a>
+        </li>
       </ul>
-      <div id="menu-left" class="w-25">
-        <ul class="navbar-nav float-lg-right">
-          <?php
+      <ul class="navbar-nav mr-right">
+        <?php
 if (!isset($_SESSION['banana'])) {?>
-            <li class="nav-item"> <a class="nav-link" id="btn-logar" data-toggle="modal" data-target="#modalLogin" href="#"><?=$logar?></a></li>
-            <li class="nav-item"> <a class="nav-link text-primary" href="form_cadastrar"><?=$cadastrar?></a></li>
-          <?php } else {?>
-           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="btn-conta" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i> <?=$nome?></i></a>
-            <div class="dropdown-menu d-lg-none">
-              <a class="dropdown-item" href="#"><?=$perfil?></a>
-              <a class="dropdown-item" href="#"><?=$sair?></a>
-            </div>
-          </li>
-        <?php }?>
-
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="btn-lang" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?=$idiomas?></a>
-          <div class="dropdown-menu d-lg-none">
-            <a class="dropdown-item" href="#">English</a>
-            <a class="dropdown-item" href="#">Español</a>
-            <a class="dropdown-item" href="#">Português (Brasil)</a>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link p-3 borda-top menu-item-right" id="btn-logar" data-toggle="modal" data-target="#modalLogin" href="#"><?=$logar?></a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link p-2 borda-top menu-item-right" href="form_cadastrar">
+            <div class="bg-primary text-white p-2"><?=$cadastrar?></div>
+          </a>
+        </li>
+<?php } else {?>
+        <li class="nav-item text-center">
+          <a id="btn-conta" class="nav-link p-3 borda-top menu-item-right" href="#"><?=$nome?> <i class="fas fa-caret-down"></i></a>
+          <i id="seta-conta" class="fas fa-caret-up"></i>
+        </li>
+<?php }?>
+        <li class="nav-item text-center">
+          <a id="btn-lang" class="nav-link p-3 borda-top menu-item-right"><?=$idiomas?> <i class="fas fa-caret-down"></i></a>
+          <i id="seta-lang" class="fas fa-caret-up"></i>
+        </li>
       </ul>
+    </div>
+  </nav>
+  <div id="menu-toggle" class="fixed-top">
+
+    <div class="container h-100 w-100">
+
+      <div id="toggle_1">
+        <div class="row pt-4 pb-50px">
+          <div class="col-4 text-center">
+            <div onclick="window.location.href='printer_e1260t.php'" id="div-printer1" class="zoom-menu">
+              <img class="fotos-printers" id="foto-printer1" src="vendor/img/menu/e1260tmenu.png" height="100%">
+            </div>
+            <a href="printer_e1260t.php" id="nome-printer1" class="mt-2 nomes-printers"><?=$printer1?></a>
+          </div>
+
+          <div class="col-4 text-center">
+            <div onclick="window.location.href='printer_phylos.php'" id="div-printer2" class="zoom-menu">
+              <img class="fotos-printers" id="foto-printer2" src="vendor/img/menu/e1260tmenu.png" height="100%">
+            </div>
+            <a href="printer_phylos.php" id="nome-printer2" class="mt-2 nomes-printers"><?=$printer2?></a>
+          </div>
+
+          <div class="col-4 text-center">
+            <div onclick="window.location.href='printer_coree3.php'" id="div-printer3" class="zoom-menu">
+              <img class="fotos-printers" id="foto-printer3" src="vendor/img/menu/e1260tmenu.png" height="100%">
+            </div>
+            <a href="printer_coree3.php" id="nome-printer3" class="mt-2 nomes-printers"><?=$printer3?></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container h-100 w-100 pr-0 mr-0">
+
+      <div id="toggle_2">
+        <div class="row">
+          <div id="menu-acessorios" class="col-3 div-acessorios pt-4 pb-50px pr-5" style="border-right: solid 1px rgba(0,0,0,.1);color:black">
+            <div id="acessorios_1" class="menu1-acessorios py-1 px-2">
+              <span>Câmara pós-cura</span><i id="seta-acessorios_1" class="fas fa-chevron-right seta-acessorios float-right"></i>
+            </div>
+          </div>
+
+          <div id="lista-acessorios" class="col-3 div-acessorios pt-4 pb-50px" style="color: black">
+
+            <div id="opcoes-acessorios_1" class="opcoes-acessorios">
+              <div onclick="window.location.href='acessorio_ezycure.php'" class="py-1 px-2 menu2-acessorios">
+                <span>EzyCure</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div id="fotos-acessorios" class="div-acessorios text-center col-6">
+            <div id="foto-acessorios_1" class="w-100 h-100 todas-fotos-acessorios bg-dark"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="container h-100 w-100 pr-0 mr-0">
+
+      <div id="toggle_3">
+         <div class="row">
+          <div id="menu-aplicacoes" class="col-3 div-aplicacoes pt-4 pb-50px pr-5" style="border-right: solid 1px rgba(0,0,0,.1);color:black">
+            <div id="aplicacoes_1" class="menu1-aplicacoes py-1 px-2">
+              <span>Odontologia</span><i id="seta-aplicacoes_1" class="fas fa-chevron-right seta-aplicacoes float-right"></i>
+            </div>
+            <div id="aplicacoes_2" class="menu1-aplicacoes py-1 px-2">
+              <span>Joalheria</span><i id="seta-aplicacoes_2" class="fas fa-chevron-right seta-aplicacoes float-right"></i>
+            </div>
+            <div id="aplicacoes_3" class="menu1-aplicacoes py-1 px-2">
+              <span>Educação</span><i id="seta-aplicacoes_3" class="fas fa-chevron-right seta-aplicacoes float-right"></i>
+            </div>
+            <div id="aplicacoes_4" class="menu1-aplicacoes py-1 px-2">
+              <span>Manufatura</span><i id="seta-aplicacoes_4" class="fas fa-chevron-right seta-aplicacoes float-right"></i>
+            </div>
+          </div>
+
+
+          <div id="lista-aplicacoes" class="col-3 div-aplicacoes pt-4 pb-50px" style="color: black">
+
+            <div id="opcoes-aplicacoes_1" class="opcoes-aplicacoes">
+              <div onclick="window.location.href='app_odontologia.php'" class="py-1 px-2 menu2-aplicacoes">
+                <span>Odontologia</span>
+              </div>
+            </div>
+
+            <div id="opcoes-aplicacoes_2" class="opcoes-aplicacoes">
+              <div onclick="window.location.href='app_joalheria.php'" class="py-1 px-2 menu2-aplicacoes">
+                <span>Joalheria</span>
+              </div>
+            </div>
+
+            <div id="opcoes-aplicacoes_3" class="opcoes-aplicacoes">
+              <div onclick="window.location.href='app_educacao.php'" class="py-1 px-2 menu2-aplicacoes">
+                <span>Educação</span>
+              </div>
+            </div>
+
+            <div id="opcoes-aplicacoes_4" class="opcoes-aplicacoes">
+              <div onclick="window.location.href='app_manufatura.php'" class="py-1 px-2 menu2-aplicacoes">
+                <span>Manufatura</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="fotos-aplicacoes" class="div-aplicacoes text-center col-6">
+            <div id="foto-aplicacoes_1" class="w-100 h-100 todas-fotos-aplicacoes bg-dark"></div>
+            <div id="foto-aplicacoes_2" class="w-100 h-100 todas-fotos-aplicacoes bg-danger"></div>
+            <div id="foto-aplicacoes_3" class="w-100 h-100 todas-fotos-aplicacoes bg-warning"></div>
+            <div id="foto-aplicacoes_4" class="w-100 h-100 todas-fotos-aplicacoes bg-primary"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
-</nav>
 
-<?php
+  </div>
+
+<div id="lang" class="p-3">
+<form  id='formEn' action='<?=$pagina?>.php' method='get'>
+    <input type='hidden' name='lang' value='en'>
+    <a href='#' class="item-lang"  onClick='document.getElementById("formEn").submit();'>English</a>
+  </form>
+  <form id='formEs' action='<?=$pagina?>.php' method='get'>
+    <input type='hidden' name='lang' value='es'>
+    <a href='#' class="item-lang" onClick='document.getElementById("formEs").submit();'>Español</a>
+  </form>
+  <form id='formPt' action='<?=$pagina?>.php' method='get'>
+    <input type='hidden' name='lang' value='pt'>
+    <a href='#' class="item-lang" onClick='document.getElementById("formPt").submit();'>Português (Brasil)</a>
+  </form>
+</div>
+
+  <?php
 if (isset($_SESSION['banana'])) {?>
   <div id="conta" class="pt-2 pb-2" style="width: 158px">
     <div >
@@ -143,22 +255,7 @@ if (isset($_SESSION['banana'])) {?>
   </div>
 <?php }?>
 
-<div class="p-3" id="lang">
-  <form  id='formEn' action='<?=$pagina?>.php' method='get'>
-    <input type='hidden' name='lang' value='en'>
-    <a href='#' class="item-lang"  onClick='document.getElementById("formEn").submit();'>English</a>
-  </form>
-  <form id='formEs' action='<?=$pagina?>.php' method='get'>
-    <input type='hidden' name='lang' value='es'>
-    <a href='#' class="item-lang" onClick='document.getElementById("formEs").submit();'>Español</a>
-  </form>
-  <form id='formPt' action='<?=$pagina?>.php' method='get'>
-    <input type='hidden' name='lang' value='pt'>
-    <a href='#' class="item-lang" onClick='document.getElementById("formPt").submit();'>Português (Brasil)</a>
-  </form>
-</div>
 
-</div>
 
 <!-- modal login -->
 <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -255,7 +352,7 @@ if (isset($_GET["email"])) {
             $(document).ready(function() {
               $('#modalLogin').modal('show')
               $("input[name=email_login]").val(email)
-              $("#focus-email").addClass('has-val')
+              $("#focus-email").addClass('has-val');
             })
           }
 
@@ -300,17 +397,7 @@ if (isset($_GET["email"])) {
             $("#loginIncorreto").hide()
           })
 
-          // troca de lingua
-          $("#btn-lang").click(function(){
-            $("#lang").toggle();
-            $("#conta").hide();
-          });
 
-          // conta
-          $("#btn-conta").click(function(){
-            $("#lang").hide();
-            $("#conta").toggle();
-          });
         </script>
         <!--===============================================================================================-->
       </div>

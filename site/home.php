@@ -6,46 +6,56 @@ if (isset($_SESSION["banana"])) {
 ?>
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - Home</title>
+  <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
 </head>
 <style>
-.col-left{
-background-image: linear-gradient(to left, #eee, #aaa);
-}
-.row-left{
-background-image: linear-gradient(to bottom, rgba(255,255,255,0.1) 75%, rgba(0,0,0,.0) 25% );
-}
-@media only screen and (max-width: 991.5px){
-  .row-left .col-descricao{
-background-image: linear-gradient(to left, rgba(0,0,0,.2), rgba(0,0,0,.6));
-margin-top: 20px;
-}
-  .row-right .col-descricao{
-background-image: linear-gradient(to left, rgba(255,255,255,.2), rgba(255,255,255,.6));
-margin-top: 20px;
-}
+  .col-left {
+    background-image: linear-gradient(to left, #eee, #aaa);
+  }
 
-.col-left, .col-right{
-  margin-top: 15px;
-}
-}
+  .row-left {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 75%, rgba(0, 0, 0, .0) 25%);
+  }
 
-.col-right{
-background-image: linear-gradient(to left, #414141, #313131);
-}
-.row-right{
-background-image: linear-gradient(to bottom, rgba(255,255,255,.03) 75%, rgba(0,0,0,.0) 25% );
-}
-#background{
-  height: 100vh;
-  position: relative;
-}
-#background video{
-  position: absolute;
+  @media only screen and (max-width: 991.5px) {
+    .row-left .col-descricao {
+      background-image: linear-gradient(to left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .6));
+      margin-top: 20px;
+    }
+
+    .row-right .col-descricao {
+      background-image: linear-gradient(to left, rgba(255, 255, 255, .2), rgba(255, 255, 255, .6));
+      margin-top: 20px;
+    }
+
+    .col-left,
+    .col-right {
+      margin-top: 15px;
+    }
+  }
+
+  .col-right {
+    background-image: linear-gradient(to left, #414141, #313131);
+  }
+
+  .row-right {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, .03) 75%, rgba(0, 0, 0, .0) 25%);
+  }
+
+  #background {
+    height: 100vh;
+    position: relative;
+  }
+
+  #background video {
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
@@ -53,10 +63,101 @@ background-image: linear-gradient(to bottom, rgba(255,255,255,.03) 75%, rgba(0,0
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+  }
+     #quadro {
+      margin: 0 auto;
+    }
+
+    #quadro:hover {
+      -moz-box-shadow: 0px 0px 5px 0px #222;
+      -webkit-box-shadow: 0px 0px 5px 0px #222;
+      box-shadow: 0px 0px 5px 0px #222;
+    }
+
+    #quadro-info {
+      background-color: #F38919;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    #quadro-btns {
+      background-color: #F9420C;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    #btn-orcamento {
+      border-right: solid 0.5px rgba(0, 0, 0, .2);
+    }
+
+    #btn-saibamias {
+      border-left: solid 0.5px rgba(0, 0, 0, .2);
+    }
+
+    #btn-orcamento,
+    #btn-saibamais {
+      cursor: pointer;
+    }
+
+    #btn-orcamento:hover,
+    #btn-saibamais:hover {
+      opacity: 0.5;
+    }
+
+    .product-info {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, .8);
+    }
+
+    .btn-info-product {
+      position: relative;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    #btn-info-product:hover {
+      color: blue;
+    }
+
+    .zoom img {
+      transition: all 0.2s linear;
+      overflow: hidden;
+    }
+
+    .zoom:hover img {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+
+
+
+     .slider {
+      width: 100%;
+      margin: 30px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+
+
 </style>
-<body id="page-top">
- <?php
+
+<body id="page-top" class="bg-dark">
+  <?php
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     $pagina = "home";
     include "dashboard/menuAlterarTexto.php";
@@ -66,163 +167,176 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "vendor/menu_rodape/menu.php";
 }
 ?>
-<main>
 
+  <main>
 
-  <div id="background" class="py-5 text-center text-white"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
-      <source src="https://static.pingendo.com/video-placeholder.mp4" type="video/mp4"> </video>
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <h1 class="mb-4 display-3">Video</h1>
-          <p class="lead mb-5">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
-          <a href="#" class="btn btn-lg btn-primary mx-1">Your call to action</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container" style="position:relative; top: -75px;">
-    <div class="row">
-      <div class="col-md-6">
+    <div id="background" class="py-5 text-center text-white"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
+        <source src="vendor/img/home/bg.mp4" type="video/mp4"> </video>
+      <div class="container py-5">
         <div class="row">
-          <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f1.jpg" width="100%" alt=""></div>
-          <div class="col-lg-6 py-5 px-4 bg-danger">
-            <h4 class="">Heading 4 <span class="badge badge-pill badge-warning">!</span></h4>
-            <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-outline-light" href="#">Light</a>
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h1 class="mb-4 display-3">Video</h1>
+            <p class="lead mb-5">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+            <a href="#" class="btn btn-lg btn-primary mx-1">Your call to action</a>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+    </div>
+
+    <div class="bg-white">
+
+      <div class="container" style="position:relative; top: -75px;">
         <div class="row">
-          <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f2.jpg" width="100%" alt=""></div>
-          <div class="col-lg-6 py-5 px-4 bg-info">
-            <h4 class="">Heading 4 <span class="badge badge-pill badge-warning">!</span></h4>
-            <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-outline-light" href="#">Light</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="py-lg-4" style="background-image: linear-gradient(to top, rgb(234, 234, 234) 50%, rgb(255, 255, 255) 50%);">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 p-0 m-0 bg-primary"><img src="vendor/img/home/f4.jpg" width="100%" alt=""></div>
-        <div class="col-lg-6 px-4 py-5 m-0 bg-primary" style="">
-          <div>
-          </div>
-          <h3 class="text-white">Heading 3 <span class="badge badge-light"> New</span></h3>
-          <h1 class="mt-4 border-top-0 text-white">Heading 1</h1>
-          <p class="lead mt-4 text-white">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="mt-4 btn btn-outline-light w-75" href="#">Outline</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="bg-light py-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 p-4">
-          <h2 class="">Formlabs is expanding access to digital fabrication at every stage of production.<br></h2>
-          <h4 class="">Heading 4:</h4>
-        </div>
-        <div class="col-md-6 p-4">
-          <h5 class="">Odontologia</h5>
-          <h5 class="mt-3">Joalheria</h5>
-          <h5 class="mt-3">Educação</h5>
-          <h5 class="mt-3">Manufatura</h5>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="pt-5" style="background-image: linear-gradient( to top, #fff 50%, #eaeaea 50%)">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-left">
-          <div class="row pt-5 pb-4 px-2 row-left">
-            <div class="col-lg-6 p-0"><img src="vendor/img/home/e1260t.png" width="100%" alt=""></div>
-            <div class="col-lg-6 p-2 col-descricao">
-              <h3 class="">E1260T</h3>
-              <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-primary" href="#">Button</a>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f1.jpg" width="100%" alt=""></div>
+              <div class="col-lg-6 py-5 px-4 bg-danger">
+                <h4 class="">Heading 4 <span class="badge badge-pill badge-warning">!</span></h4>
+                <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-outline-light" href="#">Light</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-6 col-right">
-          <div class="row pt-5 pb-4 px-2 row-right">
-            <div class="col-lg-6 p-0"><img src="vendor/img/home/phylos.png" width="100%" alt=""></div>
-            <div class="col-lg-6 p-2 col-descricao">
-              <h3 class="">Phylos <span class="badge badge-light"> New</span></h3>
-              <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-primary" href="#">Button</a>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f2.jpg" width="100%" alt=""></div>
+              <div class="col-lg-6 py-5 px-4 bg-info">
+                <h4 class="">Heading 4 <span class="badge badge-pill badge-warning">!</span></h4>
+                <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-outline-light" href="#">Light</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="pt-lg-5 pb-4" style="background-image: linear-gradient( to top, #eaeaea 50%, #fff 50%)">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-left">
-          <div class="row pt-5 pb-4 px-2 row-left">
-            <div class="col-lg-6 p-0"><img src="vendor/img/home/coree3.png" width="100%" alt=""></div>
-            <div class="col-lg-6 p-2 col-descricao">
-              <h3 class="">Core E3</h3>
-              <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-primary" href="#">Button</a>
+
+
+
+      <div class="container">
+        <h1 class="mb-3" style="color: #000">Impressoras 3D</h1>
+      <section class="center slider">
+            <div class="">
+
+            <div id="quadro" class="bg-danger zoom">
+              <i id="btn-info-product1" class="btn-info-product fas fa-info-circle float-right p-2" style="font-size:20px"></i>
+              <img src="vendor/img/home/e1260t.png" width="100%" alt="">
             </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-right">
-          <div class="row pt-5 pb-4 px-2 row-right">
-            <div class="col-lg-6 p-0"><img src="vendor/img/home/ezycure.png" width="100%" alt=""></div>
-            <div class="col-lg-6 p-2 col-descricao">
-              <h3 class="">EzyCure <span class="badge badge-light"> New</span></h3>
-              <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-primary" href="#">Button</a>
+
+            <div id="quadro-info" class="p-1 text-center">
+              <h5><b>E1260T</b></h5>
             </div>
+            <div id="quadro-btns">
+              <div class="row">
+                <div id="btn-orcamento" class="col-6 text-center py-2">Orçamento</div>
+                <div id="btn-saibamais" class="col-6 text-center py-2">Saiba mais</div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="">
+
+            <div id="quadro" class="bg-danger zoom">
+              <i id="btn-info-product2" class="fas fa-info-circle float-right p-2" style="font-size:20px"></i>
+              <img src="vendor/img/home/e1260t.png" width="100%" alt="">
+            </div>
+
+            <div id="quadro-info" class="p-1 text-center">
+              <h5><b>E1260T</b></h5>
+            </div>
+            <div id="quadro-btns">
+              <div class="row">
+                <div id="btn-orcamento" class="col-6 text-center py-2">Orçamento</div>
+                <div id="btn-saibamais" class="col-6 text-center py-2">Saiba mais</div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="">
+
+            <div id="quadro" class="bg-danger zoom">
+              <i id="btn-info-product3" class="fas fa-info-circle float-right p-2" style="font-size:20px"></i>
+              <img src="vendor/img/home/e1260t.png" width="100%" alt="">
+            </div>
+            <div id="quadro-info" class="p-1 text-center">
+              <h5><b>E1260T</b></h5>
+            </div>
+            <div id="quadro-btns">
+              <div class="row">
+                <div id="btn-orcamento" class="col-6 text-center py-2">Orçamento</div>
+                <div id="btn-saibamais" class="col-6 text-center py-2">Saiba mais</div>
+              </div>
+            </div>
+
+          </div>
+          </section>
+      </div>
+
+
+      <div class="container pt-4 pb-5">
+        <h1 style="color: #000">Acessórios</h1>
+      <section class="center slider">
+            <div>
+
+            <div id="quadro" class="bg-danger zoom">
+              <i id="btn-info-product1" class="btn-info-product fas fa-info-circle float-right p-2" style="font-size:20px"></i>
+              <img src="vendor/img/home/e1260t.png" width="100%" alt="">
+            </div>
+
+            <div id="quadro-info" class="p-1 text-center">
+              <h5><b>E1260T</b></h5>
+            </div>
+            <div id="quadro-btns">
+              <div class="row">
+                <div id="btn-orcamento" class="col-6 text-center py-2">Orçamento</div>
+                <div id="btn-saibamais" class="col-6 text-center py-2">Saiba mais</div>
+              </div>
+            </div>
+
+          </div>
+          </section>
+      </div>
+
+
+    </div>
+
+    <div class="pt-0 pt-lg-5" style="background-image: linear-gradient( to top, #353535 50%, #eaeaea 50% );">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 p-0 m-0 bg-danger"><img src="vendor/img/home/f3.jpg" width="100%" alt=""></div>
+          <div class="col-md-6 px-4 py-5 m-0 text-center bg-primary">
+            <div>
+            </div>
+            <h3 class="text-white">Heading 3</h3>
+            <h1 class="mt-4 border-top-0 text-white">Heading 1</h1>
+            <p class="lead mt-4 text-white">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="mt-4 btn btn-outline-light w-75" href="#">Outline</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="pt-0 pt-lg-5" style="background-image: linear-gradient( to top, #353535 50%, #eaeaea 50% );">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 p-0 m-0 bg-danger"><img src="vendor/img/home/f3.jpg" width="100%" alt=""></div>
-        <div class="col-md-6 px-4 py-5 m-0 text-center bg-primary">
-          <div>
+    <div class="py-3 text-center bg-info">
+      <div class="container">
+        <div class="row text-muted">
+          <div class="col-md-3 col-4 p-2">
+            <i class="d-block fas fa-tooth fa-3x"></i>
           </div>
-          <h3 class="text-white">Heading 3</h3>
-          <h1 class="mt-4 border-top-0 text-white">Heading 1</h1>
-          <p class="lead mt-4 text-white">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="mt-4 btn btn-outline-light w-75" href="#">Outline</a>
+          <div class="col-md-3 col-4 p-2">
+            <i class="d-block fas fa-gem fa-3x"></i>
+          </div>
+          <div class="col-md-3 col-4 p-2">
+            <i class="d-block fas fa-cog fa-3x"></i>
+          </div>
+          <div class="col-md-3 col-4 p-2">
+            <i class="d-block fas fa-graduation-cap fa-3x"></i>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="py-3 text-center bg-info">
-    <div class="container">
-      <div class="row text-muted">
-        <div class="col-md-3 col-4 p-2">
-          <i class="d-block fas fa-tooth fa-3x"></i>
-        </div>
-        <div class="col-md-3 col-4 p-2">
-          <i class="d-block fas fa-gem fa-3x"></i>
-        </div>
-        <div class="col-md-3 col-4 p-2">
-          <i class="d-block fas fa-cog fa-3x"></i>
-        </div>
-        <div class="col-md-3 col-4 p-2">
-          <i class="d-block fas fa-graduation-cap fa-3x"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <?php
+    <?php
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "dashboard/rodapeAlterarTexto.php";
 } else {
@@ -230,6 +344,37 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "vendor/menu_rodape/rodape.php";
 }
 ?>
-</main>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $( window ).resize(function() {
+      document.location.reload();
+    });
+
+    $(document).on('ready', function () {
+      let largura = screen.width
+      if (largura > 767){
+        $(".center").slick({
+          dots: true,
+          infinite: false,
+          centerMode: false,
+          slidesToShow: 3,
+          slidesToScroll: 1
+        });
+      }
+      else{
+        $(".center").slick({
+          dots: true,
+          infinite: false,
+          centerMode: false,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        });
+      }
+    });
+  </script>
+  </main>
 </body>
+
 </html>

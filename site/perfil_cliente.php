@@ -59,17 +59,27 @@ if (isset($_GET["status"])) {
   cursor: pointer;
   padding-left: 45px;
   border-left: solid 3px rgba(0,0,0,.0);
+  color: #000;
 }
 .item-selected{
   display: block;
   cursor: pointer;
   padding-left: 45px;
   border-left: solid 3px #000;
+  color: #000;
 }
 .item:hover{
   background-color: rgba(0,0,0,.1);
   border-left: solid 3px rgba(0,0,0,.2);
 }
+.form-group{
+  color: #434343;
+}
+
+h4, p{
+  color: #434343 !important;
+}
+
 #form-perfil{
   padding-left: 70px;
   padding-right: 80px;
@@ -102,20 +112,27 @@ if (isset($_GET["status"])) {
   margin-top: 5px;
   display: none;
 }
+#fundo-menu{
+  position:absolute;
+  width: 100%;
+  height: 78px;
+  background-color: #232323;
+}
 </style>
 
 </head>
-<body>
+<body class="bg-dark">
  <?php
 $pagina = "perfil_cliente";
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "dashboard/menuAlterarTexto.php";
 } else {
     $visivelm = true;
-    include "vendor/menu_rodape/menu.php";
+    include "vendor/menu_rodape/menunovo.php";
 }
 ?>
-
+<div id="fundo-menu">
+</div>
  <main class="pt-64px" style="background-color: #fafafa;">
   <div id="alert" class="bg-success">
     <div class="row">
