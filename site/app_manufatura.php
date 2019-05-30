@@ -13,7 +13,7 @@ if (isset($_SESSION["banana"])) {
   <title>EZY 3D - Manufatura</title>
 </style>
 </head>
-<body>
+<body class="bg-dark">
  <?php
 $pagina = "app_manufatura";
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -24,7 +24,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 }
 ?>
 
- <main class="pt-64px">
+ <main>
 
   <div class="py-5" style="background-image: url(&quot;vendor/img/cover-stripes.svg&quot;); background-position: right bottom; background-size: cover;">
     <div class="container">

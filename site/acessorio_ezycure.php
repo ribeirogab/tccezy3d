@@ -22,7 +22,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "vendor/menu_rodape/menu.php";
 }
 ?>
- <main class="pt-64px">
+ <main>
 
   <div class="py-3">
     <div class="container">

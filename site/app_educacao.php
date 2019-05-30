@@ -12,7 +12,7 @@ if (isset($_SESSION["banana"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - Educação</title>
 </head>
-<body>
+<body class="bg-dark">
  <?php
 $pagina = "app_educacao";
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -22,6 +22,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "vendor/menu_rodape/menu.php";
 }
 ?>
+<main>
  <div class="py-5 text-center" style="background-image: url('https://static.pingendo.com/cover-bubble-dark.svg');background-size:cover;">
   <div class="container">
     <div class="row">

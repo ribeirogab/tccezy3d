@@ -14,7 +14,7 @@ if (isset($_SESSION["banana"])) {
   <title>EZY 3D - Joalheria</title>
 </head>
 
-<body>
+<body class="bg-dark">
  <?php
 $pagina = "app_joalheria";
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -24,7 +24,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "vendor/menu_rodape/menu.php";
 }
 ?>
-  <main class="pt-64px">
+  <main>
 
     <div class="py-5 text-center text-md-right"
       style="background-image: url(vendor/img/cover-bubble-dark.svg);  background-position: right bottom;  background-size: cover; background-repeat: repeat; background-attachment: fixed;">
