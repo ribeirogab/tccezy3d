@@ -153,7 +153,16 @@ if (isset($_SESSION["banana"])) {
       color: black;
     }
 
-
+#slider-acessorios{
+  position:relative;
+  left: -112%;
+}
+ @media only screen and (max-width: 768px) {
+    #slider-acessorios{
+      position:relative;
+      left: 0;
+    }
+  }
 </style>
 
 <body id="page-top" class="bg-dark">
@@ -170,8 +179,8 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
   <main>
 
-    <div id="background" class="py-5 text-center text-white"> <video autoplay="" loop="" muted="" plays-inline="" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
-        <source src="vendor/img/home/bg.mp4" type="video/mp4"> </video>
+    <div id="background" class="py-5 text-center text-white">
+      <img src="vendor/img/home/bg.jpg" style="position: absolute; right: 0; top: 0; min-width:100%; z-index: -100;">
       <div class="container py-5">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
@@ -190,17 +199,17 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <div class="col-md-6">
             <div class="row">
               <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f1.jpg" width="100%" alt=""></div>
-              <div class="col-lg-6 py-5 px-4 bg-danger">
-                <h4 class="">Heading 4 <span class="badge badge-pill badge-warning">!</span></h4>
+              <div class="col-lg-6 py-5 px-4 bg-info">
+                <h4 class="">Odontologia <span class="badge badge-pill badge-warning">!</span></h4>
                 <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-outline-light" href="#">Light</a>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="row">
-              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f2.jpg" width="100%" alt=""></div>
+              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f3.jpg" width="100%" alt=""></div>
               <div class="col-lg-6 py-5 px-4 bg-info">
-                <h4 class="">Heading 4 <span class="badge badge-pill badge-warning">!</span></h4>
+                <h4 class="">Joalheria <span class="badge badge-pill badge-warning">!</span></h4>
                 <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-outline-light" href="#">Light</a>
               </div>
             </div>
@@ -218,7 +227,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
             <div id="quadro" class="bg-danger zoom">
               <i id="btn-info-product1" class="btn-info-product fas fa-info-circle float-right p-2" style="font-size:20px"></i>
-              <img src="vendor/img/home/e1260t.png" width="100%" alt="">
+              <img src="vendor/img/home/e1260t2.png" width="100%" alt="">
             </div>
 
             <div id="quadro-info" class="p-1 text-center">
@@ -238,7 +247,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
             <div id="quadro" class="bg-danger zoom">
               <i id="btn-info-product2" class="fas fa-info-circle float-right p-2" style="font-size:20px"></i>
-              <img src="vendor/img/home/e1260t.png" width="100%" alt="">
+              <img src="vendor/img/home/phylos1.png" width="100%" alt="">
             </div>
 
             <div id="quadro-info" class="p-1 text-center">
@@ -258,7 +267,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
             <div id="quadro" class="bg-danger zoom">
               <i id="btn-info-product3" class="fas fa-info-circle float-right p-2" style="font-size:20px"></i>
-              <img src="vendor/img/home/e1260t.png" width="100%" alt="">
+              <img src="vendor/img/home/coree3.png" width="100%" alt="">
             </div>
             <div id="quadro-info" class="p-1 text-center">
               <h5><b>E1260T</b></h5>
@@ -278,11 +287,11 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       <div class="container pt-4 pb-5">
         <h1 style="color: #000">Acessórios</h1>
       <section class="center slider">
-            <div>
+            <div id="slider-acessorios">
 
             <div id="quadro" class="bg-danger zoom">
               <i id="btn-info-product1" class="btn-info-product fas fa-info-circle float-right p-2" style="font-size:20px"></i>
-              <img src="vendor/img/home/e1260t.png" width="100%" alt="">
+              <img src="vendor/img/home/ezycure.png" width="100%" alt="">
             </div>
 
             <div id="quadro-info" class="p-1 text-center">
@@ -305,7 +314,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     <div class="pt-0 pt-lg-5" style="background-image: linear-gradient( to top, #353535 50%, #eaeaea 50% );">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 p-0 m-0 bg-danger"><img src="vendor/img/home/f3.jpg" width="100%" alt=""></div>
+          <div class="col-md-6 p-0 m-0 bg-danger"><img src="vendor/img/home/f4.jpg" width="100%" height="100%" alt=""></div>
           <div class="col-md-6 px-4 py-5 m-0 text-center bg-primary">
             <div>
             </div>
@@ -356,7 +365,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       let largura = screen.width
       if (largura > 767){
         $(".center").slick({
-          dots: true,
+          dots: false,
           infinite: false,
           centerMode: false,
           slidesToShow: 3,
@@ -365,7 +374,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       }
       else{
         $(".center").slick({
-          dots: true,
+          dots: false,
           infinite: false,
           centerMode: false,
           slidesToShow: 1,

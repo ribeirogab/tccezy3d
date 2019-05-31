@@ -76,11 +76,19 @@ nav li a {
   padding-bottom: 40px;
 }
 
-#div-printer1,
-#div-printer2,
-#div-printer3 {
+#div-printer1 {
   height: 250px;
   width: 166px;
+  margin: 0 auto;
+}
+#div-printer2 {
+  height: 250px;
+  width: 126px;
+  margin: 0 auto;
+}
+#div-printer3 {
+  height: 250px;
+  width: 238px;
   margin: 0 auto;
 }
 

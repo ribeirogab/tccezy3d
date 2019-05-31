@@ -17,7 +17,7 @@ if (isset($_SESSION["banana"])) {
   background-color: #232323;
 }
 </style>
-<body>
+<body class="bg-dark">
 <body id="page-top">
  <?php
 $pagina = "printer_e1260t";
@@ -28,9 +28,9 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "vendor/menu_rodape/menu.php";
 }
 ?>
-<main class="pt-64px">
-  <div class="py-3 bg-light">
-    <div class="container mt-5 pt-5">
+<main>
+  <div class="py-3 bg-gg">
+    <div class="container pt-md-5">
       <div class="row">
         <div class="col-md-6 my-5 text-lg-left text-center align-self-center" style="">
           <h1 class="display-1"><?php
@@ -61,11 +61,11 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 ?></a> </div>
           </div>
         </div>
-        <div class="col-md-6 bg-dark" style=""></div>
+        <div class="col-md-6 d-none d-md-block text-center"><img src="vendor/img/e1260t/e1260t2.png"></div>
       </div>
     </div>
   </div>
-  <div class="pt-5" style="">
+  <div class="pt-5 bg-white text-black" style="">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 p-4 d-flex justify-content-center flex-column">
@@ -104,7 +104,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             </div>
           </div>
         </div>
-        <div class="col-lg-5 col-8 mx-auto d-flex justify-content-center flex-column"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-mobile.svg"> </div>
+        <div class="col-lg-5 col-8 mx-auto d-flex justify-content-center flex-column"> <img class="img-fluid d-block" src="vendor/img/e1260t/e1260t1.png"> </div>
       </div>
     </div>
   </div>
@@ -142,7 +142,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
   </div>
-  <div class="py-5" id="features" style="">
+  <div class="py-5 bg-white text-black" id="features" style="">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -196,7 +196,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 ?></p>
         </div>
 
-        <div class="my-3 col-md-4 d-none d-lg-block bg-dark" style=""></div>
+        <div class="my-3 col-md-4 d-none d-lg-block text-center"><img src="vendor/img/e1260t/e1260t4.png"></div>
         <div class="align-self-center text-md-left text-center col-lg-4 col-md-6">
           <h4 class="text-primary"><?php
 echo $titulo_especificacao4;

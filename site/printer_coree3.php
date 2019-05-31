@@ -12,7 +12,7 @@ if (isset($_SESSION["banana"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - Core E3</title>
 </head>
-<body>
+<body class=bg-dark>
  <?php
 $pagina = "printer_coree3";
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -22,10 +22,10 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "vendor/menu_rodape/menu.php";
 }
 ?>
- <main class="pt-64px">
+ <main>
 
-  <div class="py-3 text-center text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(&quot;https://static.pingendo.com/cover-bubble-dark.svg&quot;); background-position: center center, center center; background-size: cover, cover; background-repeat: repeat, repeat;">
-    <div class="container">
+  <div class="py-3 text-center text-white bg-gg">
+    <div class="container pt-5">
       <div class="row">
         <div class="col-md-8 mx-auto">
           <h1 class="mb-3"><?php
@@ -39,15 +39,15 @@ echo $txt1;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
 }
-?></p> <img class="img-fluid d-block mx-auto" src="https://static.pingendo.com/img-placeholder-tablet.svg" width="750" style="">
+?></p> <img class="mx-auto d-none d-md-block" src="vendor/img/printer_coree3/coree3.png" >
         </div>
       </div>
     </div>
   </div>
-  <div class="pt-5" style="">
+  <div class="pt-5 bg-white text-black" style="">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 mr-auto order-2 order-md-1"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-mobile.svg"> </div>
+        <div class="col-md-4 mr-auto order-2 order-md-1"> <img class="img-fluid d-block" src="vendor/img/printer_coree3/coree3-2.png"> </div>
         <div class="px-md-5 p-3 d-flex flex-column align-items-start justify-content-center col-md-7 order-1 order-md-2"> <i class="d-block fa fa-stop-circle fa-4x mb-3 text-muted"></i>
           <h1><?php
 echo $titulo2;
@@ -68,7 +68,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
   </div>
-  <div class="py-5" style="background-image: url(&quot;https://static.pingendo.com/cover-bubble-dark.svg&quot;); background-position: right bottom; background-size: cover; background-repeat: repeat; background-attachment: fixed;">
+  <div class="py-5 text-black" style="background-image: url(&quot;https://static.pingendo.com/cover-bubble-dark.svg&quot;); background-position: right bottom; background-size: cover; background-repeat: repeat; background-attachment: fixed;">
     <div class="container">
       <div class="row">
         <div class="mx-auto col-md-8 text-center">
@@ -162,7 +162,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
   </div>
-  <div class="pt-5">
+  <div class="pt-5 bg-white text-black">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -225,7 +225,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             </div>
           </div>
         </div>
-        <div class="col-lg-5 col-md-6 mx-auto order-3 order-lg-2"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-mobile.svg"> </div>
+        <div class="col-lg-5 col-md-6 mx-auto order-3 order-lg-2"> <img class="img-fluid d-block" src="vendor/img/printer_coree3/coree3.png"> </div>
         <div class="col-lg-3 col-md-6 py-md-4 px-4 order-2 order-lg-3 d-flex flex-column justify-content-between">
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa fa-stop-circle-o mb-1 text-muted fa-2x"></i>
@@ -279,7 +279,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
   </div>
-  <div class="pt-5 pb-5 pb-md-0 text-center text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(&quot;https://static.pingendo.com/cover-bubble-dark.svg&quot;); background-position: center center, center center; background-size: 100%, 100%; background-repeat: repeat, repeat;">
+  <div class="pt-5 pb-5 pb-md-0 text-center text-white bg-gg">
     <div class="container">
       <div class="row">
         <div class="ml-auto bg-white text-dark p-5 col-lg-6 col-md-8">

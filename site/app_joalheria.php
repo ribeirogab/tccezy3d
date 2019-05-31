@@ -27,7 +27,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
   <main>
 
     <div class="py-5 text-center text-md-right"
-      style="background-image: url(vendor/img/cover-bubble-dark.svg);  background-position: right bottom;  background-size: cover; background-repeat: repeat; background-attachment: fixed;">
+      style="background-image: linear-gradient(to bottom, #333, #fa5f32 );">
       <div class="container">
         <div class="row">
           <div class="p-5 mx-auto mx-md-0 ml-md-auto col-10 col-md-9">
@@ -67,7 +67,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
 
-    <div class="py-5 text-center">
+    <div class="py-5 text-center bg-white text-black">
       <div class="container">
         <div class="row">
           <div class="mx-auto col-md-8">
@@ -168,7 +168,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
 
-    <div class="py-5">
+    <div class="py-5 bg-white text-black">
       <div class="container">
 
         <div class="row">
@@ -190,35 +190,35 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
         <div class="row">
           <div class="col-lg-3 col-md-1 p-3">
-            <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
+            <img class="img-fluid d-block box-shadow" src="vendor/img/app_joalheria/f1.jpg">
           </div>
           <div class="col-lg-3 col-md-1 p-3">
-            <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
+            <img class="img-fluid d-block box-shadow" src="vendor/img/app_joalheria/f2.jpg">
           </div>
           <div class="col-lg-3 col-md-1 p-3">
-            <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
+            <img class="img-fluid d-block box-shadow" src="vendor/img/app_joalheria/f3.jpg">
           </div>
           <div class="col-lg-3 col-md-1 p-3">
-            <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
+            <img class="img-fluid d-block box-shadow" src="vendor/img/app_joalheria/f4.jpg">
           </div>
           <div class="col-lg-3 col-md-1 p-3">
-            <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
+            <img class="img-fluid d-block box-shadow" src="vendor/img/app_joalheria/f5.jpg">
           </div>
           <div class="col-lg-3 col-md-1 p-3">
-            <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
+            <img class="img-fluid d-block box-shadow" src="vendor/img/app_joalheria/f6.jpg">
           </div>
           <div class="col-lg-3 col-md-1 p-3">
-            <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
+            <img class="img-fluid d-block box-shadow" src="vendor/img/app_joalheria/f7.jpg">
           </div>
           <div class="col-lg-3 col-md-1 p-3">
-            <img class="img-fluid d-block" src="vendor/img/img-placeholder-1.svg">
+            <img class="img-fluid d-block box-shadow" src="vendor/img/app_joalheria/f8.jpg">
           </div>
         </div>
 
       </div>
     </div>
 
-    <div class="py-5 text-center border-top">
+    <div class="py-5 text-center border-top bg-light">
       <div class="container">
         <div class="row">
 
@@ -244,7 +244,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
 
-    <div class="py-3 text-center bg-light">
+    <div class="py-3 text-center bg-info">
       <div class="container">
         <div class="row text-muted">
           <div class="col-md-3 col-4 p-2">

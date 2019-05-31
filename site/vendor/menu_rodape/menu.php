@@ -114,14 +114,14 @@ if (!isset($_SESSION['banana'])) {?>
 
           <div class="col-4 text-center">
             <div onclick="window.location.href='printer_phylos.php'" id="div-printer2" class="zoom-menu">
-              <img class="fotos-printers" id="foto-printer2" src="vendor/img/menu/e1260tmenu.png" height="100%">
+              <img class="fotos-printers" id="foto-printer2" src="vendor/img/menu/phylosmenu.png" height="100%">
             </div>
             <a href="printer_phylos.php" id="nome-printer2" class="mt-2 nomes-printers"><?=$printer2?></a>
           </div>
 
           <div class="col-4 text-center">
             <div onclick="window.location.href='printer_coree3.php'" id="div-printer3" class="zoom-menu">
-              <img class="fotos-printers" id="foto-printer3" src="vendor/img/menu/e1260tmenu.png" height="100%">
+              <img class="fotos-printers" id="foto-printer3" src="vendor/img/menu/coree3menu.png" height="100%">
             </div>
             <a href="printer_coree3.php" id="nome-printer3" class="mt-2 nomes-printers"><?=$printer3?></a>
           </div>
@@ -208,7 +208,9 @@ if (!isset($_SESSION['banana'])) {?>
           </div>
 
           <div id="fotos-aplicacoes" class="div-aplicacoes text-center col-6">
-            <div id="foto-aplicacoes_1" class="w-100 h-100 todas-fotos-aplicacoes bg-dark"></div>
+            <div id="foto-aplicacoes_1" class="w-100 h-100 todas-fotos-aplicacoes" style="background-image: linear-gradient(to bottom, #fff, #000 );">
+              <img src="vendor/img/menu/odontologia.jpg" style="opacity: 0.95" width="100%">
+            </div>
             <div id="foto-aplicacoes_2" class="w-100 h-100 todas-fotos-aplicacoes bg-danger"></div>
             <div id="foto-aplicacoes_3" class="w-100 h-100 todas-fotos-aplicacoes bg-warning"></div>
             <div id="foto-aplicacoes_4" class="w-100 h-100 todas-fotos-aplicacoes bg-primary"></div>

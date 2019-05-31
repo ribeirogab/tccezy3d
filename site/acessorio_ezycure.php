@@ -45,10 +45,10 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     </div>
   </div>
 
-  <div class="pt-5">
+  <div class="pt-4">
     <div class="container">
       <div class="row">
-        <div class="px-md-5 col-md-8">
+        <div class="px-md-5 pt-md-5 col-md-8">
           <h1 class="mb-4 text-primary">
             <b><?php
 echo $titulo2;
@@ -76,7 +76,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         </div>
 
         <div class="col-md-4">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-mobile.svg">
+          <img class="img-fluid d-block" src="vendor/img/acessorio_ezycure/ezycure2.png">
         </div>
       </div>
     </div>
@@ -86,8 +86,8 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     <div class="container">
       <div class="row">
 
-        <div class="col-lg-6 order-2 order-lg-1">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-tablet.svg">
+        <div class="col-lg-6 order-2 order-lg-1 text-center">
+          <img src="vendor/img/acessorio_ezycure/ezycure3.png">
         </div>
 
         <div class="px-md-5 p-3 col-lg-6 d-flex flex-column align-items-start justify-content-center order-1 order-lg-2">

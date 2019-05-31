@@ -12,7 +12,7 @@ if (isset($_SESSION["banana"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - Phylos</title>
 </head>
-<body>
+<body class="bg-dark">
  <?php
 $pagina = "printer_phylos";
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -22,13 +22,13 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "vendor/menu_rodape/menu.php";
 }
 ?>
- <main class="pt-64px">
-  <div class="py-5" style="background-image: url(&quot;https://static.pingendo.com/cover-stripes.svg&quot;); background-position: right bottom; background-size: cover;">
-    <div class="container">
+ <main>
+  <div class="py-5 bg-gg">
+    <div class="container pt-md-5">
       <div class="row">
         <div class="col-md-12">
           <div class="row">
-            <div class="col-md-6"><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
+            <div class="col-md-6"><img src="vendor/img/printer_phylos/phylos1.png" height="500px"></div>
             <div class="col-md-6" style="">
               <h1><?php
 echo $titulo1;
@@ -48,7 +48,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
   </div>
-  <div class="py-5" style="">
+  <div class="py-5 bg-white text-black">
     <div class="container">
       <div class="row">
         <div class="px-md-5 p-3 col-md-6 d-flex flex-column align-items-start justify-content-center">
@@ -74,7 +74,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             <div class="col-md-12"> <i class="fa fa-stop-circle fa-3x mr-3 text-muted d-inline"></i> <i class="fa fa-circle-o fa-3x mx-3 text-muted d-inline"></i> <i class="fa fa-stop-circle-o fa-3x mx-3 text-muted d-inline"></i> <i class="fa fa-circle fa-3x ml-3 text-muted d-inline"></i> </div>
           </div>
         </div>
-        <div class="col-md-6"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-tablet.svg"> </div>
+        <div class="col-md-6"> <img class="img-fluid d-block" src="vendor/img/printer_phylos/phylos2.png"> </div>
       </div>
     </div>
   </div>
@@ -98,7 +98,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
   </div>
-  <div class="py-5">
+  <div class="py-5 bg-white">
     <div class="container">
       <div class="row">
         <div class="col-md-4"><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
@@ -126,7 +126,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-5 col-7 mx-auto order-2 order-lg-1"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-mobile.svg"> </div>
+        <div class="col-lg-5 col-7 py-md-5 mx-auto order-2 order-lg-1 text-center"> <img src="vendor/img/printer_phylos/phylos3.png"> </div>
         <div class="col-lg-5 py-md-5 px-4 order-1 order-lg-2 d-flex flex-column justify-content-between">
           <div class="row">
             <div class="col-9 col-md-12"> <i class="d-block fa fa-stop-circle-o mb-1 text-muted fa-3x"></i>

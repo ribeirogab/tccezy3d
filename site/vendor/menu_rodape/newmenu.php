@@ -128,6 +128,7 @@ $(function() {
     <div class="container">
       <div class="row">
         <div class="col-6 bg-dark" style="margin-top:100px">
+        aaaaaaaaaaaaaaaaaaa
         </div>
         <div class="col-3" style="background-color:#602480; height:300px;margin-top:100px">
           <?php include "printer.html"?>

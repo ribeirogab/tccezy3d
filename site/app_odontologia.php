@@ -25,10 +25,10 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 }
 ?>
   <main>
-    <div class="py-3 text-center align-items-center d-flex" style="background-image: linear-gradient(to left bottom, rgba(189, 195, 199, .75), rgba(44, 62, 80, .75)); background-size: 100%;">
+    <div class="py-3 text-center align-items-center d-flex" style="background-image: linear-gradient(to bottom, #333, #7e98ae );">
       <div class="container py-5">
         <div class="row">
-          <div class="col-md-8 mx-auto"> <i class="d-block fa fa-stop-circle mb-3 text-muted fa-5x"></i>
+          <div class="col-md-8 mx-auto"> <i class="d-block fas fa-tooth mb-3 text-white fa-5x"></i>
             <h1 class="display-3 mb-4"><?php
 echo $titulo1;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -65,7 +65,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
 
-    <div class="py-5 text-center">
+    <div class="py-5 bg-white text-black text-center">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -102,17 +102,17 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 }
 ?></p>
           </div>
-          <div class="col-lg-6"> <img class="img-fluid d-block" src="https://static.pingendo.com/cover-moon.svg"> </div>
+          <div class="col-lg-6"> <img class="img-fluid d-block" src="vendor/img/app_odontologia/f1.jpg"> </div>
         </div>
       </div>
     </div>
-    <div class="py-5 text-center">
+    <div class="py-5 bg-white text-black text-center">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4 col-8 order-2 order-lg-1"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
-          <div class="col-lg-2 col-4 d-flex flex-column justify-content-between order-3 order-lg-2"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
+          <div class="col-lg-4 col-8 order-2 order-lg-1"> <img class="img-fluid d-block" src="vendor/img/app_odontologia/f2.jpg"> </div>
+          <div class="col-lg-2 col-4 d-flex flex-column justify-content-between order-3 order-lg-2"> <img class="img-fluid d-block" src="vendor/img/app_odontologia/f3.jpg"> <img class="img-fluid d-block" src="vendor/img/app_odontologia/f4.jpg"> </div>
           <div class="px-md-5 p-3 d-flex flex-column justify-content-center col-lg-6 order-1 order-lg-3">
-            <i class="d-block fa fa-circle fa-3x mb-2 text-muted"></i>
+            <i class="d-block fas fa-tooth fa-3x"></i>
             <h1><?php
 echo $titulo4;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -143,19 +143,19 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         </div>
       </div>
     </div>
-    <div class="pt-3 pb-1" style="">
+    <div class="py-3 bg-white text-black pb-1" style="">
       <div class="container">
         <div class="row">
-          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/img-placeholder-1.svg"></div>
-          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/img-placeholder-1.svg"></div>
-          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/img-placeholder-1.svg"></div>
-          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/img-placeholder-1.svg"></div>
-          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/img-placeholder-1.svg"></div>
-          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/img-placeholder-1.svg"></div>
+          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/app_odontologia/f5.jpg"></div>
+          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/app_odontologia/f6.jpg"></div>
+          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/app_odontologia/f7.jpg"></div>
+          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/app_odontologia/f8.jpg"></div>
+          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/app_odontologia/f10.jpg"></div>
+          <div class="col-md-4"><img class="img-fluid d-block mt-3" src="vendor/img/app_odontologia/f9.jpg"></div>
         </div>
       </div>
     </div>
-    <div class="py-5 text-center border-top">
+    <div class="py-5 bg-light text-center border-top">
       <div class="container">
         <div class="row">
           <div class="col-md-9 p-3">
@@ -176,7 +176,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
 
-    <div class="py-3 text-center bg-light">
+    <div class="py-3 text-center bg-info">
       <div class="container">
         <div class="row text-muted">
           <div class="col-md-3 col-4 p-2">
