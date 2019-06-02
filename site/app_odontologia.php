@@ -75,7 +75,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
 }
 ?></h1>
-            <p><?php
+            <p style="font-size: 24px"><?php
 echo $txt2;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
