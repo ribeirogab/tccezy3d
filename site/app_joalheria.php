@@ -42,7 +42,7 @@ echo $txt1;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
 }
-?>txt1</p>
+?></p>
           </div>
         </div>
       </div>

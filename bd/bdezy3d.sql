@@ -89,4 +89,12 @@ CREATE TABLE conteudo(
 	es TEXT
 );
 
+CREATE TABLE contato(
+	idcontato INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(40) NOT NULL,
+	email VARCHAR(80) NOT NULL,
+	assunto VARCHAR(100) NOT NULL,
+	msg TEXT NOT NULL
+);
+
 INSERT INTO admin VALUES(0, "Gabriel de Oliveira", "Técnico de TI", "ti@ezy3d.com.br", "7ce0359f12857f2a90c7de465f40a95f01cb5da9", "@571824");

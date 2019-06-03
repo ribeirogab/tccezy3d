@@ -101,9 +101,9 @@ if (!isset($_SESSION['idadmin'])) {
       <span>Atendimento</span></a>
       <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="customBanners.php">Suporte</a>
-        <a class="collapse-item" href="customImagens.php">Orçamento</a>
-        <a class="collapse-item" href="customLogotipo.php">Contato</a>
+        <a class="collapse-item" href="suporte.php">Suporte</a>
+        <a class="collapse-item" href="orcamento.php">Orçamento</a>
+        <a class="collapse-item" href="contato.php">Contato</a>
       </div>
     </div>
   </li>
