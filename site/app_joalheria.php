@@ -30,6 +30,7 @@ if (isset($_SESSION["banana"])) {
       <div class="container">
         <div class="row">
           <div class="p-5 mx-auto mx-md-0 ml-md-auto col-10 col-md-9">
+<<<<<<< HEAD
             <h3 class="display-3">
               <?php
               echo $titulo1;
@@ -46,6 +47,20 @@ if (isset($_SESSION["banana"])) {
               }
               ?>
             </p>
+=======
+            <h3 class="display-3"><?php
+echo $titulo1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></h3>
+            <p class="mb-3 lead"><?php
+echo $txt1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
+>>>>>>> 18314e893f6140bb36c4ac5e3965e1f72da575a4
           </div>
         </div>
       </div>

@@ -74,6 +74,7 @@ if (isset($_SESSION["banana"])) {
         <div class="row">
           <div class="col-md-12">
             <h1 class="mb-3"><?php
+<<<<<<< HEAD
                               echo $titulo2;
                               if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
                                 echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
@@ -85,6 +86,19 @@ if (isset($_SESSION["banana"])) {
                   echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
                 }
                 ?></p>
+=======
+echo $titulo2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></h1>
+            <p style="font-size: 24px"><?php
+echo $txt2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?></p>
+>>>>>>> 18314e893f6140bb36c4ac5e3965e1f72da575a4
           </div>
         </div>
       </div>
