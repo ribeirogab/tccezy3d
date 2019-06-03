@@ -26,7 +26,7 @@ if (isset($_SESSION["banana"])) {
   ?>
   <main>
 
-    <div class="py-3 text-center text-white bg-gg">
+    <div class="py-3 text-center text-white" style="background-image: linear-gradient(to bottom, #333, #fff );">
       <div class="container pt-5">
         <div class="row">
           <div class="col-md-8 mx-auto">

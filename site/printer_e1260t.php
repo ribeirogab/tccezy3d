@@ -29,7 +29,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 }
 ?>
 <main>
-  <div class="py-3 bg-gg">
+  <div class="py-3" style="background-image: linear-gradient(30deg, #aaa, #a64022 );">
     <div class="container pt-md-5">
       <div class="row">
         <div class="col-md-6 my-5 text-lg-left text-center align-self-center" style="">
@@ -46,14 +46,13 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 }
 ?></p>
           <div class="row mt-5">
-            <div class="col-6 col-lg-5"> <a class="btn btn-secondary btn-block" href="#"><?php
+            <div class="col-6 col-lg-3"> <a class="ezy-lg ezy-orange ezy-button" href="#"><?php
 echo $button1;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=button1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
 }
 ?></a> </div>
-            <div class="col-6 col-lg-5"> <a href="#">
-              </a><a class="btn btn-outline-secondary btn-block" href="#"><?php
+            <div class="col-6 col-lg-3"><a class="ezy-lg ezy-orange ezy-button" href="#"><?php
 echo $button2;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=button2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
@@ -104,7 +103,9 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             </div>
           </div>
         </div>
-        <div class="col-lg-5 col-8 mx-auto d-flex justify-content-center flex-column"> <img class="img-fluid d-block" src="vendor/img/e1260t/e1260t1.png"> </div>
+        <div class="col-lg-5 col-8 mx-auto d-flex justify-content-center flex-column">
+        <img class="img-fluid d-block" src="vendor/img/e1260t/e1260t1.png" width="100%">
+        </div>
       </div>
     </div>
   </div>
@@ -131,14 +132,6 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
         <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-3.svg"> </div>
         <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
-        <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-3.svg"> </div>
-        <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
-        <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-1.svg"> </div>
-        <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
-        <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
-        <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-1.svg"> </div>
-        <div class="col-lg-3 col-md-1 p-3"> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
-        <div class="col-lg-3 col-md-1 p-3"> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
       </div>
     </div>
   </div>

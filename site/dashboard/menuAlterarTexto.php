@@ -66,7 +66,7 @@ foreach ($langRodape as $item) {
      <ul class="navbar-nav bg-gray-900 sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard/index.php">
     <div class="sidebar-brand-icon">
       <img src="img/logo_white.svg" width="35px" alt="">
     </div>

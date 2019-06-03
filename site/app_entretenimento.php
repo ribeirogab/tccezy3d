@@ -100,7 +100,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <div class="col-lg-4 p-3">
             <div class="card">
               <div class="card-body p-4">
-                <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="150">
+                <img class="img-fluid d-block mb-3 mx-auto rounded-circle box-shadow" src="vendor/img/app_entretenimento/f1.jpg" width="250">
                 <h1>
                   <?php
 echo $titulo2_1;
@@ -124,7 +124,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <div class="col-lg-4 p-3 col-md-6">
             <div class="card">
               <div class="card-body p-4">
-                <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="150">
+                <img class="img-fluid d-block mb-3 mx-auto rounded-circle box-shadow" src="vendor/img/app_entretenimento/f2.jpg" width="250">
                 <h1>
                   <?php
 echo $titulo2_2;
@@ -148,7 +148,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <div class="col-lg-4 p-3 col-md-6">
             <div class="card">
               <div class="card-body p-4">
-                <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="vendor/img/img-placeholder-1.svg" width="150">
+                <img class="img-fluid d-block mb-3 mx-auto rounded-circle box-shadow" src="vendor/img/app_entretenimento/f3.jpg" width="250">
                 <h1>
                   <?php
 echo $titulo2_3;
@@ -200,16 +200,16 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             <div id="carousel2" class="carousel slide" data-ride="carousel" data-interval="5000">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img class="d-block w-100" src="vendor/img/img-placeholder-1.svg">
+                  <img class="d-block w-100" src="vendor/img/app_entretenimento/f4.jpg">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="vendor/img/img-placeholder-1.svg">
+                  <img class="d-block w-100" src="vendor/img/app_entretenimento/f5.jpg">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="vendor/img/img-placeholder-1.svg">
+                  <img class="d-block w-100" src="vendor/img/app_entretenimento/f6.jpg">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="vendor/img/img-placeholder-1.svg">
+                  <img class="d-block w-100" src="vendor/img/app_entretenimento/f7.jpg">
                 </div>
               </div>
 

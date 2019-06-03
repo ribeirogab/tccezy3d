@@ -103,7 +103,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
             <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Aplicação - Manufatura</h5>
-              <a href="../app_manufatura.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
+              <a href="../app_engenharia.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ if (!($permissao == "@571824" || $permissao == "&43642")) {
             <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Aplicação - Educação</h5>
-              <a href="../app_educacao.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
+              <a href="../app_entretenimento.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
             </div>
           </div>
         </div>

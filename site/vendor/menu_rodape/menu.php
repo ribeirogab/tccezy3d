@@ -152,7 +152,9 @@ if (!isset($_SESSION['banana'])) {?>
         </div>
 
         <div id="fotos-acessorios" class="div-acessorios text-center col-6">
-          <div id="foto-acessorios_1" class="w-100 h-100 todas-fotos-acessorios bg-dark"></div>
+          <div id="foto-acessorios_1" class="w-100 h-100 todas-fotos-aplicacoes">
+            <img src="vendor/img/menu/ezycure.jpg" width="100%">
+          </div>
         </div>
 
       </div>
@@ -212,13 +214,13 @@ if (!isset($_SESSION['banana'])) {?>
           <div id="foto-aplicacoes_1" class="w-100 h-100 todas-fotos-aplicacoes">
             <img src="vendor/img/menu/odontologia.jpg" width="100%">
           </div>
-          <div id="foto-aplicacoes_2" class="w-100 h-100 todas-fotos-aplicacoes bg-danger">
+          <div id="foto-aplicacoes_2" class="w-100 h-100 todas-fotos-aplicacoes">
             <img src="vendor/img/menu/joalheria.jpg" width="100%">
           </div>
-          <div id="foto-aplicacoes_3" class="w-100 h-100 todas-fotos-aplicacoes bg-warning">
+          <div id="foto-aplicacoes_3" class="w-100 h-100 todas-fotos-aplicacoes ">
             <img src="vendor/img/menu/entretenimento.jpg" width="100%">
           </div>
-          <div id="foto-aplicacoes_4" class="w-100 h-100 todas-fotos-aplicacoes bg-primary">
+          <div id="foto-aplicacoes_4" class="w-100 h-100 todas-fotos-aplicacoes ">
             <img src="vendor/img/menu/engenharia.jpg" width="100%">
           </div>
         </div>

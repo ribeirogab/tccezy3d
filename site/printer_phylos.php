@@ -23,7 +23,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 }
 ?>
  <main>
-  <div class="py-5 bg-gg">
+  <div class="py-5" style="background-image: linear-gradient(30deg, #fff, #333 );">
     <div class="container pt-md-5">
       <div class="row">
         <div class="col-md-12">
@@ -98,22 +98,8 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
   </div>
-  <div class="py-5 bg-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4"><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-        <div class="col-md-4"><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-        <div class="col-md-4"><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-        <div class="col-md-4"><img class="img-fluid d-block mt-3" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-        <div class="col-md-4"><img class="img-fluid d-block mt-3" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-        <div class="col-md-4"><img class="img-fluid d-block mt-3" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-        <div class="col-md-4"><img class="img-fluid d-block mt-3" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-        <div class="col-md-4"><img class="img-fluid d-block mt-3" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-        <div class="col-md-4"><img class="img-fluid d-block mt-3" src="https://static.pingendo.com/img-placeholder-1.svg"></div>
-      </div>
-    </div>
-  </div>
-  <div class="pt-5 bg-light">
+
+  <div class="pt-5 bg-white text-black">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">

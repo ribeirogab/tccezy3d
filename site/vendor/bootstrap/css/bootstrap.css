@@ -6525,3 +6525,35 @@ html, body {
   padding-top: 58px; }
 .bg-111 {
   background-color: #111; }
+  .ezy-button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none !important;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s;
+  }
+
+  .ezy-button:hover {
+    transition: 0.2s;
+    background-color: #fff !important;
+    color: #f28918 !important;
+    text-decoration: none !important;
+  }
+
+  .ezy-orange {
+    color: #fff !important;
+    background-color: #f28918 !important;
+  }
+
+  .ezy-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }

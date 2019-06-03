@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION["banana"])) {
-  extract($_SESSION);
+    extract($_SESSION);
 }
 ?>
 <!doctype html>
@@ -165,39 +165,6 @@ if (isset($_SESSION["banana"])) {
     background-size: cover;
   }
 
-  .ezy-button {
-    border: none;
-    display: inline-block;
-    padding: 8px 16px;
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none !important;
-    color: inherit;
-    background-color: inherit;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: 0.2s;
-  }
-
-  .ezy-button:hover {
-    transition: 0.2s;
-    background-color: #fff !important;
-    color: #f28918 !important;
-    text-decoration: none !important;
-  }
-
-  .ezy-orange {
-    color: #fff !important;
-    background-color: #f28918 !important;
-  }
-
-  .ezy-lg {
-    padding: 0.5rem 1rem;
-    font-size: 1.25rem;
-    line-height: 1.5;
-  }
-
   .d3 {
     border-top: solid 3px;
     border-bottom: solid 3px;
@@ -209,15 +176,15 @@ if (isset($_SESSION["banana"])) {
 
 <body id="page-top" class="bg-dark">
   <?php
-  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     $pagina = "home";
     include "dashboard/menuAlterarTexto.php";
-  } else {
+} else {
     $visivelm = true;
     $pagina = "home";
     include "vendor/menu_rodape/menu.php";
-  }
-  ?>
+}
+?>
 
   <main>
 
@@ -226,9 +193,30 @@ if (isset($_SESSION["banana"])) {
       <div class="container py-5">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <h1 class="mb-4 display-3">Video</h1>
-            <p class="lead mb-5">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
-            <a href="printer_e1260T" class="mx-1 ezy-lg ezy-orange ezy-button">Impressora 3D E1260T</a>
+            <h1 class="mb-4 display-3">
+            <?php
+echo $titulo1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+            </h1>
+            <p class="lead mb-5">
+            <?php
+echo $txt1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+            </p>
+            <a href="printer_e1260T" class="mx-1 ezy-lg ezy-orange ezy-button">
+            <?php
+echo $button1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=button1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+            </a>
           </div>
         </div>
       </div>
@@ -240,19 +228,65 @@ if (isset($_SESSION["banana"])) {
         <div class="row">
           <div class="col-md-6">
             <div class="row">
-              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f1.jpg" width="480px" height="480px" alt=""></div>
-              <div class="col-lg-6 py-5 px-4 bg-info">
-                <h4 class="">Odontologia <span class="badge badge-pill badge-warning">!</span></h4>
-                <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="ezy-lg ezy-orange ezy-button" href="app_odontologia.php">Saiba mais</a>
+              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f1.jpg" height="100%"></div>
+              <div class="col-lg-6 py-4 px-4 bg-info" style="min-height: 269px;">
+                <h4 class="">
+                <?php
+echo $titulo2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                <span class="badge badge-pill badge-warning"><i class="fas fa-tooth"></i></span>
+                </h4>
+                <p class="lead">
+                <?php
+echo $txt2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </p>
+                <a class="ezy-lg ezy-orange ezy-button" href="app_odontologia.php">
+                <?php
+echo $button2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=button1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </a>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="row">
-              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f3.jpg" width="480px" height="480px" alt=""></div>
-              <div class="col-lg-6 py-5 px-4 bg-info">
-                <h4 class="">Joalheria <span class="badge badge-pill badge-warning">!</span></h4>
-                <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="ezy-lg ezy-orange ezy-button" href="app_joalheria.php">Saiba mais</a>
+              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f2.jpg" height="100%"></div>
+              <div class="col-lg-6 py-4 px-4 bg-info" style="min-height: 269px;">
+                <h4>
+                <?php
+echo $titulo3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                <span class="badge badge-pill badge-warning"><i class="fas fa-gem"></i></span>
+                </h4>
+                <p class="lead">
+                <?php
+echo $txt3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </p>
+                <a class="ezy-lg ezy-orange ezy-button" href="app_joalheria.php">
+                <?php
+echo $button3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=button1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </a>
               </div>
             </div>
           </div>
@@ -263,7 +297,14 @@ if (isset($_SESSION["banana"])) {
 
 
       <div class="container">
-        <h1 class="mb-3 d3" style="color: #000">Impressoras 3D</h1>
+        <h1 class="mb-3 d3" style="color: #000">
+        <?php
+echo $titulo4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+        </h1>
         <section class="center slider">
           <div class="">
 
@@ -273,12 +314,35 @@ if (isset($_SESSION["banana"])) {
             </div>
 
             <div id="quadro-info" class="p-1 text-center">
-              <h5><b>E1260T</b></h5>
+              <h5>
+              <b>
+              <?php
+echo $produto1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=produto1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+              </b>
+              </h5>
             </div>
             <div id="quadro-btns">
               <div class="row">
-                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">Orçamento</div>
-                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='printer_e1260t.php'">Saiba mais</div>
+                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">
+                <?php
+echo $btnproduto1_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=btnproduto1_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </div>
+                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='printer_e1260t.php'">
+                <?php
+echo $btnproduto1_2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=btnproduto1_2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </div>
               </div>
             </div>
 
@@ -293,12 +357,35 @@ if (isset($_SESSION["banana"])) {
             </div>
 
             <div id="quadro-info" class="p-1 text-center">
-              <h5><b>E1260T</b></h5>
+              <h5>
+              <b>
+              <?php
+echo $produto2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=produto2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+              </b>
+              </h5>
             </div>
             <div id="quadro-btns">
               <div class="row">
-                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">Orçamento</div>
-                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='printer_phylos.php'">Saiba mais</div>
+                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">
+                <?php
+echo $btnproduto2_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=btnproduto2_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </div>
+                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='printer_phylos.php'">
+                <?php
+echo $btnproduto2_2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=btnproduto2_2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </div>
               </div>
             </div>
 
@@ -312,12 +399,35 @@ if (isset($_SESSION["banana"])) {
               <img src="vendor/img/home/coree3.png" width="100%" alt="">
             </div>
             <div id="quadro-info" class="p-1 text-center">
-              <h5><b>E1260T</b></h5>
+              <h5>
+              <b>
+              <?php
+echo $produto3;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=produto3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+              </b>
+              </h5>
             </div>
             <div id="quadro-btns">
               <div class="row">
-                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">Orçamento</div>
-                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='printer_coree3.php'">Saiba mais</div>
+                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">
+                <?php
+echo $btnproduto3_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=btnproduto3_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </div>
+                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='printer_coree3.php'">
+                <?php
+echo $btnproduto3_2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=btnproduto3_2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </div>
               </div>
             </div>
 
@@ -327,7 +437,14 @@ if (isset($_SESSION["banana"])) {
 
 
       <div class="container pt-4 pb-5">
-        <h1 class="d3" style="color: #000">Acessórios</h1>
+        <h1 class="d3" style="color: #000">
+        <?php
+echo $titulo5;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo5'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+        </h1>
         <section class="center slider">
           <div id="slider-acessorios">
 
@@ -337,12 +454,35 @@ if (isset($_SESSION["banana"])) {
             </div>
 
             <div id="quadro-info" class="p-1 text-center">
-              <h5><b>E1260T</b></h5>
+              <h5>
+              <b>
+              <?php
+echo $produto4;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=produto4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+              </b>
+              </h5>
             </div>
             <div id="quadro-btns">
               <div class="row">
-                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">Orçamento</div>
-                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='acessorio_ezycure.php'">Saiba mais</div>
+                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">
+                <?php
+echo $btnproduto4_1;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=btnproduto4_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </div>
+                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='acessorio_ezycure.php'">
+                <?php
+echo $btnproduto4_2;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=btnproduto4_2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+                </div>
               </div>
             </div>
 
@@ -356,13 +496,29 @@ if (isset($_SESSION["banana"])) {
     <div class="pt-0 pt-lg-5" style="background-image: linear-gradient( to top, #353535 50%, #eaeaea 50% );">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 p-0 m-0 bg-danger"><img src="vendor/img/home/f4.jpg" width="100%" height="100%" alt=""></div>
+          <div class="col-md-6 p-0 m-0 bg-danger">
+          <img src="vendor/img/home/f4.jpg" width="100%" height="100%">
+          </div>
           <div class="col-md-6 px-4 py-5 m-0 text-center bg-primary">
             <div>
             </div>
-            <h3 class="text-white">Heading 3</h3>
-            <h1 class="mt-4 border-top-0 text-white">Heading 1</h1>
-            <p class="lead mt-4 text-white">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p>
+            <h3 class="text-white">
+            <?php
+echo $titulo6;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo6'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+            </h3>
+            <p class="lead mt-4 text-white">
+            <?php
+echo $txt6;
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt6'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+}
+?>
+            </p>
+            <i class="fas fa-chevron-down fa-2x text-white"></i>
           </div>
         </div>
       </div>
@@ -388,13 +544,13 @@ if (isset($_SESSION["banana"])) {
     </div>
 
     <?php
-    if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-      include "dashboard/rodapeAlterarTexto.php";
-    } else {
-      $visivelr = true;
-      include "vendor/menu_rodape/rodape.php";
-    }
-    ?>
+if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+    include "dashboard/rodapeAlterarTexto.php";
+} else {
+    $visivelr = true;
+    include "vendor/menu_rodape/rodape.php";
+}
+?>
 
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="vendor/slick/slick.js" type="text/javascript" charset="utf-8"></script>

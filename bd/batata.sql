@@ -3,17 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 03, 2019 at 03:09 PM
+-- Generation Time: Jun 03, 2019 at 08:03 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
-SET SQL_MODE
-= "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT
-= 0;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone
-= "+00:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -32,29 +29,19 @@ SET time_zone
 --
 
 DROP TABLE IF EXISTS `acesso`;
-CREATE TABLE
-IF NOT EXISTS `acesso`
-(
-  `mes` int
-(2) NOT NULL,
-  `ano` int
-(4) NOT NULL,
-  `tipo` varchar
-(20) NOT NULL,
-  `cliques` int
-(11) DEFAULT NULL,
-  PRIMARY KEY
-(`mes`,`ano`,`tipo`)
+CREATE TABLE IF NOT EXISTS `acesso` (
+  `mes` int(2) NOT NULL,
+  `ano` int(4) NOT NULL,
+  `tipo` varchar(20) NOT NULL,
+  `cliques` int(11) DEFAULT NULL,
+  PRIMARY KEY (`mes`,`ano`,`tipo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `acesso`
 --
 
-INSERT INTO `acesso` (`
-mes`,
-`ano
-`, `tipo`, `cliques`) VALUES
+INSERT INTO `acesso` (`mes`, `ano`, `tipo`, `cliques`) VALUES
 (5, 2019, 'browser', 15),
 (5, 2019, 'cadastro', 10),
 (5, 2019, 'facebook', 15),
@@ -70,33 +57,21 @@ mes`,
 --
 
 DROP TABLE IF EXISTS `admin`;
-CREATE TABLE
-IF NOT EXISTS `admin`
-(
-  `idadmin` int
-(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar
-(30) NOT NULL,
-  `cargo` varchar
-(20) NOT NULL,
-  `email` varchar
-(40) NOT NULL,
-  `senha` char
-(40) NOT NULL,
-  `permissao` varchar
-(7) DEFAULT NULL,
-  PRIMARY KEY
-(`idadmin`)
+CREATE TABLE IF NOT EXISTS `admin` (
+  `idadmin` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(30) NOT NULL,
+  `cargo` varchar(20) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `senha` char(40) NOT NULL,
+  `permissao` varchar(7) DEFAULT NULL,
+  PRIMARY KEY (`idadmin`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`
-idadmin`,
-`nome
-`, `cargo`, `email`, `senha`, `permissao`) VALUES
+INSERT INTO `admin` (`idadmin`, `nome`, `cargo`, `email`, `senha`, `permissao`) VALUES
 (1, 'Gabriel de Oliveira', 'Técnico de TI', 'ti@ezy3d.com.br', '7ce0359f12857f2a90c7de465f40a95f01cb5da9', '@571824');
 
 -- --------------------------------------------------------
@@ -106,39 +81,24 @@ idadmin`,
 --
 
 DROP TABLE IF EXISTS `cliente`;
-CREATE TABLE
-IF NOT EXISTS `cliente`
-(
-  `idcliente` int
-(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar
-(30) NOT NULL,
-  `sobrenome` varchar
-(50) NOT NULL,
-  `email` varchar
-(50) NOT NULL,
-  `senha` varchar
-(40) NOT NULL,
-  `telefone` char
-(11) NOT NULL,
-  `pais` varchar
-(30) NOT NULL,
-  `ramo` varchar
-(20) DEFAULT NULL,
-  `empresa` varchar
-(20) DEFAULT NULL,
-  PRIMARY KEY
-(`idcliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `idcliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(30) NOT NULL,
+  `sobrenome` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `senha` varchar(40) NOT NULL,
+  `telefone` char(11) NOT NULL,
+  `pais` varchar(30) NOT NULL,
+  `ramo` varchar(20) DEFAULT NULL,
+  `empresa` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`idcliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cliente`
 --
 
-INSERT INTO `cliente` (`
-idcliente`,
-`nome
-`, `sobrenome`, `email`, `senha`, `telefone`, `pais`, `ramo`, `empresa`) VALUES
+INSERT INTO `cliente` (`idcliente`, `nome`, `sobrenome`, `email`, `senha`, `telefone`, `pais`, `ramo`, `empresa`) VALUES
 (1, 'Gabriell', 'de Oliveira', 'gblosr@gmail.com', '4ea842c8c6304f4a418835fb6665df10524df1a5', '15997458852', 'Brasil', 'Informática', 'EZY3D');
 
 -- --------------------------------------------------------
@@ -148,20 +108,13 @@ idcliente`,
 --
 
 DROP TABLE IF EXISTS `contato`;
-CREATE TABLE
-IF NOT EXISTS `contato`
-(
-  `idcontato` int
-(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar
-(40) NOT NULL,
-  `email` varchar
-(80) NOT NULL,
-  `assunto` varchar
-(100) NOT NULL,
+CREATE TABLE IF NOT EXISTS `contato` (
+  `idcontato` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(40) NOT NULL,
+  `email` varchar(80) NOT NULL,
+  `assunto` varchar(100) NOT NULL,
   `msg` text NOT NULL,
-  PRIMARY KEY
-(`idcontato`)
+  PRIMARY KEY (`idcontato`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -171,28 +124,20 @@ IF NOT EXISTS `contato`
 --
 
 DROP TABLE IF EXISTS `conteudo`;
-CREATE TABLE
-IF NOT EXISTS `conteudo`
-(
-  `apelido` varchar
-(30) NOT NULL,
-  `pagina` varchar
-(30) NOT NULL,
+CREATE TABLE IF NOT EXISTS `conteudo` (
+  `apelido` varchar(30) NOT NULL,
+  `pagina` varchar(30) NOT NULL,
   `pt` text,
   `en` text,
   `es` text,
-  PRIMARY KEY
-(`apelido`,`pagina`)
+  PRIMARY KEY (`apelido`,`pagina`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `conteudo`
 --
 
-INSERT INTO `conteudo` (`
-apelido`,
-`pagina
-`, `pt`, `en`, `es`) VALUES
+INSERT INTO `conteudo` (`apelido`, `pagina`, `pt`, `en`, `es`) VALUES
 ('item0', 'menu', 'Inicio', 'Home', 'Primero'),
 ('item1', 'menu', 'Impressoras 3D', '3D Printers', 'Impresoras 3D'),
 ('printer1', 'menu', 'E1260T', 'E1260T', 'E1260T'),
@@ -230,19 +175,21 @@ apelido`,
 ('rdp_txt4', 'rodape', 'Receber atualizações', 'Get Updates', 'Recibir actualizaciones'),
 ('rdp_button1', 'rodape', 'Enviar', 'Submit', 'Enviar'),
 ('rdp_copy', 'rodape', ' | EZY3D Printing', ' | EZY3D Printing', ' | EZY3D Printing'),
-('titulo1', 'home', 'Outra manchete', 'Another headline', 'Otro titular'),
-('txt1', 'home', 'E um subtítulo ainda mais whittier.', 'And an even wittier subheading.', 'Y un subtítulo aún más blando.'),
-('titulo2', 'home', 'Outra manchete', 'Another headline', 'Otro titular'),
-('txt2', 'home', 'E um subtítulo ainda mais whittier.', 'And an even wittier subheading.', 'Y un subtítulo aún más blando.'),
-('titulo3', 'home', 'Outra manchete', 'Another headline', 'Otro titular'),
-('txt3', 'home', 'E um subtítulo ainda mais whittier.', 'And an even wittier subheading.', 'Y un subtítulo aún más blando.'),
-('titulo4', 'home', 'Outra manchete', 'Another headline', 'Otro titular'),
-('txt4', 'home', 'E um subtítulo ainda mais whittier.', 'And an even wittier subheading.', 'Y un subtítulo aún más blando.'),
-('titulo5', 'home', 'Eu sinto o encanto da existência neste ponto.', 'I feel the charm of existence in this spot.', 'Siento el encanto de la existencia en este lugar.'),
+('titulo1', 'home', 'EZY 3D', 'EZY 3D', 'EZY 3D'),
+('txt1', 'home', 'Empresa brasileira, especializada em impressoras 3D, tem como missão proporcionar o melhor custo / benefício do mercado para seus clientes. Conheça nosso principal produto clicando no botão abaixo:', 'Empresa brasileira, especializada em impressoras 3D, tem como missão proporcionar o melhor custo / benefício do mercado para seus clientes. Conheça nosso principal produto clicando no botão abaixo:', 'Empresa brasileira, especializada em impressoras 3D, tem como missão proporcionar o melhor custo / benefício do mercado para seus clientes. Conheça nosso principal produto clicando no botão abaixo:'),
+('button1', 'home', 'Impressora 3D E1260T', 'Impressora 3D E1260T', 'Impressora 3D E1260T'),
+('titulo2', 'home', 'Odontologia', 'Odontologia', 'Odontologia'),
+('txt2', 'home', 'A indústria odontológica vem passando por uma revolução digital...', 'A indústria odontológica vem passando por uma revolução digital...', 'A indústria odontológica vem passando por uma revolução digital...'),
+('button2', 'home', 'Saiba mais', 'Saiba mais', 'Saiba mais'),
+('titulo3', 'home', 'Joalheria', 'Joalheria', 'Joalheria'),
+('txt3', 'home', 'De sua imaginação, para a realidade de forma simples!', 'De sua imaginação, para a realidade de forma simples!', 'De sua imaginação, para a realidade de forma simples!'),
+('button3', 'home', 'Saiba mais', 'Saiba mais', 'Saiba mais'),
+('titulo4', 'home', 'Impressoras 3D', 'Impressoras 3D', 'Impressoras 3D'),
+('produto1', 'home', 'E1260T', 'E1260T', 'E1260T'),
 ('titulo1', 'printer_e1260t', 'E1260T', 'E1260T', 'E1260T'),
 ('txt1', 'printer_e1260t', 'Pingendo para apps e techies', 'Pingendo for apps and techies', 'Pinging para aplicaciones y técnicos'),
-('button1', 'printer_e1260t', 'Secondary1', 'Secundário1', 'Secundario1'),
-('button2', 'printer_e1260t', 'Secondary2', 'Secundário2', 'Secundario2'),
+('button1', 'printer_e1260t', 'Orçamento', 'Secundário1', 'Secundario1'),
+('button2', 'printer_e1260t', 'Mais informações', 'Secundário2', 'Secundario2'),
 ('titulo2', 'printer_e1260t', 'O my friend', 'O my friend', 'O my friend'),
 ('txt2', 'printer_e1260t', 'PT - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot.', 'EN - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot.', 'ES - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot.'),
 ('txt2_1', 'printer_e1260t', 'PT - I often think with longing, Oh, would I could describe these conceptions, could impress upon paper.', 'EN - I often think with longing, Oh, would I could describe these conceptions, could impress upon paper.', 'ES - I often think with longing, Oh, would I could describe these conceptions, could impress upon paper.'),
@@ -262,8 +209,8 @@ apelido`,
 ('txt_especificacao5', 'printer_e1260t', 'PT - Work simultaneously on different panels with the switcher', 'EN - Work simultaneously on different panels with the switcher', 'ES - Work simultaneously on different panels with the switcher'),
 ('titulo_especificacao6', 'printer_e1260t', 'PT - Share the love', 'EN - Share the love', 'ES - Share the love'),
 ('txt_especificacao6', 'printer_e1260t', 'PT - Help us spreading the word. Tell your friends with just one-click', 'EN - Help us spreading the word. Tell your friends with just one-click', 'ES - Help us spreading the word. Tell your friends with just one-click'),
-('button3', 'printer_e1260t', 'PT - Do something bold', 'EN - Do something bold', 'ES - Do something bold'),
-('titulo5', 'printer_e1260t', 'PT - Do not procrastinate. Act', 'EN - Do not procrastinate. Act', 'ES - Do not procrastinate. Act'),
+('button3', 'printer_e1260t', 'Contato', 'EN - Do something bold', 'ES - Do something bold'),
+('titulo5', 'printer_e1260t', 'Para  mais informações entre em contato.', 'EN - Do not procrastinate. Act', 'ES - Do not procrastinate. Act'),
 ('titulo1', 'printer_phylos', 'PT - Heading 1', 'EN - Heading 1', 'ES - Heading 1'),
 ('txt1', 'printer_phylos', 'PT - Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing.', 'EN - Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing.', 'ES - Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing.'),
 ('titulo2', 'printer_phylos', 'PT - A wonderful serenity', 'EN - A wonderful serenity', 'ES - A wonderful serenity'),
@@ -324,6 +271,7 @@ apelido`,
 ('txt3_3', 'acessorio_ezycure', 'PT - I am so happy, my dear friend, so absorbed in the exquisite sense.', 'EN - I am so happy, my dear friend, so absorbed in the exquisite sense.', 'ES - I am so happy, my dear friend, so absorbed in the exquisite sense.'),
 ('titulo3_4', 'acessorio_ezycure', 'PT - First', 'EN - First', 'ES - First'),
 ('txt3_4', 'acessorio_ezycure', 'PT - I am so happy, my dear friend, so absorbed in the exquisite sense.', 'EN - I am so happy, my dear friend, so absorbed in the exquisite sense.', 'ES - I am so happy, my dear friend, so absorbed in the exquisite sense.'),
+('titulo4', 'acessorio_ezycure', 'PT - Countless indescribable forms', 'EN - Countless indescribable forms', 'ES - Countless indescribable forms'),
 ('titulo5', 'acessorio_ezycure', 'PT - It is time to act', 'EN - It is time to act', 'ES - It is time to act'),
 ('txt5', 'acessorio_ezycure', 'PT - I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'EN - I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'ES - I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.'),
 ('button1', 'acessorio_ezycure', 'PT - Call to action', 'EN - Call to action', 'ES - Call to action'),
@@ -442,7 +390,22 @@ apelido`,
 ('txt3', 'app_entretenimento', 'PT - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.', 'EN - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.', 'ES - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.'),
 ('titulo4', 'app_entretenimento', 'PT - Call your visitors to act. Now', 'EN - Call your visitors to act. Now', 'ES - Call your visitors to act. Now'),
 ('button1', 'app_entretenimento', 'PT - Get your license', 'EN - Get your license', 'ES - Get your license'),
-('titulo3_4', 'app_engenharia', 'PT - One', 'EN - Two', 'ES - Three');
+('titulo3_4', 'app_engenharia', 'PT - One', 'EN - Two', 'ES - Three'),
+('btnproduto1_1', 'home', 'Orçamento', 'Orçamento', 'Orçamento'),
+('btnproduto1_2', 'home', 'Orçamento', 'Orçamento', 'Orçamento'),
+('produto2', 'home', 'Phylos', 'Phylos', 'Phylos'),
+('btnproduto2_1', 'home', 'Orçamento', 'Orçamento', 'Orçamento'),
+('btnproduto2_2', 'home', 'Saiba mais', 'Saiba mais', 'Saiba mais'),
+('produto3', 'home', 'Core E3', 'Core E3', 'Core E3'),
+('btnproduto3_1', 'home', 'Orçamento', 'Orçamento', 'Orçamento'),
+('btnproduto3_2', 'home', 'Saiba mais', 'Saiba mais', 'Saiba mais'),
+('titulo5', 'home', 'Acessórios', 'Acessórios', 'Acessórios'),
+('produto4', 'home', 'EzyCure', 'EzyCure', 'EzyCure'),
+('btnproduto4_1', 'home', 'Orçamento', 'Orçamento', 'Orçamento'),
+('btnproduto4_2', 'home', 'Saiba mais', 'Saiba mais', 'Saiba mais'),
+('titulo6', 'home', 'Areas de atuação', 'Areas de atuação', 'Areas de atuação'),
+('txt6', 'home', 'Conheça um pouco sobre algumas áreas em que a EZY 3D atua!', 'Conheça um pouco sobre algumas áreas em que a EZY 3D atua!', 'Conheça um pouco sobre algumas áreas em que a EZY 3D atua!'),
+('button4', 'home', 'Saiba mais', 'Saiba mais', 'Saiba mais');
 
 -- --------------------------------------------------------
 
@@ -451,19 +414,12 @@ apelido`,
 --
 
 DROP TABLE IF EXISTS `metas`;
-CREATE TABLE
-IF NOT EXISTS `metas`
-(
-  `mes` int
-(2) NOT NULL,
-  `ano` int
-(4) NOT NULL,
-  `tipo` varchar
-(20) NOT NULL,
-  `meta` int
-(11) DEFAULT NULL,
-  PRIMARY KEY
-(`mes`,`ano`,`tipo`)
+CREATE TABLE IF NOT EXISTS `metas` (
+  `mes` int(2) NOT NULL,
+  `ano` int(4) NOT NULL,
+  `tipo` varchar(20) NOT NULL,
+  `meta` int(11) DEFAULT NULL,
+  PRIMARY KEY (`mes`,`ano`,`tipo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -473,22 +429,15 @@ IF NOT EXISTS `metas`
 --
 
 DROP TABLE IF EXISTS `orcamento`;
-CREATE TABLE
-IF NOT EXISTS `orcamento`
-(
-  `idorcamento` int
-(11) NOT NULL AUTO_INCREMENT,
-  `fkcliente` int
-(11) DEFAULT NULL,
-  `produtos` varchar
-(150) DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `orcamento` (
+  `idorcamento` int(11) NOT NULL AUTO_INCREMENT,
+  `fkcliente` int(11) DEFAULT NULL,
+  `produtos` varchar(150) DEFAULT NULL,
   `descricao` text NOT NULL,
   `data` datetime DEFAULT NULL,
-  PRIMARY KEY
-(`idorcamento`),
-  KEY `fkcliente`
-(`fkcliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`idorcamento`),
+  KEY `fkcliente` (`fkcliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -497,23 +446,15 @@ IF NOT EXISTS `orcamento`
 --
 
 DROP TABLE IF EXISTS `suporte`;
-CREATE TABLE
-IF NOT EXISTS `suporte`
-(
-  `idsuporte` int
-(11) NOT NULL AUTO_INCREMENT,
-  `maquina` varchar
-(20) NOT NULL,
-  `problema` varchar
-(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `suporte` (
+  `idsuporte` int(11) NOT NULL AUTO_INCREMENT,
+  `maquina` varchar(20) NOT NULL,
+  `problema` varchar(20) NOT NULL,
   `descricao` text NOT NULL,
-  `fkcliente` int
-(11) DEFAULT NULL,
-  PRIMARY KEY
-(`idsuporte`),
-  KEY `fkcliente`
-(`fkcliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `fkcliente` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idsuporte`),
+  KEY `fkcliente` (`fkcliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -522,23 +463,14 @@ IF NOT EXISTS `suporte`
 --
 
 DROP TABLE IF EXISTS `today`;
-CREATE TABLE
-IF NOT EXISTS `today`
-(
-  `dia` int
-(2) NOT NULL,
-  `fkmes` int
-(2) NOT NULL,
-  `fkano` int
-(4) NOT NULL,
-  `fktipo` varchar
-(20) NOT NULL,
-  `cliques` int
-(2) DEFAULT NULL,
-  PRIMARY KEY
-(`dia`,`fkmes`,`fkano`,`fktipo`),
-  KEY `fkmes`
-(`fkmes`,`fkano`,`fktipo`)
+CREATE TABLE IF NOT EXISTS `today` (
+  `dia` int(2) NOT NULL,
+  `fkmes` int(2) NOT NULL,
+  `fkano` int(4) NOT NULL,
+  `fktipo` varchar(20) NOT NULL,
+  `cliques` int(2) DEFAULT NULL,
+  PRIMARY KEY (`dia`,`fkmes`,`fkano`,`fktipo`),
+  KEY `fkmes` (`fkmes`,`fkano`,`fktipo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -549,25 +481,19 @@ IF NOT EXISTS `today`
 -- Constraints for table `orcamento`
 --
 ALTER TABLE `orcamento`
-ADD CONSTRAINT `orcamento_ibfk_1` FOREIGN KEY
-(`fkcliente`) REFERENCES `cliente`
-(`idcliente`);
+  ADD CONSTRAINT `orcamento_ibfk_1` FOREIGN KEY (`fkcliente`) REFERENCES `cliente` (`idcliente`);
 
 --
 -- Constraints for table `suporte`
 --
 ALTER TABLE `suporte`
-ADD CONSTRAINT `suporte_ibfk_1` FOREIGN KEY
-(`fkcliente`) REFERENCES `cliente`
-(`idcliente`);
+  ADD CONSTRAINT `suporte_ibfk_1` FOREIGN KEY (`fkcliente`) REFERENCES `cliente` (`idcliente`);
 
 --
 -- Constraints for table `today`
 --
 ALTER TABLE `today`
-ADD CONSTRAINT `today_ibfk_1` FOREIGN KEY
-(`fkmes`,`fkano`,`fktipo`) REFERENCES `acesso`
-(`mes`, `ano`, `tipo`);
+  ADD CONSTRAINT `today_ibfk_1` FOREIGN KEY (`fkmes`,`fkano`,`fktipo`) REFERENCES `acesso` (`mes`, `ano`, `tipo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
