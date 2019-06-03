@@ -29,14 +29,12 @@ $cliquesAcesso = $acesso->consultarClique("acesso", "WHERE tipo=:tipo AND mes=:m
 $acesso->adicionarClique("acesso", "SET cliques=:newclique WHERE tipo=:tipo AND mes=:mes AND ano=:ano", $cliquesAcesso[0][0]);
 
 if ($_GET["tipo"] == "orcamento") {
-    header("Location:controle/orcamento.php");
+    header("Location:orcamento_enviado.php");
 } else if ($_GET["tipo"] == "suporte") {
-    header("Location:controle/orcamento.php");
+    header("Location:suporte_enviado.php");
 } else if ($_GET["tipo"] == "cadastro") {
     $email = $_GET['email'];
     header("Location:home.php?email=$email");
 } else {
     header("Location: home.php");
 }
-
-?>

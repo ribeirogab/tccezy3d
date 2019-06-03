@@ -62,7 +62,6 @@ else if ($tipo == "login") {
     } else {
         echo "<script>alert('Senha ou email incorreto(s)');window.location.href='../home.php';</script>";
     }
-
 }
 
 // Exclusão de cliente, disponivel apenas no painel administrativo para o admin 'Master'
@@ -172,4 +171,3 @@ else if ($tipo == "suporte") {
 } else {
     header("Location:../home.php");
 }
-?>

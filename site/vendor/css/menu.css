@@ -206,3 +206,20 @@ nav li a {
   top: 42px;
   display: none;
 }
+
+.icone-app {
+  cursor: pointer;
+  transition: 0.5s;
+}
+.icone-app:hover {
+  color: #fa5f32;
+  transition: 0.5s;
+}
+#btn-cadastrar {
+  background-color: #f38919;
+  transition: 0.5s;
+}
+#btn-cadastrar:hover {
+  background-color: #fa5f32;
+  transition: 0.5s;
+}

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION["banana"])) {
-    extract($_SESSION);
+  extract($_SESSION);
 }
 ?>
 <!doctype html>
@@ -12,8 +12,8 @@ if (isset($_SESSION["banana"])) {
   <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - Home</title>
-  <link rel="stylesheet" type="text/css" href="./slick/slick.css">
-  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+  <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.css">
 </head>
 <style>
   .col-left {
@@ -64,118 +64,160 @@ if (isset($_SESSION["banana"])) {
     height: 100%;
     object-fit: cover;
   }
-     #quadro {
-      margin: 0 auto;
-    }
 
-    #quadro:hover {
-      -moz-box-shadow: 0px 0px 5px 0px #222;
-      -webkit-box-shadow: 0px 0px 5px 0px #222;
-      box-shadow: 0px 0px 5px 0px #222;
-    }
+  #quadro {
+    margin: 0 auto;
+    cursor: pointer;
+  }
 
-    #quadro-info {
-      background-color: #F38919;
-      width: 100%;
-      margin: 0 auto;
+  #quadro-info {
+    background-color: #F38919;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  #quadro-btns {
+    background-color: #F9420C;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #btn-orcamento {
+    border-right: solid 0.5px rgba(0, 0, 0, .2);
+  }
+
+  #btn-saibamias {
+    border-left: solid 0.5px rgba(0, 0, 0, .2);
+  }
+
+  #btn-orcamento,
+  #btn-saibamais {
+    cursor: pointer;
+  }
+
+  #btn-orcamento:hover,
+  #btn-saibamais:hover {
+    opacity: 0.5;
+  }
+
+  .btn-info-product {
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    opacity: 0;
+  }
+
+  #btn-info-product:hover {
+    color: blue;
+  }
+
+  .zoom img {
+    transition: all 0.2s linear;
+    overflow: hidden;
+  }
+
+  .zoom:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+
+
+  .slider {
+    width: 100%;
+    margin: 30px auto;
+  }
+
+  .slick-slide {
+    margin: 0px 20px;
+  }
+
+  .slick-slide img {
+    width: 100%;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    color: black;
+  }
+
+  #slider-acessorios {
+    position: relative;
+    left: -112%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    #slider-acessorios {
       position: relative;
-      z-index: 2;
-    }
-
-    #quadro-btns {
-      background-color: #F9420C;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    #btn-orcamento {
-      border-right: solid 0.5px rgba(0, 0, 0, .2);
-    }
-
-    #btn-saibamias {
-      border-left: solid 0.5px rgba(0, 0, 0, .2);
-    }
-
-    #btn-orcamento,
-    #btn-saibamais {
-      cursor: pointer;
-    }
-
-    #btn-orcamento:hover,
-    #btn-saibamais:hover {
-      opacity: 0.5;
-    }
-
-    .product-info {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(0, 0, 0, .8);
-    }
-
-    .btn-info-product {
-      position: relative;
-      z-index: 5;
-      cursor: pointer;
-    }
-
-    #btn-info-product:hover {
-      color: blue;
-    }
-
-    .zoom img {
-      transition: all 0.2s linear;
-      overflow: hidden;
-    }
-
-    .zoom:hover img {
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1);
-    }
-
-
-
-     .slider {
-      width: 100%;
-      margin: 30px auto;
-    }
-
-    .slick-slide {
-      margin: 0px 20px;
-    }
-
-    .slick-slide img {
-      width: 100%;
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-      color: black;
-    }
-
-#slider-acessorios{
-  position:relative;
-  left: -112%;
-}
- @media only screen and (max-width: 768px) {
-    #slider-acessorios{
-      position:relative;
       left: 0;
     }
+  }
+
+  #background {
+    height: 100vh;
+    position: relative;
+    background-image: url(vendor/img/home/bg.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .ezy-button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none !important;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s;
+  }
+
+  .ezy-button:hover {
+    transition: 0.2s;
+    background-color: #fff !important;
+    color: #f28918 !important;
+    text-decoration: none !important;
+  }
+
+  .ezy-orange {
+    color: #fff !important;
+    background-color: #f28918 !important;
+  }
+
+  .ezy-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+
+  .d3 {
+    border-top: solid 3px;
+    border-bottom: solid 3px;
+    border-left: solid 3px;
+    border-right: solid 3px;
+    border-color: #fff #fff #f28918 #fff;
   }
 </style>
 
 <body id="page-top" class="bg-dark">
   <?php
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     $pagina = "home";
     include "dashboard/menuAlterarTexto.php";
-} else {
+  } else {
     $visivelm = true;
     $pagina = "home";
     include "vendor/menu_rodape/menu.php";
-}
-?>
+  }
+  ?>
 
   <main>
 
@@ -186,7 +228,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <div class="col-lg-8 col-md-10 mx-auto">
             <h1 class="mb-4 display-3">Video</h1>
             <p class="lead mb-5">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
-            <a href="#" class="btn btn-lg btn-primary mx-1">Your call to action</a>
+            <a href="printer_e1260T" class="mx-1 ezy-lg ezy-orange ezy-button">Impressora 3D E1260T</a>
           </div>
         </div>
       </div>
@@ -198,19 +240,19 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         <div class="row">
           <div class="col-md-6">
             <div class="row">
-              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f1.jpg" width="100%" alt=""></div>
+              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f1.jpg" width="480px" height="480px" alt=""></div>
               <div class="col-lg-6 py-5 px-4 bg-info">
                 <h4 class="">Odontologia <span class="badge badge-pill badge-warning">!</span></h4>
-                <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-outline-light" href="#">Light</a>
+                <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="ezy-lg ezy-orange ezy-button" href="app_odontologia.php">Saiba mais</a>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="row">
-              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f3.jpg" width="100%" alt=""></div>
+              <div class="col-lg-6 p-0 d-none d-lg-block"><img src="vendor/img/home/f3.jpg" width="480px" height="480px" alt=""></div>
               <div class="col-lg-6 py-5 px-4 bg-info">
                 <h4 class="">Joalheria <span class="badge badge-pill badge-warning">!</span></h4>
-                <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="btn btn-outline-light" href="#">Light</a>
+                <p class="lead">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="ezy-lg ezy-orange ezy-button" href="app_joalheria.php">Saiba mais</a>
               </div>
             </div>
           </div>
@@ -221,11 +263,11 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
 
       <div class="container">
-        <h1 class="mb-3" style="color: #000">Impressoras 3D</h1>
-      <section class="center slider">
-            <div class="">
+        <h1 class="mb-3 d3" style="color: #000">Impressoras 3D</h1>
+        <section class="center slider">
+          <div class="">
 
-            <div id="quadro" class="bg-danger zoom">
+            <div id="quadro" class="zoom" onclick="window.location.href='printer_e1260t.php'" style="background-image: linear-gradient(30deg, #eee, #bbb);">
               <i id="btn-info-product1" class="btn-info-product fas fa-info-circle float-right p-2" style="font-size:20px"></i>
               <img src="vendor/img/home/e1260t2.png" width="100%" alt="">
             </div>
@@ -235,8 +277,8 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             </div>
             <div id="quadro-btns">
               <div class="row">
-                <div id="btn-orcamento" class="col-6 text-center py-2">Orçamento</div>
-                <div id="btn-saibamais" class="col-6 text-center py-2">Saiba mais</div>
+                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">Orçamento</div>
+                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='printer_e1260t.php'">Saiba mais</div>
               </div>
             </div>
 
@@ -245,8 +287,8 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
           <div class="">
 
-            <div id="quadro" class="bg-danger zoom">
-              <i id="btn-info-product2" class="fas fa-info-circle float-right p-2" style="font-size:20px"></i>
+            <div id="quadro" class="zoom" onclick="window.location.href='printer_phylos.php'" style="background-image: linear-gradient(30deg, #eee, #bbb);">
+              <i id="btn-info-product2" class="btn-info-product fas fa-info-circle float-right p-2" style="font-size:20px"></i>
               <img src="vendor/img/home/phylos1.png" width="100%" alt="">
             </div>
 
@@ -255,8 +297,8 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             </div>
             <div id="quadro-btns">
               <div class="row">
-                <div id="btn-orcamento" class="col-6 text-center py-2">Orçamento</div>
-                <div id="btn-saibamais" class="col-6 text-center py-2">Saiba mais</div>
+                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">Orçamento</div>
+                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='printer_phylos.php'">Saiba mais</div>
               </div>
             </div>
 
@@ -265,8 +307,8 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
           <div class="">
 
-            <div id="quadro" class="bg-danger zoom">
-              <i id="btn-info-product3" class="fas fa-info-circle float-right p-2" style="font-size:20px"></i>
+            <div id="quadro" class="zoom" onclick="window.location.href='printer_coree3.php'" style="background-image: linear-gradient(30deg, #eee, #bbb);">
+              <i id="btn-info-product3" class="btn-info-product fas fa-info-circle float-right p-2" style="font-size:20px"></i>
               <img src="vendor/img/home/coree3.png" width="100%" alt="">
             </div>
             <div id="quadro-info" class="p-1 text-center">
@@ -274,22 +316,22 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             </div>
             <div id="quadro-btns">
               <div class="row">
-                <div id="btn-orcamento" class="col-6 text-center py-2">Orçamento</div>
-                <div id="btn-saibamais" class="col-6 text-center py-2">Saiba mais</div>
+                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">Orçamento</div>
+                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='printer_coree3.php'">Saiba mais</div>
               </div>
             </div>
 
           </div>
-          </section>
+        </section>
       </div>
 
 
       <div class="container pt-4 pb-5">
-        <h1 style="color: #000">Acessórios</h1>
-      <section class="center slider">
-            <div id="slider-acessorios">
+        <h1 class="d3" style="color: #000">Acessórios</h1>
+        <section class="center slider">
+          <div id="slider-acessorios">
 
-            <div id="quadro" class="bg-danger zoom">
+            <div id="quadro" class="zoom" onclick="window.location.href='acessorio_ezycure.php'" style="background-image: linear-gradient(30deg, #eee, #bbb);">
               <i id="btn-info-product1" class="btn-info-product fas fa-info-circle float-right p-2" style="font-size:20px"></i>
               <img src="vendor/img/home/ezycure.png" width="100%" alt="">
             </div>
@@ -299,13 +341,13 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             </div>
             <div id="quadro-btns">
               <div class="row">
-                <div id="btn-orcamento" class="col-6 text-center py-2">Orçamento</div>
-                <div id="btn-saibamais" class="col-6 text-center py-2">Saiba mais</div>
+                <div id="btn-orcamento" class="col-6 text-center py-2" onclick="window.location.href='como_comprar.php'">Orçamento</div>
+                <div id="btn-saibamais" class="col-6 text-center py-2" onclick="window.location.href='acessorio_ezycure.php'">Saiba mais</div>
               </div>
             </div>
 
           </div>
-          </section>
+        </section>
       </div>
 
 
@@ -320,7 +362,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             </div>
             <h3 class="text-white">Heading 3</h3>
             <h1 class="mt-4 border-top-0 text-white">Heading 1</h1>
-            <p class="lead mt-4 text-white">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p><a class="mt-4 btn btn-outline-light w-75" href="#">Outline</a>
+            <p class="lead mt-4 text-white">Lead paragraph. A wonderful serenity has taken possession of my entire soul.</p>
           </div>
         </div>
       </div>
@@ -330,59 +372,58 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       <div class="container">
         <div class="row text-muted">
           <div class="col-md-3 col-4 p-2">
-            <i class="d-block fas fa-tooth fa-3x"></i>
+            <i onclick="window.location.href='app_odontologia.php'" class="d-block fas fa-tooth fa-3x icone-app"></i>
           </div>
           <div class="col-md-3 col-4 p-2">
-            <i class="d-block fas fa-gem fa-3x"></i>
+            <i onclick="window.location.href='app_joalheria.php'" class="d-block fas fa-gem fa-3x icone-app"></i>
           </div>
           <div class="col-md-3 col-4 p-2">
-            <i class="d-block fas fa-cog fa-3x"></i>
+            <i onclick="window.location.href='app_engenharia.php'" class="d-block fas fa-cog fa-3x icone-app"></i>
           </div>
           <div class="col-md-3 col-4 p-2">
-            <i class="d-block fas fa-graduation-cap fa-3x"></i>
+            <i onclick="window.location.href='app_entretenimento.php'" class="d-block fas fa-theater-masks fa-3x icone-app"></i>
           </div>
         </div>
       </div>
     </div>
 
     <?php
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    include "dashboard/rodapeAlterarTexto.php";
-} else {
-    $visivelr = true;
-    include "vendor/menu_rodape/rodape.php";
-}
-?>
+    if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+      include "dashboard/rodapeAlterarTexto.php";
+    } else {
+      $visivelr = true;
+      include "vendor/menu_rodape/rodape.php";
+    }
+    ?>
 
-<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-  <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-    $( window ).resize(function() {
-      document.location.reload();
-    });
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="vendor/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(window).resize(function() {
+        document.location.reload();
+      });
 
-    $(document).on('ready', function () {
-      let largura = screen.width
-      if (largura > 767){
-        $(".center").slick({
-          dots: false,
-          infinite: false,
-          centerMode: false,
-          slidesToShow: 3,
-          slidesToScroll: 1
-        });
-      }
-      else{
-        $(".center").slick({
-          dots: false,
-          infinite: false,
-          centerMode: false,
-          slidesToShow: 1,
-          slidesToScroll: 1
-        });
-      }
-    });
-  </script>
+      $(document).on('ready', function() {
+        let largura = screen.width
+        if (largura > 767) {
+          $(".center").slick({
+            dots: false,
+            infinite: false,
+            centerMode: false,
+            slidesToShow: 3,
+            slidesToScroll: 1
+          });
+        } else {
+          $(".center").slick({
+            dots: false,
+            infinite: false,
+            centerMode: false,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          });
+        }
+      });
+    </script>
   </main>
 </body>
 

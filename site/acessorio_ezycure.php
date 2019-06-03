@@ -12,7 +12,7 @@ if (isset($_SESSION["banana"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>EZY 3D - EzyCure</title>
 </head>
-<body id="page-top">
+<body class="bg-dark" id="page-top">
  <?php
 $pagina = "acessorio_ezycure";
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -24,28 +24,37 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 ?>
  <main>
 
-  <div class="py-3">
-    <div class="container">
+<div class="py-5" style="background-image: linear-gradient(30deg, #fff, #333 );">
+    <div class="container pt-md-5">
       <div class="row">
-        <div class="col-md-12 border-bottom">
-          <h1 class="display-4 text-center"><?php
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6"><img src="vendor/img/acessorio_ezycure/ezycure.png" height="400px"></div>
+            <div class="col-md-6" style="">
+              <h1>
+              <?php
 echo $titulo1;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
 }
-?></h1>
-          <p class="lead text-center"><?php
+?>
+</h1>
+              <p>
+              <?php
 echo $txt1;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
 }
-?></p>
+?>
+</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="pt-4">
+  <div class="py-4 bg-white text-black">
     <div class="container">
       <div class="row">
         <div class="px-md-5 pt-md-5 col-md-8">
@@ -183,35 +192,9 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     </div>
   </div>
 
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="text-center mx-auto col-md-12">
-          <h1>
-            <?php
-echo $titulo4;
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-}
-?>
-          </h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/cover-bubble-light.svg">
-        </div>
-        <div class="col-md-4 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/cover-moon.svg">
-        </div>
-        <div class="col-md-4 p-3">
-          <img class="img-fluid d-block" src="https://static.pingendo.com/cover-bubble-dark.svg">
-        </div>
-      </div>
-    </div>
   </div>
 
-  <div class="pt-5 pb-5 pb-md-0 text-center text-white" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(https://static.pingendo.com/cover-bubble-dark.svg); background-position: center center, center center;  background-size: 100%, 100%;  background-repeat: repeat, repeat;">
+  <div class="pt-5 pb-5 pb-md-0 text-center text-white bg-gg">
     <div class="container">
       <div class="row">
         <div class="ml-auto bg-white text-dark p-5 col-lg-6 col-md-8">
