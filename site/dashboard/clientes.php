@@ -91,19 +91,6 @@ if (!($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590"
 <?php }?>
               </tr>
             </thead>
-            <tfoot>
-              <tr>
-                <th>Código</th>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>Telefone</th>
-                <th>Ramo</th>
-                <th>Empresa</th>
-<?php if ($permissao == "@571824") {?>
-                <th>Editar</th>
-<?php }?>
-              </tr>
-            </tfoot>
             <tbody>
              <?php
 require_once "../Classes/Conexao.php";

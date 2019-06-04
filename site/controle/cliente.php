@@ -157,6 +157,12 @@ else if ($tipo == "orcamento") {
     header("Location: ../index.php?tipo=orcamento");
 }
 
+//exclusão do orçamento
+else if ($tipo == "excluirOrcamento") {
+    $dados = ["id" => $id];
+    $cliente->excluir("orcamento", "WHERE idorcamento=:id", $dados);
+}
+
 // Suporte Técnico, disponivel para o cliente
 else if ($tipo == "suporte") {
     if (($maquina == "null" || strlen($maquina) == 0) || ($problema == "null" || strlen($problema) == 0)) {
@@ -168,6 +174,12 @@ else if ($tipo == "suporte") {
         $cliente->cadastrar("suporte", ":idsuporte, :maquina, :problema, :descricao, :fkcliente", $dados);
         header("Location: ../index.php?tipo=suporte");
     }
-} else {
+}
+//exclusão do suporte
+else if ($tipo == "excluirSuporte") {
+    $dados = ["id" => $id];
+    $cliente->excluir("suporte", "WHERE idsuporte=:id", $dados);
+}
+else {
     header("Location:../home.php");
 }

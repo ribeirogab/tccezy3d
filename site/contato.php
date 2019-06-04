@@ -109,7 +109,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
           <div class="col-md-6">
             <div class="col-md-12">
-              <form method="post" action="controle/enviarEmailContato.php">
+              <form method="post" action="cadastro_contato">
                 <div class="form-group">
                   <input type="text" class="form-control" name="nome" placeholder="<?=$input1?>">
                 </div>
