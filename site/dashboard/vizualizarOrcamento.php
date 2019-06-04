@@ -24,18 +24,44 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-              <?php
-include "menu.php";
-if (!($permissao == "@571824" || $permissao == "&43642")) {
-    session_destroy();
-    header("Location: ../pa-admin.php");
-}
-?>
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+    <?php
+    include "menu.php";
+    if (!($permissao == "@571824" || $permissao == "&43642")) {
+      session_destroy();
+      header("Location: ../pa-admin.php");
+    }
+    ?>
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Contato</h1>
+      <!-- Page Heading -->
+      <h1 class="h3 mb-4 text-gray-800">Orçamento Solicitado</h1>
+
+      <div class="card">
+        <?php 
+        require_once "../Classes/Conexao.php";
+        require_once "../Classes/Usuario.php";
+        $id = $_GET["id"];
+        $fk = $_GET["fk"];
+        $obj = new Usuario();
+        $registru = $obj->consultar("*", "cliente", "where idcliente = ". $fk, null);
+        foreach ($registru as $clienti) {?>
+          <div class="card-header">
+            <h2><?= $clienti["nome"] ?></h2>
+          </div> <?php } ?>
+          <?php 
+          $registro = $obj->consultar("*", "orcamento", "where idorcamento = ". $id, null);
+          foreach ($registro as $cliente) {
+           ?>
+           <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <h4><label>Produto: </label></h4> <p><?=$cliente['produtos']?></p><br>
+              <h4><label>Descrição: </label></h4> <p><?=$cliente['descricao']?></p><br>
+              <h4><label>Data: </label></h4> <p><?=$cliente['data']?></p><br>
+              <a href="orcamento.php" class="btn btn-primary">voltar</a>
+            </blockquote>
+          </div>
+          </div> <?php } ?>      
 
         </div>
         <!-- /.container-fluid -->

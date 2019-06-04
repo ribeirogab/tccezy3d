@@ -18,6 +18,28 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <script>
+    function excluirSuporte(id, tipo){
+      $.ajax({
+        url: "http://localhost/tccezy3d/site/controle/cliente.php",
+        method: "POST",
+        data: {"id": id, "tipo": tipo},
+        success: function(resposta){
+          alert(resposta)
+          location.reload()
+        },
+
+        error: function(){
+          alert("Erro ao fazer a requisição")
+        }
+      });
+    }
+
+    function confirmar(){
+      return confirm('Deseja realmente excluir este cliente?')
+    }
+  </script>
+
 </head>
 
 <body id="page-top">
@@ -35,11 +57,11 @@
     <div class="container-fluid">
 
       <!-- Page Heading -->
-      <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+      <h1 class="h3 mb-4 text-gray-800">Suporte</h1>
 
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+          <h6 class="m-0 font-weight-bold text-primary">Suportes para verificar</h6>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -47,10 +69,9 @@
               <thead>
                 <tr>
                   <th>Código</th>
-                  <th>Nome</th>
-                  <th>E-mail</th>
-                  <th>Assunto</th>
-                  <th>Empresa</th>
+                  <th>Máquina</th>
+                  <th>Problema</th>
+                  <th>Descrição</th>
                   <?php if ($permissao == "@571824") {?>
                     <th>Ações</th>
                   <?php }?>
@@ -61,19 +82,18 @@
                require_once "../Classes/Conexao.php";
                require_once "../Classes/Usuario.php";
                $obj = new Usuario();
-               $registro = $obj->consultar("*", "cliente", null, null);
+               $registro = $obj->consultar("*", "suporte", null, null);
                foreach ($registro as $cliente) {?>
                 <tr>
-                  <td><?=$cliente['idcliente']?></td>
-                  <td><?=$cliente['nome']?></td>
-                  <td><?=$cliente['email']?></td>
-                  <td><?=$cliente['telefone']?></td>
-                  <td><?=$cliente['ramo']?></td>
+                  <td><?=$cliente['idsuporte']?></td>
+                  <td><?=$cliente['maquina']?></td>
+                  <td><?=$cliente['problema']?></td>
+                  <td><?=$cliente['descricao']?></td>
                   <?php if ($permissao == "@571824") {?>
                     <td>
-                      <a class="btn btn-outline-success" id="btn-alterar" href="javascript:consultarCliente(<?=$cliente['idcliente']?>, 'consultar')">Vizualizar</a>
-                      <a class="btn btn-outline-warning" onclick="return confirmar()"  href="javascript:excluirCliente(<?=$cliente['idcliente']?>, 'excluir')">Responder</a>
-                      <a class="btn btn-outline-danger" onclick="return confirmar()"  href="javascript:excluirCliente(<?=$cliente['idcliente']?>, 'excluir')">Excluir</a>
+                      <a class="btn btn-outline-success" id="btn-alterar" href="vizualizarSuporte.php?id=<?=$cliente['idsuporte']?>&fk=<?= $cliente['fkcliente'] ?>">Vizualizar</a>
+                      <a class="btn btn-outline-warning" href="paginaResposta.php?fk=<?= $cliente['fkcliente'] ?>">Responder</a>
+                      <a class="btn btn-outline-danger" onclick="return confirmar()"  href="javascript:excluirSuporte(<?=$cliente['idsuporte']?>, 'excluirSuporte')">Excluir</a>
                     </td>
                   <?php }?>
                 </tr>

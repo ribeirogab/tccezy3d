@@ -17,7 +17,7 @@ class Crud extends Conexao {
 
     }
     public function consultar($coluna, $tabela, $restricao, $valores) {
-        $sql = "SELECT $coluna FROM $tabela $restricao";
+        $sql = "SELECT DISTINCT $coluna FROM $tabela $restricao";
         return parent::executarFetchAll($sql, $valores);
     }
     public function alterar($tabela, $set, $val) {
