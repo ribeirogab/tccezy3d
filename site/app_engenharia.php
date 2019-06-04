@@ -183,7 +183,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <?php
 echo $titulo4;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo5'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
 }
 ?>
           </h1>
@@ -191,7 +191,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <?php
 echo $txt4;
 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt5'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
 }
 ?>
           </p>

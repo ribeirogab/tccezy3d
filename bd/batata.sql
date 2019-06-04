@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 03, 2019 at 08:03 PM
--- Server version: 5.7.23
--- PHP Version: 7.2.10
+-- Generation Time: 16-Jun-2019 às 02:29
+-- Versão do servidor: 5.7.21
+-- PHP Version: 5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acesso`
+-- Estrutura da tabela `acesso`
 --
 
 DROP TABLE IF EXISTS `acesso`;
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `acesso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `acesso`
+-- Extraindo dados da tabela `acesso`
 --
 
 INSERT INTO `acesso` (`mes`, `ano`, `tipo`, `cliques`) VALUES
@@ -53,7 +53,7 @@ INSERT INTO `acesso` (`mes`, `ano`, `tipo`, `cliques`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Estrutura da tabela `admin`
 --
 
 DROP TABLE IF EXISTS `admin`;
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Extraindo dados da tabela `admin`
 --
 
 INSERT INTO `admin` (`idadmin`, `nome`, `cargo`, `email`, `senha`, `permissao`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `admin` (`idadmin`, `nome`, `cargo`, `email`, `senha`, `permissao`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Estrutura da tabela `cliente`
 --
 
 DROP TABLE IF EXISTS `cliente`;
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cliente`
+-- Extraindo dados da tabela `cliente`
 --
 
 INSERT INTO `cliente` (`idcliente`, `nome`, `sobrenome`, `email`, `senha`, `telefone`, `pais`, `ramo`, `empresa`) VALUES
@@ -104,7 +104,7 @@ INSERT INTO `cliente` (`idcliente`, `nome`, `sobrenome`, `email`, `senha`, `tele
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contato`
+-- Estrutura da tabela `contato`
 --
 
 DROP TABLE IF EXISTS `contato`;
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `contato` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `conteudo`
+-- Estrutura da tabela `conteudo`
 --
 
 DROP TABLE IF EXISTS `conteudo`;
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `conteudo` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `conteudo`
+-- Extraindo dados da tabela `conteudo`
 --
 
 INSERT INTO `conteudo` (`apelido`, `pagina`, `pt`, `en`, `es`) VALUES
@@ -357,40 +357,40 @@ INSERT INTO `conteudo` (`apelido`, `pagina`, `pt`, `en`, `es`) VALUES
 ('perfil_suporte_outro1', 'perfil_cliente', 'Outro', 'Other', 'Otro'),
 ('perfil_suporte_placeholder1', 'perfil_cliente', 'Descreva seu problema', 'Describe your problem', 'Describa su problema'),
 ('perfil_suporte_button1', 'perfil_cliente', 'Enviar', 'Submit', 'Enviar'),
-('titulo1', 'app_engenharia', 'PT - O my friend', 'EN - O my friend', 'ES - O my friend'),
-('txt1', 'app_engenharia', 'PT - Would I could describe these conceptions, could impress upon paper all that is living so full and warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite.', 'EN - Would I could describe these conceptions, could impress upon paper all that is living so full and warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite.', 'ES - Would I could describe these conceptions, could impress upon paper all that is living so full and warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite.'),
-('titulo2', 'app_engenharia', 'PT - On one hand', 'EN - On one hand', 'ES - On one hand'),
-('txt2', 'app_engenharia', 'PT - I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks.', 'EN - I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks.', 'ES - I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks.'),
-('titulo3', 'app_engenharia', 'PT - On the other', 'EN - On the other', 'ES - On the other'),
-('txt3', 'app_engenharia', 'PT - I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks.', 'EN - I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks.', 'ES - I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks.'),
-('titulo3_1', 'app_engenharia', 'PT - One', 'EN - Two', 'ES - Three'),
-('titulo3_2', 'app_engenharia', 'PT - One', 'EN - Two', 'ES - Three'),
-('titulo3_3', 'app_engenharia', 'PT - One', 'EN - Two', 'ES - Three'),
-('titulo4', 'app_engenharia', 'PT - A wonderful serenity', 'EN - A wonderful serenity', 'ES - A wonderful serenity'),
-('txt4', 'app_engenharia', 'PT - I lie close to the earth, a thousand unknown plants.', 'EN - I lie close to the earth, a thousand unknown plants.', 'ES - I lie close to the earth, a thousand unknown plants.'),
-('titulo5', 'app_engenharia', 'PT - A wonderful serenity', 'EN - A wonderful serenity', 'ES - A wonderful serenity'),
-('txt5', 'app_engenharia', 'PT - Has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.', 'EN - Has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.', 'ES - Has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.'),
-('titulo5_1', 'app_engenharia', 'PT - One', 'EN - One', 'ES - One'),
-('txt5_1', 'app_engenharia', 'PT - I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.', 'EN - I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.', 'ES - I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.'),
-('titulo5_2', 'app_engenharia', 'PT - Two', 'EN - Two', 'ES - Two'),
-('txt5_2', 'app_engenharia', 'PT - I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'EN - I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'ES - I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.'),
-('titulo6', 'app_engenharia', 'PT - Call your visitors to act. Now', 'EN - Call your visitors to act. Now', 'ES - Call your visitors to act. Now'),
-('button1', 'app_engenharia', 'PT - Get your license', 'EN - Get your license', 'ES - Get your license'),
-('titulo1', 'app_entretenimento', 'PT - I feel the charm', 'EN - I feel the charm', 'ES - I feel the charm'),
-('titulo1_1', 'app_entretenimento', 'PT - Of existence in this spot', 'EN - Of existence in this spot', 'ES - Of existence in this spot'),
-('txt1', 'app_entretenimento', 'PT - Which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'EN - Which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.', 'ES - Which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.'),
-('txt1_1', 'app_entretenimento', 'PT - I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.', 'EN - I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.', 'ES - I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.'),
-('titulo2_1', 'app_entretenimento', 'PT - One', 'EN - One', 'ES - One'),
-('txt2_1', 'app_entretenimento', 'PT - So absorbed in the exquisite sense of mere tranquil existence.', 'EN - So absorbed in the exquisite sense of mere tranquil existence.', 'ES - So absorbed in the exquisite sense of mere tranquil existence.'),
-('titulo2_2', 'app_entretenimento', 'PT - Two', 'EN - Two', 'ES - Two'),
-('txt2_2', 'app_entretenimento', 'PT - So absorbed in the exquisite sense of mere tranquil existence.', 'EN - So absorbed in the exquisite sense of mere tranquil existence.', 'ES - So absorbed in the exquisite sense of mere tranquil existence.'),
-('titulo2_3', 'app_entretenimento', 'PT - Three', 'EN - Three', 'ES - Three'),
-('txt2_3', 'app_entretenimento', 'PT - I should be incapable of drawing a single stroke.', 'EN - I should be incapable of drawing a single stroke.', 'ES - I should be incapable of drawing a single stroke.'),
-('titulo3', 'app_entretenimento', 'PT - A thousand sliders', 'EN - A thousand sliders', 'ES - A thousand sliders'),
-('txt3', 'app_entretenimento', 'PT - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.', 'EN - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.', 'ES - A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.'),
 ('titulo4', 'app_entretenimento', 'PT - Call your visitors to act. Now', 'EN - Call your visitors to act. Now', 'ES - Call your visitors to act. Now'),
 ('button1', 'app_entretenimento', 'PT - Get your license', 'EN - Get your license', 'ES - Get your license'),
-('titulo3_4', 'app_engenharia', 'PT - One', 'EN - Two', 'ES - Three'),
+('titulo3_4', 'app_engenharia', 'Peça com acabamento final', 'Peça com acabamento final', 'Peça com acabamento final'),
+('titulo2_3', 'app_entretenimento', 'Cachorro em 3D', 'Cachorro em 3D', 'Cachorro em 3D'),
+('txt2_3', 'app_entretenimento', 'Cachorro feita á base de resina ST-450 de nossa parceira', 'Cachorro feita á base de resina ST-450 de nossa parceira', 'Cachorro feita á base de resina ST-450 de nossa parceira'),
+('titulo3', 'app_entretenimento', 'Auxílio à pequenos Produtores', 'Auxílio à pequenos Produtores', 'Auxílio à pequenos Produtores'),
+('txt3', 'app_entretenimento', 'Incorpore uma de nossas impressoras ao seu meio de trabalho para o auxilio de criações de obras de arte.', 'Incorpore uma de nossas impressoras ao seu meio de trabalho para o auxilio de criações de obras de arte.', 'Incorpore uma de nossas impressoras ao seu meio de trabalho para o auxilio de criações de obras de arte.'),
+('txt2_2', 'app_entretenimento', 'Personagem de anime feito em nossa máquina', 'Personagem de anime feito em nossa máquina', 'Personagem de anime feito em nossa máquina'),
+('titulo2_2', 'app_entretenimento', 'Beerus em 3D', 'Beerus em 3D', 'Beerus em 3D'),
+('titulo2_1', 'app_entretenimento', 'Crânio 3D', 'Crânio 3D', 'Crânio  3D'),
+('txt2_1', 'app_entretenimento', 'Feita em nossa impressora de filamento.', 'Feita em nossa impressora de filamento.', 'Feita em nossa impressora de filamento.'),
+('txt1_1', 'app_entretenimento', 'Pegue um personagem ou algum conceito que veio de sua mente que foi criado digital por um software de computador e eleve-os para outro nível fazendo a impressão deles. Assim podendo enxergar aquilo que lhe veio em mente de uma forma mais detalhada e palpável.', 'Pegue um personagem ou algum conceito que veio de sua mente que foi criado digital por um software de computador e eleve-os para outro nível fazendo a impressão deles. Assim podendo enxergar aquilo que lhe veio em mente de uma forma mais detalhada e palpável.', 'Pegue um personagem ou algum conceito que veio de sua mente que foi criado digital por um software de computador e eleve-os para outro nível fazendo a impressão deles. Assim podendo enxergar aquilo que lhe veio em mente de uma forma mais detalhada e palpável.'),
+('titulo1', 'app_entretenimento', 'Entretenimento', 'Entretenimento', 'Entretenimento'),
+('titulo1_1', 'app_entretenimento', 'PT - Of existence in this spot', 'EN - Of existence in this spot', 'ES - Of existence in this spot'),
+('txt1', 'app_entretenimento', 'Pegue seus modelos digitais que estão em seu computador e traga-os para realidade, apenas através do envio do modelo digital para uma de nossas impressoras e o tornando- o realístico, de forma rápida e barata.', 'Pegue seus modelos digitais que estão em seu computador e traga-os para realidade, apenas através do envio do modelo digital para uma de nossas impressoras e o tornando- o realístico, de forma rápida e barata.', 'Pegue seus modelos digitais que estão em seu computador e traga-os para realidade, apenas através do envio do modelo digital para uma de nossas impressoras e o tornando- o realístico, de forma rápida e barata.'),
+('button1', 'app_engenharia', 'PT - Get your license', 'EN - Get your license', 'ES - Get your license'),
+('titulo6', 'app_engenharia', 'PT - Call your visitors to act. Now', 'EN - Call your visitors to act. Now', 'ES - Call your visitors to act. Now'),
+('titulo5_2', 'app_engenharia', 'Porta canetas de outra forma', 'Porta canetas de outra forma', 'Porta canetas de outra forma'),
+('txt5_2', 'app_engenharia', 'Acrescente criatividade aos objetos cotidianos a sua volta, dando uma nova cara a algo monótomo e design.', 'Acrescente criatividade aos objetos cotidianos a sua volta, dando uma nova cara a algo monótomo e design', 'Acrescente criatividade aos objetos cotidianos a sua volta, dando uma nova cara a algo monótomo e design'),
+('titulo3_1', 'app_engenharia', 'Ao sair da impressora', 'Ao sair da impressora', 'Ao sair da impressora'),
+('titulo3_2', 'app_engenharia', 'Juntando as peças', 'Juntando as peças', 'Juntando as peças'),
+('titulo3_3', 'app_engenharia', 'Dando os toques inciais', 'Dando os toques inciais', 'Dando os toques inciais'),
+('titulo4', 'app_engenharia', 'Peça finalizada', 'Peça finalizada', 'Peça finalizada'),
+('txt4', 'app_engenharia', 'Peça feita do inicio ao fim de uma forma simples, fácil e rápido', 'Peça feita do inicio ao fim de uma forma simples, fácil e rápido', 'Peça feita do inicio ao fim de uma forma simples, fácil e rápido'),
+('titulo5', 'app_engenharia', 'Peça Finalizada', 'Peça Finalizada', 'Peça Finalizada'),
+('txt5', 'app_engenharia', 'Peças com nível de acabamento  prontas para o consumidor  direto da impressora.', 'Peças com nível de acabamento  prontas para o consumidor  direto da impressora.', 'Peças com nível de acabamento  prontas para o consumidor  direto da impressora.'),
+('titulo5_1', 'app_engenharia', 'Porta canetas ', 'Porta canetas', 'Porta canetas'),
+('txt5_1', 'app_engenharia', 'Use da impressora para impressão de itens de utilidades para o auxílio do dia a dia', 'Use da impressora para impressão de itens de utilidades para o auxílio do dia a dia', 'Use da impressora para impressão de itens de utilidades para o auxílio do dia a dia'),
+('txt3', 'app_engenharia', 'Com um acabamento próximo à o  produto finalizado é fácil dar os toques finais para à customização do seu gosto ou do cliente ', 'Com um acabamento próximo à o  produto finalizado é fácil dar os toques finais para à customização do seu gosto ou do cliente ', 'Com um acabamento próximo à o  produto finalizado é fácil dar os toques finais para à customização do seu gosto ou do cliente '),
+('titulo3', 'app_engenharia', 'Da impressora para o acabamento final', 'Da impressora para o acabamento final', 'Da impressora para o acabamento final'),
+('titulo2', 'app_engenharia', 'Estudo de novos conceitos', 'Estudo de novos conceitos', 'Estudo de novos conceitos'),
+('txt2', 'app_engenharia', 'Explore conceitos iniciais feitos a partir de modelagem digital e eleve-os para outros níveis através de testes e adaptações. ', 'Explore conceitos iniciais feitos a partir de modelagem digital e eleve-os para outros níveis através de testes e adaptações. ', 'Explore conceitos iniciais feitos a partir de modelagem digital e eleve-os para outros níveis através de testes e adaptações. '),
+('titulo1', 'app_engenharia', 'Engenharia', 'Engenharia', 'Engenharia'),
+('txt1', 'app_engenharia', 'Com uma impressora incorporado ao meio do fluxo de trabalho de um engenheiro, lhe dá poder e agilidade, pois é possível o rápido desenvolvimento de um protótipo para testes, oque antes demandava muito tempo mesmo sendo um protótipo.', 'Com uma impressora incorporado ao meio do fluxo de trabalho de um engenheiro, lhe dá poder e agilidade, pois é possível o rápido desenvolvimento de um protótipo para testes, oque antes demandava muito tempo mesmo sendo um protótipo.', 'Com uma impressora incorporado ao meio do fluxo de trabalho de um engenheiro, lhe dá poder e agilidade, pois é possível o rápido desenvolvimento de um protótipo para testes, oque antes demandava muito tempo mesmo sendo um protótipo.'),
 ('btnproduto1_1', 'home', 'Orçamento', 'Orçamento', 'Orçamento'),
 ('btnproduto1_2', 'home', 'Orçamento', 'Orçamento', 'Orçamento'),
 ('produto2', 'home', 'Phylos', 'Phylos', 'Phylos'),
@@ -410,7 +410,7 @@ INSERT INTO `conteudo` (`apelido`, `pagina`, `pt`, `en`, `es`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `metas`
+-- Estrutura da tabela `metas`
 --
 
 DROP TABLE IF EXISTS `metas`;
@@ -425,7 +425,7 @@ CREATE TABLE IF NOT EXISTS `metas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orcamento`
+-- Estrutura da tabela `orcamento`
 --
 
 DROP TABLE IF EXISTS `orcamento`;
@@ -442,7 +442,7 @@ CREATE TABLE IF NOT EXISTS `orcamento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suporte`
+-- Estrutura da tabela `suporte`
 --
 
 DROP TABLE IF EXISTS `suporte`;
@@ -459,7 +459,7 @@ CREATE TABLE IF NOT EXISTS `suporte` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `today`
+-- Estrutura da tabela `today`
 --
 
 DROP TABLE IF EXISTS `today`;
@@ -478,19 +478,19 @@ CREATE TABLE IF NOT EXISTS `today` (
 --
 
 --
--- Constraints for table `orcamento`
+-- Limitadores para a tabela `orcamento`
 --
 ALTER TABLE `orcamento`
   ADD CONSTRAINT `orcamento_ibfk_1` FOREIGN KEY (`fkcliente`) REFERENCES `cliente` (`idcliente`);
 
 --
--- Constraints for table `suporte`
+-- Limitadores para a tabela `suporte`
 --
 ALTER TABLE `suporte`
   ADD CONSTRAINT `suporte_ibfk_1` FOREIGN KEY (`fkcliente`) REFERENCES `cliente` (`idcliente`);
 
 --
--- Constraints for table `today`
+-- Limitadores para a tabela `today`
 --
 ALTER TABLE `today`
   ADD CONSTRAINT `today_ibfk_1` FOREIGN KEY (`fkmes`,`fkano`,`fktipo`) REFERENCES `acesso` (`mes`, `ano`, `tipo`);

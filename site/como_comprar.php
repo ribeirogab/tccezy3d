@@ -45,7 +45,7 @@ if (isset($_SESSION["banana"])) {
                     <div class="col-lg-5 col-md-6 p-md-4 col-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg" width="1500"> </div>
                     <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4">
                         <h2 class="my-3"> <b>Cadastre-se</b></h2>
-                        <p class="lead">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+                        <p class="lead">Primeiramente, clique no botão laranja "Cadastrar", você será redirecionado para um formulário de cadastro.</p>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@ if (isset($_SESSION["banana"])) {
                 <div class="row">
                     <div class="col-md-6 d-flex flex-column justify-content-center order-2 order-md-1 py-4">
                         <h2 class="my-3"> <b>Logue na sua conta</b></h2>
-                        <p class="lead">I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist.</p>
+                        <p class="lead">Após efetuar o cadastro, você será redirecionado para página home, com uma aba de login com o seu e-mail já preenchido, digite a sua senha e clique em logar.</p>
                     </div>
                     <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg" width="1500" style=""> </div>
                 </div>
@@ -68,8 +68,8 @@ if (isset($_SESSION["banana"])) {
                 <div class="row">
                     <div class="col-lg-5 col-md-6 p-md-4 col-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-3.svg" width="1500"> </div>
                     <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4" style="">
-                        <h2 class="my-3"><b>"Solicitar Orçamento"</b></h2>
-                        <p class="lead">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary.</p>
+                        <h2 class="my-3"><b>Solicitando orçamento</b></h2>
+                        <p class="lead">Assim que efetuar login, irá para seu perfil, no menu lateral procure a opção "Solicitar Orçamento". Após isso, abrirá um formulário preencha corretamente e clique no botão "Enviar".</p>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@ if (isset($_SESSION["banana"])) {
                 <div class="row">
                     <div class="col-md-6 d-flex flex-column justify-content-center order-2 order-md-1 py-4">
                         <h2 class="my-3"> <b>Envie e aguarde</b></h2>
-                        <p class="lead">I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist.</p>
+                        <p class="lead">Agora é só aguardar a nossa resposta em seu e-mail!</p>
                     </div>
                     <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg" width="1500" style=""> </div>
                 </div>

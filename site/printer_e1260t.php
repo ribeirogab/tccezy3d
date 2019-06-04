@@ -29,7 +29,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 }
 ?>
 <main>
-  <div class="py-3" style="background-image: linear-gradient(30deg, #aaa, #a64022 );">
+  <div class="py-3" style="background-image: linear-gradient(-180deg, #333 17%, #db6f79 );">
     <div class="container pt-md-5">
       <div class="row">
         <div class="col-md-6 my-5 text-lg-left text-center align-self-center" style="">
