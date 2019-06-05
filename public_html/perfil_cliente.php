@@ -759,7 +759,7 @@ if (isset($_GET["status"])) {
         $("#btn4").addClass('item');
       }
       $("#close-alert").click(function() {
-        window.location.href = 'perfil_cliente.php';
+        window.location.href = 'http://www.ezy3d.com.br/perfil_cliente.php';
       });
 
       $("#btn-alterarsenha").on("click", function() {
@@ -990,7 +990,7 @@ if (isset($_GET["status"])) {
             }
           },
           error: function() {
-            window.location.hred = "../../404.html"
+            window.location.href = "http://www.ezy3d.com.br/404.html"
           }
         });
 

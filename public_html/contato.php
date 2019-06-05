@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION["banana"])) {
-    extract($_SESSION);
+  extract($_SESSION);
 }
 ?>
 <!doctype html>
@@ -14,23 +14,24 @@ if (isset($_SESSION["banana"])) {
   <title>EZY 3D - Contato</title>
 </head>
 <style>
-#fundo-menu {
-      position: absolute;
-      width: 100%;
-      height: 78px;
-      background-color: #232323;
-    }
+  #fundo-menu {
+    position: absolute;
+    width: 100%;
+    height: 78px;
+    background-color: #232323;
+  }
 </style>
+
 <body style="background-color:#232323;">
   <?php
-$pagina = "contato";
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+  $pagina = "contato";
+  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "dashboard/menuAlterarTexto.php";
-} else {
+  } else {
     $visivelm = true;
     include "vendor/menu_rodape/menu.php";
-}
-?>
+  }
+  ?>
   <div id="fundo-menu">
   </div>
   <main>
@@ -52,78 +53,78 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             <div class="col-md-12">
               <h4>
                 <?php
-echo $titulo1;
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-}
-?><br>
+                echo $titulo1;
+                if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+                  echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                }
+                ?><br>
               </h4>
               <p class="lead">
                 <?php
-echo $txt1;
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-}
-?><br><br>
+                echo $txt1;
+                if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+                  echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                }
+                ?><br><br>
               </p>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   <i class="fa fa-cloud text-primary mr-2"></i>
                   <?php
-echo $txt1_1;
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-}
-?>
+                  echo $txt1_1;
+                  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+                    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                  }
+                  ?>
                 </li>
                 <li class="list-group-item">
                   <i class="fa fa-bookmark text-primary mr-2"></i>
                   <?php
-echo $txt1_2;
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-}
-?>
+                  echo $txt1_2;
+                  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+                    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                  }
+                  ?>
                 </li>
                 <li class="list-group-item">
                   <i class="fa fa-bell text-primary mr-2"></i>
                   <?php
-echo $txt1_3;
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-}
-?>
+                  echo $txt1_3;
+                  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+                    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                  }
+                  ?>
                 </li>
                 <li class="list-group-item">
                   <i class="fa fa-life-ring text-primary mr-2"></i>
                   <?php
-echo $txt1_4;
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-}
-?>
+                  echo $txt1_4;
+                  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+                    echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1_4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                  }
+                  ?>
                 </li>
               </ul>
             </div>
           </div>
-
-          <div class="col-md-6">
+          <div class="col-md-6 mt-md-0 mt-4">
             <div class="col-md-12">
+              <hr>
               <form method="post" action="controle/cliente.php">
-              <input type="hidden" name="tipo" value="contato">
+                <input type="hidden" name="tipo" value="contato">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="nome" placeholder="<?=$input1?>">
+                  <input type="text" class="form-control" name="nome" placeholder="<?= $input1 ?>">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" placeholder="<?=$input2?>">
+                  <input type="email" class="form-control" name="email" placeholder="<?= $input2 ?>">
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="assunto" placeholder="<?=$input3?>">
+                  <input type="text" class="form-control" name="assunto" placeholder="<?= $input3 ?>">
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="msg" placeholder="<?=$input4?>"></textarea>
+                  <textarea class="form-control" name="msg" placeholder="<?= $input4 ?>"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary"><?=$button1?></button>
+                <button type="submit" class="btn btn-primary ezy-orange"><?= $button1 ?></button>
               </form>
             </div>
           </div>
@@ -132,13 +133,13 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
     <?php
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    include "dashboard/rodapeAlterarTexto.php";
-} else {
-    $visivelr = true;
-    include "vendor/menu_rodape/rodape.php";
-}
-?>
+    if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+      include "dashboard/rodapeAlterarTexto.php";
+    } else {
+      $visivelr = true;
+      include "vendor/menu_rodape/rodape.php";
+    }
+    ?>
   </main>
 </body>
 

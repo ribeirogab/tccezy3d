@@ -7,3 +7,9 @@ dashboard
 	configusuarios.php
 	orcamento.php
 	suporte.php
+
+vendor/js
+	cadastro_main.js
+
+vendor/menu_rodape
+	menu.php
