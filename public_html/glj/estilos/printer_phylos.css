@@ -1,0 +1,24 @@
+#imagem1 img{
+		width: 100%
+	}
+@media only screen and (max-width: 991px) {
+	#imagem1 img{
+		margin-top: 0px;
+		width: 50%
+	}
+}
+#imagem2 img{
+		width: 80%
+	}
+@media only screen and (max-width: 1199.5px) {
+	#imagem2 img{
+		margin-top: 30px;
+		width: 100%
+	}
+}
+@media only screen and (max-width: 991px) {
+	#imagem2 img{
+		margin-top: 0px;
+		width: 50%
+	}
+}

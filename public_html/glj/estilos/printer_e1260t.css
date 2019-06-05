@@ -1,0 +1,47 @@
+.img-e1260t{
+	width: 50%;
+}
+@media only screen and (max-width: 991px) {
+	.img-e1260t{
+		width: 70%;
+		margin: 0 auto;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.img-e1260t{
+		width: 50%;
+	}
+}
+#banner #subtitle{
+	font-size: 25px;
+}
+#banner .row .col-md-6 i{
+	font-size: 25px;
+	transition: 0.5s
+}
+#banner .row .col-md-6 i:hover{
+	color: #f28918;
+	transition: 0.5s
+}
+#especificacao{
+	background-color: #ddd;
+}
+@media only screen and (max-width: 500px) {
+	#especif h1{
+		font-size: 40px;
+	}
+}
+#imagem img{
+		width: 80%;
+	}
+@media only screen and (max-width: 1199.5px) {
+	#imagem img{
+		width: 100%;
+	}
+}
+#aplicacoesJquery .col-2 span{
+	font-size: 13px;
+}
+#hover1, #hover2, #hover3, #hover4, #hover5{
+	display: none;
+}

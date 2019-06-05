@@ -1,0 +1,27 @@
+#imagem1 img{
+	width: 100%
+}
+@media only screen and (max-width: 991px) {
+	#imagem1 img{
+		margin-top: 0px;
+		width: 60%
+	}
+}
+#imagem2 img{
+	width: 100%
+}
+@media only screen and (max-width: 1199.5px) {
+	#imagem2 img{
+		margin-top: 30px;
+		width: 100%
+	}
+	.col-lg-4 ul{
+		padding: 0px;
+	}
+}
+@media only screen and (max-width: 991px) {
+	#imagem2 img{
+		margin-top: 0px;
+		width: 50%
+	}
+}

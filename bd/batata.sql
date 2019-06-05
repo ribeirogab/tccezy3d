@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 16-Jun-2019 às 02:29
--- Versão do servidor: 5.7.21
--- PHP Version: 5.6.35
+-- Generation Time: Jun 05, 2019 at 11:55 AM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `acesso`
+-- Table structure for table `acesso`
 --
 
 DROP TABLE IF EXISTS `acesso`;
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `acesso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `acesso`
+-- Dumping data for table `acesso`
 --
 
 INSERT INTO `acesso` (`mes`, `ano`, `tipo`, `cliques`) VALUES
@@ -53,7 +53,7 @@ INSERT INTO `acesso` (`mes`, `ano`, `tipo`, `cliques`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `admin`
+-- Table structure for table `admin`
 --
 
 DROP TABLE IF EXISTS `admin`;
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`idadmin`, `nome`, `cargo`, `email`, `senha`, `permissao`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `admin` (`idadmin`, `nome`, `cargo`, `email`, `senha`, `permissao`) 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cliente`
+-- Table structure for table `cliente`
 --
 
 DROP TABLE IF EXISTS `cliente`;
@@ -95,16 +95,16 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `cliente`
+-- Dumping data for table `cliente`
 --
 
 INSERT INTO `cliente` (`idcliente`, `nome`, `sobrenome`, `email`, `senha`, `telefone`, `pais`, `ramo`, `empresa`) VALUES
-(1, 'Gabriell', 'de Oliveira', 'gblosr@gmail.com', '4ea842c8c6304f4a418835fb6665df10524df1a5', '15997458852', 'Brasil', 'Informática', 'EZY3D');
+(1, 'Gabriel', 'de Oliveira', 'gblosr@gmail.com', '4ea842c8c6304f4a418835fb6665df10524df1a5', '15997458852', 'Brasil', 'Informática', 'EZY3D');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `contato`
+-- Table structure for table `contato`
 --
 
 DROP TABLE IF EXISTS `contato`;
@@ -114,13 +114,14 @@ CREATE TABLE IF NOT EXISTS `contato` (
   `email` varchar(80) NOT NULL,
   `assunto` varchar(100) NOT NULL,
   `msg` text NOT NULL,
+  `data` datetime DEFAULT NULL,
   PRIMARY KEY (`idcontato`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `conteudo`
+-- Table structure for table `conteudo`
 --
 
 DROP TABLE IF EXISTS `conteudo`;
@@ -134,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `conteudo` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `conteudo`
+-- Dumping data for table `conteudo`
 --
 
 INSERT INTO `conteudo` (`apelido`, `pagina`, `pt`, `en`, `es`) VALUES
@@ -410,7 +411,7 @@ INSERT INTO `conteudo` (`apelido`, `pagina`, `pt`, `en`, `es`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `metas`
+-- Table structure for table `metas`
 --
 
 DROP TABLE IF EXISTS `metas`;
@@ -425,7 +426,7 @@ CREATE TABLE IF NOT EXISTS `metas` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `orcamento`
+-- Table structure for table `orcamento`
 --
 
 DROP TABLE IF EXISTS `orcamento`;
@@ -442,7 +443,7 @@ CREATE TABLE IF NOT EXISTS `orcamento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `suporte`
+-- Table structure for table `suporte`
 --
 
 DROP TABLE IF EXISTS `suporte`;
@@ -452,6 +453,7 @@ CREATE TABLE IF NOT EXISTS `suporte` (
   `problema` varchar(20) NOT NULL,
   `descricao` text NOT NULL,
   `fkcliente` int(11) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
   PRIMARY KEY (`idsuporte`),
   KEY `fkcliente` (`fkcliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -459,7 +461,7 @@ CREATE TABLE IF NOT EXISTS `suporte` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `today`
+-- Table structure for table `today`
 --
 
 DROP TABLE IF EXISTS `today`;
@@ -478,19 +480,19 @@ CREATE TABLE IF NOT EXISTS `today` (
 --
 
 --
--- Limitadores para a tabela `orcamento`
+-- Constraints for table `orcamento`
 --
 ALTER TABLE `orcamento`
   ADD CONSTRAINT `orcamento_ibfk_1` FOREIGN KEY (`fkcliente`) REFERENCES `cliente` (`idcliente`);
 
 --
--- Limitadores para a tabela `suporte`
+-- Constraints for table `suporte`
 --
 ALTER TABLE `suporte`
   ADD CONSTRAINT `suporte_ibfk_1` FOREIGN KEY (`fkcliente`) REFERENCES `cliente` (`idcliente`);
 
 --
--- Limitadores para a tabela `today`
+-- Constraints for table `today`
 --
 ALTER TABLE `today`
   ADD CONSTRAINT `today_ibfk_1` FOREIGN KEY (`fkmes`,`fkano`,`fktipo`) REFERENCES `acesso` (`mes`, `ano`, `tipo`);
