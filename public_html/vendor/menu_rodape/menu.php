@@ -304,9 +304,9 @@ if (isset($_SESSION['banana'])) { ?>
           <?= $item1 ?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="printer_e1260t"><?= $printer1 ?></a>
-          <a class="dropdown-item" href="printer_phylos"><?= $printer2 ?></a>
-          <a class="dropdown-item" href="printer_coree3"><?= $printer3 ?></a>
+          <a class="dropdown-item" href="printer_e1260t.php"><?= $printer1 ?></a>
+          <a class="dropdown-item" href="printer_phylos.php"><?= $printer2 ?></a>
+          <a class="dropdown-item" href="printer_coree3.php"><?= $printer3 ?></a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -323,13 +323,13 @@ if (isset($_SESSION['banana'])) { ?>
           <?= $item3 ?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="app_odontologia">Odontologia</a>
+          <a class="dropdown-item" href="app_odontologia.php">Odontologia</a>
           <hr class="mt-1 mb-1">
-          <a class="dropdown-item" href="app_joalheria">Joalheria</a>
+          <a class="dropdown-item" href="app_joalheria.php">Joalheria</a>
           <hr class="mt-1 mb-1">
-          <a class="dropdown-item" href="app_engenharia">Engenharia</a>
+          <a class="dropdown-item" href="app_engenharia.php">Engenharia</a>
           <hr class="mt-1 mb-1">
-          <a class="dropdown-item" href="app_entretenimento">Entretenimento</a>
+          <a class="dropdown-item" href="app_entretenimento.php">Entretenimento</a>
         </div>
       </li>
       <li class="nav-item">
@@ -339,7 +339,7 @@ if (isset($_SESSION['banana'])) { ?>
         <a class="nav-link" id="btn-logar" data-toggle="modal" data-target="#modalLogin" href="#"><?= $logar ?></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="form_cadastrar" style="color: orange;"><?= $cadastrar ?></a>
+        <a class="nav-link" href="form_cadastrar.php" style="color: orange;"><?= $cadastrar ?></a>
       </li>
 
       <?php
