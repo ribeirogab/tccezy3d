@@ -1,15 +1,15 @@
 <?php
 session_start();
 if (!isset($_SESSION['banana'])) {
-    header("Location:home.php");
+  header("Location:home.php");
 } else {
-    extract($_SESSION);
+  extract($_SESSION);
 }
 
 if (isset($_GET["status"])) {
-    $status = $_GET["status"];
+  $status = $_GET["status"];
 } else {
-    $status = "off";
+  $status = "off";
 }
 ?>
 <!doctype html>
@@ -154,14 +154,14 @@ if (isset($_GET["status"])) {
 
 <body class="bg-dark">
   <?php
-$pagina = "perfil_cliente";
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+  $pagina = "perfil_cliente";
+  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
     include "dashboard/menuAlterarTexto.php";
-} else {
+  } else {
     $visivelm = true;
     include "vendor/menu_rodape/menu.php";
-}
-?>
+  }
+  ?>
   <div id="fundo-menu">
   </div>
   <main class="pt-64px" style="background-color: #fafafa;">
@@ -169,7 +169,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-          <h5 id="alert-titulo" class="text-center"><?=$success?></h5>
+          <h5 id="alert-titulo" class="text-center"><?= $success ?></h5>
         </div>
         <div class="col-1"><i id="close-alert" class="fas fa-times text-right"></i></div>
       </div>
@@ -179,10 +179,10 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       <div id="painel" class="bg-white">
         <div class="row">
           <div class="col-lg-3 pr-lg-0 mr-lg-0">
-            <div id="btn1" class="item-selected m-0 pt-3 pb-3"><?=$perfil_menu_editar?></div>
-            <div id="btn2" class="item m-0 pt-3 pb-3"><?=$perfil_menu_altsenha?></div>
-            <div id="btn3" class="item m-0 pt-3 pb-3"><?=$perfil_menu_orcamento?></div>
-            <div id="btn4" class="item m-0 pt-3 pb-3"><?=$perfil_menu_suporte?></div>
+            <div id="btn1" class="item-selected m-0 pt-3 pb-3"><?= $perfil_menu_editar ?></div>
+            <div id="btn2" class="item m-0 pt-3 pb-3"><?= $perfil_menu_altsenha ?></div>
+            <div id="btn3" class="item m-0 pt-3 pb-3"><?= $perfil_menu_orcamento ?></div>
+            <div id="btn4" class="item m-0 pt-3 pb-3"><?= $perfil_menu_suporte ?></div>
             <div class="d-block d-lg-none" style="border-bottom: solid 1px rgb(0,0,0,.3)"></div>
           </div>
 
@@ -192,39 +192,39 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
               <input type="hidden" name="tipo" value="alterar">
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_nome?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_nome ?></b></label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" name="nome" value="<?=$nome?>" minlength="3" maxlength="30" required>
+                  <input class="form-control" type="text" name="nome" value="<?= $nome ?>" minlength="3" maxlength="30" required>
                   <div id="erroNome">
                     <i class="fas fa-exclamation-circle mr-1"></i>
-                    <span><?=$perfil_erronome?></span>
+                    <span><?= $perfil_erronome ?></span>
                   </div>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_sobrenome?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_sobrenome ?></b></label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" name="sobrenome" value="<?=$sobrenome?>" minlength="3" maxlength="50" required>
+                  <input class="form-control" type="text" name="sobrenome" value="<?= $sobrenome ?>" minlength="3" maxlength="50" required>
                   <div id="erroSobrenome">
                     <i class="fas fa-exclamation-circle mr-1"></i>
-                    <span><?=$perfil_errosobrenome?></span>
+                    <span><?= $perfil_errosobrenome ?></span>
                   </div>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_empresa?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_empresa ?></b></label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" name="empresa" value="<?=$empresa?>">
+                  <input class="form-control" type="text" name="empresa" value="<?= $empresa ?>">
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_pais?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_pais ?></b></label>
                 <div class="col-sm-5">
                   <select class="custom-select my-1 mr-sm-2" name="pais" required>
-                    <option selected value="<?=$pais?>"><?=$pais?></option>
+                    <option selected value="<?= $pais ?>"><?= $pais ?></option>
                     <option value="null">Pais...</option>
                     <option value="África do Sul">África do Sul</option>
                     <option value="Albânia">Albânia</option>
@@ -403,17 +403,17 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
                   </select>
                   <div id="erroPais">
                     <i class="fas fa-exclamation-circle mr-1"></i>
-                    <span><?=$perfil_erropais?></span>
+                    <span><?= $perfil_erropais ?></span>
                   </div>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_ramo?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_ramo ?></b></label>
                 <div class="col-sm-5">
                   <select class="custom-select my-1 mr-sm-2" id="ramo" name="ramo">
-                    <option selected value="<?=$ramo?>" required><?=$ramo?></option>
-                    <option value="outro"><?=$perfil_outro1?></option>
+                    <option selected value="<?= $ramo ?>" required><?= $ramo ?></option>
+                    <option value="outro"><?= $perfil_outro1 ?></option>
                     <option value="Odontologia">Odontologia</option>
                     <option value="Educação">Educação</option>
                     <option value="Joalheria">Joalheria</option>
@@ -424,19 +424,19 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
                   </select>
                   <div id="erroRamo">
                     <i class="fas fa-exclamation-circle mr-1"></i>
-                    <span><?=$perfil_erroramo?></span>
+                    <span><?= $perfil_erroramo ?></span>
                   </div>
                 </div>
               </div>
 
               <div id="outroRamo" style="display: none;">
                 <div class="form-group row">
-                  <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_outroramo?></b></label>
+                  <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_outroramo ?></b></label>
                   <div class="col-sm-5">
                     <input class="form-control" type="text" name="outroRamo" minlength="3" maxlength="20" required>
                     <div id="erroOutroRamo1">
                       <i class="fas fa-exclamation-circle mr-1"></i>
-                      <span><?=$perfil_erro_outroramo?></span>
+                      <span><?= $perfil_erro_outroramo ?></span>
                     </div>
                   </div>
                 </div>
@@ -447,33 +447,33 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
               <div class="form-group row mt-2">
                 <label class="col-sm-2"></label>
                 <div class="col-sm-10">
-                  <label><b><?=$perfil_infoprivadas?></b></label>
+                  <label><b><?= $perfil_infoprivadas ?></b></label>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_email?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_email ?></b></label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="hidden" name="oldemail" value="<?=$banana?>" minlength="3" maxlength="60" required>
-                  <input class="form-control" type="email" name="email" value="<?=$banana?>" minlength="3" maxlength="60" required>
+                  <input class="form-control" type="hidden" name="oldemail" value="<?= $banana ?>" minlength="3" maxlength="60" required>
+                  <input class="form-control" type="email" name="email" value="<?= $banana ?>" minlength="3" maxlength="60" required>
                   <div id="erroEmail">
                     <i class="fas fa-exclamation-circle mr-1"></i>
-                    <span><?=$perfil_erroemail1?></span>
+                    <span><?= $perfil_erroemail1 ?></span>
                   </div>
                   <div id="erroEmailExiste">
                     <i class="fas fa-exclamation-circle mr-1"></i>
-                    <span><?=$perfil_erroemail2?></span>
+                    <span><?= $perfil_erroemail2 ?></span>
                   </div>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_telefone?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_telefone ?></b></label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" name="telefone" value="<?=$telefone?>" minlength="11" maxlength="11" required>
+                  <input class="form-control" type="text" name="telefone" value="<?= $telefone ?>" minlength="11" maxlength="11" required>
                   <div id="erroTelefone">
                     <i class="fas fa-exclamation-circle mr-1"></i>
-                    <span><?=$perfil_errofone?></span>
+                    <span><?= $perfil_errofone ?></span>
                   </div>
                 </div>
               </div>
@@ -516,34 +516,34 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             <form id="form-senha" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
               <input type="hidden" name="tipo" value="alterar-senha">
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_oldsenha?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_oldsenha ?></b></label>
                 <div class="col-sm-10">
                   <input class="form-control mt-2" type="password" name="senhaold">
                   <div id="erro1" class="w-100 mt-1">
                     <i class="fas fa-exclamation-circle mr-2"></i>
-                    <span><?=$perfil_erro_oldsenha?></span>
+                    <span><?= $perfil_erro_oldsenha ?></span>
                   </div>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_newsenha?> &nbsp;&nbsp;&nbsp;</b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_newsenha ?> &nbsp;&nbsp;&nbsp;</b></label>
                 <div class="col-sm-10">
                   <input class="form-control mt-2" type="password" name="novasenha">
                   <div id="erro2" class="w-100 mt-1">
                     <i class="fas fa-exclamation-circle mr-2"></i>
-                    <span><?=$perfil_erro_newsenha?></span>
+                    <span><?= $perfil_erro_newsenha ?></span>
                   </div>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_confirmarsenha?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_confirmarsenha ?></b></label>
                 <div class="col-sm-10">
                   <input class="form-control mt-1" type="password" name="confirmarnovasenha">
                   <div id="erro3" class="w-100 mt-2">
                     <i class="fas fa-exclamation-circle mr-2"></i>
-                    <span><?=$perfil_erro_confirmarsenha?></span>
+                    <span><?= $perfil_erro_confirmarsenha ?></span>
                   </div>
                 </div>
               </div>
@@ -552,7 +552,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
                   <input id="btn-alterarsenha" type="button" class="btn btn-primary" value="Alterar Senha"><br><br>
-                  <a href="#"><?=$perfil_esqueceusenha?></a>
+                  <a href="#"><?= $perfil_esqueceusenha ?></a>
                 </div>
               </div>
             </form>
@@ -561,13 +561,13 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <!-- ORÇAMENTO -->
           <div id="orcamento" class="col-lg-9 col-12">
             <form id="form-orcamento" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
-              <input type="hidden" name="idcliente" value="<?=$idcliente?>">
+              <input type="hidden" name="idcliente" value="<?= $idcliente ?>">
               <input type="hidden" name="tipo" value="orcamento">
-              <h4><?=$perfil_orcamento_titulo1?></h4>
-              <p><?=$perfil_orcamento_txt1?></p>
+              <h4><?= $perfil_orcamento_titulo1 ?></h4>
+              <p><?= $perfil_orcamento_txt1 ?></p>
               <hr><br>
               <div class="form-group row">
-                <label class="col-sm-2 text-left text-sm-right"><b><?=$perfil_orcamento_label1?></b></label>
+                <label class="col-sm-2 text-left text-sm-right"><b><?= $perfil_orcamento_label1 ?></b></label>
                 <div class="col-sm-10">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="e1260t" value="produto_E1260T">
@@ -590,7 +590,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-2 text-left text-sm-right"><b><?=$perfil_orcamento_label2?></b></label>
+                <label class="col-sm-2 text-left text-sm-right"><b><?= $perfil_orcamento_label2 ?></b></label>
                 <div class="col-sm-10">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="ezycure" value="produto_EzyCure">
@@ -602,7 +602,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_orcamento_label3?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_orcamento_label3 ?></b></label>
                 <div class="col-sm-10">
                   <textarea class="form-control mt-2" name="descricao" cols="5" rows="4" placeholder="Deixe um comentário"></textarea>
                 </div>
@@ -611,7 +611,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <button id="btn-orcamento" class="btn btn-primary"><?=$perfil_orcamento_button1?></button><br><br>
+                  <button id="btn-orcamento" class="btn btn-primary"><?= $perfil_orcamento_button1 ?></button><br><br>
                 </div>
               </div>
             </form>
@@ -621,14 +621,14 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
           <div id="suporte" class="col-lg-9 col-12">
             <form id="form-suporte" action="controle/cliente.php" method="post" class="pt-4 container" autocomplete="off">
               <input type="hidden" name="tipo" value="suporte">
-              <h4><?=$perfil_suporte_titulo1?></h4>
-              <p><?=$perfil_suporte_txt1?></p>
+              <h4><?= $perfil_suporte_titulo1 ?></h4>
+              <p><?= $perfil_suporte_txt1 ?></p>
               <hr><br>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_suporte_label1?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_suporte_label1 ?></b></label>
                 <div class="col-sm-5">
                   <select name="maquina" class="custom-select my-1 mr-sm-2 mt-2">
-                    <option selected value="null"><?=$perfil_suporte_select1?></option>
+                    <option selected value="null"><?= $perfil_suporte_select1 ?></option>
                     <option value="E1260T">E1260T</option>
                     <option value="Phylos">Phylos</option>
                     <option value="CoreE3">Core E3</option>
@@ -637,13 +637,13 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?=$perfil_suporte_label2?></b></label>
+                <label class="col-sm-2 col-form-label text-left text-sm-right"><b><?= $perfil_suporte_label2 ?></b></label>
                 <div class="col-sm-5">
                   <select name="problema" class="custom-select my-1 mr-sm-2 mt-2">
-                    <option selected value="null"><?=$perfil_suporte_select2?></option>
+                    <option selected value="null"><?= $perfil_suporte_select2 ?></option>
                     <option value="Falha na impressão">Falha na Impressão</option>
                     <option value="Troca de LCD">Troca de LCD</option>
-                    <option value="Outro"><?=$perfil_suporte_outro1?></option>
+                    <option value="Outro"><?= $perfil_suporte_outro1 ?></option>
                   </select>
                 </div>
               </div>
@@ -651,14 +651,14 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label text-left text-sm-right"><b>Descrição</b></label>
                 <div class="col-sm-10">
-                  <textarea id="textareaDescricao" class="form-control mt-2" name="descricao" cols="5" rows="7" placeholder="<?=$perfil_suporte_placeholder1?>"></textarea>
+                  <textarea id="textareaDescricao" class="form-control mt-2" name="descricao" cols="5" rows="7" placeholder="<?= $perfil_suporte_placeholder1 ?>"></textarea>
                 </div>
               </div>
               <br>
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <button id="btn-suporte" class="btn btn-primary"><?=$perfil_suporte_button1?></button><br><br>
+                  <button id="btn-suporte" class="btn btn-primary"><?= $perfil_suporte_button1 ?></button><br><br>
                 </div>
               </div>
             </form>
@@ -668,13 +668,13 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       </div>
     </div>
     <?php
-if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-    include "dashboard/rodapeAlterarTexto.php";
-} else {
-    $visivelr = true;
-    include "vendor/menu_rodape/rodape.php";
-}
-?>
+    if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+      include "dashboard/rodapeAlterarTexto.php";
+    } else {
+      $visivelr = true;
+      include "vendor/menu_rodape/rodape.php";
+    }
+    ?>
   </main>
   <script>
     function buttonDisabled1() {
@@ -686,7 +686,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
       let ramo = $("select[name=ramo]").val()
       let empresa = $("input[name=empresa]").val()
 
-      if (nome != '<?=$nome?>' || sobrenome != '<?=$sobrenome?>' || email != '<?=$banana?>' || telefone != '<?=$telefone?>' || pais != '<?=$pais?>' || (ramo != '<?=$ramo?>') || empresa != '<?=$empresa?>')
+      if (nome != '<?= $nome ?>' || sobrenome != '<?= $sobrenome ?>' || email != '<?= $banana ?>' || telefone != '<?= $telefone ?>' || pais != '<?= $pais ?>' || (ramo != '<?= $ramo ?>') || empresa != '<?= $empresa ?>')
         $("#btn-alterarPerfil").removeAttr("disabled")
       else
         $("#btn-alterarPerfil").attr("disabled", "on")
@@ -736,10 +736,10 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
 
     $(document).ready(function() {
       $("input[name=telefone]").mask("99999999999")
-      if ('<?=$status?>' == "success1") {
+      if ('<?= $status ?>' == "success1") {
         $("#alert").slideDown('slow');
         $("#alert-titulo").html("Alterações realizadas com sucesso.")
-      } else if ('<?=$status?>' == "success2") {
+      } else if ('<?= $status ?>' == "success2") {
         $("#alert").slideDown('slow');
         $("#alert-titulo").html("Senha alterada com sucesso.")
         $("#editar-perfil").hide();
@@ -768,7 +768,8 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         let confirmarnovasenha = $("input[name=confirmarnovasenha]").val()
 
         $.ajax({
-          url: "http://www.ezy3d.com.br/controle/cliente.php",
+          // url: "http://www.ezy3d.com.br/controle/cliente.php",
+          url: "http://localhost/tccezy3d/public_html/controle/cliente.php",
           method: "POST",
           data: {
             "tipo": "consultarSenha",
@@ -780,7 +781,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
             let senhaold = json["senha"]
             let novasenha = json["novasenha"]
 
-            if (senhaold == '<?=$senha?>' && confirmarnovasenha == inputNovaSenha && novasenha != senhaold) {
+            if (senhaold == '<?= $senha ?>' && confirmarnovasenha == inputNovaSenha && novasenha != senhaold) {
               $("#form-senha").submit();
             }
             if (senhaold == novasenha) {
@@ -799,7 +800,7 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
               $("#erro3").hide();
             }
 
-            if (senhaold != '<?=$senha?>') {
+            if (senhaold != '<?= $senha ?>') {
               $("input[name=senhaold]").addClass('confirmarSenha');
               $("#erro1").show();
             } else {
@@ -912,7 +913,8 @@ if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         let outroRamo = $("input[name=outroRamo]").val()
 
         $.ajax({
-          url: "http://www.ezy3d.com.br/controle/cliente.php",
+          // url: "http://www.ezy3d.com.br/controle/cliente.php",
+          url: "http://localhost/tccezy3d/public_html/controle/cliente.php",
           method: "POST",
           data: {
             "tipo": "verificarEmail",

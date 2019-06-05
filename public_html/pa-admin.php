@@ -1,19 +1,21 @@
 <?php
 session_start();
 if (isset($_SESSION['banana'])) {
-    header("Location:home.php");
+	header("Location:home.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Login - Painel Administrativo</title>
 	<meta charset="UTF-8">
-	<noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
+	<noscript>
+		<meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 	<link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico" />
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
@@ -26,17 +28,18 @@ if (isset($_SESSION['banana'])) {
 	<link rel="stylesheet" type="text/css" href="vendor/css/cadastro_main.css">
 	<!--===============================================================================================-->
 </head>
+
 <body>
 
 	<div class="container-login100">
 		<div class="wrap-login100">
 			<form class="login100-form validate-form" action="controle/admin.php" method="post">
-			<input type="hidden" name="tipo" value="login">
+				<input type="hidden" name="tipo" value="login">
 				<span class="login100-form-title p-b-48">
 					<img src="vendor/img/logo/logo_orange.svg" width="80px">
 				</span>
 				<h5 class="text-center mb-5">Painel Administrativo</h5>
-				<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+				<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
 					<input class="input100" type="text" name="email_admin">
 					<span class="focus-input100" data-placeholder="Email"></span>
 				</div>
@@ -89,56 +92,61 @@ if (isset($_SESSION['banana'])) {
 	</div>
 
 	<!--===============================================================================================-->
-		<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendor/js/logar_main.js"></script>
 	<script>
-		$("#btn-login").on("click", function(){
+		$("#btn-login").on("click", function() {
 			let email = $("input[name=email_admin]").val()
 			let senha = $("input[name=senha_admin]").val()
 			$.ajax({
-				url: "http://www.ezy3d.com.br/controle/admin.php",
+				// url: "http://www.ezy3d.com.br/controle/admin.php",
+				url: "http://localhost/tccezy3d/public_html/controle/admin.php",
 				method: "POST",
-				data: {"tipo": "verificarLogin", "email_admin": email, "senha_admin": senha},
-				success: function(resposta){
+				data: {
+					"tipo": "verificarLogin",
+					"email_admin": email,
+					"senha_admin": senha
+				},
+				success: function(resposta) {
 					let requisicao = 0;
 					var json = $.parseJSON(resposta)
 					let verificarLogin = json[0][0]
 
-					if(email.length == 0 || senha.length == 0){
+					if (email.length == 0 || senha.length == 0) {
 						$("#loginIncorreto").hide()
 						$("#caracterNone").fadeIn('slow')
-					}
-					else{
+					} else {
 						$("#loginIncorreto").hide()
 						$("#caracterNone").hide()
 						requisicao++
 					}
 
-					if(verificarLogin != 1 && (email.length >= 1 && senha.length >= 1))
+					if (verificarLogin != 1 && (email.length >= 1 && senha.length >= 1))
 						$("#loginIncorreto").fadeIn('slow')
-					else{
+					else {
 						$("#loginIncorreto").hide()
 						requisicao++
 					}
 
-					if(requisicao === 2){
+					if (requisicao === 2) {
 						$("form").submit()
 					}
 				},
-				error: function(){
+				error: function() {
 					alert("Erro ao fazer a requisição")
 				}
 			})
 		})
 
-		$("#btnClose-loginIncorreto").click(function(){
+		$("#btnClose-loginIncorreto").click(function() {
 			$("#loginIncorreto").hide()
 		})
-		$("#btnClose-caracterNone").click(function(){
+		$("#btnClose-caracterNone").click(function() {
 			$("#caracterNone").hide()
 		})
 	</script>
 
 </body>
+
 </html>

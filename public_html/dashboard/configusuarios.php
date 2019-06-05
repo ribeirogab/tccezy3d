@@ -13,9 +13,7 @@
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -28,13 +26,17 @@
       return confirm("Deseja realmente excluir este usuário?");
     }
 
-    function consultarAdmin(id, tipo){
+    function consultarAdmin(id, tipo) {
       $("#alterarAdmin").modal();
-  $.ajax({
-        url: "http://www.ezy3d.com.br/controle/admin.php",
+      $.ajax({
+        // url: "http://www.ezy3d.com.br/controle/admin.php",
+        url: "http://localhost/tccezy3d/public_html/controle/admin.php",
         method: "POST",
-        data: {"id": id, "tipo": tipo},
-        success: function(resposta){
+        data: {
+          "id": id,
+          "tipo": tipo
+        },
+        success: function(resposta) {
           let json = $.parseJSON(resposta)
           $("input[name=altIdadmin").val(json[0]["idadmin"])
           $("input[name=altNome").val(json[0]["nome"])
@@ -42,26 +44,30 @@
           $("input[name=altEmail").val(json[0]["email"])
         },
 
-        error: function(){
+        error: function() {
           alert("Erro ao fazer a requisição")
         }
       });
     }
 
-      function excluirAdmin(id, tipo){
-    $.ajax({
-      url: "http://localhost/tccezy3d/site/controle/admin.php",
-      method: "POST",
-      data: {"id": id, "tipo": tipo},
-      success: function(resposta){
-        location.reload()
-      },
+    function excluirAdmin(id, tipo) {
+      $.ajax({
+        // url: "http://www.ezy3d.com.br/controle/admin.php",
+        url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+        method: "POST",
+        data: {
+          "id": id,
+          "tipo": tipo
+        },
+        success: function(resposta) {
+          location.reload()
+        },
 
-      error: function(){
-        alert("Erro ao fazer a requisição")
-      }
-    });
-  }
+        error: function() {
+          alert("Erro ao fazer a requisição")
+        }
+      });
+    }
   </script>
 
 </head>
@@ -72,13 +78,13 @@
   <div id="wrapper">
 
     <?php
-include "menu.php";
+    include "menu.php";
 
-if ($permissao != "@571824") {
-    session_destroy();
-    header("Location: ../pa-admin.php");
-}
-?>
+    if ($permissao != "@571824") {
+      session_destroy();
+      header("Location: ../pa-admin.php");
+    }
+    ?>
 
 
     <!-- Begin Page Content -->
@@ -87,8 +93,7 @@ if ($permissao != "@571824") {
       <!-- Page Heading -->
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Usuários</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" data-toggle="modal"
-          data-target="#cadastrarAdmin"><i class="fas fa-plus text-white-50"></i>&nbsp; Cadastrar usuário</a>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#cadastrarAdmin"><i class="fas fa-plus text-white-50"></i>&nbsp; Cadastrar usuário</a>
       </div>
 
       <!-- DataTales Example -->
@@ -111,43 +116,41 @@ if ($permissao != "@571824") {
               </thead>
               <tbody>
                 <?php
-require_once "../Classes/Conexao.php";
-require_once "../Classes/Usuario.php";
-$obj = new Usuario();
-$registro = $obj->consultar("*", "admin", null, null);
-foreach ($registro as $admin) {?>
-                <tr>
-                  <td><?=$admin["idadmin"]?></td>
-                  <td><?=$admin["nome"]?></td>
-                  <td><?=$admin["cargo"]?></td>
-                  <td><?=$admin["email"]?></td>
+                require_once "../Classes/Conexao.php";
+                require_once "../Classes/Usuario.php";
+                $obj = new Usuario();
+                $registro = $obj->consultar("*", "admin", null, null);
+                foreach ($registro as $admin) { ?>
+                  <tr>
+                    <td><?= $admin["idadmin"] ?></td>
+                    <td><?= $admin["nome"] ?></td>
+                    <td><?= $admin["cargo"] ?></td>
+                    <td><?= $admin["email"] ?></td>
 
-                  <td>
-                    <?php
-if ($admin["permissao"] == "@571824") {
-    $exibirPermissao = "Administrador";
-} else if ($admin["permissao"] == "&43642") {
-    $exibirPermissao = "Editor";
-} else if ($admin["permissao"] == "$3590") {
-    $exibirPermissao = "Moderador";
-} else if ($admin["permissao"] == "*271") {
-    $exibirPermissao = "Analista";
-} else if ($admin["permissao"] == "#11") {
-    $exibirPermissao = "Usuário";
-}
-    echo $exibirPermissao;
-    ?>
-                  </td>
+                    <td>
+                      <?php
+                      if ($admin["permissao"] == "@571824") {
+                        $exibirPermissao = "Administrador";
+                      } else if ($admin["permissao"] == "&43642") {
+                        $exibirPermissao = "Editor";
+                      } else if ($admin["permissao"] == "$3590") {
+                        $exibirPermissao = "Moderador";
+                      } else if ($admin["permissao"] == "*271") {
+                        $exibirPermissao = "Analista";
+                      } else if ($admin["permissao"] == "#11") {
+                        $exibirPermissao = "Usuário";
+                      }
+                      echo $exibirPermissao;
+                      ?>
+                    </td>
 
-                  <td class="text-center">
-                    <a class="btn btn-outline-primary" id="btn-alterar"
-                      href="javascript:consultarAdmin(<?=$admin['idadmin']?>, 'consultar')">Alterar</a>
-                    <a class="btn btn-outline-danger" onclick="return confirmar()"
-                      href="javascript:excluirAdmin(<?=$admin['idadmin']?>, 'excluir')">Excluir
-                    </a>
-                  </td>
-                </tr>
-                <?php }?>
+                    <td class="text-center">
+                      <a class="btn btn-outline-primary" id="btn-alterar" href="javascript:consultarAdmin(<?= $admin['idadmin'] ?>, 'consultar')">Alterar</a>
+                      <a class="btn btn-outline-danger" onclick="return confirmar()" href="javascript:excluirAdmin(<?= $admin['idadmin'] ?>, 'excluir')">Excluir
+                      </a>
+                    </td>
+                  </tr>
+                <?php } ?>
               </tbody>
             </table>
           </div>
@@ -183,8 +186,7 @@ if ($admin["permissao"] == "@571824") {
 
 
   <!-- Modal CADASTRAR USUÁRIO-->
-  <div class="modal fade" id="cadastrarAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
+  <div class="modal fade" id="cadastrarAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -218,9 +220,8 @@ if ($admin["permissao"] == "@571824") {
     </div>
   </div>
 
-   <!-- Modal ALTERAR USUÁRIO-->
-  <div class="modal fade" id="alterarAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
-    aria-hidden="true">
+  <!-- Modal ALTERAR USUÁRIO-->
+  <div class="modal fade" id="alterarAdmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
