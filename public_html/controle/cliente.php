@@ -190,3 +190,9 @@ else if ($tipo == "contato") {
 } else {
     header("Location:../home.php");
 }
+
+//exclusão do contato
+else if ($tipo == "excluirContato") {
+    $dados = ["id" => $id];
+    $cliente->excluir("suporte", "WHERE idsuporte=:id", $dados);
+}

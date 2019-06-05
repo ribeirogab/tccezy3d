@@ -18,80 +18,149 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <script>
+    function excluirContato(id, tipo){
+      $.ajax({
+        url: "http://localhost/tccezy3d/controle/dashboard/cliente.php",
+        method: "POST",
+        data: {"id": id, "tipo": tipo},
+        success: function(resposta){
+          alert(resposta)
+          location.reload()
+        },
+
+        error: function(){
+          alert("Erro ao fazer a requisição")
+        }
+      });
+    }
+
+    function confirmar(){
+      return confirm('Deseja realmente excluir este cliente?')
+    }
+  </script>
+
 </head>
 
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-              <?php
-include "menu.php";
-if (!($permissao == "@571824" || $permissao == "&43642")) {
-    session_destroy();
-    header("Location: ../pa-admin.php");
-}
-?>
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+    <?php
+    include "menu.php";
+    if (!($permissao == "@571824" || $permissao == "&43642")) {
+      session_destroy();
+      header("Location: ../pa-admin.php");
+    }
+    ?>
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Contato</h1>
+      <!-- Page Heading -->
+      <h1 class="h3 mb-4 text-gray-800">Contato</h1>
 
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Contatos a serem respondidos</h6>
         </div>
-        <!-- /.container-fluid -->
-
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Assunto</th>
+                  <th>Data</th>
+                  <?php if ($permissao == "@571824") {?>
+                    <th>Ações</th>
+                  <?php }?>
+                </tr>
+              </thead>
+              <tbody>
+               <?php
+               require_once "../Classes/Conexao.php";
+               require_once "../Classes/Usuario.php";
+               $obj = new Usuario();
+               $registro = $obj->consultar("*", "contato", null, null);
+               foreach ($registro as $cliente) {?>
+                <tr>
+                  <td><?=$cliente['idcontato']?></td>
+                  <td><?=$cliente['nome']?></td>
+                  <td><?=$cliente['email']?></td>
+                  <td><?=$cliente['assunto']?></td>
+                  <td><?=$cliente['data']?></td>
+                  <?php if ($permissao == "@571824") {?>
+                    <td>
+                      <a class="btn btn-outline-success" id="btn-alterar" href="vizualizarContato.php?id=<?=$cliente['idcontato']?>">Vizualizar</a>
+                      <a class="btn btn-outline-warning" href="paginaRespostaCont.php?id=<?=$cliente['idcontato']?>">Responder</a>
+                      <a class="btn btn-outline-danger" onclick="return confirmar()"  href="javascript:excluirContato(<?=$cliente['idcontato']?>, 'excluirContato')">Excluir</a>
+                    </td>
+                  <?php }?>
+                </tr>
+              <?php }?>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
     </div>
-    <!-- End of Content Wrapper -->
 
   </div>
-  <!-- End of Page Wrapper -->
+  <!-- /.container-fluid -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+</div>
+<!-- End of Main Content -->
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; Your Website 2019</span>
+    </div>
+  </div>
+</footer>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
 
 </body>
 
