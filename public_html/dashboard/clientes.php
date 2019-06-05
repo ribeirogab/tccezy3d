@@ -43,7 +43,7 @@
     function excluirCliente(id, tipo) {
       $.ajax({
         // url: "http://www.ezy3d.com.br/controle/cliente.php",
-        url: "http://localhost/tccezy3d/public_html/controle/cliente.php",
+        url: "http://localhost/tccezy3d/controle/dashboard/cliente.php",
         method: "POST",
         data: {
           "id": id,

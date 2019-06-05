@@ -34,7 +34,7 @@ function smtpmailer($para, $de, $de_nome, $assunto, $corpo) {
     } else {
         echo "<script>
     alert('Enviado com sucesso!');
-    window.location.href='orcamento.php';
+    window.location.href='index.php';
     </script>";
         return true;
     }
