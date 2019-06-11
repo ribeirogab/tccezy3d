@@ -1,12 +1,15 @@
 <?php
 require_once "Crud.php";
-class Usuario extends Crud {
+class Usuario extends Crud
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function criarSession($idcliente, $nome, $sobrenome, $email, $senha, $telefone, $pais, $ramo, $empresa) {
+    public function criarSession($idcliente, $nome, $sobrenome, $email, $senha, $telefone, $pais, $ramo, $empresa)
+    {
         session_start();
         $_SESSION["idcliente"] = $idcliente;
         $_SESSION["nome"] = $nome;
@@ -19,7 +22,8 @@ class Usuario extends Crud {
         $_SESSION["empresa"] = $empresa;
     }
 
-    public function criarSessionAdmin($idadmin, $nome, $cargo, $email, $permissao) {
+    public function criarSessionAdmin($idadmin, $nome, $cargo, $email, $permissao)
+    {
         session_start();
         $_SESSION["idadmin"] = $idadmin;
         $_SESSION["nome_admin"] = $nome;
@@ -28,4 +32,3 @@ class Usuario extends Crud {
         $_SESSION["permissao"] = $permissao;
     }
 }
-?>

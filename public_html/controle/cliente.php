@@ -187,12 +187,11 @@ else if ($tipo == "contato") {
     $dados = ["idcontato" => 0, "nome" => $nome, "email" => $email, "assunto" => $assunto, "msg" => $msg, "data" => date("Y-m-d H:i:s")];
     $cliente->cadastrar("contato", ":idcontato, :nome, :email, :assunto, :msg, :data", $dados);
     echo "<script>alert('E-mail enviado com sucesso!');window.location.href='../contato.php';</script>";
-} else {
-    header("Location:../home.php");
 }
-
 //exclusão do contato
 else if ($tipo == "excluirContato") {
     $dados = ["id" => $id];
     $cliente->excluir("suporte", "WHERE idsuporte=:id", $dados);
+} else {
+    header("Location:../home.php");
 }

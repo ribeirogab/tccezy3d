@@ -42,36 +42,48 @@ if (isset($_SESSION["banana"])) {
             <h1 class="text-center pt-4 pb-3 mb-4 bg-light">Siga os passos abaixo<br><i class="fas fa-chevron-down"></i></h1>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-5 col-md-6 p-md-4 col-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg" width="1500"> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 col-3 d-none d-sm-block"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/orc1.jpg" width="400"> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 d-block d-sm-none text-center order-2"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/xmobile1.jpg" width="100%"> </div>
                     <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4">
                         <h2 class="my-3"> <b>Cadastre-se</b></h2>
-                        <p class="lead">Primeiramente, clique no botão laranja "Cadastrar", você será redirecionado para um formulário de cadastro.</p>
+                        <p class="lead">Primeiramente, clique na opção em laranja "Cadastrar" <a style="color:blue" href="form_cadastrar.php">(ou clique aqui)</a>, você será redirecionado para um formulário de cadastro.</p>
                     </div>
                 </div>
+            </div>
+            <div class="text-center d-block d-sm-none pt-2 pb-2">
+                <i class="fas fa-chevron-down fa-2x"></i>
             </div>
         </div>
 
         <div class="bg-light text-black">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 d-flex flex-column justify-content-center order-2 order-md-1 py-4">
-                        <h2 class="my-3"> <b>Logue na sua conta</b></h2>
-                        <p class="lead">Após efetuar o cadastro, você será redirecionado para página home, com uma aba de login com o seu e-mail já preenchido, digite a sua senha e clique em logar.</p>
+                    <div class="col-md-6 order-2 order-md-1 py-4">
+                        <h2 class="my-3"> <b>Preencha o formulário</b></h2>
+                        <p class="lead">Insira suas informções corretamente e clique em "Cadastrar".</p>
                     </div>
-                    <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg" width="1500" style=""> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2 d-none d-sm-block"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/x1.jpg" width="400"> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 offset-lg-1 order-2 d-block d-sm-none"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/x1.jpg" width="100%"> </div>
                 </div>
+            </div>
+            <div class="text-center d-block d-sm-none pt-2 pb-2">
+                <i class="fas fa-chevron-down fa-2x"></i>
             </div>
         </div>
 
         <div class="bg-white text-black">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-5 col-md-6 p-md-4 col-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-3.svg" width="1500"> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 col-3 d-none d-sm-block"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/xlogin.jpg" width="400"> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 d-block d-sm-none order-2"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/xlogin.jpg" width="100%"> </div>
                     <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4" style="">
-                        <h2 class="my-3"><b>Solicitando orçamento</b></h2>
-                        <p class="lead">Assim que efetuar login, irá para seu perfil, no menu lateral procure a opção "Solicitar Orçamento". Após isso, abrirá um formulário preencha corretamente e clique no botão "Enviar".</p>
+                        <h2 class="my-3"> <b>Logue na sua conta</b></h2>
+                        <p class="lead">Após efetuar o cadastro, você será redirecionado para página home, com uma aba de login com o seu e-mail já preenchido, digite a sua senha e clique em logar.</p>
                     </div>
                 </div>
+            </div>
+            <div class="text-center d-block d-sm-none pt-2 pb-2">
+                <i class="fas fa-chevron-down fa-2x"></i>
             </div>
         </div>
 
@@ -79,10 +91,43 @@ if (isset($_SESSION["banana"])) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 d-flex flex-column justify-content-center order-2 order-md-1 py-4">
-                        <h2 class="my-3"> <b>Envie e aguarde</b></h2>
+                        <h2 class="my-3"> <b>Aba orçamento</b></h2>
+                        <p class="lead">Você será redirecionado para o perfil do cliente, no menu lateral do lado esquerdo, clique na aba "Solicitar Orçamento".</p>
+                    </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2 d-none d-sm-block"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/orc2.jpg" width="400"> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 offset-lg-1 order-2 order-md-2 d-block d-sm-none"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/orcmobile1.jpg" width="100%"> </div>
+                </div>
+            </div>
+            <div class="text-center d-block d-sm-none pt-2 pb-2">
+                <i class="fas fa-chevron-down fa-2x"></i>
+            </div>
+        </div>
+
+        <div class="bg-white text-black">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 p-md-4 col-3 d-none d-sm-block"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/orc3.jpg" width="400"> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 order-2 d-block d-sm-none"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/orcmobile2.jpg" width="100%"> </div>
+                    <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4" style="">
+                        <h2 class="my-3"><b>Solicitando orçamento</b></h2>
+                        <p class="lead">Abrirá um formulário preencha corretamente e clique no botão "Enviar".</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center d-block d-sm-none pt-2 pb-2">
+                <i class="fas fa-chevron-down fa-2x"></i>
+            </div>
+        </div>
+
+        <div class="bg-light text-black">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex flex-column justify-content-center order-2 order-md-1 py-4">
+                        <h2 class="my-3"><b>Envie e aguarde</b></h2>
                         <p class="lead">Agora é só aguardar a nossa resposta em seu e-mail!</p>
                     </div>
-                    <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg" width="1500" style=""> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2 d-none d-sm-block"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/orc4.jpg" width="400"> </div>
+                    <div class="col-lg-5 col-md-6 p-md-4 offset-lg-1 order-2 order-md-2 d-block d-sm-none"> <img class="img-fluid box-shadow" src="vendor/img/tutorial/orcmobile3.jpg" width="100%"> </div>
                 </div>
             </div>
         </div>

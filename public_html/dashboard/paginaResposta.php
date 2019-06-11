@@ -35,23 +35,23 @@
 		<div class="container-fluid">
 
 			<!-- Page Heading -->
-			<h1 class="h3 mb-4 text-gray-800">Resposta</h1>     
+			<h1 class="h3 mb-4 text-gray-800">Resposta</h1>
 
 			<div class="card">
 				<div class="card-body">
 					<form action="resposta.php" method="post" class="col-md-12">
-						<?php 
+						<?php
 						require_once "../Classes/Conexao.php";
 						require_once "../Classes/Usuario.php";
 						$obj = new Usuario();
 						$fk = $_GET["fk"];
-						$registro = $obj->consultar("*", "cliente", "where idcliente = ". $fk, null);
-						foreach ($registro as $cliente) {?>
+						$registro = $obj->consultar("*", "cliente", "where idcliente = " . $fk, null);
+						foreach ($registro as $cliente) { ?>
 							<input type="text" class="form-control" name="assunto" placeholder="Assunto"> <br>
-							<input hidden  name="destinatario" type="email" class="form-control" name="email" value="<?= $cliente["email"] ?>">
+							<input hidden name="destinatario" type="email" class="form-control" name="email" value="<?= $cliente["email"] ?>">
 							<textarea class="form-control" placeholder="resposta" name="resposta" rows="4"></textarea><br>
-							<input type="reset" value="Reset" class="btn btn-danger"> 
-							<input type="submit" value="Enviar" class="btn btn-primary"> 
+							<input type="reset" value="Reset" class="btn btn-danger">
+							<input type="submit" value="Enviar" class="btn btn-primary">
 						<?php } ?>
 					</form>
 				</div>
@@ -63,55 +63,10 @@
 	</div>
 	<!-- End of Main Content -->
 
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-		<div class="container my-auto">
-			<div class="copyright text-center my-auto">
-				<span>Copyright &copy; Your Website 2019</span>
-			</div>
-		</div>
-	</footer>
-	<!-- End of Footer -->
+	<?php
+	include_once "rodape.php";
+	?>
 
-</div>
-<!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-	<i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-			</div>
-			<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-			<div class="modal-footer">
-				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary" href="login.html">Logout</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
 
 </body>
 

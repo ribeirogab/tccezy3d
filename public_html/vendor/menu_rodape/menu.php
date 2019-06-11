@@ -43,19 +43,7 @@ foreach ($langRodape as $item) {
 <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
 <!-- Fontawesome -->
 <link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
-<!-- Jquery -->
-<script type="text/javascript" src="vendor/jquery/jquery.js"></script>
-<!-- MASK -->
-<script type="text/javascript" src="vendor/jquery/jquery.mask.js"></script>
-<!-- Bootstrap JS -->
-<script src="vendor/bootstrap/js/bootstrap.js"></script>
 
-<!-- Main JS -->
-<script src="vendor/js/menu.js"></script>
-
-<style>
-
-</style>
 
 <nav class="navbar navbar-expand-lg p-0 fixed-top d-none d-lg-block">
   <div class="container">
@@ -83,7 +71,7 @@ foreach ($langRodape as $item) {
           <a class="nav-link p-3 borda-top menu-item-right" id="btn-logar" data-toggle="modal" data-target="#modalLogin" href="#"><?= $logar ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link p-2 borda-top menu-item-right" href="form_cadastrar">
+          <a class="nav-link p-2 borda-top menu-item-right" href="form_cadastrar.php">
             <div id="btn-cadastrar" class="text-white p-2"><?= $cadastrar ?></div>
           </a>
         </li>
@@ -109,30 +97,30 @@ foreach ($langRodape as $item) {
         <div class="col-4 text-center">
           <a href="printer_e1260t.php" class="location-link">
             <div id="div-printer1" class="zoom-menu">
+              <img class="fotos-printers" id="foto-printer1" src="vendor/img/menu/e1260tmenu.png" height="100%">
+            </div>
           </a>
-          <img class="fotos-printers" id="foto-printer1" src="vendor/img/menu/e1260tmenu.png" height="100%">
+          <a href="printer_e1260t.php" id="nome-printer1" class="mt-2 nomes-printers"><?= $printer1 ?></a>
         </div>
-        <a href="printer_e1260t.php" id="nome-printer1" class="mt-2 nomes-printers"><?= $printer1 ?></a>
+
+        <div class="col-4 text-center">
+          <a href="printer_phylos.php" class="location-link">
+            <div id="div-printer2" class="zoom-menu">
+              <img class="fotos-printers" id="foto-printer2" src="vendor/img/menu/phylosmenu.png" height="100%">
+          </a>
+        </div>
+        <a href="printer_phylos.php" id="nome-printer2" class="mt-2 nomes-printers"><?= $printer2 ?></a>
       </div>
 
       <div class="col-4 text-center">
-        <a href="printer_phylos.php" class="location-link">
-          <div id="div-printer2" class="zoom-menu">
+        <a href="printer_coree3.php" class="location-link">
+          <div id="div-printer3" class="zoom-menu">
+            <img class="fotos-printers" id="foto-printer3" src="vendor/img/menu/coree3menu.png" height="100%">
         </a>
-        <img class="fotos-printers" id="foto-printer2" src="vendor/img/menu/phylosmenu.png" height="100%">
       </div>
-      <a href="printer_phylos.php" id="nome-printer2" class="mt-2 nomes-printers"><?= $printer2 ?></a>
+      <a href="printer_coree3.php" id="nome-printer3" class="mt-2 nomes-printers"><?= $printer3 ?></a>
     </div>
-
-    <div class="col-4 text-center">
-      <a href="printer_coree3.php" class="location-link">
-        <div id="div-printer3" class="zoom-menu">
-      </a>
-      <img class="fotos-printers" id="foto-printer3" src="vendor/img/menu/coree3menu.png" height="100%">
-    </div>
-    <a href="printer_coree3.php" id="nome-printer3" class="mt-2 nomes-printers"><?= $printer3 ?></a>
   </div>
-</div>
 </div>
 
 </div>
@@ -176,22 +164,22 @@ foreach ($langRodape as $item) {
   <div id="toggle_3">
     <div class="row">
       <div id="menu-aplicacoes" class="col-3 div-aplicacoes pt-4 pb-50px pr-5" style="border-right: solid 1px rgba(0,0,0,.1);color:black">
-        <a href="app_odontologia.php">
+        <a href="app_odontologia.php" class="location-link">
           <div id="aplicacoes_1" class="menu1-aplicacoes py-1 px-2">
             <span>Odontologia</span><i id="seta-aplicacoes_1" class="fas fa-chevron-right seta-aplicacoes float-right"></i>
           </div>
         </a>
-        <a href="app_joalheria.php">
+        <a href="app_joalheria.php" class="location-link">
           <div id="aplicacoes_2" class="menu1-aplicacoes py-1 px-2">
             <span>Joalheria</span><i id="seta-aplicacoes_2" class="fas fa-chevron-right seta-aplicacoes float-right"></i>
           </div>
         </a>
-        <a href="app_entretenimento.php">
+        <a href="app_entretenimento.php" class="location-link">
           <div id="aplicacoes_3" class="menu1-aplicacoes py-1 px-2">
             <span>Entretenimento</span><i id="seta-aplicacoes_3" class="fas fa-chevron-right seta-aplicacoes float-right"></i>
           </div>
         </a>
-        <a href="app_engenharia.php">
+        <a href="app_engenharia.php" class="location-link">
           <div id="aplicacoes_4" class="menu1-aplicacoes py-1 px-2">
             <span>Engenharia</span><i id="seta-aplicacoes_4" class="fas fa-chevron-right seta-aplicacoes float-right"></i>
           </div>
@@ -202,7 +190,7 @@ foreach ($langRodape as $item) {
       <div id="lista-aplicacoes" class="col-3 div-aplicacoes pt-4 pb-50px" style="color: black">
 
         <div id="opcoes-aplicacoes_1" class="opcoes-aplicacoes">
-          <a href="app_odontologia.php">
+          <a href="app_odontologia.php" class="location-link">
             <div class="py-1 px-2 menu2-aplicacoes">
               <span>Odontologia</span>
             </div>
@@ -210,7 +198,7 @@ foreach ($langRodape as $item) {
         </div>
 
         <div id="opcoes-aplicacoes_2" class="opcoes-aplicacoes">
-          <a href="app_joalheria.php">
+          <a href="app_joalheria.php" class="location-link">
             <div class="py-1 px-2 menu2-aplicacoes">
               <span>Joalheria</span>
             </div>
@@ -218,7 +206,7 @@ foreach ($langRodape as $item) {
         </div>
 
         <div id="opcoes-aplicacoes_3" class="opcoes-aplicacoes">
-          <a href="app_entretenimento.php">
+          <a href="app_entretenimento.php" class="location-link">
             <div class="py-1 px-2 menu2-aplicacoes">
               <span>Entretenimento</span>
             </div>
@@ -226,7 +214,7 @@ foreach ($langRodape as $item) {
         </div>
 
         <div id="opcoes-aplicacoes_4" class="opcoes-aplicacoes">
-          <a href="app_engenharia.php">
+          <a href="app_engenharia.php" class="location-link">
             <div class="py-1 px-2 menu2-aplicacoes">
               <span>Engenharia</span>
             </div>
@@ -460,70 +448,7 @@ if (isset($_SESSION['banana'])) { ?>
           </form>
         </div>
         <!--===============================================================================================-->
-        <script src="vendor/js/logar_main.js"></script>
-        <script>
-          <?php
-          if (isset($_GET["email"])) {
-            $getEmail = $_GET["email"];
-          } else {
-            $getEmail = 'null';
-          }
 
-          ?>
-          if ('<?= $getEmail ?>' != 'null') {
-            let email = '<?= $getEmail ?>'
-            $(document).ready(function() {
-              $('#modalLogin').modal('show')
-              $("input[name=email_login]").val(email)
-              $("#focus-email").addClass('has-val');
-            })
-          }
-
-          $("#btn-login").on("click", function() {
-            let email = $("input[name=email_login]").val()
-            let senha = $("input[name=senha_login]").val()
-            $.ajax({
-              // url: "http://www.ezy3d.com.br/controle/cliente.php",
-              url: "http://localhost/tccezy3d/public_html/controle/cliente.php",
-              method: "POST",
-              data: {
-                "tipo": "verificarLogin",
-                "email": email,
-                "senha": senha
-              },
-              success: function(resposta) {
-                let requisicao = 0;
-                var json = $.parseJSON(resposta)
-                let verificarLogin = json[0][0]
-
-                if (email.length == 0 || senha.length == 0) {
-                  $("#loginIncorreto").hide()
-                  $("#infoIncorreta").fadeIn('slow')
-                } else {
-                  $("#infoIncorreta").hide()
-
-                  if (verificarLogin != 1)
-                    $("#loginIncorreto").fadeIn('slow')
-                  else {
-                    $("#loginIncorreto").hide()
-                    requisicao++
-                  }
-
-                  if (requisicao === 1) {
-                    $("#form-modal-login").submit();
-                  }
-                }
-              },
-              error: function() {
-                alert("Erro ao fazer a requisição")
-              }
-            });
-          });
-
-          $("#btnClose-loginIncorreto").click(function() {
-            $("#loginIncorreto").hide()
-          })
-        </script>
         <!--===============================================================================================-->
       </div>
 
