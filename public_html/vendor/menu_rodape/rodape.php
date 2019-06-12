@@ -90,16 +90,9 @@
 
  <!-- Jquery -->
  <script type="text/javascript" src="vendor/jquery/jquery.js"></script>
- <!-- MASK -->
- <script type="text/javascript" src="vendor/jquery/jquery.mask.js"></script>
  <!-- Bootstrap JS -->
  <script src="vendor/bootstrap/js/bootstrap.js"></script>
 
- <!-- Main JS -->
- <script src="vendor/js/menu.js"></script>
-
- <script src="vendor/js/logar_main.js"></script>
- <script src="vendor/js/voltarAoTopo.js"></script>
  <script>
    <?php
     if (isset($_GET["email"])) {
@@ -112,7 +105,7 @@
    if ('<?= $getEmail ?>' != 'null') {
      let email = '<?= $getEmail ?>'
      $(document).ready(function() {
-       $('#modalLogin').modal('show')
+       $('#modalLogin').modal()
        $("input[name=email_login]").val(email)
        $("#focus-email").addClass('has-val');
      })
@@ -163,3 +156,11 @@
      $("#loginIncorreto").hide()
    })
  </script>
+ <!-- MASK -->
+ <script type="text/javascript" src="vendor/jquery/jquery.mask.js"></script>
+
+ <!-- Main JS -->
+ <script src="vendor/js/menu.js"></script>
+
+ <script src="vendor/js/logar_main.js"></script>
+ <script src="vendor/js/voltarAoTopo.js"></script>

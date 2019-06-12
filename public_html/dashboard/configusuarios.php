@@ -21,54 +21,6 @@
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-  <script>
-    function confirmar() {
-      return confirm("Deseja realmente excluir este usuário?");
-    }
-
-    function consultarAdmin(id, tipo) {
-      $("#alterarAdmin").modal();
-      $.ajax({
-        // url: "http://www.ezy3d.com.br/controle/admin.php",
-        url: "http://localhost/tccezy3d/public_html/controle/admin.php",
-        method: "POST",
-        data: {
-          "id": id,
-          "tipo": tipo
-        },
-        success: function(resposta) {
-          let json = $.parseJSON(resposta)
-          $("input[name=altIdadmin").val(json[0]["idadmin"])
-          $("input[name=altNome").val(json[0]["nome"])
-          $("input[name=altCargo").val(json[0]["cargo"])
-          $("input[name=altEmail").val(json[0]["email"])
-        },
-
-        error: function() {
-          alert("Erro ao fazer a requisição")
-        }
-      });
-    }
-
-    function excluirAdmin(id, tipo) {
-      $.ajax({
-        // url: "http://www.ezy3d.com.br/controle/admin.php",
-        url: "http://localhost/tccezy3d/public_html/controle/admin.php",
-        method: "POST",
-        data: {
-          "id": id,
-          "tipo": tipo
-        },
-        success: function(resposta) {
-          location.reload()
-        },
-
-        error: function() {
-          alert("Erro ao fazer a requisição")
-        }
-      });
-    }
-  </script>
 
 </head>
 
@@ -165,6 +117,54 @@
   include_once "rodape.php";
   ?>
 
+  <script>
+    function confirmar() {
+      return confirm("Deseja realmente excluir este usuário?");
+    }
+
+    function consultarAdmin(id, tipo) {
+      $("#alterarAdmin").modal()
+      $.ajax({
+        // url: "http://www.ezy3d.com.br/controle/admin.php",
+        url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+        method: "POST",
+        data: {
+          "id": id,
+          "tipo": tipo
+        },
+        success: function(resposta) {
+          let json = $.parseJSON(resposta)
+          $("input[name=altIdadmin").val(json[0]["idadmin"])
+          $("input[name=altNome").val(json[0]["nome"])
+          $("input[name=altCargo").val(json[0]["cargo"])
+          $("input[name=altEmail").val(json[0]["email"])
+        },
+
+        error: function() {
+          alert("Erro ao fazer a requisição")
+        }
+      });
+    }
+
+    function excluirAdmin(id, tipo) {
+      $.ajax({
+        // url: "http://www.ezy3d.com.br/controle/admin.php",
+        url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+        method: "POST",
+        data: {
+          "id": id,
+          "tipo": tipo
+        },
+        success: function(resposta) {
+          location.reload()
+        },
+
+        error: function() {
+          alert("Erro ao fazer a requisição")
+        }
+      });
+    }
+  </script>
 
 
   <!-- Modal CADASTRAR USUÁRIO-->
