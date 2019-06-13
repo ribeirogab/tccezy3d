@@ -3,17 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 13, 2019 at 01:48 PM
--- Server version: 5.6.43-cll-lve
--- PHP Version: 7.2.7
+-- Generation Time: 13-Jun-2019 às 15:53
+-- Versão do servidor: 5.6.43-cll-lve
+-- versão do PHP: 7.2.7
 
-SET SQL_MODE
-= "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT
-= 0;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone
-= "+00:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,44 +25,9 @@ SET time_zone
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acesso`
+-- Estrutura da tabela `acesso`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `acesso`;
-CREATE TABLE
-IF NOT EXISTS `acesso`
-(
-  `dia` int
-(2) NOT NULL,
-  `mes` int
-(4) NOT NULL,
-  `ano` int
-(4) NOT NULL,
-  `nome_mes` varchar
-(20) NOT NULL,
-  `nome_dia` varchar
-(20) NOT NULL,
-  `visualizacoes` int
-(11) NOT NULL,
-  `browser` int
-(11) NOT NULL,
-  `facebook` int
-(11) NOT NULL,
-  `googleads` int
-(11) NOT NULL,
-  `instagram` int
-(11) NOT NULL,
-  `cadastro` int
-(11) NOT NULL,
-  `orcamento` int
-(11) NOT NULL,
-  `suporte` int
-(11) NOT NULL,
-  `data` date NOT NULL,
-  PRIMARY KEY
-(`dia`,`mes`,`ano`)
-=======
 CREATE TABLE `acesso` (
   `dia` int(2) NOT NULL,
   `mes` int(4) NOT NULL,
@@ -81,17 +43,13 @@ CREATE TABLE `acesso` (
   `orcamento` int(11) NOT NULL,
   `suporte` int(11) NOT NULL,
   `data` date NOT NULL
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `acesso`
+-- Extraindo dados da tabela `acesso`
 --
 
-INSERT INTO `acesso` (`
-dia`,
-`mes
-`, `ano`, `nome_mes`, `nome_dia`, `visualizacoes`, `browser`, `facebook`, `googleads`, `instagram`, `cadastro`, `orcamento`, `suporte`, `data`) VALUES
+INSERT INTO `acesso` (`dia`, `mes`, `ano`, `nome_mes`, `nome_dia`, `visualizacoes`, `browser`, `facebook`, `googleads`, `instagram`, `cadastro`, `orcamento`, `suporte`, `data`) VALUES
 (8, 2, 2019, 'fev', 'sex', 0, 0, 0, 0, 0, 0, 0, 0, '2019-02-08'),
 (9, 2, 2019, 'fev', 'sáb', 0, 0, 0, 0, 0, 0, 0, 0, '2019-02-09'),
 (10, 2, 2019, 'fev', 'dom', 0, 0, 0, 0, 0, 0, 0, 0, '2019-02-10'),
@@ -461,30 +419,9 @@ dia`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Estrutura da tabela `admin`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE
-IF NOT EXISTS `admin`
-(
-  `idadmin` int
-(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar
-(30) NOT NULL,
-  `cargo` varchar
-(20) NOT NULL,
-  `email` varchar
-(40) NOT NULL,
-  `senha` char
-(40) NOT NULL,
-  `permissao` varchar
-(7) DEFAULT NULL,
-  PRIMARY KEY
-(`idadmin`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-=======
 CREATE TABLE `admin` (
   `idadmin` int(11) NOT NULL,
   `nome` varchar(30) NOT NULL,
@@ -493,57 +430,21 @@ CREATE TABLE `admin` (
   `senha` char(40) NOT NULL,
   `permissao` varchar(7) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 
 --
--- Dumping data for table `admin`
+-- Extraindo dados da tabela `admin`
 --
 
-<<<<<<< HEAD
-INSERT INTO `admin` (`
-idadmin`,
-`nome
-`, `cargo`, `email`, `senha`, `permissao`) VALUES
-(1, 'Gabriel de Oliveira', 'Técnico de TI', 'ti@ezy3d.com.br', '7ce0359f12857f2a90c7de465f40a95f01cb5da9', '@571824');
-=======
 INSERT INTO `admin` (`idadmin`, `nome`, `cargo`, `email`, `senha`, `permissao`) VALUES
 (1, 'Gabriel de Oliveira', 'Técnico de TI', 'ti@ezy3d.com.br', '7ce0359f12857f2a90c7de465f40a95f01cb5da9', '@571824'),
 (8, 'Douglas Guerra', 'Engenheiro', 'engenharia@ezy3d.com.br', '8b9ecb2803feabd5b78a99d1fb130f1988fee425', '&43642');
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Estrutura da tabela `cliente`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `cliente`;
-CREATE TABLE
-IF NOT EXISTS `cliente`
-(
-  `idcliente` int
-(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar
-(30) NOT NULL,
-  `sobrenome` varchar
-(50) NOT NULL,
-  `email` varchar
-(50) NOT NULL,
-  `senha` varchar
-(40) NOT NULL,
-  `telefone` char
-(11) NOT NULL,
-  `pais` varchar
-(30) NOT NULL,
-  `ramo` varchar
-(20) DEFAULT NULL,
-  `empresa` varchar
-(20) DEFAULT NULL,
-  PRIMARY KEY
-(`idcliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-=======
 CREATE TABLE `cliente` (
   `idcliente` int(11) NOT NULL,
   `nome` varchar(30) NOT NULL,
@@ -556,50 +457,21 @@ CREATE TABLE `cliente` (
   `empresa` varchar(20) DEFAULT NULL,
   `local_acesso` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 
 --
--- Dumping data for table `cliente`
+-- Extraindo dados da tabela `cliente`
 --
 
-<<<<<<< HEAD
-INSERT INTO `cliente` (`
-idcliente`,
-`nome
-`, `sobrenome`, `email`, `senha`, `telefone`, `pais`, `ramo`, `empresa`) VALUES
-(1, 'Gabriel', 'de Oliveira', 'gblosr@gmail.com', '4ea842c8c6304f4a418835fb6665df10524df1a5', '15997458852', 'Brasil', 'Informática', 'EZY3D'),
-(2, 'Seu', 'Nome', 'suaconta@email.com', '4ea842c8c6304f4a418835fb6665df10524df1a5', '99999999999', 'Brasil', 'Tutorial', 'Ezy 3D');
-=======
 INSERT INTO `cliente` (`idcliente`, `nome`, `sobrenome`, `email`, `senha`, `telefone`, `pais`, `ramo`, `empresa`, `local_acesso`) VALUES
 (1, 'Gabriel', 'de Oliveira', 'gblosr@gmail.com', '4ea842c8c6304f4a418835fb6665df10524df1a5', '15997458852', 'Brasil', 'Informática', 'Ezy3D', 'facebook'),
 (4, 'Teste', 'Testando', 'teste@gmail.com', '4ea842c8c6304f4a418835fb6665df10524df1a5', '11111111111', 'Brasil', 'Manufatura', 'IBM', 'instagram');
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contato`
+-- Estrutura da tabela `contato`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `contato`;
-CREATE TABLE
-IF NOT EXISTS `contato`
-(
-  `idcontato` int
-(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar
-(40) NOT NULL,
-  `email` varchar
-(80) NOT NULL,
-  `assunto` varchar
-(100) NOT NULL,
-  `msg` text NOT NULL,
-  `data` datetime DEFAULT NULL,
-  PRIMARY KEY
-(`idcontato`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-=======
 CREATE TABLE `contato` (
   `idcontato` int(11) NOT NULL,
   `nome` varchar(40) NOT NULL,
@@ -608,57 +480,34 @@ CREATE TABLE `contato` (
   `msg` text NOT NULL,
   `data` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 
 --
--- Dumping data for table `contato`
+-- Extraindo dados da tabela `contato`
 --
 
-INSERT INTO `contato` (`
-idcontato`,
-`nome
-`, `email`, `assunto`, `msg`, `data`) VALUES
+INSERT INTO `contato` (`idcontato`, `nome`, `email`, `assunto`, `msg`, `data`) VALUES
 (6, 'Gabriel de Oliveira Soares Ribeiro', 'gblosr@gmail.com', 'Teste', 'Testando', '2019-06-07 11:42:57'),
 (8, 'Teste', 'gblosr@gmail.com', 'teste', '', '2019-06-12 16:01:29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `conteudo`
+-- Estrutura da tabela `conteudo`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `conteudo`;
-CREATE TABLE
-IF NOT EXISTS `conteudo`
-(
-  `apelido` varchar
-(30) NOT NULL,
-  `pagina` varchar
-(30) NOT NULL,
-  `pt` text,
-  `en` text,
-  `es` text,
-  PRIMARY KEY
-(`apelido`,`pagina`)
-=======
 CREATE TABLE `conteudo` (
   `apelido` varchar(30) NOT NULL,
   `pagina` varchar(30) NOT NULL,
   `pt` text,
   `en` text,
   `es` text
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `conteudo`
+-- Extraindo dados da tabela `conteudo`
 --
 
-INSERT INTO `conteudo` (`
-apelido`,
-`pagina
-`, `pt`, `en`, `es`) VALUES
+INSERT INTO `conteudo` (`apelido`, `pagina`, `pt`, `en`, `es`) VALUES
 ('item0', 'menu', 'Inicio', 'Home', 'Primero'),
 ('item1', 'menu', 'Impressoras 3D', '3D Printers', 'Impresoras 3D'),
 ('printer1', 'menu', 'E1260T', 'E1260T', 'E1260T'),
@@ -931,41 +780,21 @@ apelido`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `metas`
+-- Estrutura da tabela `metas`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `metas`;
-CREATE TABLE
-IF NOT EXISTS `metas`
-(
-  `mes` int
-(2) NOT NULL,
-  `ano` int
-(4) NOT NULL,
-  `tipo` varchar
-(20) NOT NULL,
-  `meta` int
-(11) DEFAULT NULL,
-  PRIMARY KEY
-(`mes`,`ano`,`tipo`)
-=======
 CREATE TABLE `metas` (
   `mes` int(2) NOT NULL,
   `ano` int(4) NOT NULL,
   `tipo` varchar(20) NOT NULL,
   `meta` int(11) DEFAULT NULL
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `metas`
+-- Extraindo dados da tabela `metas`
 --
 
-INSERT INTO `metas` (`
-mes`,
-`ano
-`, `tipo`, `meta`) VALUES
+INSERT INTO `metas` (`mes`, `ano`, `tipo`, `meta`) VALUES
 (6, 2019, 'cadastro', 11),
 (6, 2019, 'orcamento', 11),
 (6, 2019, 'visualizacoes', 44);
@@ -973,28 +802,9 @@ mes`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orcamento`
+-- Estrutura da tabela `orcamento`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `orcamento`;
-CREATE TABLE
-IF NOT EXISTS `orcamento`
-(
-  `idorcamento` int
-(11) NOT NULL AUTO_INCREMENT,
-  `fkcliente` int
-(11) DEFAULT NULL,
-  `produtos` varchar
-(150) DEFAULT NULL,
-  `descricao` text NOT NULL,
-  `data` datetime DEFAULT NULL,
-  PRIMARY KEY
-(`idorcamento`),
-  KEY `fkcliente`
-(`fkcliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-=======
 CREATE TABLE `orcamento` (
   `idorcamento` int(11) NOT NULL,
   `fkcliente` int(11) DEFAULT NULL,
@@ -1002,16 +812,12 @@ CREATE TABLE `orcamento` (
   `descricao` text NOT NULL,
   `data` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 
 --
--- Dumping data for table `orcamento`
+-- Extraindo dados da tabela `orcamento`
 --
 
-INSERT INTO `orcamento` (`
-idorcamento`,
-`fkcliente
-`, `produtos`, `descricao`, `data`) VALUES
+INSERT INTO `orcamento` (`idorcamento`, `fkcliente`, `produtos`, `descricao`, `data`) VALUES
 (1, 1, 'E1260T, Phylos, CoreE3, EzyCure', 'null', '2019-06-07 11:37:08'),
 (2, 1, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22'),
 (9, 4, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22'),
@@ -1021,30 +827,9 @@ idorcamento`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suporte`
+-- Estrutura da tabela `suporte`
 --
 
-<<<<<<< HEAD
-DROP TABLE IF EXISTS `suporte`;
-CREATE TABLE
-IF NOT EXISTS `suporte`
-(
-  `idsuporte` int
-(11) NOT NULL AUTO_INCREMENT,
-  `maquina` varchar
-(20) NOT NULL,
-  `problema` varchar
-(20) NOT NULL,
-  `descricao` text NOT NULL,
-  `fkcliente` int
-(11) DEFAULT NULL,
-  `data` datetime DEFAULT NULL,
-  PRIMARY KEY
-(`idsuporte`),
-  KEY `fkcliente`
-(`fkcliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-=======
 CREATE TABLE `suporte` (
   `idsuporte` int(11) NOT NULL,
   `maquina` varchar(20) NOT NULL,
@@ -1053,23 +838,11 @@ CREATE TABLE `suporte` (
   `fkcliente` int(11) DEFAULT NULL,
   `data` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 
 --
--- Dumping data for table `suporte`
+-- Extraindo dados da tabela `suporte`
 --
 
-<<<<<<< HEAD
-INSERT INTO `suporte` (`
-idsuporte`,
-`maquina
-`, `problema`, `descricao`, `fkcliente`, `data`) VALUES
-(1, 'Phylos', 'Troca de LCD', 'vvvvvvvvvvvvvvvvvvvvvvvvvv', 1, '2019-06-07 11:37:16'),
-(2, 'Phylos', 'Falha na impressão', 'sssssssssssssssssssssssssssssssss', 1, '2019-06-11 14:16:36'),
-(3, 'CoreE3', 'Troca de LCD', 'ssssssssssssssssssssssssss', 1, '2019-06-11 14:16:43'),
-(4, 'E1260T', 'Falha na impressão', 'Aqui você irá descrever seu problema, lembrando que a descrição precisa conter pelo menos 15 caracteres.', 2, '2019-06-11 17:39:48'),
-(5, 'E1260T', 'Falha na impressão', 'Aqui você irá descrever seu problema, lembrando que a descrição precisa conter pelo menos 15 caracteres.', 2, '2019-06-11 17:47:23');
-=======
 INSERT INTO `suporte` (`idsuporte`, `maquina`, `problema`, `descricao`, `fkcliente`, `data`) VALUES
 (2, 'Phylos', 'Falha na impressão', 'sssssssssssssssssssssssssssssssss', 1, '2019-06-11 14:16:36');
 
@@ -1160,27 +933,22 @@ ALTER TABLE `orcamento`
 --
 ALTER TABLE `suporte`
   MODIFY `idsuporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
->>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `orcamento`
+-- Limitadores para a tabela `orcamento`
 --
 ALTER TABLE `orcamento`
-ADD CONSTRAINT `orcamento_ibfk_1` FOREIGN KEY
-(`fkcliente`) REFERENCES `cliente`
-(`idcliente`);
+  ADD CONSTRAINT `orcamento_ibfk_1` FOREIGN KEY (`fkcliente`) REFERENCES `cliente` (`idcliente`);
 
 --
--- Constraints for table `suporte`
+-- Limitadores para a tabela `suporte`
 --
 ALTER TABLE `suporte`
-ADD CONSTRAINT `suporte_ibfk_1` FOREIGN KEY
-(`fkcliente`) REFERENCES `cliente`
-(`idcliente`);
+  ADD CONSTRAINT `suporte_ibfk_1` FOREIGN KEY (`fkcliente`) REFERENCES `cliente` (`idcliente`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
