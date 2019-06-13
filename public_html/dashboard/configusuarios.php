@@ -30,13 +30,13 @@
   <div id="wrapper">
 
     <?php
-    include "menu.php";
+include "menu.php";
 
-    if ($permissao != "@571824") {
-      session_destroy();
-      header("Location: ../pa-admin.php");
-    }
-    ?>
+if ($permissao != "@571824") {
+    session_destroy();
+    header("Location: ../pa-admin.php");
+}
+?>
 
 
     <!-- Begin Page Content -->
@@ -67,40 +67,40 @@
               </thead>
               <tbody>
                 <?php
-                require_once "../Classes/Conexao.php";
-                require_once "../Classes/Usuario.php";
-                $obj = new Usuario();
-                $registro = $obj->consultar("*", "admin", null, null);
-                foreach ($registro as $admin) { ?>
+require_once "../Classes/Conexao.php";
+require_once "../Classes/Usuario.php";
+$obj = new Usuario();
+$registro = $obj->consultar("*", "admin", null, null);
+foreach ($registro as $admin) {?>
                   <tr>
-                    <td><?= $admin["nome"] ?></td>
-                    <td><?= $admin["cargo"] ?></td>
-                    <td><?= $admin["email"] ?></td>
+                    <td><?=$admin["nome"]?></td>
+                    <td><?=$admin["cargo"]?></td>
+                    <td><?=$admin["email"]?></td>
 
                     <td>
                       <?php
-                      if ($admin["permissao"] == "@571824") {
-                        $exibirPermissao = "Administrador";
-                      } else if ($admin["permissao"] == "&43642") {
-                        $exibirPermissao = "Editor";
-                      } else if ($admin["permissao"] == "$3590") {
-                        $exibirPermissao = "Moderador";
-                      } else if ($admin["permissao"] == "*271") {
-                        $exibirPermissao = "Analista";
-                      } else if ($admin["permissao"] == "#11") {
-                        $exibirPermissao = "Usuário";
-                      }
-                      echo $exibirPermissao;
-                      ?>
+if ($admin["permissao"] == "@571824") {
+    $exibirPermissao = "Administrador";
+} else if ($admin["permissao"] == "&43642") {
+    $exibirPermissao = "Editor";
+} else if ($admin["permissao"] == "$3590") {
+    $exibirPermissao = "Moderador";
+} else if ($admin["permissao"] == "*271") {
+    $exibirPermissao = "Analista";
+} else if ($admin["permissao"] == "#11") {
+    $exibirPermissao = "Usuário";
+}
+    echo $exibirPermissao;
+    ?>
                     </td>
 
                     <td class="text-center">
-                      <a class="btn btn-outline-primary" id="btn-alterar" href="javascript:consultarAdmin(<?= $admin['idadmin'] ?>, 'consultar')">Alterar</a>
-                      <a class="btn btn-outline-danger" onclick="return confirmar()" href="javascript:excluirAdmin(<?= $admin['idadmin'] ?>, 'excluir')">Excluir
+                      <a class="btn btn-outline-primary" id="btn-alterar" href="javascript:consultarAdmin(<?=$admin['idadmin']?>, 'consultar')">Alterar</a>
+                      <a class="btn btn-outline-danger" onclick="return confirmar()" href="javascript:excluirAdmin(<?=$admin['idadmin']?>, 'excluir')">Excluir
                       </a>
                     </td>
                   </tr>
-                <?php } ?>
+                <?php }?>
               </tbody>
             </table>
           </div>
@@ -114,8 +114,8 @@
   <!-- End of Main Content -->
 
   <?php
-  include_once "rodape.php";
-  ?>
+include_once "rodape.php";
+?>
 
   <script>
     function confirmar() {
@@ -125,8 +125,8 @@
     function consultarAdmin(id, tipo) {
       $("#alterarAdmin").modal()
       $.ajax({
-        // url: "http://www.ezy3d.com.br/controle/admin.php",
-        url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+        url: "http://www.ezy3d.com.br/controle/admin.php",
+        // url: "http://localhost/tccezy3d/public_html/controle/admin.php",
         method: "POST",
         data: {
           "id": id,
@@ -137,6 +137,7 @@
           $("input[name=altIdadmin").val(json[0]["idadmin"])
           $("input[name=altNome").val(json[0]["nome"])
           $("input[name=altCargo").val(json[0]["cargo"])
+          $("input[name=altPermissao").val(json[0]["permissao"])
           $("input[name=altEmail").val(json[0]["email"])
         },
 
@@ -148,8 +149,8 @@
 
     function excluirAdmin(id, tipo) {
       $.ajax({
-        // url: "http://www.ezy3d.com.br/controle/admin.php",
-        url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+        url: "http://www.ezy3d.com.br/controle/admin.php",
+        // url: "http://localhost/tccezy3d/public_html/controle/admin.php",
         method: "POST",
         data: {
           "id": id,

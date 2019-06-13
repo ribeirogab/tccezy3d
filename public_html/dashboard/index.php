@@ -156,10 +156,10 @@ $hoje->criarMetas("orcamento", "WHERE mes=:mes AND ano=:ano");
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <h6 class="m-0 font-weight-bold text-primary">Visualizações</h6>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                   <form class="float-right" action="">
                     <div class="form-inline">
                       <?php
@@ -167,8 +167,8 @@ $hoje->criarMetas("orcamento", "WHERE mes=:mes AND ano=:ano");
                       $anoAtual = date("Y");
                       $ultimoDiaMesAtual = cal_days_in_month(CAL_GREGORIAN, $mesAtual, $anoAtual);
                       ?>
-                      <input class="form-control" type="date" name="data_inicio" value="<?= $anoAtual . "-" . $mesAtual ?>-01">
-                      <input class="form-control" type="date" name="data_final" value="<?= $anoAtual . "-" . $mesAtual . "-" . $ultimoDiaMesAtual ?>">
+                      <input class="form-control col-xl-6 ml-auto" type="date" name="data_inicio" value="<?= $anoAtual . "-" . $mesAtual ?>-01">
+                      <input class="form-control col-xl-6 ml-auto" type="date" name="data_final" value="<?= $anoAtual . "-" . $mesAtual . "-" . $ultimoDiaMesAtual ?>">
                     </div>
                   </form>
                 </div>

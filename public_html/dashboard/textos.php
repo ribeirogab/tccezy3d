@@ -41,7 +41,7 @@
       <div class="row">
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txthome.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Home</h5>
               <a href="../home.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -50,7 +50,7 @@
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txtprinter_e1260t.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Impressora 3D - E1260T</h5>
               <a href="../printer_e1260t.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -59,7 +59,7 @@
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txtprinter_phylos.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Impressora 3D - Phylos</h5>
               <a href="../printer_phylos.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -68,7 +68,7 @@
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txtprinter_coree3.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Impressora 3D - Core E3</h5>
               <a href="../printer_coree3.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -80,7 +80,7 @@
       <div class="row">
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txtacessorio_ezycure.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Acessórios - EzyCure</h5>
               <a href="../acessorio_ezycure.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -89,7 +89,7 @@
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txtapp_odontologia.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Aplicação - Odontologia</h5>
               <a href="../app_odontologia.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
@@ -98,18 +98,18 @@
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txtapp_joalheria.jpg" alt="Card image cap">
             <div class="card-body text-center">
-              <h5 class="card-title">Aplicação - Manufatura</h5>
+              <h5 class="card-title">Aplicação - Joalheria</h5>
               <a href="../app_engenharia.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
             </div>
           </div>
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txtapp_entretenimento.jpg" alt="Card image cap">
             <div class="card-body text-center">
-              <h5 class="card-title">Aplicação - Educação</h5>
+              <h5 class="card-title">Aplicação - Entretenimento</h5>
               <a href="../app_entretenimento.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
             </div>
           </div>
@@ -119,16 +119,16 @@
       <div class="row">
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txtapp_engenharia.jpg" alt="Card image cap">
             <div class="card-body text-center">
-              <h5 class="card-title">Aplicação - Joalheria</h5>
+              <h5 class="card-title">Aplicação - Engenharia</h5>
               <a href="../app_joalheria.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
             </div>
           </div>
         </div>
         <div class="col-lg-3 p-3">
           <div class="card">
-            <img class="card-img-top" src="img/pagsite.png" alt="Card image cap">
+            <img class="card-img-top" src="img/txtcontato.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Contato</h5>
               <a href="../contato.php?alterartxt=true" class="btn btn-primary">Selecionar</a>

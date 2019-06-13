@@ -46,6 +46,13 @@
   </div>
 
 
+<!-- Jquery -->
+<script src="vendor/jquery/jquery-2.2.0.min.js" type="text/javascript"></script>
+<!-- MASK -->
+<script type="text/javascript" src="vendor/jquery/jquery.mask.js"></script>
+<!-- Bootstrap JS -->
+<script src="vendor/bootstrap/js/bootstrap.js"></script>
+
 <link rel="stylesheet" href="vendor/css/rodape.css">
 <script src="dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -61,3 +68,36 @@
 
 <!-- Page level custom scripts -->
 <script src="dashboard/js/demo/datatables-demo.js"></script>
+
+
+ <script src="vendor/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+     <script>
+      // $(window).resize(function() {
+      //   document.location.reload();
+      // });
+
+      $(document).on('ready', function() {
+        let largura = screen.width
+        if (largura > 767) {
+          $(".center").slick({
+            dots: false,
+            infinite: false,
+            centerMode: false,
+            slidesToShow: 3,
+            slidesToScroll: 1
+          });
+        } else {
+          $(".center").slick({
+            dots: false,
+            infinite: false,
+            centerMode: false,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          });
+        }
+      });
+    </script>
+
+
+
+

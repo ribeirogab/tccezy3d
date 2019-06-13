@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="utf-8">
@@ -35,31 +35,7 @@
       text-decoration: underline;
     }
   </style>
-  <script>
-    function excluirCliente(id, tipo) {
-      $.ajax({
-        // url: "http://www.ezy3d.com.br/controle/cliente.php",
-        url: "http://localhost/tccezy3d/controle/dashboard/cliente.php",
-        method: "POST",
-        data: {
-          "id": id,
-          "tipo": tipo
-        },
-        success: function(resposta) {
-          alert(resposta)
-          location.reload()
-        },
 
-        error: function() {
-          alert("Erro ao fazer a requisição")
-        }
-      });
-    }
-
-    function confirmar() {
-      return confirm('Deseja realmente excluir este cliente?')
-    }
-  </script>
 
 </head>
 
@@ -119,7 +95,7 @@
                     <td><?= $cliente['empresa'] ?></td>
                     <?php if ($permissao == "@571824") { ?>
                       <td class="text-center">
-                        <a class="btn btn-outline-primary" id="btn-alterar" href="javascript:consultarCliente(<?= $cliente['idcliente'] ?>, 'consultar')">Alterar</a>
+                        <a class="btn btn-outline-primary" href="javascript:consultarCliente(<?= $cliente['idcliente'] ?>, 'consultar')">Alterar</a>
                         <a class="btn btn-outline-danger" onclick="return confirmar()" href="javascript:excluirCliente(<?= $cliente['idcliente'] ?>, 'excluir')">Excluir</a>
                       </td>
                     <?php } ?>
@@ -142,6 +118,102 @@
   include_once "rodape.php";
   ?>
 
+
+
+  <!-- Modal ALTERAR CLIENTE-->
+  <div class="modal fade" id="alterarCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Formulário de alteração</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="../controle/cliente.php" method="post">
+            <input type="hidden" name="tipo" value="alterarCliente">
+            <input type="hidden" name="altIdCliente">
+            
+            <div class="form-row">
+              <div class="col">
+                <input class="form form-control" name="altNome" type="text" placeholder="Nome">
+              </div>
+              <div class="col">
+                <input class="form-control" name="altSobrenome" type="text" placeholder="Sobrenome">
+              </div>
+            </div>
+            <input class="form-control mt-3" name="altEmail" type="email" placeholder="E-mail">
+            <input class="form-control mt-3" name="altTelefone" type="text" placeholder="Telefone">
+            <input class="form-control mt-3" name="altPais" type="text" placeholder="Pais">
+            <input class="form-control mt-3" name="altRamo" type="text" placeholder="Ramo">
+            <input class="form-control mt-3" name="altEmpresa" type="text" placeholder="Empresa">
+
+            <div class="modal-footer mt-3 pb-0">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+              <button class="btn btn-primary">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    function consultarCliente(id, tipo){
+      $("#alterarCliente").modal()
+       $.ajax({
+        url: "http://www.ezy3d.com.br/controle/cliente.php",
+        // url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+        method: "POST",
+        data: {
+          "id": id,
+          "tipo": tipo
+        },
+        success: function(resposta) {
+          let json = $.parseJSON(resposta)
+          $("input[name=altIdCliente").val(json[0]["idcliente"])
+          $("input[name=altNome").val(json[0]["nome"])
+          $("input[name=altSobrenome").val(json[0]["sobrenome"])
+          $("input[name=altEmail").val(json[0]["email"])
+          $("input[name=altTelefone").val(json[0]["telefone"])
+          $("input[name=altPais").val(json[0]["pais"])
+          $("input[name=altRamo").val(json[0]["ramo"])
+          $("input[name=altEmpresa").val(json[0]["empresa"])
+        },
+
+        error: function() {
+          alert("Erro ao fazer a requisição")
+        }
+      });
+    }
+
+    function excluirCliente(id, tipo) {
+      $.ajax({
+        url: "http://www.ezy3d.com.br/controle/cliente.php",
+        // url: "http://localhost/tccezy3d/controle/dashboard/cliente.php",
+        method: "POST",
+        data: {
+          "id": id,
+          "tipo": tipo
+        },
+        success: function(resposta) {
+          alert(resposta)
+          location.reload()
+        },
+
+        error: function() {
+          alert("Erro ao fazer a requisição")
+        }
+      });
+    }
+
+    function confirmar() {
+      return confirm('Deseja realmente excluir este cliente?')
+    }
+  </script>
 
 </body>
 

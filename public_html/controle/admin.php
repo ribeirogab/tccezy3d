@@ -77,9 +77,16 @@ else if ($tipo == "consultar") {
 
 // Alterar informações
 else if ($tipo == "alterar") {
-    $dados = ["nome" => $altNome, "cargo" => $altCargo, "email" => $altEmail, "permissao" => $altPermissao, "idadmin" => $altIdadmin];
-    $admin->alterar("admin", "nome=:nome, cargo=:cargo, email=:email, permissao=:permissao WHERE idadmin=:idadmin", $dados);
-    header("Location:../dashboard/configusuarios.php");
+    if (!($altPermissao == "@571824" || $altPermissao == "&43642" || $altPermissao == "$3590" || $altPermissao == "*271" || $altPermissao == "#11")) {
+        session_start();
+        session_destroy();
+        header("Location: ../pa-admin.php");
+    } else {
+        $dados = ["nome" => $altNome, "cargo" => $altCargo, "email" => $altEmail, "permissao" => $altPermissao, "idadmin" => $altIdadmin];
+        $admin->alterar("admin", "nome=:nome, cargo=:cargo, email=:email, permissao=:permissao WHERE idadmin=:idadmin", $dados);
+
+        header("Location:../dashboard/configusuarios.php");
+    }
 }
 
 // Alterar textos

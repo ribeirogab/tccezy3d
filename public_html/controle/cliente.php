@@ -188,10 +188,15 @@ else if ($tipo == "contato") {
     $cliente->cadastrar("contato", ":idcontato, :nome, :email, :assunto, :msg, :data", $dados);
     echo "<script>alert('E-mail enviado com sucesso!');window.location.href='../contato.php';</script>";
 }
-//exclusão do contato
+//exclusão do contato ADMIN MASTER
 else if ($tipo == "excluirContato") {
     $dados = ["id" => $id];
-    $cliente->excluir("suporte", "WHERE idsuporte=:id", $dados);
-} else {
+    $cliente->excluir("contato", "WHERE idcontato=:id", $dados);
+} else if ($tipo == "alterarCliente"){
+    $dados = ["nome" => $altNome, "sobrenome" => $altSobrenome, "email" => $altEmail, "telefone" => $altTelefone, "pais" => $altPais, "ramo" => $altRamo, "empresa" => $altEmpresa, "idcliente" => $altIdCliente];
+    $cliente->alterar("cliente", "nome=:nome, sobrenome=:sobrenome, email=:email, telefone=:telefone, pais=:pais, ramo=:ramo, empresa=:empresa WHERE idcliente=:idcliente", $dados);
+
+    header("Location:../dashboard/clientes.php");
+}else {
     header("Location:../home.php");
 }

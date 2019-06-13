@@ -1,14 +1,12 @@
 <?php
-class Conexao
-{
+class Conexao {
     private $usuario;
     private $senha;
     private $bd;
     private $endereco;
     private $conexao;
 
-    public function __construct()
-    {
+    public function __construct() {
         // $this->usuario = "yattoxx";
         // $this->senha = "Uno@123mnbphp123";
         // $this->bd = "bdezy3d";
@@ -19,8 +17,7 @@ class Conexao
         $this->servidor = "localhost";
     }
 
-    public function conectar()
-    {
+    public function conectar() {
         $this->conexao = new PDO(
             "mysql:host=$this->servidor;dbname=$this->bd",
             $this->usuario,
@@ -29,8 +26,7 @@ class Conexao
         );
     }
 
-    public function executarSql($sql, $valores)
-    {
+    public function executarSql($sql, $valores) {
         $comando = $this->conexao->prepare($sql);
         foreach ($valores as $indice => &$valor) {
             $comando->bindParam($indice, $valor);
@@ -38,8 +34,7 @@ class Conexao
         return $comando->execute();
     }
 
-    public function executarFetchAll($sql, $valores)
-    {
+    public function executarFetchAll($sql, $valores) {
         $comando = $this->conexao->prepare($sql);
         if ($valores != null) {
             foreach ($valores as $indice => &$valor) {

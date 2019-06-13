@@ -22,8 +22,8 @@
   <script>
     function excluirSuporte(id, tipo) {
       $.ajax({
-        // url: "http://www.ezy3d.com.br/controle/cliente.php",
-        url: "http://localhost/tccezy3d/controle/dashboard/cliente.php",
+        url: "http://www.ezy3d.com.br/controle/cliente.php",
+        // url: "http://localhost/tccezy3d/controle/cliente.php",
         method: "POST",
         data: {
           "id": id,
