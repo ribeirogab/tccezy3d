@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (isset($_SESSION['banana'])) {
-	header("Location:home.php");
+    header("Location:home.php");
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
 	<title>Login - Painel Administrativo</title>
@@ -100,8 +100,8 @@ if (isset($_SESSION['banana'])) {
 			let email = $("input[name=email_admin]").val()
 			let senha = $("input[name=senha_admin]").val()
 			$.ajax({
-				// url: "http://www.ezy3d.com.br/controle/admin.php",
-				url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+				url: "http://www.ezy3d.com.br/controle/admin.php",
+				// url: "http://localhost/tccezy3d/public_html/controle/admin.php",
 				method: "POST",
 				data: {
 					"tipo": "verificarLogin",

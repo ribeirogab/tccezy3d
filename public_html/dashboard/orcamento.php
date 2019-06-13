@@ -18,30 +18,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-  <script>
-    function excluirOrcamento(id, tipo) {
-      $.ajax({
-        url: "http://localhost/tccezy3d/controle/dashboard/cliente.php",
-        method: "POST",
-        data: {
-          "id": id,
-          "tipo": tipo
-        },
-        success: function(resposta) {
-          alert(resposta)
-          location.reload()
-        },
 
-        error: function() {
-          alert("Erro ao fazer a requisição")
-        }
-      });
-    }
-
-    function confirmar() {
-      return confirm('Deseja realmente excluir este cliente?')
-    }
-  </script>
 
 </head>
 
@@ -71,7 +48,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Código</th>
+                  <th>Cliente</th>
                   <th>Produtos</th>
                   <th>Descrição</th>
                   <th>Data</th>
@@ -115,7 +92,31 @@
   <?php
   include_once "rodape.php";
   ?>
+  <script>
+    function excluirOrcamento(id, tipo) {
+      $.ajax({
+        url: "http://www.ezy3d.com.br/controle/cliente.php",
+        // url: "http://localhost/tccezy3d/controle/cliente.php",
+        method: "POST",
+        data: {
+          "id": id,
+          "tipo": tipo
+        },
+        success: function(resposta) {
+          alert(resposta)
+          location.reload()
+        },
 
+        error: function() {
+          alert("Erro ao fazer a requisição")
+        }
+      });
+    }
+
+    function confirmar() {
+      return confirm('Deseja realmente excluir este cliente?')
+    }
+  </script>
 
 </body>
 

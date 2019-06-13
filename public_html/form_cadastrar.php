@@ -45,6 +45,7 @@ if (isset($_SESSION['banana'])) {
 				<div class="col-xl-7">
 					<form action="controle/cliente.php" method="post" class="login100-form" id="form-cadastro">
 						<input type="hidden" name="tipo" value="cadastro">
+						<input type="hidden" name="localAcesso" value="<?=$_SESSION['localAcesso']?>">
 						<span class="login100-form-title p-b-48">
 							<img src="vendor/img/logo/logo_orange.svg" class="float-left" width="40px">
 						</span><br>

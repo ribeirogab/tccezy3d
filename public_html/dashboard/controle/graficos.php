@@ -8,4 +8,7 @@ if (isset($linechart)) {
 if (isset($piechart)) {
     $array = $obj->localAcessoMes($pieMes);
 }
+if (isset($barchart)) {
+    $array = $obj->orcamentoLocalMes($barMes);
+}
 echo json_encode($array);

@@ -47,6 +47,9 @@ class AddClique extends Data
             $ifvalores["mes"] = $this->getMes();
             $ifvalores["ano"] = $this->getAno();
             parent::executarSql($ifsql, $ifvalores);
+            session_start();
+            $_SESSION["localAcesso"] = $tipo;
         }
+
     }
 }
