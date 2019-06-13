@@ -168,6 +168,7 @@ $hoje->total("suporte");
                   <form class="float-right" action="">
                     <div class="form-inline">
                       <?php
+<<<<<<< HEAD
 $mesAtual = date("m");
 $anoAtual = date("Y");
 $ultimoDiaMesAtual = cal_days_in_month(CAL_GREGORIAN, $mesAtual, $anoAtual);
@@ -176,6 +177,14 @@ $ultimoDiaMesAtual = cal_days_in_month(CAL_GREGORIAN, $mesAtual, $anoAtual);
                         value="<?=$anoAtual . "-" . $mesAtual?>-01">
                       <input class="form-control col-xl-6 ml-auto" type="date" name="data_final"
                         value="<?=$anoAtual . "-" . $mesAtual . "-" . $ultimoDiaMesAtual?>">
+=======
+                      $mesAtual = date("m");
+                      $anoAtual = date("Y");
+                      $ultimoDiaMesAtual = cal_days_in_month(CAL_GREGORIAN, $mesAtual, $anoAtual);
+                      ?>
+                      <input class="form-control col-xl-6 ml-auto" type="date" name="data_inicio" value="<?= $anoAtual . "-" . $mesAtual ?>-01">
+                      <input class="form-control col-xl-6 ml-auto" type="date" name="data_final" value="<?= $anoAtual . "-" . $mesAtual . "-" . $ultimoDiaMesAtual ?>">
+>>>>>>> de2e0a7b2653799c8898ec859c5ba6e92191abd6
                     </div>
                   </form>
                 </div>
