@@ -100,8 +100,7 @@ if (isset($_SESSION['banana'])) {
 			let email = $("input[name=email_admin]").val()
 			let senha = $("input[name=senha_admin]").val()
 			$.ajax({
-				url: "http://www.ezy3d.com.br/controle/admin.php",
-				// url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+				url: "http://localhost/tccezy3d/public_html/controle/admin.php",
 				method: "POST",
 				data: {
 					"tipo": "verificarLogin",
@@ -134,7 +133,7 @@ if (isset($_SESSION['banana'])) {
 					}
 				},
 				error: function() {
-					alert("Erro ao fazer a requisição")
+					alert("Erro ao fazer a requisiçãooooo")
 				}
 			})
 		})

@@ -17,8 +17,8 @@ $("select[name=bar_mes]").change(function() {
 });
 function recarregarBar() {
   $.ajax({
-    url: "http://www.ezy3d.com.br/dashboard/controle/graficos.php",
-    //url: "http://localhost/tccezy3d/public_html/dashboard/controle/graficos.php",
+    //url: "http://www.ezy3d.com.br/dashboard/controle/graficos.php",
+    url: "http://localhost/tccezy3d/public_html/dashboard/controle/graficos.php",
     type: "post",
     data: {
       barMes: barMes,

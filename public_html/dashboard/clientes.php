@@ -165,8 +165,8 @@
     function consultarCliente(id, tipo){
       $("#alterarCliente").modal()
        $.ajax({
-        url: "http://www.ezy3d.com.br/controle/cliente.php",
-        // url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+        //url: "http://www.ezy3d.com.br/controle/cliente.php",
+         url: "http://localhost/tccezy3d/public_html/controle/admin.php",
         method: "POST",
         data: {
           "id": id,
