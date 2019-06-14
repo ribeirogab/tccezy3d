@@ -1,0 +1,15 @@
+public_html
+	pa-admin.php
+	cliente.php
+
+dashboard
+	clientes.php
+	configusuarios.php
+	orcamento.php
+	suporte.php
+
+vendor/js
+	cadastro_main.js
+
+vendor/menu_rodape
+	menu.php

@@ -18,8 +18,8 @@ $("select[name=pie_mes]").change(function() {
 
 function recarregarPie() {
   $.ajax({
-    url: "http://www.ezy3d.com.br/dashboard/controle/graficos.php",
-    //url: "http://localhost/tccezy3d/public_html/dashboard/controle/graficos.php",
+    //url: "http://www.ezy3d.com.br/dashboard/controle/graficos.php",
+    url: "http://localhost/tccezy3d/public_html/dashboard/controle/graficos.php",
     type: "post",
     data: {
       pieMes: pieMes,

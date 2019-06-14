@@ -66,12 +66,13 @@
 
 				<div class="card">
 					<div class="card-body">
-						<form action="resposta.php" method="post" class="col-md-12">
+						<form action="resposta.php?tp=cont&id=<?= $id ?>" method="post" class="col-md-12">
 							<?php
 							$registru = $obj->consultar("*", "contato", "where idcontato= " . $id, null);
 							foreach ($registru as $cliente) { ?>
 								<input hidden type="text" class="form-control" name="assunto" value="Resposta"> <br>
 								<input hidden name="destinatario" type="email" class="form-control" name="email" value="<?= $cliente["email"] ?>">
+								<input type="text" hidden name="status" value="respondido">
 								<textarea class="form-control" placeholder="resposta" name="resposta" rows="4"></textarea><br>
 								<input type="reset" value="Reset" class="btn btn-danger">
 								<input type="submit" value="Enviar" class="btn btn-primary">

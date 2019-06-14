@@ -67,7 +67,7 @@
 
 			<div class="card">
 				<div class="card-body">
-					<form action="resposta.php" method="post" class="col-md-12">
+					<form action="resposta.php?id=<?= $id ?>&tp=sup" method="post" class="col-md-12">
 						<?php
 						$obj = new Usuario();
 						$fk = $_GET["fk"];
@@ -76,6 +76,7 @@
 							<input hidden type="text" class="form-control" name="assunto" value="Resposta"> <br>
 							<input hidden name="destinatario" type="email" class="form-control" name="email" value="<?= $cliente["email"] ?>">
 							<textarea class="form-control" placeholder="resposta" name="resposta" rows="4"></textarea><br>
+							<input type="text" name="status" value="respondido" hidden>
 							<input type="reset" value="Reset" class="btn btn-danger">
 							<input type="submit" value="Enviar" class="btn btn-primary">
 						<?php } ?>
