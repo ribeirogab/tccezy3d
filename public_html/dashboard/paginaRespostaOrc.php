@@ -34,6 +34,15 @@
 		<!-- Begin Page Content -->
 		<div class="container-fluid">
 
+			<h1 class="h3 mb-2 text-gray-800">
+				<a href="orcamento.php"><i class="fas fa-long-arrow-alt-left"></i></a>
+			</h1>
+
+			<h1 class="h5 mb-4 text-gray-800">
+				<a href="orcamento.php">Orçamento</a> <i class="fas fa-chevron-right mr-2 ml-2"></i>
+				Resposta
+			</h1>
+
 			<!-- Page Heading -->
 			<h1 class="h3 mb-4 text-gray-800">Resposta</h1>
 
@@ -48,52 +57,52 @@
 				foreach ($registru as $clienti) { ?>
 					<div class="card-header">
 						<h2><?= $clienti["nome"] ?></h2>
-					</div> <?php } ?>
-				<?php
-				$registro = $obj->consultar("*", "orcamento", "where idorcamento = " . $id, null);
-				foreach ($registro as $cliente) {
-					?>
-					<div class="card-body">
-						<blockquote class="blockquote mb-0">
-							<label style="font-weight: bold">Produto: </label>
-							<p><?= $cliente['produtos'] ?></p>
-							<label style="font-weight: bold">Descrição: </label>
-							<p><?= $cliente['descricao'] ?></p>
-							<label style="font-weight: bold">Data: </label>
-							<p><?= $cliente['data'] ?></p>
-						</blockquote>
-					</div>
-				</div> <?php } ?><br>
-
-			<div class="card">
-				<div class="card-body">
-					<form action="resposta.php?tp=orc&id=<?= $id ?>" method="post" class="col-md-12">
+						</div> <?php } ?>
 						<?php
-						$obj = new Usuario();
-						$fk = $_GET["fk"];
-						$registro = $obj->consultar("*", "cliente", "where idcliente = " . $fk, null);
-						foreach ($registro as $cliente) { ?>
-							<input hidden type="text" class="form-control" name="assunto" value="Resposta"> <br>
-							<input hidden name="destinatario" type="email" class="form-control" name="email" value="<?= $cliente["email"] ?>">
-							<input type="text" name="status" value="respondido" hidden>
-							<textarea class="form-control" placeholder="resposta" name="resposta" rows="4"></textarea><br>
-							<input type="reset" value="Reset" class="btn btn-danger">
-							<input type="submit" value="Enviar" class="btn btn-primary">
-						<?php } ?>
-					</form>
+						$registro = $obj->consultar("*", "orcamento", "where idorcamento = " . $id, null);
+						foreach ($registro as $cliente) {
+							?>
+							<div class="card-body">
+								<blockquote class="blockquote mb-0">
+									<label style="font-weight: bold">Produto: </label>
+									<p><?= $cliente['produtos'] ?></p>
+									<label style="font-weight: bold">Descrição: </label>
+									<p><?= $cliente['descricao'] ?></p>
+									<label style="font-weight: bold">Data: </label>
+									<p><?= $cliente['data'] ?></p>
+								</blockquote>
+							</div>
+						</div> <?php } ?><br>
+
+						<div class="card">
+							<div class="card-body">
+								<form action="resposta.php?tp=orc&id=<?= $id ?>" method="post" class="col-md-12">
+									<?php
+									$obj = new Usuario();
+									$fk = $_GET["fk"];
+									$registro = $obj->consultar("*", "cliente", "where idcliente = " . $fk, null);
+									foreach ($registro as $cliente) { ?>
+										<input hidden type="text" class="form-control" name="assunto" value="Resposta"> <br>
+										<input hidden name="destinatario" type="email" class="form-control" name="email" value="<?= $cliente["email"] ?>">
+										<input type="text" name="status" value="respondido" hidden>
+										<textarea class="form-control" placeholder="resposta" name="resposta" rows="4"></textarea><br>
+										<input type="reset" value="Reset" class="btn btn-danger">
+										<input type="submit" value="Enviar" class="btn btn-primary">
+									<?php } ?>
+								</form>
+							</div>
+						</div>
+
+					</div>
+					<!-- /.container-fluid -->
+
 				</div>
-			</div>
-
-		</div>
-		<!-- /.container-fluid -->
-
-	</div>
-	<!-- End of Main Content -->
-	<?php
-	include_once "rodape.php";
-	?>
+				<!-- End of Main Content -->
+				<?php
+				include_once "rodape.php";
+				?>
 
 
-</body>
+			</body>
 
-</html>
+			</html>

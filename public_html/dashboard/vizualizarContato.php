@@ -34,6 +34,15 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
+      <h1 class="h3 mb-2 text-gray-800">
+        <a href="contato.php"><i class="fas fa-long-arrow-alt-left"></i></a>
+      </h1>
+
+      <h1 class="h5 mb-4 text-gray-800">
+        <a href="contato.php">Contatos</a> <i class="fas fa-chevron-right mr-2 ml-2"></i>
+        Visualização
+      </h1>
+
       <!-- Page Heading -->
       <h1 class="h3 mb-4 text-gray-800">Contatação Solicitada</h1>
 
@@ -62,19 +71,19 @@
               <a href="contato.php" class="btn btn-primary">voltar</a>
             </blockquote>
           </div>
-        </div> <?php } ?>
+          </div> <?php } ?>
 
-    </div>
-    <!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
 
-  </div>
-  <!-- End of Main Content -->
+      </div>
+      <!-- End of Main Content -->
 
-  <?php
-  include_once "rodape.php";
-  ?>
+      <?php
+      include_once "rodape.php";
+      ?>
 
 
-</body>
+    </body>
 
-</html>
+    </html>

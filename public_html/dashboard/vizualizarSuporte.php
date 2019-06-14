@@ -34,6 +34,15 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
+      <h1 class="h3 mb-2 text-gray-800">
+        <a href="suporte.php"><i class="fas fa-long-arrow-alt-left"></i></a>
+      </h1>
+
+      <h1 class="h5 mb-4 text-gray-800">
+        <a href="suporte.php">Suporte</a> <i class="fas fa-chevron-right mr-2 ml-2"></i>
+        Vizualização
+      </h1>
+
       <!-- Page Heading -->
       <h1 class="h3 mb-4 text-gray-800">Orçamento Solicitado</h1>
 
@@ -48,35 +57,35 @@
         foreach ($registru as $clienti) { ?>
           <div class="card-header">
             <h2><?= $clienti["nome"] ?></h2>
-          </div> <?php } ?>
-        <?php
-        $registro = $obj->consultar("*", "suporte", "where idsuporte = " . $id, null);
-        foreach ($registro as $cliente) {
-          ?>
-          <div class="card-body">
-            <blockquote class="blockquote mb-0">
-              <h4><label>Máquina: </label></h4>
-              <p><?= $cliente['maquina'] ?></p><br>
-              <h4><label>Problema: </label></h4>
-              <p><?= $cliente['problema'] ?></p><br>
-              <h4><label>Descricao: </label></h4>
-              <p><?= $cliente['descricao'] ?></p><br>
-              <a href="suporte.php" class="btn btn-primary">voltar</a>
-            </blockquote>
+            </div> <?php } ?>
+            <?php
+            $registro = $obj->consultar("*", "suporte", "where idsuporte = " . $id, null);
+            foreach ($registro as $cliente) {
+              ?>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <h4><label>Máquina: </label></h4>
+                  <p><?= $cliente['maquina'] ?></p><br>
+                  <h4><label>Problema: </label></h4>
+                  <p><?= $cliente['problema'] ?></p><br>
+                  <h4><label>Descricao: </label></h4>
+                  <p><?= $cliente['descricao'] ?></p><br>
+                  <a href="suporte.php" class="btn btn-primary">voltar</a>
+                </blockquote>
+              </div>
+              </div> <?php } ?>
+
+            </div>
+            <!-- /.container-fluid -->
+
           </div>
-        </div> <?php } ?>
+          <!-- End of Main Content -->
 
-    </div>
-    <!-- /.container-fluid -->
-
-  </div>
-  <!-- End of Main Content -->
-
-  <?php
-  include_once "rodape.php";
-  ?>
+          <?php
+          include_once "rodape.php";
+          ?>
 
 
-</body>
+        </body>
 
-</html>
+        </html>
