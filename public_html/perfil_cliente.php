@@ -614,6 +614,7 @@ if (isset($_GET["status"])) {
                   <button id="btn-orcamento" class="btn btn-primary"><?= $perfil_orcamento_button1 ?></button><br><br>
                 </div>
               </div>
+              <input type="text" name="status" hidden value="pendente">
             </form>
           </div>
 
@@ -661,6 +662,7 @@ if (isset($_GET["status"])) {
                   <button id="btn-suporte" class="btn btn-primary"><?= $perfil_suporte_button1 ?></button><br><br>
                 </div>
               </div>
+              <input type="text" name="status" hidden value="pendente">
             </form>
           </div>
 

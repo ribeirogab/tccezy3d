@@ -125,8 +125,8 @@ include_once "rodape.php";
     function consultarAdmin(id, tipo) {
       $("#alterarAdmin").modal()
       $.ajax({
-        url: "http://www.ezy3d.com.br/controle/admin.php",
-        // url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+        //url: "http://www.ezy3d.com.br/controle/admin.php",
+         url: "http://localhost/tccezy3d/public_html/controle/admin.php",
         method: "POST",
         data: {
           "id": id,

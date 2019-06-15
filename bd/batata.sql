@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: 13-Jun-2019 às 15:53
--- Versão do servidor: 5.6.43-cll-lve
--- versão do PHP: 7.2.7
+-- Host: 127.0.0.1:3306
+-- Generation Time: 14-Jun-2019 às 04:52
+-- Versão do servidor: 5.7.24
+-- versão do PHP: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bdezy3d`
+-- Database: `batata`
 --
 
 -- --------------------------------------------------------
@@ -28,7 +28,8 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `acesso`
 --
 
-CREATE TABLE `acesso` (
+DROP TABLE IF EXISTS `acesso`;
+CREATE TABLE IF NOT EXISTS `acesso` (
   `dia` int(2) NOT NULL,
   `mes` int(4) NOT NULL,
   `ano` int(4) NOT NULL,
@@ -42,7 +43,8 @@ CREATE TABLE `acesso` (
   `cadastro` int(11) NOT NULL,
   `orcamento` int(11) NOT NULL,
   `suporte` int(11) NOT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  PRIMARY KEY (`dia`,`mes`,`ano`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -175,7 +177,7 @@ INSERT INTO `acesso` (`dia`, `mes`, `ano`, `nome_mes`, `nome_dia`, `visualizacoe
 (10, 6, 2019, 'jun', 'seg', 4, 4, 0, 0, 0, 0, 0, 0, '2019-06-10'),
 (11, 6, 2019, 'jun', 'ter', 4, 4, 0, 0, 0, 1, 4, 4, '2019-06-11'),
 (12, 6, 2019, 'jun', 'qua', 20, 20, 0, 0, 0, 0, 2, 0, '2019-06-12'),
-(13, 6, 2019, 'jun', 'qui', 28, 25, 0, 0, 3, 4, 1, 0, '2019-06-13'),
+(13, 6, 2019, 'jun', 'qui', 32, 29, 0, 0, 3, 4, 1, 0, '2019-06-13'),
 (14, 6, 2019, 'jun', 'sex', 0, 0, 0, 0, 0, 0, 0, 0, '2019-06-14'),
 (15, 6, 2019, 'jun', 'sáb', 0, 0, 0, 0, 0, 0, 0, 0, '2019-06-15'),
 (16, 6, 2019, 'jun', 'dom', 0, 0, 0, 0, 0, 0, 0, 0, '2019-06-16'),
@@ -422,14 +424,16 @@ INSERT INTO `acesso` (`dia`, `mes`, `ano`, `nome_mes`, `nome_dia`, `visualizacoe
 -- Estrutura da tabela `admin`
 --
 
-CREATE TABLE `admin` (
-  `idadmin` int(11) NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `idadmin` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(30) NOT NULL,
   `cargo` varchar(20) NOT NULL,
   `email` varchar(40) NOT NULL,
   `senha` char(40) NOT NULL,
-  `permissao` varchar(7) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `permissao` varchar(7) DEFAULT NULL,
+  PRIMARY KEY (`idadmin`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `admin`
@@ -445,8 +449,9 @@ INSERT INTO `admin` (`idadmin`, `nome`, `cargo`, `email`, `senha`, `permissao`) 
 -- Estrutura da tabela `cliente`
 --
 
-CREATE TABLE `cliente` (
-  `idcliente` int(11) NOT NULL,
+DROP TABLE IF EXISTS `cliente`;
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `idcliente` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(30) NOT NULL,
   `sobrenome` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -455,8 +460,9 @@ CREATE TABLE `cliente` (
   `pais` varchar(30) NOT NULL,
   `ramo` varchar(20) DEFAULT NULL,
   `empresa` varchar(20) DEFAULT NULL,
-  `local_acesso` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `local_acesso` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`idcliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cliente`
@@ -472,22 +478,27 @@ INSERT INTO `cliente` (`idcliente`, `nome`, `sobrenome`, `email`, `senha`, `tele
 -- Estrutura da tabela `contato`
 --
 
-CREATE TABLE `contato` (
-  `idcontato` int(11) NOT NULL,
+DROP TABLE IF EXISTS `contato`;
+CREATE TABLE IF NOT EXISTS `contato` (
+  `idcontato` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(40) NOT NULL,
   `email` varchar(80) NOT NULL,
   `assunto` varchar(100) NOT NULL,
   `msg` text NOT NULL,
-  `data` datetime DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `data` datetime DEFAULT NULL,
+  `status` varchar(11) NOT NULL,
+  PRIMARY KEY (`idcontato`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `contato`
 --
 
-INSERT INTO `contato` (`idcontato`, `nome`, `email`, `assunto`, `msg`, `data`) VALUES
-(6, 'Gabriel de Oliveira Soares Ribeiro', 'gblosr@gmail.com', 'Teste', 'Testando', '2019-06-07 11:42:57'),
-(8, 'Teste', 'gblosr@gmail.com', 'teste', '', '2019-06-12 16:01:29');
+INSERT INTO `contato` (`idcontato`, `nome`, `email`, `assunto`, `msg`, `data`, `status`) VALUES
+(6, 'Gabriel de Oliveira Soares Ribeiro', 'gblosr@gmail.com', 'Teste', 'Testando', '2019-06-07 11:42:57', ''),
+(8, 'Teste', 'gblosr@gmail.com', 'teste', '', '2019-06-12 16:01:29', ''),
+(9, 'lucas braz ', 'lucasbrazdias162@gmail.com', 'teste', 'este e um teste muito legal', '2019-06-13 23:39:58', 'respondido'),
+(10, 'lucas braz', 'lucas@gmail.com', 'testewrgerg', 'rgerhe', '2019-06-14 00:07:33', 'pendente');
 
 -- --------------------------------------------------------
 
@@ -495,12 +506,14 @@ INSERT INTO `contato` (`idcontato`, `nome`, `email`, `assunto`, `msg`, `data`) V
 -- Estrutura da tabela `conteudo`
 --
 
-CREATE TABLE `conteudo` (
+DROP TABLE IF EXISTS `conteudo`;
+CREATE TABLE IF NOT EXISTS `conteudo` (
   `apelido` varchar(30) NOT NULL,
   `pagina` varchar(30) NOT NULL,
   `pt` text,
   `en` text,
-  `es` text
+  `es` text,
+  PRIMARY KEY (`apelido`,`pagina`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -783,11 +796,13 @@ INSERT INTO `conteudo` (`apelido`, `pagina`, `pt`, `en`, `es`) VALUES
 -- Estrutura da tabela `metas`
 --
 
-CREATE TABLE `metas` (
+DROP TABLE IF EXISTS `metas`;
+CREATE TABLE IF NOT EXISTS `metas` (
   `mes` int(2) NOT NULL,
   `ano` int(4) NOT NULL,
   `tipo` varchar(20) NOT NULL,
-  `meta` int(11) DEFAULT NULL
+  `meta` int(11) DEFAULT NULL,
+  PRIMARY KEY (`mes`,`ano`,`tipo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -805,24 +820,29 @@ INSERT INTO `metas` (`mes`, `ano`, `tipo`, `meta`) VALUES
 -- Estrutura da tabela `orcamento`
 --
 
-CREATE TABLE `orcamento` (
-  `idorcamento` int(11) NOT NULL,
+DROP TABLE IF EXISTS `orcamento`;
+CREATE TABLE IF NOT EXISTS `orcamento` (
+  `idorcamento` int(11) NOT NULL AUTO_INCREMENT,
   `fkcliente` int(11) DEFAULT NULL,
   `produtos` varchar(150) DEFAULT NULL,
   `descricao` text NOT NULL,
-  `data` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `data` datetime DEFAULT NULL,
+  `status` varchar(11) NOT NULL,
+  PRIMARY KEY (`idorcamento`),
+  KEY `fkcliente` (`fkcliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `orcamento`
 --
 
-INSERT INTO `orcamento` (`idorcamento`, `fkcliente`, `produtos`, `descricao`, `data`) VALUES
-(1, 1, 'E1260T, Phylos, CoreE3, EzyCure', 'null', '2019-06-07 11:37:08'),
-(2, 1, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22'),
-(9, 4, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22'),
-(10, 4, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22'),
-(11, 4, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22');
+INSERT INTO `orcamento` (`idorcamento`, `fkcliente`, `produtos`, `descricao`, `data`, `status`) VALUES
+(1, 1, 'E1260T, Phylos, CoreE3, EzyCure', 'null', '2019-06-07 11:37:08', ''),
+(2, 1, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22', ''),
+(9, 4, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22', ''),
+(10, 4, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22', ''),
+(11, 4, 'E1260T, EzyCure', 'null', '2019-06-11 14:16:22', ''),
+(12, 1, 'mãe do gabriel', 'deliciosa', '2019-06-13 22:00:43', 'respondido');
 
 -- --------------------------------------------------------
 
@@ -830,109 +850,26 @@ INSERT INTO `orcamento` (`idorcamento`, `fkcliente`, `produtos`, `descricao`, `d
 -- Estrutura da tabela `suporte`
 --
 
-CREATE TABLE `suporte` (
-  `idsuporte` int(11) NOT NULL,
+DROP TABLE IF EXISTS `suporte`;
+CREATE TABLE IF NOT EXISTS `suporte` (
+  `idsuporte` int(11) NOT NULL AUTO_INCREMENT,
   `maquina` varchar(20) NOT NULL,
   `problema` varchar(20) NOT NULL,
   `descricao` text NOT NULL,
   `fkcliente` int(11) DEFAULT NULL,
-  `data` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `data` datetime DEFAULT NULL,
+  `status` varchar(11) NOT NULL,
+  PRIMARY KEY (`idsuporte`),
+  KEY `fkcliente` (`fkcliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `suporte`
 --
 
-INSERT INTO `suporte` (`idsuporte`, `maquina`, `problema`, `descricao`, `fkcliente`, `data`) VALUES
-(2, 'Phylos', 'Falha na impressão', 'sssssssssssssssssssssssssssssssss', 1, '2019-06-11 14:16:36');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `acesso`
---
-ALTER TABLE `acesso`
-  ADD PRIMARY KEY (`dia`,`mes`,`ano`);
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`idadmin`);
-
---
--- Indexes for table `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`idcliente`);
-
---
--- Indexes for table `contato`
---
-ALTER TABLE `contato`
-  ADD PRIMARY KEY (`idcontato`);
-
---
--- Indexes for table `conteudo`
---
-ALTER TABLE `conteudo`
-  ADD PRIMARY KEY (`apelido`,`pagina`);
-
---
--- Indexes for table `metas`
---
-ALTER TABLE `metas`
-  ADD PRIMARY KEY (`mes`,`ano`,`tipo`);
-
---
--- Indexes for table `orcamento`
---
-ALTER TABLE `orcamento`
-  ADD PRIMARY KEY (`idorcamento`),
-  ADD KEY `fkcliente` (`fkcliente`);
-
---
--- Indexes for table `suporte`
---
-ALTER TABLE `suporte`
-  ADD PRIMARY KEY (`idsuporte`),
-  ADD KEY `fkcliente` (`fkcliente`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `idadmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `cliente`
---
-ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `contato`
---
-ALTER TABLE `contato`
-  MODIFY `idcontato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `orcamento`
---
-ALTER TABLE `orcamento`
-  MODIFY `idorcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `suporte`
---
-ALTER TABLE `suporte`
-  MODIFY `idsuporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+INSERT INTO `suporte` (`idsuporte`, `maquina`, `problema`, `descricao`, `fkcliente`, `data`, `status`) VALUES
+(2, 'Phylos', 'Falha na impressão', 'sssssssssssssssssssssssssssssssss', 1, '2019-06-11 14:16:36', 'pendente'),
+(6, 'mãe do gabriel', 'deliciosa', 'pendente', 1, '2019-06-13 22:30:59', 'respondido');
 
 --
 -- Constraints for dumped tables

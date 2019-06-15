@@ -152,8 +152,8 @@ else if ($tipo == "orcamento") {
     }
 
     $produtos = implode(', ', $agrupar);
-    $dados = ["idorcamento" => 0, "fkcliente" => $idcliente, "produtos" => $produtos, "descricao" => $descricao, "data" => date("Y-m-d H:i:s")];
-    $cliente->cadastrar("orcamento", ":idorcamento, :fkcliente, :produtos, :descricao, :data", $dados);
+    $dados = ["idorcamento" => 0, "fkcliente" => $idcliente, "produtos" => $produtos, "descricao" => $descricao, "data" => date("Y-m-d H:i:s"), "status" => $status];
+    $cliente->cadastrar("orcamento", ":idorcamento, :fkcliente, :produtos, :descricao, :data, :status", $dados);
     header("Location: ../index.php?tipo=orcamento");
 }
 
@@ -170,8 +170,8 @@ else if ($tipo == "suporte") {
     } else {
         session_start();
         $fkcliente = $_SESSION["idcliente"];
-        $dados = ["idsuporte" => 0, "maquina" => $maquina, "problema" => $problema, "descricao" => $descricao, "fkcliente" => $fkcliente, "data" => date("Y-m-d H:i:s")];
-        $cliente->cadastrar("suporte", ":idsuporte, :maquina, :problema, :descricao, :fkcliente, :data", $dados);
+        $dados = ["idsuporte" => 0, "maquina" => $maquina, "problema" => $problema, "descricao" => $descricao, "fkcliente" => $fkcliente, "data" => date("Y-m-d H:i:s"), "status" => $status];
+        $cliente->cadastrar("suporte", ":idsuporte, :maquina, :problema, :descricao, :fkcliente, :data, :status", $dados);
         header("Location: ../index.php?tipo=suporte");
     }
 }
@@ -184,8 +184,8 @@ else if ($tipo == "excluirSuporte") {
 
 // Contato, disponivel para qualquer usuário
 else if ($tipo == "contato") {
-    $dados = ["idcontato" => 0, "nome" => $nome, "email" => $email, "assunto" => $assunto, "msg" => $msg, "data" => date("Y-m-d H:i:s")];
-    $cliente->cadastrar("contato", ":idcontato, :nome, :email, :assunto, :msg, :data", $dados);
+    $dados = ["idcontato" => 0, "nome" => $nome, "email" => $email, "assunto" => $assunto, "msg" => $msg, "data" => date("Y-m-d H:i:s"), "status" => $status];
+    $cliente->cadastrar("contato", ":idcontato, :nome, :email, :assunto, :msg, :data, :status", $dados);
     echo "<script>alert('E-mail enviado com sucesso!');window.location.href='../contato.php';</script>";
 }
 //exclusão do contato ADMIN MASTER
