@@ -26,10 +26,10 @@
         if ($('#st').html() == "Pendentes") {
           $('#st').html("Respondidos");
         }
-        $("#pendente").removeClass('btn-outline-primary');
-        $("#pendente").addClass('btn-primary');
-        $("#respondido").removeClass('btn-warning');
-        $("#respondido").addClass('btn-outline-warning');
+        $("#respondido").removeClass('btn-outline-warning');
+        $("#respondido").addClass('btn-warning');
+        $("#pendente").removeClass('btn-primary');
+        $("#pendente").addClass('btn-outline-primary');
         $("#tbpendente").hide();
         $("#tbrespondido").show();
       });
@@ -38,10 +38,10 @@
         if ($('#st').html() == "Respondidos") {
           $('#st').html("Pendentes");
         }
-        $("#respondido").removeClass('btn-outline-warning');
-        $("#respondido").addClass('btn-warning');
-        $("#pendente").removeClass('btn-primary');
-        $("#pendente").addClass('btn-outline-primary');
+        $("#pendente").removeClass('btn-outline-primary');
+        $("#pendente").addClass('btn-primary');
+        $("#respondido").removeClass('btn-warning');
+        $("#respondido").addClass('btn-outline-warning');
         $("#tbrespondido").hide();
         $("#tbpendente").show();
       });
@@ -92,7 +92,7 @@
       <h1 class="h3 mb-4 text-gray-800">Orçamentos <i class="fas fa-chevron-right mr-2 ml-2" style="font-size: 20px"></i> <span class="h4 mb-4 text-gray-800" id="st">Pendentes</span></h1>
 
       <button type="button" class="btn btn-primary" id="pendente">Pendentes</button>
-      <button type="button" class="btn btn-warning" id="respondido">Respondidos</button><br><br>
+      <button type="button" class="btn btn-outline-warning" id="respondido">Respondidos</button><br><br>
 
       <div class="card shadow mb-4" id="tbpendente">
         <div class="card-header py-3">
@@ -147,12 +147,13 @@
                  } else if ($mes == "12") {
                    $novomes = "dez";
                  }
+                 $hora_data = $dia. " de ". $novomes. " ". $ano. " às ". $hora;
                  ?>
                  <tr>
                   <td><?= $cliente['nome'] ?></td>
                   <td><?= $cliente['produtos'] ?></td>
                   <td><?= substr($cliente['descricao'], 0, 15). "..." ?></td>
-                  <td><?= $dia. " de ". $novomes. " ". $ano. " / ". $hora ?></td>
+                  <td><?= $hora_data ?></td>
                   <?php if ($permissao == "@571824") { ?>
                     <td>
                       <a class="btn btn-outline-warning w-100" href="paginaRespostaOrc.php?id=<?= $cliente['idorcamento'] ?>&fk=<?= $cliente['fkcliente'] ?>">Responder</a>
@@ -219,12 +220,13 @@
                } else if ($mes == "12") {
                  $novomes = "dez";
                }
+               $hora_data = $dia. " de ". $novomes. " ". $ano. " às ". $hora;
                ?>
                <tr>
                 <td><?= $cliente['nome'] ?></td>
                 <td><?= $cliente['produtos'] ?></td>
                 <td><?= substr($cliente['descricao'], 0, 15). "..." ?></td>
-                <td><?= $dia. " de ". $novomes. " ". $ano. " / ". $hora ?></td>
+                <td><?= $hora_data ?></td>
                 <?php if ($permissao == "@571824") { ?>
                   <td>
                     <a class="btn btn-outline-danger w-100" onclick="return confirmar()" href="javascript:excluirOrcamento(<?= $cliente['idorcamento'] ?>, 'excluir')">Excluir</a>

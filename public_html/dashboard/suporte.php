@@ -27,10 +27,10 @@
         if ($('#st').html() == "Pendentes") {
           $('#st').html("Respondidos");
         }
-        $("#pendente").removeClass('btn-outline-primary');
-        $("#pendente").addClass('btn-primary');
-        $("#respondido").removeClass('btn-warning');
-        $("#respondido").addClass('btn-outline-warning');
+        $("#respondido").removeClass('btn-outline-warning');
+        $("#respondido").addClass('btn-warning');
+        $("#pendente").removeClass('btn-primary');
+        $("#pendente").addClass('btn-outline-primary');
         $("#tbpendente").hide();
         $("#tbrespondido").show();
       });
@@ -39,13 +39,14 @@
         if ($('#st').html() == "Respondidos") {
           $('#st').html("Pendentes");
         }
-        $("#respondido").removeClass('btn-outline-warning');
-        $("#respondido").addClass('btn-warning');
-        $("#pendente").removeClass('btn-primary');
-        $("#pendente").addClass('btn-outline-primary');
+        $("#pendente").removeClass('btn-outline-primary');
+        $("#pendente").addClass('btn-primary');
+        $("#respondido").removeClass('btn-warning');
+        $("#respondido").addClass('btn-outline-warning');
         $("#tbrespondido").hide();
         $("#tbpendente").show();
       });
+
       function excluirSuporte(id, tipo) {
         $.ajax({
         //  url: "http://www.ezy3d.com.br/controle/cliente.php",
@@ -92,8 +93,8 @@
       <h1 class="h3 mb-4 text-gray-800">Suporte <i class="fas fa-chevron-right mr-2 ml-2" style="font-size: 20px"></i> <span class="h4 mb-4 text-gray-800" id="st">Pendentes</span></h1> 
 
 
-      <button type="button" class="btn btn-outline-primary" id="pendente">Pendentes</button>
-      <button type="button" class="btn btn-warning" id="respondido">Respondidos</button><br><br>
+      <button type="button" class="btn btn-primary" id="pendente">Pendentes</button>
+      <button type="button" class="btn btn-outline-warning" id="respondido">Respondidos</button><br><br>
 
       <div class="card shadow mb-4" id="tbpendente">
         <div class="card-header py-3">
@@ -148,14 +149,15 @@
                    $novomes = "nov";
                  } else if ($mes == "12") {
                    $novomes = "dez";
-                 } 
+                 }
+                 $hora_data = $dia. " de ". $novomes. " ". $ano. " às ". $hora; 
                  ?>
                  <tr>
                   <td><?= $cliente['nome'] ?></td>
                   <td><?= $cliente['maquina'] ?></td>
                   <td><?= $cliente['problema'] ?></td>
                   <td><?=  substr($cliente['descricao'], 0, 15). "..." ?></td>
-                  <td><?= $dia. " de ". $novomes. " ". $ano. " / ". $hora  ?></td>
+                  <td><?= $hora_data ?></td>
                   <?php if ($permissao == "@571824") { ?>
                     <td>
                       <a class="btn btn-outline-warning w-100" href="paginaRespostaSup.php?id=<?= $cliente['idsuporte'] ?>&fk=<?= $cliente['fkcliente'] ?>">Responder</a>
@@ -223,13 +225,14 @@
                } else if ($mes == "12") {
                  $novomes = "dez";
                }
+               $hora_data = $dia. " de ". $novomes. " ". $ano. " às ". $hora;
                ?>
                <tr>
                 <td><?= $cliente['nome'] ?></td>
                 <td><?= $cliente['maquina'] ?></td>
                 <td><?= $cliente['problema'] ?></td>
                 <td><?= $cliente['descricao'] ?></td>
-                <td><?= $dia. " de ". $novomes. " ". $ano. " / ". $hora ?></td>
+                <td><?= $hora_data ?></td>
                 <?php if ($permissao == "@571824") { ?>
                   <td>
                     <a class="btn btn-outline-danger w-100" onclick="return confirmar()" href="javascript:excluirSuporte(<?= $cliente['idsuporte'] ?>, 'excluir')">Excluir</a>
