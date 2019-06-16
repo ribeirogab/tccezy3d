@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #faixa {
   background-color: #303030;
   padding: 15px;
@@ -106,3 +107,113 @@
 .smoothscroll-top i.fa {
   line-height: inherit;
 }
+=======
+#faixa {
+  background-color: #303030;
+  padding: 15px;
+}
+#faixa a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 18px;
+}
+#footer {
+  background-color: #212121;
+}
+#footer h6,
+#footer span {
+  color: #ddd;
+}
+#footer a,
+#footer .rds {
+  font-size: 14px;
+  color: #cf9d09;
+  text-decoration: none;
+  transition: 0.3s;
+}
+#footer a:hover,
+#footer .rds:hover {
+  font-size: 14px;
+  color: #e83e0b;
+  transition: 0.3s;
+}
+#footer span {
+  font-size: 14px;
+}
+
+#rodape {
+  width: 100%;
+  height: 70px;
+  background-color: #111;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#rodape span {
+  font-size: 15px;
+  color: #ddd;
+  margin: 0 auto;
+}
+#rodape a {
+  font-size: 15px;
+  color: #ddd;
+}
+@media only screen and (max-width: 364px) {
+  #rodape span {
+    margin-left: 30px;
+  }
+}
+@media only screen and (max-width: 315px) {
+  #rodape span {
+    margin-right: 60px;
+  }
+}
+
+.icon-rsocial {
+  cursor: pointer;
+  transition: 0.5s;
+}
+.icon-rsocial:hover {
+  color: #f28918;
+  transition: 0.5s;
+}
+
+/*botão voltar ao topo*/
+.smoothscroll-top {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  text-align: center;
+  z-index: 99;
+  background-color: rgba(255, 193, 7, 0.8);
+  color: #fff;
+  width: 47px;
+  height: 44px;
+  line-height: 44px;
+  right: 10px;
+  bottom: -25px;
+  padding-top: 4px;
+  border-radius: 1.5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.smoothscroll-top:hover {
+  background-color: #efb058;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+  transition-delay: 0;
+}
+
+.smoothscroll-top.show {
+  visibility: visible;
+  cursor: pointer;
+  opacity: 1;
+  bottom: 0px;
+}
+
+.smoothscroll-top i.fa {
+  line-height: inherit;
+}
+>>>>>>> 8f4cb8f14c89c7278e4c85cffeb7f46ef81ee86b
