@@ -19,37 +19,51 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
   <script src="../glj/js/jquery.js"></script>
+  <script src="../glj/js"></script>
 
   <script>
     $(document).ready(function() {
       $('#respondido').click(function() {
+        if ($('#st').html() == "Pendentes") {
+          $('#st').html("Respondidos");
+        }
+        $("#pendente").removeClass('btn-outline-primary');
+        $("#pendente").addClass('btn-primary');
+        $("#respondido").removeClass('btn-warning');
+        $("#respondido").addClass('btn-outline-warning');
         $("#tbpendente").hide();
         $("#tbrespondido").show();
       });
 
       $('#pendente').click(function() {
+        if ($('#st').html() == "Respondidos") {
+          $('#st').html("Pendentes");
+        }
+        $("#respondido").removeClass('btn-outline-warning');
+        $("#respondido").addClass('btn-warning');
+        $("#pendente").removeClass('btn-primary');
+        $("#pendente").addClass('btn-outline-primary');
         $("#tbrespondido").hide();
         $("#tbpendente").show();
       });
-
       function excluirSuporte(id, tipo) {
         $.ajax({
-          url: "http://www.ezy3d.com.br/controle/cliente.php",
-          // url: "http://localhost/tccezy3d/controle/cliente.php",
-          method: "POST",
-          data: {
-            "id": id,
-            "tipo": tipo
-          },
-          success: function(resposta) {
-            alert(resposta)
-            location.reload()
-          },
+        //  url: "http://www.ezy3d.com.br/controle/cliente.php",
+        url: "http://localhost/tccezy3d/controle/cliente.php",
+        method: "POST",
+        data: {
+          "id": id,
+          "tipo": tipo
+        },
+        success: function(resposta) {
+          alert(resposta)
+          location.reload()
+        },
 
-          error: function() {
-            alert("Erro ao fazer a requisição")
-          }
-        });
+        error: function() {
+          alert("Erro ao fazer a requisição")
+        }
+      });
       }
 
       function confirmar() {
@@ -75,9 +89,10 @@
     <div class="container-fluid">
 
       <!-- Page Heading -->
-      <h1 class="h3 mb-4 text-gray-800">Suporte</h1>
+      <h1 class="h3 mb-4 text-gray-800">Suporte <i class="fas fa-chevron-right mr-2 ml-2" style="font-size: 20px"></i> <span class="h4 mb-4 text-gray-800" id="st">Pendentes</span></h1> 
 
-      <button type="button" class="btn btn-primary" id="pendente">Pendentes</button>
+
+      <button type="button" class="btn btn-outline-primary" id="pendente">Pendentes</button>
       <button type="button" class="btn btn-warning" id="respondido">Respondidos</button><br><br>
 
       <div class="card shadow mb-4" id="tbpendente">
@@ -104,77 +119,137 @@
                 require_once "../Classes/Usuario.php";
                 $obj = new Usuario();
                 $registro = $obj->consultar("c.nome, s.*", "suporte s", "INNER JOIN cliente c ON s.fkcliente=c.idcliente where status = 'pendente' ORDER BY s.data", null);
-                foreach ($registro as $cliente) { ?>
-                  <tr>
-                    <td><?= $cliente['nome'] ?></td>
-                    <td><?= $cliente['maquina'] ?></td>
-                    <td><?= $cliente['problema'] ?></td>
-                    <td><?= $cliente['descricao'] ?></td>
-                    <td><?= $cliente['data'] ?></td>
-                    <?php if ($permissao == "@571824") { ?>
-                      <td>
-                        <a class="btn btn-outline-warning w-100" href="paginaRespostaSup.php?id=<?= $cliente['idsuporte'] ?>&fk=<?= $cliente['fkcliente'] ?>">Responder</a>
-                      </td>
-                    <?php } ?>
-                  </tr>
-                <?php } ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="card shadow mb-4" id="tbrespondido" style="display: none">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Suportes Respondidos</h6>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Cliente</th>
-                  <th>Máquina</th>
-                  <th>Problema</th>
-                  <th>Descrição</th>
-                  <th>Data</th>
+                foreach ($registro as $cliente) {
+                 $ano = substr($cliente['data'], 0, -15);
+                 $mes = substr($cliente['data'], 5, -12);
+                 $dia = substr($cliente['data'], 8, -8);
+                 $hora = substr($cliente['data'], 11, -3);
+                 if ($mes == "01") {
+                   $novomes = "jan";
+                 } else if ($mes == "02") {
+                   $novomes = "fev";
+                 } else if ($mes == "03") {
+                   $novomes = "mar";
+                 } else if ($mes == "04") {
+                   $novomes = "abr";
+                 } else if ($mes == "05") {
+                   $novomes = "mai";
+                 } else if ($mes == "06") {
+                   $novomes = "jun";
+                 } else if ($mes == "07") {
+                   $novomes = "jul";
+                 } else if ($mes == "08") {
+                   $novomes = "ago";
+                 } else if ($mes == "09") {
+                   $novomes = "set";
+                 } else if ($mes == "10") {
+                   $novomes = "out";
+                 } else if ($mes == "11") {
+                   $novomes = "nov";
+                 } else if ($mes == "12") {
+                   $novomes = "dez";
+                 } 
+                 ?>
+                 <tr>
+                  <td><?= $cliente['nome'] ?></td>
+                  <td><?= $cliente['maquina'] ?></td>
+                  <td><?= $cliente['problema'] ?></td>
+                  <td><?=  substr($cliente['descricao'], 0, 15). "..." ?></td>
+                  <td><?= $dia. " de ". $novomes. " ". $ano. " / ". $hora  ?></td>
                   <?php if ($permissao == "@571824") { ?>
-                    <th>Ações</th>
+                    <td>
+                      <a class="btn btn-outline-warning w-100" href="paginaRespostaSup.php?id=<?= $cliente['idsuporte'] ?>&fk=<?= $cliente['fkcliente'] ?>">Responder</a>
+                    </td>
                   <?php } ?>
                 </tr>
-              </thead>
-              <tbody>
-                <?php
-                require_once "../Classes/Usuario.php";
-                $obj = new Usuario();
-                $registro = $obj->consultar("c.nome, s.*", "suporte s", "INNER JOIN cliente c ON s.fkcliente=c.idcliente  where status = 'respondido' ORDER BY s.data", null);
-                foreach ($registro as $cliente) { ?>
-                  <tr>
-                    <td><?= $cliente['nome'] ?></td>
-                    <td><?= $cliente['maquina'] ?></td>
-                    <td><?= $cliente['problema'] ?></td>
-                    <td><?= $cliente['descricao'] ?></td>
-                    <td><?= $cliente['data'] ?></td>
-                    <?php if ($permissao == "@571824") { ?>
-                      <td>
-                        <a class="btn btn-outline-danger w-100" onclick="return confirmar()" href="javascript:excluirSuporte(<?= $cliente['idsuporte'] ?>, 'excluir')">Excluir</a>
-                      </td>
-                    <?php } ?>
-                  </tr>
-                <?php } ?>
-              </tbody>
-            </table>
-          </div>
+              <?php } ?>
+            </tbody>
+          </table>
         </div>
       </div>
-
     </div>
-    <!-- /.container-fluid -->
 
+    <div class="card shadow mb-4" id="tbrespondido" style="display: none">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Suportes Respondidos</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Máquina</th>
+                <th>Problema</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <?php if ($permissao == "@571824") { ?>
+                  <th>Ações</th>
+                <?php } ?>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              require_once "../Classes/Usuario.php";
+              $obj = new Usuario();
+              $registro = $obj->consultar("c.nome, s.*", "suporte s", "INNER JOIN cliente c ON s.fkcliente=c.idcliente  where status = 'respondido' ORDER BY s.data", null);
+              foreach ($registro as $cliente) { 
+                $ano = substr($cliente['data'], 0, -15);
+                $mes = substr($cliente['data'], 5, -12);
+                $dia = substr($cliente['data'], 8, -8);
+                $hora = substr($cliente['data'], 11, -3);
+                if ($mes == "01") {
+                 $novomes = "jan";
+               } else if ($mes == "02") {
+                 $novomes = "fev";
+               } else if ($mes == "03") {
+                 $novomes = "mar";
+               } else if ($mes == "04") {
+                 $novomes = "abr";
+               } else if ($mes == "05") {
+                 $novomes = "mai";
+               } else if ($mes == "06") {
+                 $novomes = "jun";
+               } else if ($mes == "07") {
+                 $novomes = "jul";
+               } else if ($mes == "08") {
+                 $novomes = "ago";
+               } else if ($mes == "09") {
+                 $novomes = "set";
+               } else if ($mes == "10") {
+                 $novomes = "out";
+               } else if ($mes == "11") {
+                 $novomes = "nov";
+               } else if ($mes == "12") {
+                 $novomes = "dez";
+               }
+               ?>
+               <tr>
+                <td><?= $cliente['nome'] ?></td>
+                <td><?= $cliente['maquina'] ?></td>
+                <td><?= $cliente['problema'] ?></td>
+                <td><?= $cliente['descricao'] ?></td>
+                <td><?= $dia. " de ". $novomes. " ". $ano. " / ". $hora ?></td>
+                <?php if ($permissao == "@571824") { ?>
+                  <td>
+                    <a class="btn btn-outline-danger w-100" onclick="return confirmar()" href="javascript:excluirSuporte(<?= $cliente['idsuporte'] ?>, 'excluir')">Excluir</a>
+                  </td>
+                <?php } ?>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  <!-- End of Main Content -->
 
-  <?php include_once "rodape.php"; ?>
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<?php include_once "rodape.php"; ?>
 
 </body>
 
