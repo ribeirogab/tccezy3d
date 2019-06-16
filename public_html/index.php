@@ -20,11 +20,11 @@ $addClique = new AddClique($tipo);
 $cliquesToday = $addClique->consultarClique("WHERE mes=:mes AND ano=:ano AND dia=:dia");
 $addClique->adicionarClique($tipo, "SET $tipo=:tipo WHERE dia=:dia AND mes=:mes AND ano=:ano", $cliquesToday[0][0], $cliquesToday[0][1]);
 
-if ($_GET["tipo"] == "orcamento") {
+if ($tipo == "orcamento") {
     header("Location:orcamento_enviado.php");
-} else if ($_GET["tipo"] == "suporte") {
+} else if ($tipo == "suporte") {
     header("Location:suporte_enviado.php");
-} else if ($_GET["tipo"] == "cadastro") {
+} else if ($tipo == "cadastro") {
     $email = $_GET['email'];
     header("Location:home.php?email=$email");
 } else {

@@ -18,7 +18,45 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <script src="../glj/js/jquery.js"></script>
 
+  <script>
+    $(document).ready(function() {
+      $('#respondido').click(function() {
+        $("#tbpendente").hide();
+        $("#tbrespondido").show();
+      });
+
+      $('#pendente').click(function() {
+        $("#tbrespondido").hide();
+        $("#tbpendente").show();
+      });
+
+      function excluirContato(id, tipo) {
+        $.ajax({
+          url: "http://www.ezy3d.com.br/controle/cliente.php",
+          // url: "http://localhost/tccezy3d/controle/cliente.php",
+          method: "POST",
+          data: {
+            "id": id,
+            "tipo": tipo
+          },
+          success: function(resposta) {
+            alert(resposta)
+            location.reload()
+          },
+
+          error: function() {
+            alert("Erro ao fazer a requisição")
+          }
+        });
+      }
+
+      function confirmar() {
+        return confirm('Deseja realmente excluir este cliente?')
+      }
+    });
+  </script>
 
 </head>
 
@@ -39,7 +77,10 @@
       <!-- Page Heading -->
       <h1 class="h3 mb-4 text-gray-800">Contato</h1>
 
-      <div class="card shadow mb-4">
+      <button type="button" class="btn btn-primary" id="pendente">Pendentes</button>
+      <button type="button" class="btn btn-warning" id="respondido">Respondidos</button><br><br>
+
+      <div class="card shadow mb-4" id="tbpendente">
         <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">Contatos a serem respondidos</h6>
         </div>
@@ -61,7 +102,7 @@
                 <?php
                 require_once "../Classes/Usuario.php";
                 $obj = new Usuario();
-                $registro = $obj->consultar("*", "contato", null, null);
+                $registro = $obj->consultar("*", "contato", 'where status = "pendente"', null);
                 foreach ($registro as $cliente) { ?>
                   <tr>
                     <td><?= $cliente['nome'] ?></td>
@@ -70,9 +111,49 @@
                     <td><?= $cliente['data'] ?></td>
                     <?php if ($permissao == "@571824") { ?>
                       <td>
-                        <a class="btn btn-outline-success" id="btn-alterar" href="vizualizarContato.php?id=<?= $cliente['idcontato'] ?>">Vizualizar</a>
-                        <a class="btn btn-outline-warning" href="paginaRespostaCont.php?id=<?= $cliente['idcontato'] ?>">Responder</a>
-                        <a class="btn btn-outline-danger" onclick="return confirmar()" href="javascript:excluirContato(<?= $cliente['idcontato'] ?>, 'excluirContato')">Excluir</a>
+                        <a class="btn btn-outline-warning w-100" href="paginaRespostaCont.php?id=<?= $cliente['idcontato'] ?>">Responder</a>
+                      </td>
+                    <?php } ?>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card shadow mb-4" id="tbrespondido" style="display: none">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Contatos Respondidos</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Assunto</th>
+                  <th>Data</th>
+                  <?php if ($permissao == "@571824") { ?>
+                    <th>Ações</th>
+                  <?php } ?>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                require_once "../Classes/Usuario.php";
+                $obj = new Usuario();
+                $registro = $obj->consultar("*", "contato", 'where status = "respondido"', null);
+                foreach ($registro as $cliente) { ?>
+                  <tr>
+                    <td><?= $cliente['nome'] ?></td>
+                    <td><?= $cliente['email'] ?></td>
+                    <td><?= $cliente['assunto'] ?></td>
+                    <td><?= $cliente['data'] ?></td>
+                    <?php if ($permissao == "@571824") { ?>
+                      <td>
+                        <a class="btn btn-outline-danger w-100" onclick="return confirmar()" href="javascript:excluirContato(<?= $cliente['idcontato'] ?>, 'excluir')">Excluir</a>
                       </td>
                     <?php } ?>
                   </tr>

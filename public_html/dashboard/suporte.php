@@ -18,31 +18,44 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <script src="../glj/js/jquery.js"></script>
 
   <script>
-    function excluirSuporte(id, tipo) {
-      $.ajax({
-        url: "http://www.ezy3d.com.br/controle/cliente.php",
-        // url: "http://localhost/tccezy3d/controle/cliente.php",
-        method: "POST",
-        data: {
-          "id": id,
-          "tipo": tipo
-        },
-        success: function(resposta) {
-          alert(resposta)
-          location.reload()
-        },
-
-        error: function() {
-          alert("Erro ao fazer a requisição")
-        }
+    $(document).ready(function() {
+      $('#respondido').click(function() {
+        $("#tbpendente").hide();
+        $("#tbrespondido").show();
       });
-    }
 
-    function confirmar() {
-      return confirm('Deseja realmente excluir este cliente?')
-    }
+      $('#pendente').click(function() {
+        $("#tbrespondido").hide();
+        $("#tbpendente").show();
+      });
+
+      function excluirSuporte(id, tipo) {
+        $.ajax({
+          url: "http://www.ezy3d.com.br/controle/cliente.php",
+          // url: "http://localhost/tccezy3d/controle/cliente.php",
+          method: "POST",
+          data: {
+            "id": id,
+            "tipo": tipo
+          },
+          success: function(resposta) {
+            alert(resposta)
+            location.reload()
+          },
+
+          error: function() {
+            alert("Erro ao fazer a requisição")
+          }
+        });
+      }
+
+      function confirmar() {
+        return confirm('Deseja realmente excluir este cliente?')
+      }
+    });
   </script>
 
 </head>
@@ -64,7 +77,10 @@
       <!-- Page Heading -->
       <h1 class="h3 mb-4 text-gray-800">Suporte</h1>
 
-      <div class="card shadow mb-4">
+      <button type="button" class="btn btn-primary" id="pendente">Pendentes</button>
+      <button type="button" class="btn btn-warning" id="respondido">Respondidos</button><br><br>
+
+      <div class="card shadow mb-4" id="tbpendente">
         <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">Suportes para verificar</h6>
         </div>
@@ -87,7 +103,7 @@
                 <?php
                 require_once "../Classes/Usuario.php";
                 $obj = new Usuario();
-                $registro = $obj->consultar("c.nome, s.*", "suporte s", "INNER JOIN cliente c ON s.fkcliente=c.idcliente ORDER BY s.data", null);
+                $registro = $obj->consultar("c.nome, s.*", "suporte s", "INNER JOIN cliente c ON s.fkcliente=c.idcliente where status = 'pendente' ORDER BY s.data", null);
                 foreach ($registro as $cliente) { ?>
                   <tr>
                     <td><?= $cliente['nome'] ?></td>
@@ -97,9 +113,51 @@
                     <td><?= $cliente['data'] ?></td>
                     <?php if ($permissao == "@571824") { ?>
                       <td>
-                        <a class="btn btn-outline-success" id="btn-alterar" href="vizualizarSuporte.php?id=<?= $cliente['idsuporte'] ?>&fk=<?= $cliente['fkcliente'] ?>">Vizualizar</a>
-                        <a class="btn btn-outline-warning" href="paginaResposta.php?fk=<?= $cliente['fkcliente'] ?>">Responder</a>
-                        <a class="btn btn-outline-danger" onclick="return confirmar()" href="javascript:excluirSuporte(<?= $cliente['idsuporte'] ?>, 'excluirSuporte')">Excluir</a>
+                        <a class="btn btn-outline-warning w-100" href="paginaRespostaSup.php?id=<?= $cliente['idsuporte'] ?>&fk=<?= $cliente['fkcliente'] ?>">Responder</a>
+                      </td>
+                    <?php } ?>
+                  </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card shadow mb-4" id="tbrespondido" style="display: none">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Suportes Respondidos</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Máquina</th>
+                  <th>Problema</th>
+                  <th>Descrição</th>
+                  <th>Data</th>
+                  <?php if ($permissao == "@571824") { ?>
+                    <th>Ações</th>
+                  <?php } ?>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                require_once "../Classes/Usuario.php";
+                $obj = new Usuario();
+                $registro = $obj->consultar("c.nome, s.*", "suporte s", "INNER JOIN cliente c ON s.fkcliente=c.idcliente  where status = 'respondido' ORDER BY s.data", null);
+                foreach ($registro as $cliente) { ?>
+                  <tr>
+                    <td><?= $cliente['nome'] ?></td>
+                    <td><?= $cliente['maquina'] ?></td>
+                    <td><?= $cliente['problema'] ?></td>
+                    <td><?= $cliente['descricao'] ?></td>
+                    <td><?= $cliente['data'] ?></td>
+                    <?php if ($permissao == "@571824") { ?>
+                      <td>
+                        <a class="btn btn-outline-danger w-100" onclick="return confirmar()" href="javascript:excluirSuporte(<?= $cliente['idsuporte'] ?>, 'excluir')">Excluir</a>
                       </td>
                     <?php } ?>
                   </tr>

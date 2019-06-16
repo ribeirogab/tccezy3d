@@ -1,24 +1,30 @@
 <?php
 session_start();
 if (isset($_SESSION['banana'])) {
-    header("Location:home.php");
+	header("Location:home.php");
+}
+
+if (!isset($_SESSION["localAcesso"])) {
+	$localAcesso = "browser";
 }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 	<title>Cadastro</title>
 	<meta charset="UTF-8">
-	<noscript><meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
+	<noscript>
+		<meta http-equiv="Refresh" content="1;   url=404js.html"></noscript>
 	<link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="vendor/images/icons/favicon.ico" />
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--
+	<!--
 	<link rel="stylesheet" type="text/css" href="vendor/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
@@ -38,6 +44,7 @@ if (isset($_SESSION['banana'])) {
 	<link rel="stylesheet" type="text/css" href="vendor/font/css/all.css">
 
 </head>
+
 <body>
 	<div class="limiter">
 		<div class="container-login100">
@@ -45,7 +52,7 @@ if (isset($_SESSION['banana'])) {
 				<div class="col-xl-7">
 					<form action="controle/cliente.php" method="post" class="login100-form" id="form-cadastro">
 						<input type="hidden" name="tipo" value="cadastro">
-						<input type="hidden" name="localAcesso" value="<?=$_SESSION['localAcesso']?>">
+						<input type="hidden" name="localAcesso" value="<?= $localAcesso ?>">
 						<span class="login100-form-title p-b-48">
 							<img src="vendor/img/logo/logo_orange.svg" class="float-left" width="40px">
 						</span><br>
@@ -393,7 +400,7 @@ if (isset($_SESSION['banana'])) {
 							</div>
 						</div>
 						<div class="mb-4 pb-2" id="outroRamo" style="display: none;">
-							<div class="wrap-input100 validate-input"  data-validate="Valid email is: a@b.c">
+							<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
 								<input class="input100" type="text" name="outroRamo" minlength="3" maxlength="30">
 								<span class="focus-input100" data-placeholder="Ramo"></span>
 							</div>
@@ -463,12 +470,12 @@ if (isset($_SESSION['banana'])) {
 	<!--===============================================================================================-->
 	<!-- <script src="vendor/animsition/js/animsition.min.js"></script> -->
 
-<!-- 	<script src="vendor/bootstrap/js/popper.js"></script>
+	<!-- 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
 
 	<!-- <script src="vendor/select2/select2.min.js"></script> -->
 
-<!-- 	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<!-- 	<script src="vendor/daterangepicker/moment.min.js"></script>
 	<script src="vendor/daterangepicker/daterangepicker.js"></script> -->
 
 	<!-- 	<script src="vendor/countdowntime/countdowntime.js"></script> -->
@@ -477,4 +484,5 @@ if (isset($_SESSION['banana'])) {
 	<!--===============================================================================================-->
 	<script src="vendor/js/cadastro_main.js"></script>
 </body>
+
 </html>

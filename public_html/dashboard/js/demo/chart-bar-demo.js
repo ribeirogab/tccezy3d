@@ -17,8 +17,9 @@ $("select[name=bar_mes]").change(function() {
 });
 function recarregarBar() {
   $.ajax({
-    url: "http://www.ezy3d.com.br/dashboard/controle/graficos.php",
-    //url: "http://localhost/tccezy3d/public_html/dashboard/controle/graficos.php",
+    // url: "http://www.ezy3d.com.br/dashboard/controle/graficos.php",
+    url:
+      "http://localhost/tccezy3d/public_html/dashboard/controle/graficos.php",
     type: "post",
     data: {
       barMes: barMes,
@@ -119,8 +120,11 @@ function recarregarBar() {
         }
       });
     },
+    timeout: 10000,
     error: function() {
-      window.location.href = "http://www.ezy3d.com.br/404.html";
+      alert("O servidor demorou muito para responder, faça login novamente.");
+      window.location.href =
+        "http://www.ezy3d.com.br/controle/logout.php?log=true";
     }
   });
 }

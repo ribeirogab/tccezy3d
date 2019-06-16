@@ -101,7 +101,7 @@
             <img class="card-img-top" src="img/txtapp_joalheria.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Aplicação - Joalheria</h5>
-              <a href="../app_engenharia.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
+              <a href="../app_joalheria.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
             <img class="card-img-top" src="img/txtapp_engenharia.jpg" alt="Card image cap">
             <div class="card-body text-center">
               <h5 class="card-title">Aplicação - Engenharia</h5>
-              <a href="../app_joalheria.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
+              <a href="../app_engenharia.php?alterartxt=true" class="btn btn-primary">Selecionar</a>
             </div>
           </div>
         </div>

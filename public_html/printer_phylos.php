@@ -9,9 +9,16 @@ if (isset($_SESSION["banana"])) {
 
 <head>
   <meta charset="utf-8">
-  <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>EZY 3D - Phylos</title>
+  <?php
+  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) { ?>
+    <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_black.ico">
+    <title>Alterar texto - Phylos</title>
+  <?php } else { ?>
+    <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
+    <title>EZY 3D - Phylos</title>
+  <?php
+} ?>
 </head>
 <style>
   #resize-phylos {
@@ -47,25 +54,36 @@ if (isset($_SESSION["banana"])) {
         <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-md-6 text-center"><img src="vendor/img/printer_phylos/phylos1.png" width="75%"></div>
-              <div class="col-md-6">
-                <div style="position: relative;top: 40%;transform: translateY(-50%);">
-                  <h1 class="display-4 text-center text-md-left mt-4 mt-md-0">
-                    <?php
-                    echo $titulo1;
-                    if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-                      echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-                    }
-                    ?>
-                  </h1>
-                  <h4 class="mt-3 text-center text-md-left">
-                    <?php
-                    echo $txt1;
-                    if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-                      echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-                    }
-                    ?>
-                  </h4>
+              <div class="col-lg-6 text-center"><img src="vendor/img/printer_phylos/phylos1.png" width="75%"></div>
+              <div class="col-lg-6">
+                <div class="p-md-5 p-3 bg-light text-black ml-auto border">
+                  <div>
+                    <h1 class=" text-center text-md-left mt-4 mt-md-0">
+                      <?php
+                      echo $titulo1;
+                      if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+                        echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                      }
+                      ?>
+                    </h1>
+                    <p class="mt-3 text-center text-md-left">
+                      <?php
+                      echo $txt1;
+                      if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+                        echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                      }
+                      ?>
+                    </p>
+                    <hr>
+                    <form class="mt-3 text-black" method="post" action="controle/cliente.php">
+                      <input type="hidden" value="lancamentoPhylos">
+                      <label for="email_lancamento_phylos">E-mail:</label>
+                      <div class="form-inline">
+                        <input type="email" class="form-control" name="emailPhylos" placeholder="aaaaaaaaa">
+                        <button class="ezy-button mt-2 mt-md-0 ml-md-1 ezy-orange">Ok</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -102,7 +120,6 @@ if (isset($_SESSION["banana"])) {
               ?>
             </p>
             <div class="row">
-              <div class="col-md-12"> <i class="fa fa-stop-circle fa-3x mr-3 text-muted d-inline"></i> <i class="fa fa-circle-o fa-3x mx-3 text-muted d-inline"></i> <i class="fa fa-stop-circle-o fa-3x mx-3 text-muted d-inline"></i> <i class="fa fa-circle fa-3x ml-3 text-muted d-inline"></i> </div>
             </div>
           </div>
           <div class="col-md-6"> <img class="img-fluid d-block" src="vendor/img/printer_phylos/phylos2.png"> </div>
@@ -228,7 +245,7 @@ if (isset($_SESSION["banana"])) {
               ?>
             </h3>
           </div>
-          <div class="col-md-3 align-items-center d-flex justify-content-center p-3"> <a class="ezy-lg ezy-button ezy-orange w-75" href="#">
+          <div class="col-md-3 align-items-center d-flex justify-content-center p-3"> <a class="ezy-lg ezy-button ezy-orange w-75" href="contato.php">
               <?php
               echo $button1;
               if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {

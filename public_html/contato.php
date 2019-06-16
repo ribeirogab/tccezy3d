@@ -124,6 +124,7 @@ if (isset($_SESSION["banana"])) {
                 <div class="form-group">
                   <textarea class="form-control" name="msg" placeholder="<?= $input4 ?>"></textarea>
                 </div>
+                <input type="text" name="status" hidden value="pendente">
                 <button type="submit" class="btn btn-primary ezy-orange"><?= $button1 ?></button>
               </form>
             </div>

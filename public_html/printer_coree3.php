@@ -371,7 +371,7 @@ if (isset($_SESSION["banana"])) {
               }
               ?>
             </p>
-            <a class="ezy-button ezy-orange ezy-lg" href="#">
+            <a class="ezy-button ezy-orange ezy-lg" href="contato.php">
               <?php
               echo $button1;
               if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {

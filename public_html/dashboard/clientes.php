@@ -134,7 +134,7 @@
           <form action="../controle/cliente.php" method="post">
             <input type="hidden" name="tipo" value="alterarCliente">
             <input type="hidden" name="altIdCliente">
-            
+
             <div class="form-row">
               <div class="col">
                 <input class="form form-control" name="altNome" type="text" placeholder="Nome">
@@ -162,11 +162,11 @@
 
 
   <script>
-    function consultarCliente(id, tipo){
+    function consultarCliente(id, tipo) {
       $("#alterarCliente").modal()
-       $.ajax({
-        url: "http://www.ezy3d.com.br/controle/cliente.php",
-        // url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+      $.ajax({
+        // url: "http://www.ezy3d.com.br/controle/cliente.php",
+        url: "http://localhost/tccezy3d/public_html/controle/cliente.php",
         method: "POST",
         data: {
           "id": id,
@@ -192,8 +192,8 @@
 
     function excluirCliente(id, tipo) {
       $.ajax({
-        url: "http://www.ezy3d.com.br/controle/cliente.php",
-        // url: "http://localhost/tccezy3d/controle/dashboard/cliente.php",
+        // url: "http://www.ezy3d.com.br/controle/cliente.php",
+        url: "http://localhost/tccezy3d/public_html/controle/cliente.php",
         method: "POST",
         data: {
           "id": id,

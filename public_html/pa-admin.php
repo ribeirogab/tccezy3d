@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['banana'])) {
-    header("Location:home.php");
+	header("Location:home.php");
 }
 ?>
 <!DOCTYPE html>
@@ -100,8 +100,8 @@ if (isset($_SESSION['banana'])) {
 			let email = $("input[name=email_admin]").val()
 			let senha = $("input[name=senha_admin]").val()
 			$.ajax({
-				url: "http://www.ezy3d.com.br/controle/admin.php",
-				// url: "http://localhost/tccezy3d/public_html/controle/admin.php",
+				// url: "http://www.ezy3d.com.br/controle/admin.php",
+				url: "http://localhost/tccezy3d/public_html/controle/admin.php",
 				method: "POST",
 				data: {
 					"tipo": "verificarLogin",
@@ -133,8 +133,10 @@ if (isset($_SESSION['banana'])) {
 						$("form").submit()
 					}
 				},
+				timeout: 3000,
 				error: function() {
-					alert("Erro ao fazer a requisição")
+					alert("O servidor demorou muito para responder. Tente novamente!")
+					window.location.href = 'http://www.ezy3d.com.br/pa-admin.php'
 				}
 			})
 		})

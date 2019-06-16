@@ -74,9 +74,6 @@ if (isset($_SESSION["banana"])) {
       <div class="container">
         <div class="row">
           <div class="mx-auto col-md-8">
-            <i class="fa fa-stop-circle-o fa-4x mx-3 d-inline text-muted"></i>
-            <i class="fa fa-circle fa-4x mx-3 d-inline text-muted"></i>
-            <i class="fa fa-stop-circle fa-4x mx-3 d-inline text-muted"></i>
             <p class="mt-3 lead">
               <?php
               echo $txt1_1;
@@ -104,7 +101,7 @@ if (isset($_SESSION["banana"])) {
               <?php
               echo $titulo2;
               if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-                echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
               }
               ?>
             </h2>
@@ -112,7 +109,7 @@ if (isset($_SESSION["banana"])) {
               <?php
               echo $titulo2_1;
               if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-                echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
               }
               ?>
             </p>
@@ -185,14 +182,14 @@ if (isset($_SESSION["banana"])) {
               <?php
               echo $titulo4;
               if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-                echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo2_1'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+                echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
               }
               ?>
             </h3>
           </div>
 
           <div class="col-md-3 align-items-center d-flex justify-content-center p-3">
-            <a class="ezy-button ezy-orange ezy-lg w-75" href="#">
+            <a class="ezy-button ezy-orange ezy-lg w-75" href="contato.php">
               <?php
               echo $button1;
               if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {

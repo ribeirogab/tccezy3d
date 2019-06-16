@@ -1,5 +1,4 @@
 <?php
-header("Access-Control-Allow-Origin: http://ezy3d.com.br");
 // error_reporting(0);
 // ini_set(“display_errors”, 0);
 if (!isset($_POST["tipo"])) {
@@ -78,7 +77,7 @@ else if ($tipo == "consultar") {
 
 // Alterar informações
 else if ($tipo == "alterar") {
-    if (!($altPermissao == "@571824" || $altPermissao == "&43642" || $altPermissao == "$3590" || $altPermissao == "*271" || $altPermissao == "#11")) {
+    if (!($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590" || $permissao == "*271" || $permissao == "#11")) {
         session_start();
         session_destroy();
         header("Location: ../pa-admin.php");
@@ -98,3 +97,4 @@ else if ($tipo == "alterartxt") {
 } else {
     header("Location:../home.php");
 }
+?>

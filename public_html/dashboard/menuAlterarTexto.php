@@ -1,40 +1,40 @@
 <?php
 if (!isset($_SESSION['idadmin'])) {
-    header("Location:../pa-admin.php");
+  header("Location:../pa-admin.php");
 } else {
-    extract($_SESSION);
+  extract($_SESSION);
 }
 require_once "Classes/TrocarIdioma.php";
 if (!isset($_GET['lang'])) {
-    if (isset($_SESSION['lang'])) {
-        $lang = $_SESSION['lang'];
-    } else {
-        $_SESSION['lang'] = 'pt';
-        $lang = $_SESSION['lang'];
-    }
-} else {
-    $_SESSION['lang'] = $_GET['lang'];
+  if (isset($_SESSION['lang'])) {
     $lang = $_SESSION['lang'];
+  } else {
+    $_SESSION['lang'] = 'pt';
+    $lang = $_SESSION['lang'];
+  }
+} else {
+  $_SESSION['lang'] = $_GET['lang'];
+  $lang = $_SESSION['lang'];
 }
 
 $idioma = new TrocarIdioma($lang);
 
 $langPag = $idioma->langPag($pagina);
 foreach ($langPag as $item) {
-    $val = $item['apelido'];
-    $$val = $item[$lang];
+  $val = $item['apelido'];
+  $$val = $item[$lang];
 }
 
 $langMenu = $idioma->langMenu("menu");
 foreach ($langMenu as $item) {
-    $val = $item['apelido'];
-    $$val = $item[$lang];
+  $val = $item['apelido'];
+  $$val = $item[$lang];
 }
 
 $langRodape = $idioma->langRodape("rodape");
 foreach ($langRodape as $item) {
-    $val = $item['apelido'];
-    $$val = $item[$lang];
+  $val = $item['apelido'];
+  $$val = $item[$lang];
 }
 ?>
 
@@ -72,18 +72,18 @@ foreach ($langRodape as $item) {
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <?php if ($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590" || $permissao == "*271" || $permissao == "#11") {?>
+    <?php if ($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590" || $permissao == "*271" || $permissao == "#11") { ?>
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="dashboard/index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
-    <?php }?>
+    <?php } ?>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <?php if ($permissao == "@571824") {?>
+    <?php if ($permissao == "@571824") { ?>
       <div>
         <!-- Heading -->
         <div class="sidebar-heading">
@@ -107,7 +107,7 @@ foreach ($langRodape as $item) {
         <!-- Divider -->
         <hr class="sidebar-divider">
       </div>
-    <?php }?>
+    <?php } ?>
 
 
     <!-- Heading -->
@@ -115,22 +115,22 @@ foreach ($langRodape as $item) {
       Interface
     </div>
 
-    <?php if ($permissao == "@571824" || $permissao == "&43642") {?>
+    <?php if ($permissao == "@571824" || $permissao == "&43642") { ?>
       <li class="nav-item">
         <a class="nav-link" href="textos.php">
           <i class="fas fa-pen"></i>
           <span>Alterar textos</span></a>
       </li>
-    <?php }?>
+    <?php } ?>
     <!-- Troca de texto -->
 
 
     <!-- Nav Item - Charts -->
 
 
-    <?php if ($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590 " || $permissao == "*271 ") {?>
+    <?php if ($permissao == "@571824" || $permissao == "&43642" || $permissao == "$3590 " || $permissao == "*271 ") { ?>
       <li class="nav-item">
-        <a class="nav-link" href="clientes.php">
+        <a class="nav-link" href="dashboard/clientes.php">
           <i class="fas fa-users"></i>
           <span>Clientes</span></a>
       </li>
@@ -141,13 +141,13 @@ foreach ($langRodape as $item) {
           <span>Atendimento</span></a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="customBanners.php">Suporte</a>
-            <a class="collapse-item" href="customImagens.php">Orçamento</a>
-            <a class="collapse-item" href="customLogotipo.php">Contato</a>
+            <a class="collapse-item" href="dashboard/suporte.php">Suporte</a>
+            <a class="collapse-item" href="dashboard/orcamento.php">Orçamento</a>
+            <a class="collapse-item" href="dashboard/contato.php">Contato</a>
           </div>
         </div>
       </li>
-    <?php }?>
+    <?php } ?>
 
 
 
@@ -183,7 +183,7 @@ foreach ($langRodape as $item) {
           <!-- Nav Item - User Information -->
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?=$nome_admin?></span>
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $nome_admin ?></span>
               <img class="img-profile rounded-circle" src="dashboard/img/user.png" width="60px">
             </a>
             <!-- Dropdown - User Information -->
@@ -225,6 +225,6 @@ foreach ($langRodape as $item) {
         <!-- Page Heading -->
         <h1 class="h5 mb-4 text-gray-800">
           <a href="dashboard/textos.php">Alterar textos</a> <i class="fas fa-chevron-right mr-2 ml-2"></i>
-          <?=$pagina?>
+          <?= $pagina ?>
         </h1>
         <hr>

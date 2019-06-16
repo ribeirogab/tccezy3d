@@ -16,7 +16,7 @@ if (isset($_SESSION["banana"])) {
 
 <body class=bg-dark>
     <?php
-    $pagina = "printer_coree3";
+    $pagina = "como_comprar";
     if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
         include "dashboard/menuAlterarTexto.php";
     } else {

@@ -34,6 +34,15 @@
 		<!-- Begin Page Content -->
 		<div class="container-fluid">
 
+			<h1 class="h3 mb-2 text-gray-800">
+				<a href="contato.php"><i class="fas fa-long-arrow-alt-left"></i></a>
+			</h1>
+
+			<h1 class="h5 mb-4 text-gray-800">
+				<a href="contato.php">Contatos</a> <i class="fas fa-chevron-right mr-2 ml-2"></i>
+				Responder
+			</h1>
+
 			<!-- Page Heading -->
 			<h1 class="h3 mb-4 text-gray-800">Resposta</h1>
 
@@ -64,32 +73,33 @@
 						</div>
 					</div> <?php } ?> <br>
 
-				<div class="card">
-					<div class="card-body">
-						<form action="resposta.php" method="post" class="col-md-12">
-							<?php
-							$registru = $obj->consultar("*", "contato", "where idcontato= " . $id, null);
-							foreach ($registru as $cliente) { ?>
-								<input hidden type="text" class="form-control" name="assunto" value="Resposta"> <br>
-								<input hidden name="destinatario" type="email" class="form-control" name="email" value="<?= $cliente["email"] ?>">
-								<textarea class="form-control" placeholder="resposta" name="resposta" rows="4"></textarea><br>
-								<input type="reset" value="Reset" class="btn btn-danger">
-								<input type="submit" value="Enviar" class="btn btn-primary">
-							<?php } ?>
-						</form>
+					<div class="card">
+						<div class="card-body">
+							<form action="resposta.php?tp=cont&id=<?= $id ?>" method="post" class="col-md-12">
+								<?php
+								$registru = $obj->consultar("*", "contato", "where idcontato= " . $id, null);
+								foreach ($registru as $cliente) { ?>
+									<input hidden type="text" class="form-control" name="assunto" value="Resposta"> <br>
+									<input hidden name="destinatario" type="email" class="form-control" name="email" value="<?= $cliente["email"] ?>">
+									<input type="text" hidden name="status" value="respondido">
+									<textarea class="form-control" placeholder="resposta" name="resposta" rows="4"></textarea><br>
+									<input type="reset" value="Reset" class="btn btn-danger">
+									<input type="submit" value="Enviar" class="btn btn-primary">
+								<?php } ?>
+							</form>
+						</div>
 					</div>
+
 				</div>
+				<!-- /.container-fluid -->
 
 			</div>
-			<!-- /.container-fluid -->
-
-		</div>
-		<!-- End of Main Content -->
-		<?php
-		include_once "rodape.php";
-		?>
+			<!-- End of Main Content -->
+			<?php
+			include_once "rodape.php";
+			?>
 
 
-</body>
+		</body>
 
-</html>
+		</html>

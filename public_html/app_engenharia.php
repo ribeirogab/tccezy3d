@@ -9,9 +9,17 @@ if (isset($_SESSION["banana"])) {
 
 <head>
   <meta charset="utf-8">
-  <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>EZY 3D - Engenharia</title>
+
+  <?php
+  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) { ?>
+    <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_black.ico">
+    <title>Alterar texto - Engenharia</title>
+  <?php } else { ?>
+    <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
+    <title>EZY 3D - Engenharia</title>
+  <?php
+} ?>
   </style>
 </head>
 
@@ -113,14 +121,13 @@ if (isset($_SESSION["banana"])) {
               ?>
             </h2>
             <p class="lead">
-              <a href="#">
-                <?php
-                echo $txt3;
-                if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
-                  echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
-                }
-                ?>
-              </a> <br> </p>
+              <?php
+              echo $txt3;
+              if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
+                echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=txt3'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
+              }
+              ?>
+              <br> </p>
           </div>
         </div>
         <div class="row">

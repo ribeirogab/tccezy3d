@@ -9,12 +9,42 @@ if (isset($_SESSION["banana"])) {
 
 <head>
   <meta charset="utf-8">
-  <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>EZY 3D - E1260T</title>
+  <?php
+  if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) { ?>
+    <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_black.ico">
+    <title>Alterar texto - E1260T</title>
+  <?php } else { ?>
+    <link rel="shortcut icon" type="image/x-icon" href="vendor/img/logo_orange.ico">
+    <title>EZY 3D - E1260T</title>
+  <?php
+} ?>
 </head>
 <style>
+  img {
+    transition: .5s;
+  }
 
+  img:hover {
+    opacity: .89;
+    transition: .5s;
+  }
+
+  .borda-inferior {
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    border-left: solid 1px;
+    border-right: solid 1px;
+    border-color: #fff #fff orange #fff;
+  }
+
+  .sombra-colorida-red {
+    box-shadow: 0 1rem 3rem rgba(220, 53, 69, 0.3);
+  }
+
+  .sombra-colorida-orange {
+    box-shadow: 0 1rem 3rem rgba(243, 137, 25, 0.2);
+  }
 </style>
 
 <body class="bg-dark">
@@ -30,7 +60,7 @@ if (isset($_SESSION["banana"])) {
     }
     ?>
     <main>
-      <div class="py-3" style="background-image: linear-gradient(-180deg, #333 17%, #db6f79 );">
+      <div class="py-3" style="background-color: #212121">
         <div class="container pt-md-5">
           <div class="row">
             <div class="col-xl-6 my-5 text-center align-self-center" style="">
@@ -52,7 +82,7 @@ if (isset($_SESSION["banana"])) {
               </p>
               <div class="row mt-5">
                 <div class="col-md-6 text-center text-md-right pr-md-1">
-                  <a class="ezy-lg ezy-orange ezy-button w-75" href="#">
+                  <a class="ezy-lg ezy-orange ezy-button w-75" href="como_comprar.php">
                     <?php
                     echo $button1;
                     if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -62,7 +92,7 @@ if (isset($_SESSION["banana"])) {
                   </a>
                 </div>
                 <div class="col-md-6 text-center text-md-left mt-2 mt-md-0 pl-md-1">
-                  <a class="ezy-lg ezy-orange ezy-button w-75" href="#">
+                  <a class="ezy-lg ezy-orange ezy-button w-75" href="contato.php">
                     <?php
                     echo $button2;
                     if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -74,7 +104,7 @@ if (isset($_SESSION["banana"])) {
               </div>
             </div>
             <div class="col-xl-6 d-md-block text-center">
-              <img src="vendor/img/e1260t/e1260t2.png" width="80%">
+              <img src="vendor/img/printer_e1260t/e1260t2.png" width="80%">
             </div>
           </div>
         </div>
@@ -102,7 +132,7 @@ if (isset($_SESSION["banana"])) {
               <div class="row my-3">
                 <div class="col-3"> <img class="img-fluid d-block rounded-circle" src="https://static.pingendo.com/img-placeholder-1.svg"> </div>
                 <div class="col-8 d-flex align-items-center">
-                  <p class="mb-0">
+                  <p class="mb-0 borda-inferior">
                     <?php
                     echo $txt2_1;
                     if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -115,7 +145,7 @@ if (isset($_SESSION["banana"])) {
               <div class="row my-3">
                 <div class="col-3 order-1 order-md-2"> <img class="img-fluid d-block rounded-circle" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
                 <div class="col-8 d-flex align-items-center order-2 order-md-1">
-                  <p class="mb-0">
+                  <p class="mb-0 borda-inferior">
                     <?php
                     echo $txt2_2;
                     if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
@@ -127,7 +157,7 @@ if (isset($_SESSION["banana"])) {
               </div>
             </div>
             <div class="col-lg-5 col-8 mx-auto d-flex justify-content-center flex-column">
-              <img class="img-fluid d-block" src="vendor/img/e1260t/e1260t1.png" width="100%">
+              <img class="img-fluid d-block" src="vendor/img/printer_e1260t/e1260t1.png" width="100%">
             </div>
           </div>
         </div>
@@ -154,11 +184,11 @@ if (isset($_SESSION["banana"])) {
               </p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-1.svg"> </div>
-            <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-2.svg"> </div>
-            <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-3.svg"> </div>
-            <div class="col-lg-3 col-md-1 p-3" style=""> <img class="img-fluid d-block shadow-lg" src="https://static.pingendo.com/img-placeholder-4.svg"> </div>
+          <div class="row text-center">
+            <div class="col-lg-3 p-3"> <img class="img-fluid sombra-colorida-red" src="vendor/img/printer_e1260t/f5.jpg"> </div>
+            <div class="col-lg-3 p-3"> <img class="img-fluid sombra-colorida-red" src="vendor/img/printer_e1260t/f5.jpg"> </div>
+            <div class="col-lg-3 p-3"> <img class="img-fluid sombra-colorida-red" src="vendor/img/printer_e1260t/f5.jpg"> </div>
+            <div class="col-lg-3 p-3"> <img class="img-fluid sombra-colorida-red" src="vendor/img/printer_e1260t/f5.jpg"> </div>
           </div>
         </div>
       </div>
@@ -166,14 +196,14 @@ if (isset($_SESSION["banana"])) {
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center">
-              <h2 class="pb-4">
+              <h1 class="pb-4">
                 <?php
                 echo $titulo4;
                 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {
                   echo "<a href='dashboard/alterar_texto.php?pagina=$pagina&apelido=titulo4'><i class='fas fa-edit ml-2 edit-txt'></i></a>";
                 }
                 ?>
-              </h2>
+              </h1>
             </div>
           </div>
           <div class="row">
@@ -230,7 +260,7 @@ if (isset($_SESSION["banana"])) {
               </p>
             </div>
 
-            <div class="my-3 col-lg-4 text-center"><img src="vendor/img/e1260t/e1260t4.png" width="50%"></div>
+            <div class="my-3 col-lg-4 text-center"><img src="vendor/img/printer_e1260t/e1260t4.png" width="50%"></div>
             <div class="align-self-center text-lg-left text-center col-lg-4">
               <h4 class="text-primary">
                 <?php
@@ -286,11 +316,38 @@ if (isset($_SESSION["banana"])) {
           </div>
         </div>
       </div>
+      <div class="py-3 text-center bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 p-3">
+              <img class="img-fluid sombra-colorida-orange" src="https://static.pingendo.com/img-placeholder-1.svg">
+              <h3 class="mt-3"><b>Odontologia</b></h3>
+              <p>Precisão, alta definição e resolução de camada a partir de 16μm, permite impressões lisas e extremamente fiés aos modelos digitais, ideal para a utilização na Odontologia.</p>
+            </div>
+            <div class="col-lg-3 p-3">
+              <img class="img-fluid sombra-colorida-orange" src="https://static.pingendo.com/img-placeholder-2.svg">
+              <h3 class="mt-3"><b>Joalheria</b></h3>
+              <p>Detalhes minuciosos e delicadeza fazem parte do cotidiano das nossas impressões para joias finas com acabamento de superfície invejável.</p>
+            </div>
+            <div class="col-lg-3 p-3">
+              <img class="img-fluid sombra-colorida-orange" src="https://static.pingendo.com/img-placeholder-3.svg">
+              <h3 class="mt-3"><b>Manufatura</b></h3>
+              <p>Na vanguarda da indústria 4.0. a impressão 3D possibilta produzir protótipos e produtos acabados, com velocidade, qualidade e precisão.</p>
+            </div>
+            <div class="col-lg-3 p-3">
+              <img class="img-fluid sombra-colorida-orange" src="https://static.pingendo.com/img-placeholder-4.svg">
+              <h3 class="mt-3"><b>Educação</b></h3>
+              <p>Educação que transforma! Aplicada à educação a impressão 3D vem ganhando o mundo e revolucionando o aprendizado possibilitando a transformação de ideias para o mundo real.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="py-3 text-center bg-info">
         <div class="container">
           <div class="row">
             <div class="align-items-center d-flex justify-content-center col-md-3 p-3 order-2 order-md-1">
-              <a class="ezy-lg ezy-orange ezy-button w-75" href="#">
+              <a class="ezy-lg ezy-orange ezy-button w-75" href="contato.php">
                 <?php
                 echo $button3;
                 if (isset($_SESSION['idadmin'], $_GET["alterartxt"])) {

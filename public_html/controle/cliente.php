@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: http://ezy3d.com.br");
 error_reporting(0);
 ini_set(“display_errors”, 0);
 if (!isset($_POST["tipo"])) {
@@ -192,11 +193,15 @@ else if ($tipo == "contato") {
 else if ($tipo == "excluirContato") {
     $dados = ["id" => $id];
     $cliente->excluir("contato", "WHERE idcontato=:id", $dados);
-} else if ($tipo == "alterarCliente"){
+} else if ($tipo == "alterarCliente") {
     $dados = ["nome" => $altNome, "sobrenome" => $altSobrenome, "email" => $altEmail, "telefone" => $altTelefone, "pais" => $altPais, "ramo" => $altRamo, "empresa" => $altEmpresa, "idcliente" => $altIdCliente];
     $cliente->alterar("cliente", "nome=:nome, sobrenome=:sobrenome, email=:email, telefone=:telefone, pais=:pais, ramo=:ramo, empresa=:empresa WHERE idcliente=:idcliente", $dados);
 
     header("Location:../dashboard/clientes.php");
-}else {
+} else if ($tipo = "lancamentoPhylos") {
+    $dados = ["email" => $emailPhylos];
+    $cliente->cadastrar("lancamento_phylos", "0, :email", $dados);
+    header("Location: ../printer_phylos.php");
+} else {
     header("Location:../home.php");
 }
